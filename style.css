@@ -1,3 +1,7 @@
+/* =========================================
+   GLOBAL
+   ========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,196 +15,634 @@ body {
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #120d1f;
-    color: #f7e8b5;
     overflow: hidden;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background: #071018;
+    color: #ffffff;
 }
 
-#game {
-    width: 100%;
-    height: 100%;
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 .screen {
+    display: none;
+
     width: 100%;
     height: 100%;
-    display: none;
 }
 
 .screen.active {
     display: flex;
 }
 
+
+/* =========================================
+   TITLE SCREEN
+   ========================================= */
+
 #title-screen {
-    position: relative;
+    min-height: 100dvh;
+
     align-items: center;
     justify-content: center;
-    text-align: center;
+
+    padding: 24px;
+
     background:
         radial-gradient(
-            circle at 50% 35%,
-            #3d2858 0%,
-            #21152f 45%,
-            #0d0915 100%
+            circle at center,
+            #3b254d 0%,
+            #171322 55%,
+            #070910 100%
         );
 }
 
-#title-screen::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255, 230, 150, 0.15) 0 2px, transparent 3px),
-        radial-gradient(circle at 75% 30%, rgba(255, 230, 150, 0.12) 0 2px, transparent 3px),
-        radial-gradient(circle at 35% 75%, rgba(255, 230, 150, 0.10) 0 2px, transparent 3px),
-        radial-gradient(circle at 85% 80%, rgba(255, 230, 150, 0.12) 0 2px, transparent 3px);
-    pointer-events: none;
-}
-
 .title-content {
-    position: relative;
-    z-index: 1;
     width: min(90%, 600px);
-    padding: 30px;
+
+    text-align: center;
 }
 
 .crown {
-    font-size: clamp(3rem, 10vw, 5rem);
-    margin-bottom: 15px;
-    text-shadow: 0 0 25px rgba(255, 220, 120, 0.5);
+    margin-bottom: 18px;
+
+    font-size: clamp(3rem, 15vw, 5rem);
 }
 
-h1 {
-    font-size: clamp(2.4rem, 8vw, 4.5rem);
+.title-content h1 {
+    color: #f4df9a;
+
+    font-size:
+        clamp(2.4rem, 10vw, 5rem);
+
     line-height: 1.05;
-    letter-spacing: 2px;
+
     text-shadow:
-        0 3px 0 #24172e,
-        0 0 25px rgba(255, 220, 120, 0.25);
+        0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .tagline {
-    margin-top: 25px;
-    font-size: clamp(1rem, 3vw, 1.35rem);
-    line-height: 1.7;
-    color: #ded0a5;
+    margin-top: 24px;
+
+    color: #eadfc3;
+
+    font-size:
+        clamp(1rem, 4vw, 1.4rem);
+
+    line-height: 1.6;
 }
 
 #start-button {
-    margin-top: 35px;
-    padding: 16px 34px;
-    border: 2px solid #d9b65c;
+    margin-top: 34px;
+
+    padding: 15px 30px;
+
+    border: 2px solid #f4d77d;
     border-radius: 10px;
-    background: linear-gradient(
-        180deg,
-        #6f4b91,
-        #422b5d
-    );
-    color: #fff2c7;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1rem;
+
+    background: #3a214d;
+    color: #ffe9a6;
+
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
     font-weight: bold;
+
     letter-spacing: 1px;
-    cursor: pointer;
+
     box-shadow:
-        0 6px 0 #21152d,
-        0 0 25px rgba(217, 182, 92, 0.15);
+        0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-#start-button:active {
-    transform: translateY(4px);
-    box-shadow:
-        0 2px 0 #21152d,
-        0 0 20px rgba(217, 182, 92, 0.15);
-}
-/* ================================
-   COMIC STORY SCREEN
-   ================================ */
+
+/* =========================================
+   COMIC SCREEN
+   ========================================= */
 
 #comic-screen {
-    position: relative;
+    min-height: 100dvh;
+
     align-items: center;
     justify-content: center;
-    background: #0b0711;
-    padding: 12px;
+
+    padding: 10px;
+
+    background: #090a10;
 }
 
 .comic-page {
     position: relative;
-    width: min(100%, 1100px);
+
+    width: min(100%, 700px);
     height: 100%;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
+    padding-bottom: 70px;
 }
 
 #comic-image {
     display: block;
-    width: 100%;
-    max-height: calc(100vh - 90px);
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
     object-fit: contain;
-    border: 2px solid #c99a3d;
+
+    border-radius: 8px;
+
     box-shadow:
-        0 0 30px rgba(0, 0, 0, 0.7),
-        0 0 15px rgba(201, 154, 61, 0.15);
+        0 10px 35px rgba(0, 0, 0, 0.65);
 }
 
 #comic-next-button {
     position: absolute;
-    bottom: 12px;
+
     left: 50%;
+    bottom: 12px;
+
     transform: translateX(-50%);
 
-    padding: 13px 30px;
+    padding: 11px 28px;
 
-    border: 2px solid #d9b65c;
+    border: 2px solid #f4d77d;
     border-radius: 10px;
 
-    background: linear-gradient(
-        180deg,
-        #6f4b91,
-        #422b5d
-    );
+    background:
+        rgba(25, 15, 32, 0.96);
 
-    color: #fff2c7;
+    color: #ffe9a6;
 
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: bold;
+
     letter-spacing: 1px;
 
-    cursor: pointer;
-
-    box-shadow:
-        0 5px 0 #21152d,
-        0 0 20px rgba(217, 182, 92, 0.2);
+    z-index: 5;
 }
 
-#comic-next-button:active {
-    transform: translateX(-50%) translateY(3px);
+/* =========================================
+   LEVEL MAP
+   ========================================= */
 
-    box-shadow:
-        0 2px 0 #21152d,
-        0 0 15px rgba(217, 182, 92, 0.2);
+#level-map-screen {
+    min-height: 100dvh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #173b2d 0%,
+            #28523a 48%,
+            #14281e 100%
+        );
+}
+
+.level-map {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
 }
 
 
-/* Tablet / smaller screens */
+/* =========================================
+   REGION HEADER
+   ========================================= */
 
-@media (max-width: 700px) {
+.region-header {
+    position: absolute;
 
-    #comic-screen {
-        padding: 6px;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        max(14px, env(safe-area-inset-top))
+        20px
+        14px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7, 20, 13, 0.98),
+            rgba(7, 20, 13, 0.88),
+            rgba(7, 20, 13, 0)
+        );
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.region-number {
+    color: #e5c878;
+
+    font-size: 0.78rem;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.region-header h2 {
+    margin-top: 3px;
+
+    color: #fff2bc;
+
+    font-size:
+        clamp(1.15rem, 5vw, 1.6rem);
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================
+   SCROLL AREA
+   ========================================= */
+
+.level-scroll {
+    position: absolute;
+
+    inset: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /*
+     * Space at the top for the header.
+     */
+    padding:
+        105px
+        20px
+        80px;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.level-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================
+   25-LEVEL PATH
+   ========================================= */
+
+.level-path {
+    position: relative;
+
+    width: min(100%, 430px);
+
+    /*
+     * 25 levels × 64px plus breathing room.
+     *
+     * This guarantees that all 25 levels
+     * exist inside a real scrollable area.
+     */
+    height: 1700px;
+
+    margin: 0 auto;
+}
+
+
+/*
+ * Vertical road.
+ *
+ * It runs from the bottom toward the top.
+ */
+.level-path::before {
+    content: "";
+
+    position: absolute;
+
+    top: 35px;
+    bottom: 35px;
+
+    left: 50%;
+
+    width: 5px;
+
+    transform: translateX(-50%);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(244, 215, 125, 0.25),
+            rgba(244, 215, 125, 0.85),
+            rgba(244, 215, 125, 0.25)
+        );
+
+    box-shadow:
+        0 0 8px rgba(244, 215, 125, 0.25);
+}
+
+
+/* =========================================
+   LEVEL NODE
+   ========================================= */
+
+.level-node {
+    position: absolute;
+
+    left: 50%;
+
+    width: 68px;
+    height: 68px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid rgba(255, 255, 255, 0.45);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #a8a8a8 35%,
+            #555 100%
+        );
+
+    color: #222;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.5);
+
+    z-index: 5;
+}
+
+.level-node.completed {
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff7c2,
+            #d9ae43 45%,
+            #75500c 100%
+        );
+
+    border-color: #ffe89a;
+}
+
+.level-node.current {
+    width: 78px;
+    height: 78px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff,
+            #f4d77d 38%,
+            #9a6615 100%
+        );
+
+    border-color: #fff2a9;
+
+    box-shadow:
+        0 0 0 6px rgba(255, 224, 120, 0.14),
+        0 0 28px rgba(255, 220, 110, 0.8);
+
+    animation:
+        currentLevelPulse 1.5s infinite ease-in-out;
+}
+
+.level-node.locked {
+    opacity: 0.32;
+
+    filter: grayscale(1);
+
+    cursor: default;
+}
+
+.level-node.boss {
+    width: 76px;
+    height: 76px;
+
+    border-radius: 22%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff,
+            #c45b58 40%,
+            #581c25 100%
+        );
+
+    color: #fff;
+
+    border-color: #ffb0a8;
+}
+
+.level-node.current.boss {
+    width: 84px;
+    height: 84px;
+}
+
+
+/* =========================================
+   COMPLETION CHECK
+   ========================================= */
+
+.level-check {
+    position: absolute;
+
+    right: -15px;
+    bottom: -8px;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e7c95d;
+
+    color: #241b06;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    border: 2px solid #fff0a0;
+}
+
+
+/* =========================================
+   BOSS SYMBOL
+   ========================================= */
+
+.boss-symbol {
+    position: absolute;
+
+    top: -13px;
+    right: -13px;
+
+    font-size: 1.3rem;
+}
+
+
+/* =========================================
+   KING
+   ========================================= */
+
+.king-marker {
+    position: absolute;
+
+    top: -47px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 2rem;
+
+    filter:
+        drop-shadow(
+            0 3px 4px rgba(0, 0, 0, 0.65)
+        );
+
+    animation:
+        kingFloat 1.5s infinite ease-in-out;
+
+    pointer-events: none;
+}
+
+@keyframes kingFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
     }
 
-    #comic-image {
-        max-height: calc(100vh - 75px);
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-5px);
+    }
+}
+
+@keyframes currentLevelPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 6px rgba(255, 224, 120, 0.12),
+            0 0 20px rgba(255, 220, 110, 0.5);
     }
 
-    #comic-next-button {
-        bottom: 8px;
-        padding: 11px 24px;
-        font-size: 0.9rem;
+    50% {
+        box-shadow:
+            0 0 0 9px rgba(255, 224, 120, 0.18),
+            0 0 34px rgba(255, 220, 110, 0.9);
+    }
+}
+
+
+/* =========================================
+   CURRENT LEVEL SHORTCUT
+   ========================================= */
+
+.current-level-button {
+    position: absolute;
+
+    right: 16px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #f4d77d;
+
+    border-radius: 50%;
+
+    background:
+        rgba(27, 17, 31, 0.92);
+
+    color: #ffe9a6;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    z-index: 30;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.current-level-button.visible {
+    display: flex;
+}
+/* =========================================
+   PHONE LAYOUT
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .level-scroll {
+        padding-top: 105px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 90px;
+    }
+
+    .level-path {
+        width: 100%;
+        height: 1700px;
+    }
+
+    .level-node {
+        width: 62px;
+        height: 62px;
+    }
+
+    .level-node.current {
+        width: 72px;
+        height: 72px;
+    }
+
+    .riddle-card {
+        padding: 24px 16px;
     }
 }
