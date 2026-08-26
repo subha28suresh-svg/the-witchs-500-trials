@@ -42,6 +42,7 @@ const REGIONS = [
 
 let currentLevel =
     Number(localStorage.getItem("witchCurrentLevel")) || 1;
+let activeLevel = currentLevel;
 
 let completedLevels =
     JSON.parse(
@@ -633,22 +634,18 @@ currentLevelButton.addEventListener(
 function openRiddle(level) {
 
     if (level > currentLevel) {
-
         return;
-
     }
 
+    activeLevel = level;
 
     showScreen(riddleScreen);
-
 
     riddleLevel.textContent =
         `LEVEL ${level}`;
 
-
     const riddle =
-        riddles[level];
-
+        riddles[activeLevel];
 
     if (!riddle) {
 
@@ -661,7 +658,6 @@ function openRiddle(level) {
             riddle.question;
 
     }
-
 
     answerInput.value = "";
 
@@ -678,19 +674,11 @@ function openRiddle(level) {
     witchMessage.textContent =
         "The Witch awaits your answer...";
 
-
-    /*
-     * Give the browser a moment to render
-     * the riddle screen before focusing.
-     *
-     * This improves mobile keyboard behavior.
-     */
     setTimeout(() => {
 
         answerInput.focus();
 
     }, 100);
-
 }
 
 
@@ -735,7 +723,7 @@ answerInput.addEventListener(
 function checkAnswer() {
 
     const riddle =
-        riddles[currentLevel];
+        riddles[activeLevel];
 
 
     if (!riddle) {
@@ -809,29 +797,26 @@ function handleCorrectAnswer() {
 
     if (
         !completedLevels.includes(
-            currentLevel
+            activeLevel
         )
     ) {
 
         completedLevels.push(
-            currentLevel
+            activeLevel
         );
 
     }
 
-
     if (
-        currentLevel <
-        TOTAL_LEVELS
+        activeLevel === currentLevel &&
+        currentLevel < TOTAL_LEVELS
     ) {
 
         currentLevel++;
 
     }
 
-
     saveProgress();
-
 
     witchMessage.textContent =
         "Hmm... perhaps you really are clever.";
@@ -842,16 +827,13 @@ function handleCorrectAnswer() {
     resultMessage.style.color =
         "#f4df9a";
 
-
     submitAnswer.disabled = true;
 
     answerInput.disabled = true;
 
-
     nextLevelButton.classList.remove(
         "hidden"
     );
-
 }
 
 
