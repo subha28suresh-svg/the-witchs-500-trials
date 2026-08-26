@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Witch's 500 Trials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="game">
+
+        <!-- TITLE SCREEN -->
+        <section id="title-screen" class="screen active">
+            <div class="title-content">
+                <div class="crown">♛</div>
+
+                <h1>The Witch's<br>500 Trials</h1>
+
+                <p class="tagline">
+                    Think Like a King.<br>
+                    Outsmart the Witch.<br>
+                    Rescue the Queen.
+                </p>
+
+                <button id="start-button">
+                    BEGIN THE QUEST
+                </button>
+            </div>
+        </section>
+
+
+        <!-- COMIC SCREEN -->
+        <section id="comic-screen" class="screen">
+
+            <div class="comic-page">
+
+                <img
+                    id="comic-image"
+                    src="assets/comics/intro-page-01.png"
+                    alt="The beginning of the King's story"
+                >
+
+                <button id="comic-next-button">
+                    NEXT →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
