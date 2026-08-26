@@ -138,25 +138,6 @@ const witchMessage =
 
 
 /* =========================================
-   TEST RIDDLES
-   ========================================= */
-
-const riddles = {
-
-    1: {
-        question:
-            "I have keys but open no locks. " +
-            "I have space but no room. " +
-            "You can enter, but you cannot go inside. " +
-            "What am I?",
-
-        answer: "keyboard"
-    }
-
-};
-
-
-/* =========================================
    HELPERS
    ========================================= */
 
@@ -645,7 +626,7 @@ function openRiddle(level) {
         `LEVEL ${level}`;
 
     const riddle =
-        riddles[activeLevel];
+        QUESTIONS[activeLevel];
 
     if (!riddle) {
 
@@ -723,8 +704,7 @@ answerInput.addEventListener(
 function checkAnswer() {
 
     const riddle =
-        riddles[activeLevel];
-
+        QUESTIONS[activeLevel];
 
     if (!riddle) {
 
@@ -735,25 +715,11 @@ function checkAnswer() {
 
     }
 
-
-    /*
-     * Normalize the player's answer.
-     *
-     * This means:
-     *
-     * Keyboard
-     * KEYBOARD
-     * keyboard
-     * KeYbOaRd
-     *
-     * are all treated identically.
-     */
     const playerAnswer =
         answerInput.value
             .trim()
             .replace(/\s+/g, " ")
             .toLowerCase();
-
 
     if (!playerAnswer) {
 
@@ -766,13 +732,11 @@ function checkAnswer() {
 
     }
 
-
     const correctAnswer =
         riddle.answer
             .trim()
             .replace(/\s+/g, " ")
             .toLowerCase();
-
 
     if (
         playerAnswer === correctAnswer
@@ -785,7 +749,6 @@ function checkAnswer() {
         handleWrongAnswer();
 
     }
-
 }
 
 
