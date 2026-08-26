@@ -694,28 +694,13 @@ function openRiddle(level) {
 }
 
 
-/* =========================================
+/* =================================
    ANSWER BUTTON
-   ========================================= */
+   ================================= */
 
 submitAnswer.addEventListener(
     "click",
     () => {
-
-        /*
-         * If keyboard/input isn't active,
-         * bring focus back to the answer box.
-         */
-        if (
-            document.activeElement !==
-            answerInput
-        ) {
-
-            answerInput.focus();
-
-            return;
-
-        }
 
         checkAnswer();
 

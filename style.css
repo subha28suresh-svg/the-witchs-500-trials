@@ -195,13 +195,394 @@ button {
 
     z-index: 5;
 }
+/* =========================================
+   RIDDLE / GAMEPLAY SCREEN
+   ========================================= */
+
+#riddle-screen {
+    min-height: 100dvh;
+
+    width: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(20px, env(safe-area-inset-top))
+        16px
+        max(20px, env(safe-area-inset-bottom));
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #352044 0%,
+            #171326 42%,
+            #070d14 100%
+        );
+
+    color: #ffffff;
+}
+
+#riddle-screen.active {
+    display: flex;
+}
+
+
+/* =========================================
+   RIDDLE CONTENT
+   ========================================= */
+
+#riddle-screen > * {
+    max-width: 680px;
+    width: 100%;
+}
+
+
+/* =========================================
+   RIDDLE LEVEL TITLE
+   ========================================= */
+
+#riddle-level {
+    margin-bottom: 12px;
+
+    color: #e5c878;
+
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================
+   QUESTION
+   ========================================= */
+
+#question-text {
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    padding: 24px 20px;
+
+    border: 2px solid rgba(244, 215, 125, 0.7);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 31, 59, 0.96),
+            rgba(18, 15, 29, 0.96)
+        );
+
+    color: #fff2c5;
+
+    font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(244, 215, 125, 0.08);
+}
+
+
+/* =========================================
+   ANSWER AREA
+   ========================================= */
+
+#answer-input {
+    display: block;
+
+    width: 100%;
+
+    min-height: 54px;
+
+    padding: 14px 16px;
+
+    border: 2px solid #c9a94e;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #171717;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+#answer-input:focus {
+    border-color: #ffe89a;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 232, 154, 0.18),
+        0 0 20px rgba(255, 220, 110, 0.3);
+}
+
+
+/* =========================================
+   ANSWER BUTTON
+   ========================================= */
+
+#submit-answer {
+    display: block;
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 12px;
+
+    padding: 12px 20px;
+
+    border: 2px solid #f4d77d;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4b2d60,
+            #291936
+        );
+
+    color: #ffe9a6;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.45);
+}
+
+#submit-answer:active {
+    transform: scale(0.98);
+}
+
+#submit-answer:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+
+/* =========================================
+   WITCH MESSAGE
+   ========================================= */
+
+#witch-message {
+    margin-top: 18px;
+
+    color: #d8c9df;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   RESULT MESSAGE
+   ========================================= */
+
+#result-message {
+    min-height: 30px;
+
+    margin-top: 10px;
+
+    color: #f4df9a;
+
+    font-size: 1.05rem;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   NEXT LEVEL
+   ========================================= */
+
+#next-level-button {
+    display: block;
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 18px;
+
+    padding: 12px 20px;
+
+    border: 2px solid #f4d77d;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #5a3b20,
+            #2d1d13
+        );
+
+    color: #ffe9a6;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+#next-level-button.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   BACK TO MAP
+   ========================================= */
+
+#back-to-map-button {
+    display: block;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 12px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(244, 215, 125, 0.65);
+    border-radius: 10px;
+
+    background:
+        rgba(20, 15, 27, 0.8);
+
+    color: #eadcae;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   RIDDLE MOBILE LAYOUT
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    #riddle-screen {
+        align-items: flex-start;
+
+        padding:
+            max(18px, env(safe-area-inset-top))
+            14px
+            max(24px, env(safe-area-inset-bottom));
+
+        /*
+         * Allows the page to remain usable when
+         * the Android keyboard occupies part of
+         * the viewport.
+         */
+        padding-top: max(18px, env(safe-area-inset-top));
+    }
+
+    #riddle-screen > * {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #riddle-level {
+        margin-top: 8px;
+        margin-bottom: 10px;
+    }
+
+    #question-text {
+        margin-bottom: 18px;
+
+        padding: 20px 15px;
+
+        font-size: 1.12rem;
+
+        line-height: 1.55;
+    }
+
+    #answer-input {
+        min-height: 52px;
+
+        font-size: 18px;
+    }
+
+    #submit-answer {
+        min-height: 50px;
+    }
+
+    #witch-message {
+        margin-top: 14px;
+
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    #riddle-screen {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #question-text {
+        padding: 17px 12px;
+
+        font-size: 1.05rem;
+    }
+}
+
 
 /* =========================================
    LEVEL MAP
    ========================================= */
 
 #level-map-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
     min-height: 100dvh;
+
+    display: none;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
@@ -210,13 +591,26 @@ button {
             #28523a 48%,
             #14281e 100%
         );
+
+    z-index: 100;
 }
+
+#level-map-screen.active {
+    display: block;
+}
+
+
+/* =========================================
+   MAP CONTAINER
+   ========================================= */
 
 .level-map {
     position: relative;
 
     width: 100%;
-    height: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
 }
 
 
@@ -233,21 +627,21 @@ button {
     width: 100%;
 
     padding:
-        max(14px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-top))
         20px
-        14px;
+        12px;
 
     text-align: center;
 
     background:
         linear-gradient(
             180deg,
-            rgba(7, 20, 13, 0.98),
-            rgba(7, 20, 13, 0.88),
-            rgba(7, 20, 13, 0)
+            rgba(7, 20, 13, 0.98) 0%,
+            rgba(7, 20, 13, 0.92) 55%,
+            rgba(7, 20, 13, 0) 100%
         );
 
-    z-index: 20;
+    z-index: 50;
 
     pointer-events: none;
 }
@@ -269,36 +663,41 @@ button {
     font-size:
         clamp(1.15rem, 5vw, 1.6rem);
 
+    line-height: 1.15;
+
     text-shadow:
         0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 
 /* =========================================
-   SCROLL AREA
+   SCROLLABLE LEVEL AREA
    ========================================= */
 
 .level-scroll {
     position: absolute;
 
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+
     overflow-x: hidden;
+    overflow-y: auto;
 
-    /*
-     * Space at the top for the header.
-     */
-    padding:
-        105px
-        20px
-        80px;
-
-    scroll-behavior: smooth;
+    padding-top: 115px;
+    padding-bottom: 100px;
 
     -webkit-overflow-scrolling: touch;
 
+    overscroll-behavior-y: contain;
+
     scrollbar-width: none;
+
+    scroll-behavior: smooth;
 }
 
 .level-scroll::-webkit-scrollbar {
@@ -316,10 +715,10 @@ button {
     width: min(100%, 430px);
 
     /*
-     * 25 levels × 64px plus breathing room.
+     * 25 levels.
      *
-     * This guarantees that all 25 levels
-     * exist inside a real scrollable area.
+     * Level 1 is physically at the bottom.
+     * Level 25 is physically at the top.
      */
     height: 1700px;
 
@@ -327,18 +726,17 @@ button {
 }
 
 
-/*
- * Vertical road.
- *
- * It runs from the bottom toward the top.
- */
+/* =========================================
+   PATH / ROAD
+   ========================================= */
+
 .level-path::before {
     content: "";
 
     position: absolute;
 
-    top: 35px;
-    bottom: 35px;
+    top: 40px;
+    bottom: 40px;
 
     left: 50%;
 
@@ -352,12 +750,14 @@ button {
         linear-gradient(
             180deg,
             rgba(244, 215, 125, 0.25),
-            rgba(244, 215, 125, 0.85),
+            rgba(244, 215, 125, 0.9),
             rgba(244, 215, 125, 0.25)
         );
 
     box-shadow:
         0 0 8px rgba(244, 215, 125, 0.25);
+
+    pointer-events: none;
 }
 
 
@@ -373,8 +773,7 @@ button {
     width: 68px;
     height: 68px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     display: flex;
 
@@ -390,10 +789,10 @@ button {
             circle at 35% 30%,
             #ffffff,
             #a8a8a8 35%,
-            #555 100%
+            #555555 100%
         );
 
-    color: #222;
+    color: #222222;
 
     font-size: 1rem;
     font-weight: bold;
@@ -401,8 +800,15 @@ button {
     box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.5);
 
-    z-index: 5;
+    z-index: 10;
+
+    -webkit-tap-highlight-color: transparent;
 }
+
+
+/* =========================================
+   COMPLETED LEVEL
+   ========================================= */
 
 .level-node.completed {
     background:
@@ -416,6 +822,11 @@ button {
     border-color: #ffe89a;
 }
 
+
+/* =========================================
+   CURRENT LEVEL
+   ========================================= */
+
 .level-node.current {
     width: 78px;
     height: 78px;
@@ -423,7 +834,7 @@ button {
     background:
         radial-gradient(
             circle at 35% 30%,
-            #fff,
+            #ffffff,
             #f4d77d 38%,
             #9a6615 100%
         );
@@ -438,6 +849,11 @@ button {
         currentLevelPulse 1.5s infinite ease-in-out;
 }
 
+
+/* =========================================
+   LOCKED LEVEL
+   ========================================= */
+
 .level-node.locked {
     opacity: 0.32;
 
@@ -445,6 +861,11 @@ button {
 
     cursor: default;
 }
+
+
+/* =========================================
+   BOSS LEVEL
+   ========================================= */
 
 .level-node.boss {
     width: 76px;
@@ -455,12 +876,12 @@ button {
     background:
         radial-gradient(
             circle at 35% 30%,
-            #fff,
+            #ffffff,
             #c45b58 40%,
             #581c25 100%
         );
 
-    color: #fff;
+    color: #ffffff;
 
     border-color: #ffb0a8;
 }
@@ -517,7 +938,7 @@ button {
 
 
 /* =========================================
-   KING
+   KING MARKER
    ========================================= */
 
 .king-marker {
@@ -526,8 +947,7 @@ button {
     top: -47px;
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     font-size: 2rem;
 
@@ -583,7 +1003,7 @@ button {
     position: absolute;
 
     right: 16px;
-    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
 
     width: 48px;
     height: 48px;
@@ -594,7 +1014,6 @@ button {
     justify-content: center;
 
     border: 2px solid #f4d77d;
-
     border-radius: 50%;
 
     background:
@@ -605,7 +1024,7 @@ button {
     font-size: 1.3rem;
     font-weight: bold;
 
-    z-index: 30;
+    z-index: 100;
 
     box-shadow:
         0 5px 15px rgba(0, 0, 0, 0.5);
@@ -614,17 +1033,34 @@ button {
 .current-level-button.visible {
     display: flex;
 }
+
+
 /* =========================================
-   PHONE LAYOUT
+   PHONE
    ========================================= */
 
 @media (max-width: 600px) {
 
+    .region-header {
+        padding:
+            max(10px, env(safe-area-inset-top))
+            12px
+            10px;
+    }
+
+    .region-number {
+        font-size: 0.72rem;
+    }
+
+    .region-header h2 {
+        font-size: 1.25rem;
+    }
+
     .level-scroll {
         padding-top: 105px;
-        padding-left: 12px;
-        padding-right: 12px;
-        padding-bottom: 90px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
     }
 
     .level-path {
@@ -642,7 +1078,43 @@ button {
         height: 72px;
     }
 
-    .riddle-card {
-        padding: 24px 16px;
+    .level-node.boss {
+        width: 70px;
+        height: 70px;
+    }
+
+    .level-node.current.boss {
+        width: 78px;
+        height: 78px;
+    }
+
+    .current-level-button {
+        right: 14px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .region-header h2 {
+        font-size: 1.15rem;
+    }
+
+    .level-scroll {
+        padding-top: 98px;
+    }
+
+    .level-node {
+        width: 58px;
+        height: 58px;
+    }
+
+    .level-node.current {
+        width: 68px;
+        height: 68px;
     }
 }
