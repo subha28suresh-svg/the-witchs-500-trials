@@ -20,7 +20,7 @@ startButton.addEventListener("click", () => {
 
 
 /* ================================
-   COMIC NEXT BUTTON
+   COMIC PAGE NAVIGATION
    ================================ */
 
 comicNextButton.addEventListener("click", () => {
@@ -31,9 +31,15 @@ comicNextButton.addEventListener("click", () => {
 
         comicImage.src = "assets/comics/intro-page-02.png";
 
+    } else if (currentPage === 2) {
+
+        currentPage = 3;
+
+        comicImage.src = "assets/comics/intro-page-03.png";
+
     } else {
 
-        alert("Page 3 will continue the King's story.");
+        alert("WORLD MAP COMING NEXT");
 
     }
 
