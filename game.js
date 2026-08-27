@@ -211,13 +211,23 @@ function renderCurrentRegion() {
     regionNumber.textContent = `REGION ${region.id}`;
     regionName.textContent = region.name;
 
-    // Control visibility of previous/next region arrows
-    const maxUnlockedRegion = getRegionForLevel(currentLevel);
+    // Control visibility and state of previous/next region arrows across all 20 regions
     if (prevRegionButton) {
-        prevRegionButton.style.visibility = viewedRegionId > 1 ? "visible" : "hidden";
+        if (viewedRegionId > 1) {
+            prevRegionButton.style.display = "inline-block";
+            prevRegionButton.disabled = false;
+        } else {
+            prevRegionButton.style.display = "none";
+        }
     }
+    
     if (nextRegionButton) {
-        nextRegionButton.style.visibility = viewedRegionId < maxUnlockedRegion ? "visible" : "hidden";
+        if (viewedRegionId < TOTAL_REGIONS) {
+            nextRegionButton.style.display = "inline-block";
+            nextRegionButton.disabled = false;
+        } else {
+            nextRegionButton.style.display = "none";
+        }
     }
 
     levelPath.innerHTML = "";
@@ -308,8 +318,7 @@ if (prevRegionButton) {
 
 if (nextRegionButton) {
     nextRegionButton.addEventListener("click", () => {
-        const maxUnlockedRegion = getRegionForLevel(currentLevel);
-        if (viewedRegionId < maxUnlockedRegion) {
+        if (viewedRegionId < TOTAL_REGIONS) {
             viewedRegionId++;
             renderCurrentRegion();
         }
