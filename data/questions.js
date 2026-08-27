@@ -6,7 +6,7 @@
 
 const QUESTIONS = {
     // --- REGION 1: Kingdom of Aurelia (Levels 1 - 25) ---
-    1: { question: "I wear a crown, yet I hold no land. I speak with authority, yet make no laws. What am I?", answer: "mirror" },
+    1: { question: "What color is a clear daytime sky?", answer: "blue" },
     2: { question: "What has a golden face and twelve hands, but never claps?", answer: "clock" },
     3: { question: "If a king drops his sword in the mud, what kind of sword is it?", answer: "dirty" },
     4: { question: "I walk beside you in the sunlight, but abandon you in the dark. Who am I?", answer: "shadow" },
