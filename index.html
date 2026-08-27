@@ -106,23 +106,28 @@
          LEVEL MAP
          ===================================== -->
 
+    <!-- =====================================
+         LEVEL MAP
+         ===================================== -->
+
     <section id="level-map-screen" class="screen">
 
         <div class="level-map">
 
-            <!-- Region heading -->
+            <!-- Region heading with arrows -->
 
             <header class="region-header">
 
-                <div
-                    id="region-number"
-                    class="region-number">
-                    REGION 1
-                </div>
+                <div class="region-nav-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 400px; margin: 0 auto;">
+                    <button id="prev-region-button" class="small-button" style="padding: 4px 10px; font-size: 0.8rem;">← Prev</button>
+                    
+                    <div style="text-align: center;">
+                        <div id="region-number" class="region-number">REGION 1</div>
+                        <h2 id="region-name">Kingdom of Aurelia</h2>
+                    </div>
 
-                <h2 id="region-name">
-                    Kingdom of Aurelia
-                </h2>
+                    <button id="next-region-button" class="small-button" style="padding: 4px 10px; font-size: 0.8rem;">Next →</button>
+                </div>
 
             </header>
 

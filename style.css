@@ -1,5 +1,5 @@
 /* =========================================
-   GLOBAL
+   THE WITCH'S 500 TRIALS — DESIGN SYSTEM
    ========================================= */
 
 * {
@@ -8,1287 +8,544 @@
     padding: 0;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
-}
-
-body {
     overflow: hidden;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    background: #071018;
-    color: #ffffff;
+    font-family: 'Georgia', serif;
+    background: #05070c;
+    color: #f7f1e3;
 }
 
-button,
-input {
+button, input {
     font-family: inherit;
 }
 
 button {
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .screen {
     display: none;
-
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
 }
 
 .screen.active {
     display: flex;
+    flex-direction: column;
 }
 
-
 /* =========================================
-   TITLE SCREEN
+   1. TITLE SCREEN
    ========================================= */
 
 #title-screen {
-    min-height: 100dvh;
-
     align-items: center;
     justify-content: center;
-
     padding: 24px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #3b254d 0%,
-            #171322 55%,
-            #070910 100%
-        );
+    background: radial-gradient(circle at center, #2d183f 0%, #100b18 60%, #040508 100%);
 }
 
 .title-content {
-    width: min(90%, 600px);
-
+    width: min(90%, 550px);
     text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
 .crown {
-    margin-bottom: 18px;
-
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: 4.5rem;
+    color: #f3d16c;
+    text-shadow: 0 0 25px rgba(243, 209, 108, 0.6);
+    margin-bottom: 12px;
+    animation: floatCrown 3s infinite ease-in-out;
 }
 
 .title-content h1 {
-    color: #f4df9a;
-
-    font-size:
-        clamp(2.4rem, 10vw, 5rem);
-
-    line-height: 1.05;
-
-    text-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.7);
+    color: #f9e3a2;
+    font-size: clamp(2.2rem, 8vw, 4.2rem);
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(184, 134, 11, 0.3);
+    margin-bottom: 16px;
 }
 
 .tagline {
-    margin-top: 24px;
-
-    color: #eadfc3;
-
-    font-size:
-        clamp(1rem, 4vw, 1.4rem);
-
+    color: #d1c4a9;
+    font-size: clamp(0.95rem, 3.5vw, 1.25rem);
     line-height: 1.6;
+    margin-bottom: 36px;
+    font-style: italic;
 }
 
 #start-button {
-    margin-top: 34px;
-
-    padding: 15px 30px;
-
-    border: 2px solid #f4d77d;
-    border-radius: 10px;
-
-    background: #3a214d;
-    color: #ffe9a6;
-
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-
-/* =========================================
-   COMIC SCREEN
-   ========================================= */
-
-#comic-screen {
-    min-height: 100dvh;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px;
-
-    background: #090a10;
-}
-
-.comic-page {
-    position: relative;
-
-    width: min(100%, 700px);
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding-bottom: 70px;
-}
-
-#comic-image {
-    display: block;
-
-    max-width: 100%;
-    max-height: 100%;
-
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.65);
-}
-
-#comic-next-button {
-    position: absolute;
-
-    left: 50%;
-    bottom: 12px;
-
-    transform: translateX(-50%);
-
-    padding: 11px 28px;
-
-    border: 2px solid #f4d77d;
-    border-radius: 10px;
-
-    background:
-        rgba(25, 15, 32, 0.96);
-
-    color: #ffe9a6;
-
-    font-size: 0.95rem;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    z-index: 5;
-}
-
-/* =========================================
-   STORY REVEAL SCREEN
-   ========================================= */
-
-#story-screen {
-    min-height: 100dvh;
-
     width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #5b3275 0%, #2f173f 100%);
+    color: #ffe8a3;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #e6c56b;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
 
-    display: none;
+/* =========================================
+   2. COMIC & STORY REVEAL SCREENS
+   ========================================= */
 
+#comic-screen, #story-screen {
     align-items: center;
     justify-content: center;
-
-    padding:
-        max(20px, env(safe-area-inset-top))
-        16px
-        max(20px, env(safe-area-inset-bottom));
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #352044 0%,
-            #171326 42%,
-            #070d14 100%
-        );
-
-    color: #ffffff;
+    padding: 16px;
+    background: radial-gradient(circle at center, #1b1226 0%, #0a0710 100%);
 }
 
-#story-screen.active {
-    display: flex;
-}
-
-.story-page {
+.comic-page, .story-page {
     position: relative;
-
     width: min(100%, 600px);
-    min-height: 100%;
-
+    height: 100%;
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
-
-    padding:
-        20px
-        20px
-        90px;
+    padding-bottom: 80px;
 }
 
-#story-image {
-    display: block;
-
+#comic-image, #story-image {
     max-width: 100%;
-    max-height: 65dvh;
-
-    width: auto;
-    height: auto;
-
+    max-height: 62vh;
     object-fit: contain;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.65);
+    border-radius: 12px;
+    border: 2px solid rgba(230, 197, 107, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+    background: #000;
 }
 
 .story-content {
     width: 100%;
-
-    margin-top: 16px;
-
     text-align: center;
+    margin-top: 16px;
+    padding: 0 10px;
 }
 
 .story-title {
-    color: #f4df9a;
-
-    font-size:
-        clamp(1.1rem, 5vw, 1.6rem);
-
+    color: #f3d16c;
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
     font-weight: bold;
-
-    letter-spacing: 1.5px;
-
-    text-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
 .story-text {
-    margin-top: 8px;
-
-    color: #eadfc3;
-
-    font-size:
-        clamp(0.95rem, 4vw, 1.15rem);
-
+    color: #e2d7c1;
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
     line-height: 1.5;
 }
 
-#story-continue-button {
+#comic-next-button, #story-continue-button {
     position: absolute;
-
+    bottom: 20px;
     left: 50%;
-    bottom: 18px;
-
     transform: translateX(-50%);
-
-    padding: 11px 28px;
-
-    border: 2px solid #f4d77d;
-    border-radius: 10px;
-
-    background:
-        rgba(25, 15, 32, 0.96);
-
-    color: #ffe9a6;
-
-    font-size: 0.95rem;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    z-index: 5;
-}
-
-
-/* =========================================
-   STORY REVEAL — PHONES
-   ========================================= */
-
-@media (max-width: 600px) {
-
-    #story-screen {
-        padding:
-            max(12px, env(safe-area-inset-top))
-            10px
-            max(12px, env(safe-area-inset-bottom));
-    }
-
-    .story-page {
-        padding:
-            12px
-            12px
-            78px;
-    }
-
-    #story-image {
-        max-height: 60dvh;
-    }
-
-    .story-content {
-        margin-top: 12px;
-    }
-
-    .story-text {
-        line-height: 1.4;
-    }
-
-    #story-continue-button {
-        bottom: 12px;
-
-        padding:
-            10px 22px;
-    }
-}
-
-
-/* =========================================
-   RIDDLE / GAMEPLAY SCREEN
-   ========================================= */
-
-#riddle-screen {
-    min-height: 100dvh;
-
-    width: 100%;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding:
-        max(20px, env(safe-area-inset-top))
-        16px
-        max(20px, env(safe-area-inset-bottom));
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #352044 0%,
-            #171326 42%,
-            #070d14 100%
-        );
-
-    color: #ffffff;
-}
-
-#riddle-screen.active {
-    display: flex;
-}
-
-
-/* =========================================
-   RIDDLE CONTENT
-   ========================================= */
-
-#riddle-screen > * {
-    max-width: 680px;
-    width: 100%;
-}
-
-
-/* =========================================
-   RIDDLE LEVEL TITLE
-   ========================================= */
-
-#riddle-level {
-    margin-bottom: 12px;
-
-    color: #e5c878;
-
-    font-size: clamp(0.8rem, 3vw, 1rem);
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    text-align: center;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-
-/* =========================================
-   QUESTION
-   ========================================= */
-
-#question-text {
-    width: 100%;
-
-    margin-bottom: 24px;
-
-    padding: 24px 20px;
-
-    border: 2px solid rgba(244, 215, 125, 0.7);
-    border-radius: 16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(48, 31, 59, 0.96),
-            rgba(18, 15, 29, 0.96)
-        );
-
-    color: #fff2c5;
-
-    font-size: clamp(1.15rem, 4.5vw, 1.5rem);
-
-    line-height: 1.6;
-
-    text-align: center;
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.55),
-        0 0 20px rgba(244, 215, 125, 0.08);
-}
-
-
-/* =========================================
-   ANSWER AREA
-   ========================================= */
-
-#answer-input {
-    display: block;
-
-    width: 100%;
-
-    min-height: 54px;
-
-    padding: 14px 16px;
-
-    border: 2px solid #c9a94e;
-    border-radius: 10px;
-
-    outline: none;
-
-    background: #ffffff;
-
-    color: #171717;
-
-    font-size: 18px;
-
-    text-align: center;
-
-    -webkit-appearance: none;
-    appearance: none;
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.35);
-}
-
-#answer-input:focus {
-    border-color: #ffe89a;
-
-    box-shadow:
-        0 0 0 3px rgba(255, 232, 154, 0.18),
-        0 0 20px rgba(255, 220, 110, 0.3);
-}
-
-
-/* =========================================
-   ANSWER BUTTON
-   ========================================= */
-
-#submit-answer {
-    display: block;
-
-    width: 100%;
-
-    min-height: 52px;
-
-    margin-top: 12px;
-
-    padding: 12px 20px;
-
-    border: 2px solid #f4d77d;
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #4b2d60,
-            #291936
-        );
-
-    color: #ffe9a6;
-
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #4d2a63 0%, #22102f 100%);
+    color: #ffe8a3;
     font-size: 1rem;
     font-weight: bold;
-
-    letter-spacing: 1px;
-
-    box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.45);
+    letter-spacing: 1.5px;
+    border: 2px solid #e6c56b;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    z-index: 10;
 }
-
-#submit-answer:active {
-    transform: scale(0.98);
-}
-
-#submit-answer:disabled {
-    opacity: 0.45;
-    cursor: default;
-}
-
 
 /* =========================================
-   WITCH MESSAGE
-   ========================================= */
-
-#witch-message {
-    margin-top: 18px;
-
-    color: #d8c9df;
-
-    font-size: 1rem;
-
-    line-height: 1.5;
-
-    text-align: center;
-
-    font-style: italic;
-}
-
-
-/* =========================================
-   RESULT MESSAGE
-   ========================================= */
-
-#result-message {
-    min-height: 30px;
-
-    margin-top: 10px;
-
-    color: #f4df9a;
-
-    font-size: 1.05rem;
-    font-weight: bold;
-
-    text-align: center;
-}
-
-
-/* =========================================
-   NEXT LEVEL
-   ========================================= */
-
-#next-level-button {
-    display: block;
-
-    width: 100%;
-
-    min-height: 52px;
-
-    margin-top: 18px;
-
-    padding: 12px 20px;
-
-    border: 2px solid #f4d77d;
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #5a3b20,
-            #2d1d13
-        );
-
-    color: #ffe9a6;
-
-    font-size: 1rem;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-}
-
-#next-level-button.hidden {
-    display: none;
-}
-
-
-/* =========================================
-   BACK TO MAP
-   ========================================= */
-
-#back-to-map-button {
-    display: block;
-
-    width: 100%;
-
-    min-height: 48px;
-
-    margin-top: 12px;
-
-    padding: 10px 18px;
-
-    border: 1px solid rgba(244, 215, 125, 0.65);
-    border-radius: 10px;
-
-    background:
-        rgba(20, 15, 27, 0.8);
-
-    color: #eadcae;
-
-    font-size: 0.95rem;
-}
-
-
-/* =========================================
-   RIDDLE MOBILE LAYOUT
-   ========================================= */
-
-@media (max-width: 600px) {
-
-    #riddle-screen {
-        align-items: flex-start;
-
-        padding:
-            max(18px, env(safe-area-inset-top))
-            14px
-            max(24px, env(safe-area-inset-bottom));
-
-        /*
-         * Allows the page to remain usable when
-         * the Android keyboard occupies part of
-         * the viewport.
-         */
-        padding-top: max(18px, env(safe-area-inset-top));
-    }
-
-    #riddle-screen > * {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    #riddle-level {
-        margin-top: 8px;
-        margin-bottom: 10px;
-    }
-
-    #question-text {
-        margin-bottom: 18px;
-
-        padding: 20px 15px;
-
-        font-size: 1.12rem;
-
-        line-height: 1.55;
-    }
-
-    #answer-input {
-        min-height: 52px;
-
-        font-size: 18px;
-    }
-
-    #submit-answer {
-        min-height: 50px;
-    }
-
-    #witch-message {
-        margin-top: 14px;
-
-        font-size: 0.95rem;
-    }
-}
-
-
-/* =========================================
-   VERY SMALL PHONES
-   ========================================= */
-
-@media (max-width: 380px) {
-
-    #riddle-screen {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    #question-text {
-        padding: 17px 12px;
-
-        font-size: 1.05rem;
-    }
-}
-
-
-/* =========================================
-   LEVEL MAP
+   3. SINGLE-SCREEN 3D LEVEL MAP
    ========================================= */
 
 #level-map-screen {
     position: fixed;
     inset: 0;
-
-    width: 100%;
-    height: 100dvh;
-    min-height: 100dvh;
-
-    display: none;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            #173b2d 0%,
-            #28523a 48%,
-            #14281e 100%
-        );
-
+    /* Deep mystical forest background with gold ambient lighting ready for your background image */
+    background: 
+        radial-gradient(circle at 50% 30%, rgba(243, 209, 108, 0.12) 0%, transparent 60%),
+        linear-gradient(180deg, #102e22 0%, #081711 50%, #030806 100%);
+    /* LATER: Uncomment this line when you add your background image file */
+    /* background-image: url('assets/maps/region1-bg.jpg'); background-size: cover; background-position: center; */
     z-index: 100;
 }
 
-#level-map-screen.active {
-    display: block;
-}
-
-
-/* =========================================
-   MAP CONTAINER
-   ========================================= */
-
 .level-map {
     position: relative;
-
     width: 100%;
-    height: 100dvh;
-
-    overflow: hidden;
+    height: 100%;
+    overflow: hidden; /* Zero scrolling */
 }
-
-
-/* =========================================
-   REGION HEADER
-   ========================================= */
 
 .region-header {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
-    padding:
-        max(12px, env(safe-area-inset-top))
-        20px
-        12px;
-
+    padding: max(12px, env(safe-area-inset-top)) 16px 8px;
     text-align: center;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7, 20, 13, 0.98) 0%,
-            rgba(7, 20, 13, 0.92) 55%,
-            rgba(7, 20, 13, 0) 100%
-        );
-
+    background: linear-gradient(180deg, rgba(3, 8, 6, 0.9) 0%, rgba(3, 8, 6, 0.5) 70%, transparent 100%);
     z-index: 50;
-
     pointer-events: none;
 }
 
 .region-number {
-    color: #e5c878;
-
-    font-size: 0.78rem;
+    color: #e6c56b;
+    font-size: 0.75rem;
     font-weight: bold;
-
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .region-header h2 {
-    margin-top: 3px;
-
-    color: #fff2bc;
-
-    font-size:
-        clamp(1.15rem, 5vw, 1.6rem);
-
-    line-height: 1.15;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7);
+    color: #fff8e1;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    margin-top: 2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
-
-/* =========================================
-   SCROLLABLE LEVEL AREA
-   ========================================= */
-
+/* Container locking all 25 nodes inside the visible screen bounds */
 .level-scroll {
     position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    padding-top: 115px;
-    padding-bottom: 100px;
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior-y: contain;
-
-    scrollbar-width: none;
-
-    scroll-behavior: smooth;
+    inset: 0;
+    overflow: hidden; /* Disables all scrolling completely */
 }
-
-.level-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-
-/* =========================================
-   25-LEVEL PATH
-   ========================================= */
 
 .level-path {
-    position: relative;
-
-    width: min(100%, 430px);
-
-    /*
-     * 25 levels.
-     *
-     * Level 1 is physically at the bottom.
-     * Level 25 is physically at the top.
-     */
-    height: 1700px;
-
+    position: absolute;
+    top: 75px;
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-
 /* =========================================
-   PATH / ROAD
-   ========================================= */
-
-.level-path::before {
-    content: "";
-
-    position: absolute;
-
-    top: 40px;
-    bottom: 40px;
-
-    left: 50%;
-
-    width: 5px;
-
-    transform: translateX(-50%);
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(244, 215, 125, 0.25),
-            rgba(244, 215, 125, 0.9),
-            rgba(244, 215, 125, 0.25)
-        );
-
-    box-shadow:
-        0 0 8px rgba(244, 215, 125, 0.25);
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   LEVEL NODE
+   3D GEMSTONE LEVEL NODES
    ========================================= */
 
 .level-node {
     position: absolute;
-
-    left: 50%;
-
-    width: 68px;
-    height: 68px;
-
-    transform: translateX(-50%);
-
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    border: 4px solid rgba(255, 255, 255, 0.45);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #a8a8a8 35%,
-            #555555 100%
-        );
-
-    color: #222222;
-
-    font-size: 1rem;
+    
+    /* True 3D Gem Shape & Multi-layer Bevel Shading */
+    border-radius: 12px 4px 12px 4px;
+    background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    
+    color: #cbd5e1;
+    font-size: 0.85rem;
     font-weight: bold;
-
-    box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.5);
-
+    
+    /* 3D Depth Shadows */
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.7),
+        inset 0 2px 3px rgba(255, 255, 255, 0.25),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+        
     z-index: 10;
-
     -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s;
 }
 
+.level-node:active {
+    transform: translate(-50%, -50%) scale(0.92);
+}
 
-/* =========================================
-   COMPLETED LEVEL
-   ========================================= */
-
+/* COMPLETED LEVELS: Solid Polished Golden Gem */
 .level-node.completed {
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff7c2,
-            #d9ae43 45%,
-            #75500c 100%
-        );
-
-    border-color: #ffe89a;
+    background: linear-gradient(135deg, #d97706 0%, #78350f 100%);
+    border-color: #fcd34d;
+    color: #fffbeb;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(254, 240, 138, 0.5),
+        inset 0 -2px 4px rgba(120, 53, 15, 0.8);
 }
 
-
-/* =========================================
-   CURRENT LEVEL
-   ========================================= */
-
-.level-node.current {
-    width: 78px;
-    height: 78px;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #f4d77d 38%,
-            #9a6615 100%
-        );
-
-    border-color: #fff2a9;
-
-    box-shadow:
-        0 0 0 6px rgba(255, 224, 120, 0.14),
-        0 0 28px rgba(255, 220, 110, 0.8);
-
-    animation:
-        currentLevelPulse 1.5s infinite ease-in-out;
-}
-
-
-/* =========================================
-   LOCKED LEVEL
-   ========================================= */
-
+/* INCOMPLETE / LOCKED LEVELS: Dimmed Greyed Out Stone */
 .level-node.locked {
-    opacity: 0.32;
-
-    filter: grayscale(1);
-
+    background: linear-gradient(135deg, #1e293b 0%, #090d16 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #64748b;
+    opacity: 0.65;
+    box-shadow: 
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.05);
     cursor: default;
 }
 
+/* ACTIVE / CURRENT LEVEL: Smaller, High-Intensity Glowing 3D Sun Gem */
+.level-node.current {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px 4px 14px 4px;
+    background: linear-gradient(135deg, #fef08a 0%, #ca8a04 100%);
+    border-color: #ffffff;
+    color: #422006;
+    
+    /* Glowing 3D Aura */
+    box-shadow: 
+        0 0 0 4px rgba(253, 224, 71, 0.3),
+        0 8px 20px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(234, 179, 8, 0.9),
+        inset 0 2px 5px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(161, 98, 7, 0.8);
+        
+    animation: currentPulse 1.8s infinite ease-in-out;
+}
 
-/* =========================================
-   BOSS LEVEL
-   ========================================= */
-
+/* BOSS LEVELS: Special Ruby Gemstone */
 .level-node.boss {
-    width: 76px;
-    height: 76px;
-
-    border-radius: 22%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #c45b58 40%,
-            #581c25 100%
-        );
-
-    color: #ffffff;
-
-    border-color: #ffb0a8;
+    background: linear-gradient(135deg, #f43f5e 0%, #881337 100%);
+    border-color: #fda4af;
+    color: #fff;
+    border-radius: 4px 14px 4px 14px; /* Inverted crystal shape */
 }
 
 .level-node.current.boss {
-    width: 84px;
-    height: 84px;
+    background: linear-gradient(135deg, #ffe4e6 0%, #e11d48 100%);
+    box-shadow: 
+        0 0 0 4px rgba(244, 63, 94, 0.3),
+        0 8px 20px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(225, 29, 72, 0.9),
+        inset 0 2px 5px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(136, 19, 55, 0.8);
 }
 
-
-/* =========================================
-   COMPLETION CHECK
-   ========================================= */
-
+/* Tiny crisp checkmark overlay */
 .level-check {
     position: absolute;
-
-    right: -15px;
-    bottom: -8px;
-
-    width: 25px;
-    height: 25px;
-
+    right: -6px;
+    bottom: -4px;
+    width: 18px;
+    height: 18px;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
-    background: #e7c95d;
-
-    color: #241b06;
-
-    font-size: 0.9rem;
+    background: #15803d;
+    color: #f0fdf4;
+    font-size: 0.65rem;
     font-weight: bold;
-
-    border: 2px solid #fff0a0;
+    border: 1.5px solid #bbf7d0;
 }
 
-
-/* =========================================
-   BOSS SYMBOL
-   ========================================= */
-
+/* Boss Crown icon */
 .boss-symbol {
     position: absolute;
-
-    top: -13px;
-    right: -13px;
-
-    font-size: 1.3rem;
+    top: -12px;
+    right: -8px;
+    font-size: 1rem;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.9));
 }
 
-
-/* =========================================
-   KING MARKER
-   ========================================= */
-
+/* Compact King Marker tracking current position */
 .king-marker {
     position: absolute;
-
-    top: -47px;
+    top: -38px;
     left: 50%;
-
     transform: translateX(-50%);
-
-    font-size: 2rem;
-
-    filter:
-        drop-shadow(
-            0 3px 4px rgba(0, 0, 0, 0.65)
-        );
-
-    animation:
-        kingFloat 1.5s infinite ease-in-out;
-
+    font-size: 1.6rem;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8));
+    animation: kingFloat 1.6s infinite ease-in-out;
     pointer-events: none;
 }
 
-@keyframes kingFloat {
-
-    0%,
-    100% {
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateX(-50%)
-            translateY(-5px);
-    }
-}
-
-@keyframes currentLevelPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 6px rgba(255, 224, 120, 0.12),
-            0 0 20px rgba(255, 220, 110, 0.5);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 9px rgba(255, 224, 120, 0.18),
-            0 0 34px rgba(255, 220, 110, 0.9);
-    }
-}
-
-
-/* =========================================
-   CURRENT LEVEL SHORTCUT
-   ========================================= */
-
 .current-level-button {
     position: absolute;
-
     right: 16px;
-    bottom: calc(20px + env(safe-area-inset-bottom));
-
-    width: 48px;
-    height: 48px;
-
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    width: 46px;
+    height: 46px;
     display: none;
-
     align-items: center;
     justify-content: center;
-
-    border: 2px solid #f4d77d;
+    border: 2px solid #e6c56b;
     border-radius: 50%;
-
-    background:
-        rgba(27, 17, 31, 0.92);
-
-    color: #ffe9a6;
-
-    font-size: 1.3rem;
+    background: rgba(20, 12, 28, 0.95);
+    color: #ffe8a3;
+    font-size: 1.2rem;
     font-weight: bold;
-
     z-index: 100;
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 .current-level-button.visible {
     display: flex;
 }
 
-
 /* =========================================
-   PHONE
+   4. RIDDLE / GAMEPLAY SCREEN
    ========================================= */
 
-@media (max-width: 600px) {
-
-    .region-header {
-        padding:
-            max(10px, env(safe-area-inset-top))
-            12px
-            10px;
-    }
-
-    .region-number {
-        font-size: 0.72rem;
-    }
-
-    .region-header h2 {
-        font-size: 1.25rem;
-    }
-
-    .level-scroll {
-        padding-top: 105px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 100px;
-    }
-
-    .level-path {
-        width: 100%;
-        height: 1700px;
-    }
-
-    .level-node {
-        width: 62px;
-        height: 62px;
-    }
-
-    .level-node.current {
-        width: 72px;
-        height: 72px;
-    }
-
-    .level-node.boss {
-        width: 70px;
-        height: 70px;
-    }
-
-    .level-node.current.boss {
-        width: 78px;
-        height: 78px;
-    }
-
-    .current-level-button {
-        right: 14px;
-    }
+#riddle-screen {
+    align-items: center;
+    justify-content: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    background: radial-gradient(circle at 50% 20%, #281636 0%, #11091a 50%, #050308 100%);
+    overflow-y: auto;
 }
 
+.riddle-container {
+    width: min(100%, 620px);
+    display: flex;
+    flex-direction: column;
+}
+
+.riddle-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+#back-to-map-button {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(230, 197, 107, 0.5);
+    border-radius: 8px;
+    color: #e2d7c1;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#riddle-level {
+    color: #e6c56b;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.riddle-card {
+    background: linear-gradient(145deg, rgba(38, 22, 51, 0.95), rgba(18, 10, 26, 0.95));
+    border: 2px solid rgba(230, 197, 107, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.witch-symbol {
+    font-size: 2.4rem;
+    margin-bottom: 4px;
+    animation: floatWitch 2.5s infinite ease-in-out;
+}
+
+#witch-message {
+    color: #cbb4d4;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 14px;
+}
+
+#question-text {
+    color: #fffbea;
+    font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.answer-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#answer-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    color: #111;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#submit-answer {
+    width: 100%;
+    height: 52px;
+    background: linear-gradient(135deg, #5b3275 0%, #301741 100%);
+    color: #ffe8a3;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 2px solid #e6c56b;
+    border-radius: 12px;
+}
+
+#result-message {
+    min-height: 24px;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #f3d16c;
+}
+
+#next-level-button {
+    width: 100%;
+    height: 52px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #166534 0%, #052e16 100%);
+    color: #bbf7d0;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 2px solid #4ade80;
+    border-radius: 12px;
+}
+
+#next-level-button.hidden {
+    display: none;
+}
 
 /* =========================================
-   VERY SMALL PHONES
+   ANIMATIONS
    ========================================= */
 
-@media (max-width: 380px) {
+@keyframes kingFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-5px); }
+}
 
-    .region-header h2 {
-        font-size: 1.15rem;
-    }
+@keyframes floatCrown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
 
-    .level-scroll {
-        padding-top: 98px;
-    }
+@keyframes floatWitch {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
 
-    .level-node {
-        width: 58px;
-        height: 58px;
-    }
+@keyframes currentPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(253, 224, 71, 0.2), 0 8px 20px rgba(0,0,0,0.7), 0 0 20px rgba(234, 179, 8, 0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(253, 224, 71, 0.3), 0 8px 20px rgba(0,0,0,0.7), 0 0 35px rgba(234, 179, 8, 0.95); }
+}
 
-    .level-node.current {
-        width: 68px;
-        height: 68px;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

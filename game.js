@@ -1,6 +1,6 @@
 /* =========================================
    THE WITCH'S 500 TRIALS
-   CORE GAME ENGINE
+   CORE GAME ENGINE (SINGLE-SCREEN GRID MAP)
    ========================================= */
 
 const TOTAL_LEVELS = 500;
@@ -40,152 +40,70 @@ const REGIONS = [
    ================================= */
 
 const STORY_REVEALS = {
-
     25: {
-        title:
-            "THE FIRST TRIAL COMPLETE",
-
-        text:
-            "The King has survived the first great trial. " +
-            "But the Witch's path is only beginning...",
-
-        image:
-            "assets/comics/story-region-01.png"
+        title: "THE FIRST TRIAL COMPLETE",
+        text: "The King has survived the first great trial. But the Witch's path is only beginning...",
+        image: "assets/comics/story-region-01.png"
     },
-
     50: {
-        title:
-            "THE SECOND TRIAL COMPLETE",
-
-        text:
-            "A new mystery awaits beyond the next realm.",
-
-        image:
-            "assets/comics/story-region-02.png"
+        title: "THE SECOND TRIAL COMPLETE",
+        text: "A new mystery awaits beyond the next realm.",
+        image: "assets/comics/story-region-02.png"
     }
-
 };
 
 /* =========================================
    PROGRESS
    ========================================= */
 
-let currentLevel =
-    Number(localStorage.getItem("witchCurrentLevel")) || 1;
+let currentLevel = Number(localStorage.getItem("witchCurrentLevel")) || 1;
 let activeLevel = currentLevel;
 
-let completedLevels =
-    JSON.parse(
-        localStorage.getItem("witchCompletedLevels")
-    ) || [];
+let completedLevels = JSON.parse(
+    localStorage.getItem("witchCompletedLevels")
+) || [];
 
 
 /* =========================================
    SCREENS
    ========================================= */
 
-const titleScreen =
-    document.getElementById("title-screen");
-
-const comicScreen =
-    document.getElementById("comic-screen");
-
-const levelMapScreen =
-    document.getElementById("level-map-screen");
-
-const riddleScreen =
-    document.getElementById("riddle-screen");
+const titleScreen = document.getElementById("title-screen");
+const comicScreen = document.getElementById("comic-screen");
+const levelMapScreen = document.getElementById("level-map-screen");
+const riddleScreen = document.getElementById("riddle-screen");
+const storyScreen = document.getElementById("story-screen");
 
 
 /* =========================================
-   TITLE
+   DOM ELEMENTS
    ========================================= */
 
-const startButton =
-    document.getElementById("start-button");
+const startButton = document.getElementById("start-button");
 
-
-/* =========================================
-   COMIC
-   ========================================= */
-
-const comicNextButton =
-    document.getElementById("comic-next-button");
-
-const comicImage =
-    document.getElementById("comic-image");
-
+const comicNextButton = document.getElementById("comic-next-button");
+const comicImage = document.getElementById("comic-image");
 let currentComicPage = 1;
 
+const regionNumber = document.getElementById("region-number");
+const regionName = document.getElementById("region-name");
+const levelPath = document.getElementById("level-path");
+const levelScroll = document.getElementById("level-scroll");
+const currentLevelButton = document.getElementById("current-level-button");
 
-/* =========================================
-   LEVEL MAP
-   ========================================= */
+const riddleLevel = document.getElementById("riddle-level");
+const questionText = document.getElementById("question-text");
+const answerInput = document.getElementById("answer-input");
+const submitAnswer = document.getElementById("submit-answer");
+const resultMessage = document.getElementById("result-message");
+const nextLevelButton = document.getElementById("next-level-button");
+const backToMapButton = document.getElementById("back-to-map-button");
+const witchMessage = document.getElementById("witch-message");
 
-const regionNumber =
-    document.getElementById("region-number");
-
-const regionName =
-    document.getElementById("region-name");
-
-const levelPath =
-    document.getElementById("level-path");
-
-const levelScroll =
-    document.getElementById("level-scroll");
-
-const currentLevelButton =
-    document.getElementById("current-level-button");
-
-
-/* =========================================
-   RIDDLE
-   ========================================= */
-
-const riddleLevel =
-    document.getElementById("riddle-level");
-
-const questionText =
-    document.getElementById("question-text");
-
-const answerInput =
-    document.getElementById("answer-input");
-
-const submitAnswer =
-    document.getElementById("submit-answer");
-
-const resultMessage =
-    document.getElementById("result-message");
-
-const nextLevelButton =
-    document.getElementById("next-level-button");
-
-const backToMapButton =
-    document.getElementById("back-to-map-button");
-
-const witchMessage =
-    document.getElementById("witch-message");
-
-/* =================================
-   STORY REVEAL ELEMENTS
-   ================================= */
-
-const storyScreen =
-    document.getElementById("story-screen");
-
-const storyImage =
-    document.getElementById("story-image");
-
-const storyTitle =
-    document.getElementById("story-title");
-
-const storyText =
-    document.getElementById("story-text");
-
-const storyContinueButton =
-    document.getElementById(
-        "story-continue-button"
-    );
+const storyImage = document.getElementById("story-image");
+const storyTitle = document.getElementById("story-title");
+const storyText = document.getElementById("story-text");
+const storyContinueButton = document.getElementById("story-continue-button");
 
 
 /* =========================================
@@ -193,49 +111,31 @@ const storyContinueButton =
    ========================================= */
 
 function getRegionForLevel(level) {
-
-    return Math.ceil(
-        level / LEVELS_PER_REGION
-    );
-
+    return Math.ceil(level / LEVELS_PER_REGION);
 }
-
 
 function getRegionData(level) {
-
-    return REGIONS[
-        getRegionForLevel(level) - 1
-    ];
-
+    return REGIONS[getRegionForLevel(level) - 1];
 }
-
 
 function isBossLevel(level) {
-
     return level % LEVELS_PER_REGION === 0;
-
 }
-
 
 function isLevelCompleted(level) {
-
     return completedLevels.includes(level);
-
 }
 
+function markLevelCompleted(level) {
+    if (!completedLevels.includes(level)) {
+        completedLevels.push(level);
+        saveProgress();
+    }
+}
 
 function saveProgress() {
-
-    localStorage.setItem(
-        "witchCurrentLevel",
-        currentLevel
-    );
-
-    localStorage.setItem(
-        "witchCompletedLevels",
-        JSON.stringify(completedLevels)
-    );
-
+    localStorage.setItem("witchCurrentLevel", currentLevel);
+    localStorage.setItem("witchCompletedLevels", JSON.stringify(completedLevels));
 }
 
 
@@ -244,448 +144,140 @@ function saveProgress() {
    ========================================= */
 
 function showScreen(screen) {
-
-    document
-        .querySelectorAll(".screen")
-        .forEach((element) => {
-
-            element.classList.remove("active");
-
-        });
-
+    document.querySelectorAll(".screen").forEach((element) => {
+        element.classList.remove("active");
+    });
     screen.classList.add("active");
-
 }
 
 
 /* =========================================
-   START
+   EVENT LISTENERS: START & COMIC
    ========================================= */
 
-startButton.addEventListener(
-    "click",
-    () => {
+startButton.addEventListener("click", () => {
+    showScreen(comicScreen);
+});
 
-        showScreen(comicScreen);
-
+comicNextButton.addEventListener("click", () => {
+    if (currentComicPage === 1) {
+        currentComicPage = 2;
+        comicImage.src = "assets/comics/intro-page-02.png";
+        return;
     }
-);
-
-
-/* =========================================
-   COMIC NAVIGATION
-   ========================================= */
-
-comicNextButton.addEventListener(
-    "click",
-    () => {
-
-        if (currentComicPage === 1) {
-
-            currentComicPage = 2;
-
-            comicImage.src =
-                "assets/comics/intro-page-02.png";
-
-            return;
-        }
-
-        if (currentComicPage === 2) {
-
-            currentComicPage = 3;
-
-            comicImage.src =
-                "assets/comics/intro-page-03.png";
-
-            return;
-        }
-
-        openLevelMap();
-
+    if (currentComicPage === 2) {
+        currentComicPage = 3;
+        comicImage.src = "assets/comics/intro-page-03.png";
+        return;
     }
-);
-
-/* =================================
-   STORY CONTINUE
-   ================================= */
+    openLevelMap();
+});
 
 storyContinueButton.addEventListener("click", () => {
-
-    /*
-     * The boss has been defeated.
-     * Move to the next level.
-     */
     if (activeLevel < 500) {
-
-        currentLevel =
-            activeLevel + 1;
-
+        currentLevel = activeLevel + 1;
         saveProgress();
     }
-
-    /*
-     * Close the story screen.
-     */
     storyScreen.classList.remove("active");
-
-    /*
-     * Return to the level map.
-     */
     openLevelMap();
-
 });
+
 
 /* =========================================
    OPEN LEVEL MAP
    ========================================= */
 
 function openLevelMap() {
-
     showScreen(levelMapScreen);
-
     renderCurrentRegion();
-
 }
 
 
 /* =========================================
-   RENDER CURRENT REGION
+   RENDER CURRENT REGION (SINGLE-SCREEN GRID MAP)
+   ========================================= */
+
+/* =========================================
+   RENDER CURRENT REGION (SINGLE-SCREEN GRID MAP)
    ========================================= */
 
 function renderCurrentRegion() {
+    const region = getRegionData(currentLevel);
 
-    const region =
-        getRegionData(currentLevel);
-
-    regionNumber.textContent =
-        `REGION ${region.id}`;
-
-    regionName.textContent =
-        region.name;
+    regionNumber.textContent = `REGION ${region.id}`;
+    regionName.textContent = region.name;
 
     levelPath.innerHTML = "";
 
+    // 5x5 Grid Coordinate Mapping: Level 1 at top-left (row 1, col 1), ending at Level 25 at bottom-right (row 5, col 5)
+    const gridCoords = [
+        {col: 1, row: 1}, {col: 2, row: 1}, {col: 3, row: 1}, {col: 4, row: 1}, {col: 5, row: 1}, // Level 1-5 (Top row, left to right)
+        {col: 5, row: 2}, {col: 4, row: 2}, {col: 3, row: 2}, {col: 2, row: 2}, {col: 1, row: 2}, // Level 6-10 (Row 2, right to left)
+        {col: 1, row: 3}, {col: 2, row: 3}, {col: 3, row: 3}, {col: 4, row: 3}, {col: 5, row: 3}, // Level 11-15 (Row 3, left to right)
+        {col: 5, row: 4}, {col: 4, row: 4}, {col: 3, row: 4}, {col: 2, row: 4}, {col: 1, row: 4}, // Level 16-20 (Row 4, right to left)
+        {col: 1, row: 5}, {col: 2, row: 5}, {col: 3, row: 5}, {col: 4, row: 5}, {col: 5, row: 5}  // Level 21-25 (Bottom row, left to right, Boss at 25 bottom-right)
+    ];
 
-    /*
-     * Create all 25 levels.
-     */
-    for (
-        let level = region.start;
-        level <= region.end;
-        level++
-    ) {
-
-        createLevelNode(level);
-
-    }
-
-
-    /*
-     * IMPORTANT:
-     *
-     * Level 1 is at the BOTTOM.
-     * Level 25 is at the TOP.
-     *
-     * Start the player at the current
-     * level rather than at the top.
-     */
-    requestAnimationFrame(() => {
-
-        scrollToCurrentLevel(false);
-
-        updateCurrentLevelShortcut();
-
+    const nodeCoords = gridCoords.map((pos, idx) => {
+        let leftPercent = 12 + (pos.col - 1) * 19;
+        let topPercent = 12 + (pos.row - 1) * 19; // Starts at top (12%) and goes down to bottom (88%)
+        return { left: leftPercent, top: topPercent };
     });
 
-}
-
-
-/* =========================================
-   CREATE LEVEL NODE
-   ========================================= */
-
-function createLevelNode(level) {
-
-    const node =
-        document.createElement("button");
-
-    node.className =
-        "level-node";
-
-
-    const region =
-        getRegionData(currentLevel);
-
-    const localIndex =
-        level - region.start;
-
-
-    const totalNodes =
-        LEVELS_PER_REGION;
-
-
-    /*
-     * BOTTOM → TOP
-     *
-     * Level 1 = bottom
-     * Level 25 = top
-     */
-    const rowHeight = 64;
-
-    const reversedIndex =
-        totalNodes - 1 - localIndex;
-
-    const top =
-        reversedIndex * rowHeight + 40;
-
-
-    /*
-     * Slight left/right winding.
-     */
-    let horizontalOffset = 0;
-
-    if (localIndex % 4 === 1) {
-
-        horizontalOffset = -72;
-
-    } else if (localIndex % 4 === 3) {
-
-        horizontalOffset = 72;
-
+    // Draw glowing SVG connecting lines behind nodes
+    let svgHTML = `<svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">`;
+    for (let i = 0; i < nodeCoords.length - 1; i++) {
+        let p1 = nodeCoords[i];
+        let p2 = nodeCoords[i+1];
+        svgHTML += `<line x1="${p1.left}%" y1="${p1.top}%" x2="${p2.left}%" y2="${p2.top}%" stroke="rgba(230, 197, 107, 0.45)" stroke-width="3" stroke-dasharray="4 2" />`;
     }
-
-
-    node.style.top =
-        `${top}px`;
-
-    node.style.marginLeft =
-        `${horizontalOffset}px`;
-
-
-    const completed =
-        isLevelCompleted(level);
-
-    const unlocked =
-        level <= currentLevel;
-
-
-    if (completed) {
-
-        node.classList.add("completed");
-
-    }
-
-    if (!unlocked) {
-
-        node.classList.add("locked");
-
-    }
-
-    if (level === currentLevel) {
-
-        node.classList.add("current");
-
-    }
-
-    if (isBossLevel(level)) {
-
-        node.classList.add("boss");
-
-    }
-
-
-    node.appendChild(
-        document.createTextNode(level)
-    );
-
-
-    /*
-     * Completed check.
-     */
-    if (completed) {
-
-        const tick =
-            document.createElement("span");
-
-        tick.className =
-            "level-check";
-
-        tick.textContent =
-            "✓";
-
-        node.appendChild(tick);
-
-    }
-
-
-    /*
-     * Boss marker.
-     */
-    if (isBossLevel(level)) {
-
-        const bossSymbol =
-            document.createElement("span");
-
-        bossSymbol.className =
-            "boss-symbol";
-
-        bossSymbol.textContent =
-            "♛";
-
-        node.appendChild(bossSymbol);
-
-    }
-
-
-    /*
-     * King is ALWAYS at the most recent
-     * unsolved level.
-     */
-    if (level === currentLevel) {
-
-        const king =
-            document.createElement("span");
-
-        king.className =
-            "king-marker";
-
-        king.textContent =
-            "👑";
-
-        node.appendChild(king);
-
-    }
-
-
-    /*
-     * Only unlocked levels respond.
-     */
-    if (unlocked) {
-
-        node.addEventListener(
-            "click",
-            () => {
-
-                openRiddle(level);
-
-            }
-        );
-
-    }
-
-
-    levelPath.appendChild(node);
-
-}
-
-
-/* =========================================
-   CURRENT LEVEL SHORTCUT
-   ========================================= */
-
-levelScroll.addEventListener(
-    "scroll",
-    updateCurrentLevelShortcut
-);
-
-
-function updateCurrentLevelShortcut() {
-
-    const currentNode =
-        levelPath.querySelector(
-            ".level-node.current"
-        );
-
-    if (!currentNode) {
-
-        return;
-
-    }
-
-
-    const nodeRect =
-        currentNode.getBoundingClientRect();
-
-    const scrollRect =
-        levelScroll.getBoundingClientRect();
-
-
-    const visible =
-        nodeRect.top >= scrollRect.top + 90 &&
-        nodeRect.bottom <= scrollRect.bottom - 20;
-
-
-    if (visible) {
-
-        currentLevelButton
-            .classList
-            .remove("visible");
-
-    } else {
-
-        currentLevelButton
-            .classList
-            .add("visible");
-
-    }
-
-}
-
-
-/* =========================================
-   SCROLL TO CURRENT LEVEL
-   ========================================= */
-
-function scrollToCurrentLevel(
-    smooth = true
-) {
-
-    const currentNode =
-        levelPath.querySelector(
-            ".level-node.current"
-        );
-
-    if (!currentNode) {
-
-        return;
-
-    }
-
-
-    /*
-     * Put the current node near the
-     * lower part of the visible area.
-     *
-     * This is important because progression
-     * is bottom → top.
-     */
-    const target =
-        currentNode.offsetTop -
-        levelScroll.clientHeight +
-        currentNode.offsetHeight +
-        70;
-
-
-    levelScroll.scrollTo({
-
-        top: Math.max(0, target),
-
-        behavior:
-            smooth ? "smooth" : "auto"
-
+    svgHTML += `</svg>`;
+    levelPath.innerHTML += svgHTML;
+
+    // Render all 25 3D gemstone nodes
+    nodeCoords.forEach((coord, index) => {
+        const levelNum = region.start + index;
+        const isCompleted = isLevelCompleted(levelNum);
+        const isCurrent = levelNum === currentLevel;
+        const isLocked = levelNum > currentLevel;
+        const isBoss = isBossLevel(levelNum);
+
+        const node = document.createElement('div');
+        node.className = `level-node`;
+        node.style.left = `${coord.left}%`;
+        node.style.top = `${coord.top}%`;
+
+        if (isCompleted) node.classList.add('completed');
+        if (isCurrent) node.classList.add('current');
+        if (isLocked) node.classList.add('locked');
+        if (isBoss) node.classList.add('boss');
+
+        let content = `<span>${levelNum}</span>`;
+        if (isCompleted) {
+            content += `<div class="level-check">✓</div>`;
+        }
+        if (isBoss) {
+            content += `<div class="boss-symbol">👑</div>`;
+        }
+        if (isCurrent) {
+            content += `<div class="king-marker">👑</div>`;
+        }
+
+        node.innerHTML = content;
+
+        if (!isLocked) {
+            node.addEventListener('click', () => {
+                openRiddle(levelNum);
+            });
+        }
+
+        levelPath.appendChild(node);
     });
 
-}
-
-
-currentLevelButton.addEventListener(
-    "click",
-    () => {
-
-        scrollToCurrentLevel(true);
-
+    if (currentLevelButton) {
+        currentLevelButton.classList.remove("visible");
     }
-);
+}
 
 
 /* =========================================
@@ -693,277 +285,140 @@ currentLevelButton.addEventListener(
    ========================================= */
 
 function openRiddle(level) {
-
     if (level > currentLevel) {
         return;
     }
 
     activeLevel = level;
-
     showScreen(riddleScreen);
 
-    riddleLevel.textContent =
-        `LEVEL ${level}`;
+    riddleLevel.textContent = `LEVEL ${level}`;
 
-    const riddle =
-        QUESTIONS[activeLevel];
-
+    const riddle = QUESTIONS[activeLevel];
     if (!riddle) {
-
-        questionText.textContent =
-            "This trial is being prepared...";
-
+        questionText.textContent = "This trial is being prepared...";
     } else {
-
-        questionText.textContent =
-            riddle.question;
-
+        questionText.textContent = riddle.question;
     }
 
     answerInput.value = "";
-
     answerInput.disabled = false;
-
     submitAnswer.disabled = false;
-
     resultMessage.textContent = "";
-
-    nextLevelButton.classList.add(
-        "hidden"
-    );
-
-    witchMessage.textContent =
-        "The Witch awaits your answer...";
+    nextLevelButton.classList.add("hidden");
+    witchMessage.textContent = "The Witch awaits your answer...";
 
     setTimeout(() => {
-
         answerInput.focus();
-
     }, 100);
 }
-
-
-/* =================================
-   ANSWER BUTTON
-   ================================= */
-
-submitAnswer.addEventListener(
-    "click",
-    () => {
-
-        checkAnswer();
-
-    }
-);
-
-
-/* =========================================
-   ENTER KEY
-   ========================================= */
-
-answerInput.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            checkAnswer();
-
-        }
-
-    }
-);
 
 
 /* =========================================
    CHECK ANSWER
    ========================================= */
 
+submitAnswer.addEventListener("click", () => {
+    checkAnswer();
+});
+
+answerInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        checkAnswer();
+    }
+});
+
 function checkAnswer() {
-
-    const riddle =
-        QUESTIONS[activeLevel];
-
+    const riddle = QUESTIONS[activeLevel];
     if (!riddle) {
-
-        resultMessage.textContent =
-            "This trial is not ready yet.";
-
+        resultMessage.textContent = "This trial is not ready yet.";
         return;
-
     }
 
-    const playerAnswer =
-        answerInput.value
-            .trim()
-            .replace(/\s+/g, " ")
-            .toLowerCase();
-
+    const playerAnswer = answerInput.value.trim().replace(/\s+/g, " ").toLowerCase();
     if (!playerAnswer) {
-
-        resultMessage.textContent =
-            "The Witch is waiting for an answer...";
-
+        resultMessage.textContent = "The Witch is waiting for an answer...";
         answerInput.focus();
-
         return;
-
     }
 
-    const correctAnswer =
-        riddle.answer
-            .trim()
-            .replace(/\s+/g, " ")
-            .toLowerCase();
+    const correctAnswer = riddle.answer.trim().replace(/\s+/g, " ").toLowerCase();
 
-    if (
-        playerAnswer === correctAnswer
-    ) {
-
+    if (playerAnswer === correctAnswer) {
         handleCorrectAnswer();
-
     } else {
-
         handleWrongAnswer();
-
     }
 }
 
 
 /* =========================================
-   CORRECT ANSWER
+   CORRECT & WRONG ANSWERS
    ========================================= */
 
 function handleCorrectAnswer() {
-
     markLevelCompleted(activeLevel);
 
-    resultMessage.textContent =
-        "TRIAL CLEARED!";
-
+    resultMessage.textContent = "TRIAL CLEARED!";
     nextLevelButton.classList.remove("hidden");
 
-
-    /*
-     * Boss levels pause progression.
-     *
-     * Instead of immediately moving to the
-     * next level, the story reveal will open.
-     */
     if (isBossLevel(activeLevel)) {
-
         showStoryReveal(activeLevel);
-
         return;
     }
 
-
-    /*
-     * Normal level progression.
-     */
     if (activeLevel < 500) {
-
-        currentLevel =
-            activeLevel + 1;
-
+        currentLevel = activeLevel + 1;
         saveProgress();
-
     }
-
 }
-
-/* =================================
-   STORY REVEAL
-   ================================= */
-
-function showStoryReveal(level) {
-
-    const story =
-        STORY_REVEALS[level];
-
-    if (!story) {
-
-        console.warn(
-            "No story reveal found for level:",
-            level
-        );
-
-        return;
-    }
-
-    storyImage.src =
-        story.image;
-
-    storyTitle.textContent =
-        story.title;
-
-    storyText.textContent =
-        story.text;
-
-    riddleScreen.classList.remove("active");
-
-    storyScreen.classList.add("active");
-
-}
-
-/* =========================================
-   WRONG ANSWER
-   ========================================= */
 
 function handleWrongAnswer() {
-
-    witchMessage.textContent =
-        "Oh dear... that wasn't quite clever enough.";
-
-    resultMessage.textContent =
-        "Not quite. Try again.";
-
-    resultMessage.style.color =
-        "#e9a3a3";
-
-
-    /*
-     * Keep keyboard/input active.
-     */
+    witchMessage.textContent = "Oh dear... that wasn't quite clever enough.";
+    resultMessage.textContent = "Not quite. Try again.";
+    resultMessage.style.color = "#e9a3a3";
     answerInput.focus();
-
     answerInput.select();
-
 }
 
 
 /* =========================================
-   CONTINUE
+   STORY REVEAL
    ========================================= */
 
-nextLevelButton.addEventListener(
-    "click",
-    () => {
+function showStoryReveal(level) {
+    const story = STORY_REVEALS[level];
+    if (!story) return;
 
-        showScreen(levelMapScreen);
+    storyImage.src = story.image;
+    storyTitle.textContent = story.title;
+    storyText.textContent = story.text;
 
-        renderCurrentRegion();
-
-    }
-);
+    riddleScreen.classList.remove("active");
+    storyScreen.classList.add("active");
+}
 
 
 /* =========================================
-   BACK TO MAP
+   NAVIGATION BUTTONS
    ========================================= */
 
-backToMapButton.addEventListener(
-    "click",
-    () => {
+nextLevelButton.addEventListener("click", () => {
+    showScreen(levelMapScreen);
+    renderCurrentRegion();
+});
 
-        showScreen(levelMapScreen);
+backToMapButton.addEventListener("click", () => {
+    showScreen(levelMapScreen);
+    renderCurrentRegion();
+});
 
-        renderCurrentRegion();
-
-    }
-);
+if (currentLevelButton) {
+    currentLevelButton.addEventListener("click", () => {
+        openLevelMap();
+    });
+}
 
 
 /* =========================================
