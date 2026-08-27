@@ -195,6 +195,180 @@ button {
 
     z-index: 5;
 }
+
+/* =========================================
+   STORY REVEAL SCREEN
+   ========================================= */
+
+#story-screen {
+    min-height: 100dvh;
+
+    width: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(20px, env(safe-area-inset-top))
+        16px
+        max(20px, env(safe-area-inset-bottom));
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #352044 0%,
+            #171326 42%,
+            #070d14 100%
+        );
+
+    color: #ffffff;
+}
+
+#story-screen.active {
+    display: flex;
+}
+
+.story-page {
+    position: relative;
+
+    width: min(100%, 600px);
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        20px
+        20px
+        90px;
+}
+
+#story-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 65dvh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.65);
+}
+
+.story-content {
+    width: 100%;
+
+    margin-top: 16px;
+
+    text-align: center;
+}
+
+.story-title {
+    color: #f4df9a;
+
+    font-size:
+        clamp(1.1rem, 5vw, 1.6rem);
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+.story-text {
+    margin-top: 8px;
+
+    color: #eadfc3;
+
+    font-size:
+        clamp(0.95rem, 4vw, 1.15rem);
+
+    line-height: 1.5;
+}
+
+#story-continue-button {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    padding: 11px 28px;
+
+    border: 2px solid #f4d77d;
+    border-radius: 10px;
+
+    background:
+        rgba(25, 15, 32, 0.96);
+
+    color: #ffe9a6;
+
+    font-size: 0.95rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   STORY REVEAL — PHONES
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    #story-screen {
+        padding:
+            max(12px, env(safe-area-inset-top))
+            10px
+            max(12px, env(safe-area-inset-bottom));
+    }
+
+    .story-page {
+        padding:
+            12px
+            12px
+            78px;
+    }
+
+    #story-image {
+        max-height: 60dvh;
+    }
+
+    .story-content {
+        margin-top: 12px;
+    }
+
+    .story-text {
+        line-height: 1.4;
+    }
+
+    #story-continue-button {
+        bottom: 12px;
+
+        padding:
+            10px 22px;
+    }
+}
+
+
 /* =========================================
    RIDDLE / GAMEPLAY SCREEN
    ========================================= */

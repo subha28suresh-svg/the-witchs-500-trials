@@ -35,6 +35,36 @@ const REGIONS = [
     { id: 20, name: "Witch's Castle", start: 476, end: 500 }
 ];
 
+/* =================================
+   STORY REVEALS
+   ================================= */
+
+const STORY_REVEALS = {
+
+    25: {
+        title:
+            "THE FIRST TRIAL COMPLETE",
+
+        text:
+            "The King has survived the first great trial. " +
+            "But the Witch's path is only beginning...",
+
+        image:
+            "assets/comics/story-region-01.png"
+    },
+
+    50: {
+        title:
+            "THE SECOND TRIAL COMPLETE",
+
+        text:
+            "A new mystery awaits beyond the next realm.",
+
+        image:
+            "assets/comics/story-region-02.png"
+    }
+
+};
 
 /* =========================================
    PROGRESS
@@ -135,6 +165,27 @@ const backToMapButton =
 
 const witchMessage =
     document.getElementById("witch-message");
+
+/* =================================
+   STORY REVEAL ELEMENTS
+   ================================= */
+
+const storyScreen =
+    document.getElementById("story-screen");
+
+const storyImage =
+    document.getElementById("story-image");
+
+const storyTitle =
+    document.getElementById("story-title");
+
+const storyText =
+    document.getElementById("story-text");
+
+const storyContinueButton =
+    document.getElementById(
+        "story-continue-button"
+    );
 
 
 /* =========================================
@@ -254,6 +305,35 @@ comicNextButton.addEventListener(
     }
 );
 
+/* =================================
+   STORY CONTINUE
+   ================================= */
+
+storyContinueButton.addEventListener("click", () => {
+
+    /*
+     * The boss has been defeated.
+     * Move to the next level.
+     */
+    if (activeLevel < 500) {
+
+        currentLevel =
+            activeLevel + 1;
+
+        saveProgress();
+    }
+
+    /*
+     * Close the story screen.
+     */
+    storyScreen.classList.remove("active");
+
+    /*
+     * Return to the level map.
+     */
+    openLevelMap();
+
+});
 
 /* =========================================
    OPEN LEVEL MAP
@@ -758,47 +838,75 @@ function checkAnswer() {
 
 function handleCorrectAnswer() {
 
-    if (
-        !completedLevels.includes(
-            activeLevel
-        )
-    ) {
-
-        completedLevels.push(
-            activeLevel
-        );
-
-    }
-
-    if (
-        activeLevel === currentLevel &&
-        currentLevel < TOTAL_LEVELS
-    ) {
-
-        currentLevel++;
-
-    }
-
-    saveProgress();
-
-    witchMessage.textContent =
-        "Hmm... perhaps you really are clever.";
+    markLevelCompleted(activeLevel);
 
     resultMessage.textContent =
-        "TRIAL CLEARED ✓";
+        "TRIAL CLEARED!";
 
-    resultMessage.style.color =
-        "#f4df9a";
+    nextLevelButton.classList.remove("hidden");
 
-    submitAnswer.disabled = true;
 
-    answerInput.disabled = true;
+    /*
+     * Boss levels pause progression.
+     *
+     * Instead of immediately moving to the
+     * next level, the story reveal will open.
+     */
+    if (isBossLevel(activeLevel)) {
 
-    nextLevelButton.classList.remove(
-        "hidden"
-    );
+        showStoryReveal(activeLevel);
+
+        return;
+    }
+
+
+    /*
+     * Normal level progression.
+     */
+    if (activeLevel < 500) {
+
+        currentLevel =
+            activeLevel + 1;
+
+        saveProgress();
+
+    }
+
 }
 
+/* =================================
+   STORY REVEAL
+   ================================= */
+
+function showStoryReveal(level) {
+
+    const story =
+        STORY_REVEALS[level];
+
+    if (!story) {
+
+        console.warn(
+            "No story reveal found for level:",
+            level
+        );
+
+        return;
+    }
+
+    storyImage.src =
+        story.image;
+
+    storyTitle.textContent =
+        story.title;
+
+    storyText.textContent =
+        story.text;
+
+    riddleScreen.classList.remove("active");
+
+    storyScreen.classList.add("active");
+
+}
 
 /* =========================================
    WRONG ANSWER
