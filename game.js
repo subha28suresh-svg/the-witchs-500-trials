@@ -63,6 +63,9 @@ let completedLevels = JSON.parse(
     localStorage.getItem("witchCompletedLevels")
 ) || [];
 
+// Tracks which region the user is currently looking at on the map screen
+let viewedRegionId = getRegionForLevel(currentLevel);
+
 
 /* =========================================
    SCREENS
@@ -90,6 +93,8 @@ const regionName = document.getElementById("region-name");
 const levelPath = document.getElementById("level-path");
 const levelScroll = document.getElementById("level-scroll");
 const currentLevelButton = document.getElementById("current-level-button");
+const prevRegionButton = document.getElementById("prev-region-button");
+const nextRegionButton = document.getElementById("next-region-button");
 
 const riddleLevel = document.getElementById("riddle-level");
 const questionText = document.getElementById("question-text");
@@ -188,6 +193,8 @@ storyContinueButton.addEventListener("click", () => {
    ========================================= */
 
 function openLevelMap() {
+    // Always snap back to the user's current progress region when opening the map
+    viewedRegionId = getRegionForLevel(currentLevel);
     showScreen(levelMapScreen);
     renderCurrentRegion();
 }
@@ -197,15 +204,21 @@ function openLevelMap() {
    RENDER CURRENT REGION (SINGLE-SCREEN GRID MAP)
    ========================================= */
 
-/* =========================================
-   RENDER CURRENT REGION (SINGLE-SCREEN GRID MAP)
-   ========================================= */
-
 function renderCurrentRegion() {
-    const region = getRegionData(currentLevel);
+    // Use viewedRegionId to support browsing different regions via arrows
+    const region = REGIONS[viewedRegionId - 1];
 
     regionNumber.textContent = `REGION ${region.id}`;
     regionName.textContent = region.name;
+
+    // Control visibility of previous/next region arrows
+    const maxUnlockedRegion = getRegionForLevel(currentLevel);
+    if (prevRegionButton) {
+        prevRegionButton.style.visibility = viewedRegionId > 1 ? "visible" : "hidden";
+    }
+    if (nextRegionButton) {
+        nextRegionButton.style.visibility = viewedRegionId < maxUnlockedRegion ? "visible" : "hidden";
+    }
 
     levelPath.innerHTML = "";
 
@@ -218,9 +231,9 @@ function renderCurrentRegion() {
         {col: 1, row: 5}, {col: 2, row: 5}, {col: 3, row: 5}, {col: 4, row: 5}, {col: 5, row: 5}  // Level 21-25 (Bottom row, left to right, Boss at 25 bottom-right)
     ];
 
-    const nodeCoords = gridCoords.map((pos, idx) => {
+    const nodeCoords = gridCoords.map((pos) => {
         let leftPercent = 12 + (pos.col - 1) * 19;
-        let topPercent = 12 + (pos.row - 1) * 19; // Starts at top (12%) and goes down to bottom (88%)
+        let topPercent = 12 + (pos.row - 1) * 19;
         return { left: leftPercent, top: topPercent };
     });
 
@@ -277,6 +290,30 @@ function renderCurrentRegion() {
     if (currentLevelButton) {
         currentLevelButton.classList.remove("visible");
     }
+}
+
+
+/* =========================================
+   REGION ARROW EVENT LISTENERS
+   ========================================= */
+
+if (prevRegionButton) {
+    prevRegionButton.addEventListener("click", () => {
+        if (viewedRegionId > 1) {
+            viewedRegionId--;
+            renderCurrentRegion();
+        }
+    });
+}
+
+if (nextRegionButton) {
+    nextRegionButton.addEventListener("click", () => {
+        const maxUnlockedRegion = getRegionForLevel(currentLevel);
+        if (viewedRegionId < maxUnlockedRegion) {
+            viewedRegionId++;
+            renderCurrentRegion();
+        }
+    });
 }
 
 
