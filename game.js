@@ -63,6 +63,25 @@ let completedLevels = JSON.parse(
     localStorage.getItem("witchCompletedLevels")
 ) || [];
 
+/* =========================================
+   GEMS & HINTS ECONOMY
+   ========================================= */
+
+let playerGems = Number(localStorage.getItem("witchPlayerGems")) || 100; // Defaults to 100 on first install
+let unlockedHintLevels = JSON.parse(localStorage.getItem("witchUnlockedHints")) || {}; // Track unlocked hints per level
+
+function saveGems() {
+    localStorage.setItem("witchPlayerGems", playerGems);
+    localStorage.setItem("witchUnlockedHints", JSON.stringify(unlockedHintLevels));
+}
+
+function updateGemDisplays() {
+    const mapBadge = document.getElementById("gem-count-map");
+    const riddleBadge = document.getElementById("gem-count-riddle");
+    if (mapBadge) mapBadge.textContent = playerGems;
+    if (riddleBadge) riddleBadge.textContent = playerGems;
+}
+
 // Tracks which region the user is currently looking at on the map screen
 let viewedRegionId = getRegionForLevel(currentLevel);
 
@@ -196,6 +215,7 @@ function openLevelMap() {
     // Always snap back to the user's current progress region when opening the map
     viewedRegionId = getRegionForLevel(currentLevel);
     showScreen(levelMapScreen);
+    updateGemDisplays(); // Added to refresh gem counter badge
     renderCurrentRegion();
 }
 
@@ -337,7 +357,7 @@ function openRiddle(level) {
 
     activeLevel = level;
     showScreen(riddleScreen);
-
+    updateGemDisplays(); // Added to refresh gem counter badge
     riddleLevel.textContent = `LEVEL ${level}`;
 
     const riddle = QUESTIONS[activeLevel];
@@ -404,9 +424,21 @@ function checkAnswer() {
    ========================================= */
 
 function handleCorrectAnswer() {
+    // Check if level was already completed *before* marking it completed
+    const alreadyCompleted = isLevelCompleted(activeLevel);
+
     markLevelCompleted(activeLevel);
 
-    resultMessage.textContent = "TRIAL CLEARED!";
+    // Only reward 10 gems if it's the *first* time clearing this level
+    if (!alreadyCompleted) {
+        playerGems += 10;
+        saveGems();
+        updateGemDisplays();
+        resultMessage.textContent = "TRIAL CLEARED! (+10 💎)";
+    } else {
+        resultMessage.textContent = "TRIAL CLEARED!";
+    }
+
     nextLevelButton.classList.remove("hidden");
 
     if (isBossLevel(activeLevel)) {
@@ -472,3 +504,117 @@ if (currentLevelButton) {
    ========================================= */
 
 saveProgress();
+
+/* =========================================
+   MYTHICAL HINTS & AD PROMPT INTERACTION
+   ========================================= */
+
+const openHintsBtn = document.getElementById("open-hints-modal-btn");
+const hintsModal = document.getElementById("hints-modal");
+const closeHintsModal = document.getElementById("close-hints-modal");
+const hintsListContainer = document.getElementById("hints-list-container");
+
+const adPromptModal = document.getElementById("ad-prompt-modal");
+const adYesBtn = document.getElementById("ad-yes-btn");
+const adNoBtn = document.getElementById("ad-no-btn");
+
+if (openHintsBtn && hintsModal) {
+    openHintsBtn.addEventListener("click", () => {
+        renderHintsModalContent();
+        hintsModal.classList.add("active");
+    });
+} else {
+    console.warn("Hint modal or button elements not found in DOM!");
+}
+
+if (closeHintsModal && hintsModal) {
+    closeHintsModal.addEventListener("click", () => {
+        hintsModal.classList.remove("active");
+    });
+}
+
+if (hintsModal) {
+    hintsModal.addEventListener("click", (e) => {
+        if (e.target === hintsModal) hintsModal.classList.remove("active");
+    });
+}
+
+function getUnlockedCountForActiveLevel() {
+    return unlockedHintLevels[activeLevel] || 0;
+}
+
+function renderHintsModalContent() {
+    if (!hintsListContainer) return;
+    hintsListContainer.innerHTML = "";
+
+    const riddle = QUESTIONS[activeLevel];
+    const unlockedCount = getUnlockedCountForActiveLevel();
+
+    const defaultHints = [
+        "Think carefully about the core meaning of the riddle words.",
+        "Consider metaphorical connections rather than literal objects.",
+        "The answer starts with letter: " + (riddle && riddle.answer ? riddle.answer.charAt(0).toUpperCase() : "?")
+    ];
+    const hintsArr = (riddle && riddle.hints) ? riddle.hints : defaultHints;
+
+    for (let i = 0; i < 3; i++) {
+        const hintNum = i + 1;
+        const isUnlocked = hintNum <= unlockedCount;
+        const canUnlockNow = (hintNum === 1) || (hintNum === unlockedCount + 1);
+
+        const itemDiv = document.createElement("div");
+        itemDiv.className = `mythical-hint-item ${isUnlocked ? 'unlocked' : ''}`;
+
+        let innerHTML = `
+            <div class="hint-row-header">
+                <span class="hint-row-title">Hint ${hintNum} (30 💎)</span>
+        `;
+
+        if (!isUnlocked) {
+            innerHTML += `<button class="unlock-hint-btn" ${!canUnlockNow ? 'disabled' : ''} onclick="tryUnlockHint(${hintNum})">Reveal</button>`;
+        } else {
+            innerHTML += `<span style="color: #38bdf8; font-size: 0.8rem; font-weight: bold;">✓ Unlocked</span>`;
+        }
+
+        innerHTML += `</div>`;
+
+        if (isUnlocked) {
+            innerHTML += `<div class="hint-row-content">${hintsArr[i]}</div>`;
+        }
+
+        itemDiv.innerHTML = innerHTML;
+        hintsListContainer.appendChild(itemDiv);
+    }
+}
+
+window.tryUnlockHint = function(hintNum) {
+    if (playerGems >= 30) {
+        playerGems -= 30;
+        unlockedHintLevels[activeLevel] = hintNum;
+        saveGems();
+        updateGemDisplays();
+        renderHintsModalContent();
+    } else {
+        hintsModal.classList.remove("active");
+        adPromptModal.classList.add("active");
+    }
+};
+
+if (adNoBtn) {
+    adNoBtn.addEventListener("click", () => {
+        adPromptModal.classList.remove("active");
+        hintsModal.classList.add("active");
+    });
+}
+
+if (adYesBtn) {
+    adYesBtn.addEventListener("click", () => {
+        alert("Ad integration coming soon! 30 gems granted for testing.");
+        playerGems += 30;
+        saveGems();
+        updateGemDisplays();
+        adPromptModal.classList.remove("active");
+        hintsModal.classList.add("active");
+        renderHintsModalContent();
+    });
+}

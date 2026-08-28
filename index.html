@@ -112,7 +112,12 @@
 
     <section id="level-map-screen" class="screen">
 
-        <div class="level-map">
+            <!-- Persistent Gem Counter Badge -->
+            <div class="gem-currency-badge">
+                💎 <span id="gem-count-map">100</span>
+            </div>
+
+            <div class="level-map">
 
             <!-- Region heading with arrows -->
 
@@ -172,6 +177,11 @@
          ===================================== -->
 
     <section id="riddle-screen" class="screen">
+        
+        <!-- Persistent Gem Counter Badge -->
+        <div class="gem-currency-badge">
+            💎 <span id="gem-count-riddle">100</span>
+        </div>
 
         <div class="riddle-container">
 
@@ -209,6 +219,11 @@
                     class="question-text"
                 >
                 </div>
+
+                <!-- PROMINENT HINT TRIGGER BUTTON -->
+                <button id="open-hints-modal-btn" class="hint-trigger-btn">
+                    🔮 Seek Ancient Hints (30 💎)
+                </button>
 
                 <div class="answer-area">
 
@@ -250,6 +265,30 @@
 
 <script src="data/questions.js"></script>
 <script src="game.js"></script>
+
+    <!-- MYTHICAL HINT MODAL -->
+    <div id="hints-modal" class="mythical-modal-overlay">
+        <div class="mythical-modal-box">
+            <button id="close-hints-modal" class="mythical-close-btn">×</button>
+            <h3 class="mythical-modal-title">THE WITCH'S WISDOM</h3>
+            
+            <div id="hints-list-container">
+                <!-- Dynamically populated hint rows -->
+            </div>
+        </div>
+    </div>
+
+    <!-- INSUFFICIENT GEMS / AD PROMPT MODAL -->
+    <div id="ad-prompt-modal" class="mythical-modal-overlay">
+        <div class="mythical-modal-box">
+            <h3 class="mythical-modal-title">ASTRAL BURDEN</h3>
+            <p class="ad-prompt-text">Oh Oh! Insufficient gems, do you want to watch an ad for 30 gems?</p>
+            <div class="ad-prompt-actions">
+                <button id="ad-yes-btn" class="ad-btn-yes">Yes</button>
+                <button id="ad-no-btn" class="ad-btn-no">No</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
