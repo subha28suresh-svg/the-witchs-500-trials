@@ -360,7 +360,7 @@ function openRiddle(level) {
     updateGemDisplays(); // Added to refresh gem counter badge
     riddleLevel.textContent = `LEVEL ${level}`;
 
-    const riddle = QUESTIONS[activeLevel];
+    const riddle = QUESTIONS[String(activeLevel)] || QUESTIONS[activeLevel];
     if (!riddle) {
         questionText.textContent = "This trial is being prepared...";
     } else {
@@ -396,7 +396,7 @@ answerInput.addEventListener("keydown", (event) => {
 });
 
 function checkAnswer() {
-    const riddle = QUESTIONS[activeLevel];
+    const riddle = QUESTIONS[String(activeLevel)] || QUESTIONS[activeLevel];
     if (!riddle) {
         resultMessage.textContent = "This trial is not ready yet.";
         return;
@@ -547,7 +547,7 @@ function renderHintsModalContent() {
     if (!hintsListContainer) return;
     hintsListContainer.innerHTML = "";
 
-    const riddle = QUESTIONS[activeLevel];
+    const riddle = QUESTIONS[String(activeLevel)] || QUESTIONS[activeLevel];
     const unlockedCount = getUnlockedCountForActiveLevel();
 
     const defaultHints = [
