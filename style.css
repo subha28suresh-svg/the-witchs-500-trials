@@ -346,13 +346,20 @@ button {
     border: 1.5px solid #bbf7d0;
 }
 
-/* Boss Crown icon */
+/* Boss Level Skull Icon - Positioned on the left side so it never clashes with the King's crown */
 .boss-symbol {
     position: absolute;
-    top: -12px;
-    right: -8px;
-    font-size: 1rem;
+    top: 50%;
+    left: -14px;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.9));
+    z-index: 12;
+}
+
+/* Force the boss-symbol text content to display a skull for boss levels */
+.level-node.boss .boss-symbol::after {
+    content: "💀";
 }
 
 /* Compact King Marker tracking current position */

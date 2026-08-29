@@ -298,7 +298,7 @@ function renderCurrentRegion() {
             content += `<div class="level-check">✓</div>`;
         }
         if (isBoss) {
-            content += `<div class="boss-symbol">👑</div>`;
+            content += `<div class="boss-symbol"></div>`; // <--- Changed to empty container so CSS injects the skull (💀) instead of a crown
         }
         if (isCurrent) {
             content += `<div class="king-marker">👑</div>`;
