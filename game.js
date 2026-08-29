@@ -203,6 +203,10 @@ storyContinueButton.addEventListener("click", () => {
         saveProgress();
     }
     storyScreen.classList.remove("active");
+    
+    // Automatically switch the viewed region to the new region
+    viewedRegionId = getRegionForLevel(currentLevel);
+    
     openLevelMap();
 });
 
@@ -480,10 +484,22 @@ function showStoryReveal(level) {
    NAVIGATION BUTTONS
    ========================================= */
 
-nextLevelButton.addEventListener("click", () => {
-    showScreen(levelMapScreen);
-    renderCurrentRegion();
-});
+   nextLevelButton.addEventListener("click", () => {
+        // If the completed level was a boss level, we handle story reveal instead of auto-loading next riddle
+        if (isBossLevel(activeLevel)) {
+            showStoryReveal(activeLevel);
+            return;
+        }
+
+        // Auto-progress to the next level's riddle directly!
+        if (activeLevel < 500) {
+            openRiddle(activeLevel + 1);
+        } else {
+            // If they finished level 500, take them back to map or win screen
+            showScreen(levelMapScreen);
+            renderCurrentRegion();
+        }
+    });
 
 backToMapButton.addEventListener("click", () => {
     showScreen(levelMapScreen);
