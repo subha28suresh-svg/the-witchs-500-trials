@@ -425,7 +425,7 @@ function checkAnswer() {
    CORRECT & WRONG ANSWERS
    ========================================= */
 
-function handleCorrectAnswer() {
+   function handleCorrectAnswer() {
     // Check if level was already completed *before* marking it completed
     const alreadyCompleted = isLevelCompleted(activeLevel);
 
@@ -442,11 +442,6 @@ function handleCorrectAnswer() {
     }
 
     nextLevelButton.classList.remove("hidden");
-
-    if (isBossLevel(activeLevel)) {
-        showStoryReveal(activeLevel);
-        return;
-    }
 
     if (activeLevel < 500) {
         currentLevel = activeLevel + 1;
@@ -485,17 +480,16 @@ function showStoryReveal(level) {
    ========================================= */
 
    nextLevelButton.addEventListener("click", () => {
-        // If the completed level was a boss level, we handle story reveal instead of auto-loading next riddle
+        // Check if the level we JUST completed was a boss level
         if (isBossLevel(activeLevel)) {
             showStoryReveal(activeLevel);
             return;
         }
 
-        // Auto-progress to the next level's riddle directly!
+        // Auto-progress to the next level's riddle directly for regular levels!
         if (activeLevel < 500) {
             openRiddle(activeLevel + 1);
         } else {
-            // If they finished level 500, take them back to map or win screen
             showScreen(levelMapScreen);
             renderCurrentRegion();
         }
