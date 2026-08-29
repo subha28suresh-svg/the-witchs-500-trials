@@ -231,22 +231,20 @@ function renderCurrentRegion() {
     regionNumber.textContent = `REGION ${region.id}`;
     regionName.textContent = region.name;
 
-    // Control visibility and state of previous/next region arrows across all 20 regions
+    // Control visibility of floating mystic arrows across regions
     if (prevRegionButton) {
         if (viewedRegionId > 1) {
-            prevRegionButton.style.display = "inline-block";
-            prevRegionButton.disabled = false;
+            prevRegionButton.classList.remove("hidden");
         } else {
-            prevRegionButton.style.display = "none";
+            prevRegionButton.classList.add("hidden");
         }
     }
     
     if (nextRegionButton) {
         if (viewedRegionId < TOTAL_REGIONS) {
-            nextRegionButton.style.display = "inline-block";
-            nextRegionButton.disabled = false;
+            nextRegionButton.classList.remove("hidden");
         } else {
-            nextRegionButton.style.display = "none";
+            nextRegionButton.classList.add("hidden");
         }
     }
 

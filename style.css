@@ -801,3 +801,64 @@ button {
     color: #f1f5f9;
     border: 1px solid #64748b;
 }
+
+/* =========================================
+   CLEAN SOLID GOLDEN ARROW BUTTONS
+   ========================================= */
+
+   .mystic-nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    
+    /* Solid rich dark background so the gold pops */
+    background: #181026;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    
+    font-size: 1.5rem;
+    width: 52px;
+    height: 64px;
+    
+    border-radius: 12px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    /* Standard clean shadow, NO pulsating animation */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.15s ease;
+}
+
+.prev-arrow {
+    left: 12px;
+}
+
+.next-arrow {
+    right: 12px;
+}
+
+/* Crisp Hover & Active States */
+.mystic-nav-arrow:hover:not(:disabled) {
+    background: #2a1b42;
+    border-color: #ffae42;
+    color: #ffae42;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.mystic-nav-arrow:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Hidden state */
+.mystic-nav-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
