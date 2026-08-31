@@ -305,19 +305,31 @@
       RENDER CURRENT REGION
       ========================================= */
    
-   function renderCurrentRegion() {
-       const region = REGIONS[viewedRegionId - 1];
-   
-       regionNumber.textContent = `REGION ${region.id}`;
-       regionName.textContent = region.name;
-   
-       if (prevRegionButton) {
-           if (viewedRegionId > 1) {
-               prevRegionButton.classList.remove("hidden");
-           } else {
-               prevRegionButton.classList.add("hidden");
-           }
-       }
+   /* =========================================
+   RENDER CURRENT REGION
+   ========================================= */
+
+function renderCurrentRegion() {
+    const region = REGIONS[viewedRegionId - 1];
+
+    regionNumber.textContent = `REGION ${region.id}`;
+    regionName.textContent = region.name;
+
+    // Dynamically apply region background image based on Region ID
+    const levelMapScreenEl = document.getElementById("level-map-screen");
+    if (viewedRegionId === 1) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Kingdom_of_Aurelia.jpeg')";
+    } else {
+        levelMapScreenEl.style.backgroundImage = "none";
+    }
+
+    if (prevRegionButton) {
+        if (viewedRegionId > 1) {
+            prevRegionButton.classList.remove("hidden");
+        } else {
+            prevRegionButton.classList.add("hidden");
+        }
+    }
        
        if (nextRegionButton) {
            if (viewedRegionId < TOTAL_REGIONS) {

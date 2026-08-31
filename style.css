@@ -167,16 +167,24 @@ button {
    3. SINGLE-SCREEN 3D LEVEL MAP
    ========================================= */
 
-#level-map-screen {
+   #level-map-screen {
     position: fixed;
     inset: 0;
-    /* Deep mystical forest background with gold ambient lighting ready for your background image */
-    background: 
-        radial-gradient(circle at 50% 30%, rgba(243, 209, 108, 0.12) 0%, transparent 60%),
-        linear-gradient(180deg, #102e22 0%, #081711 50%, #030806 100%);
-    /* LATER: Uncomment this line when you add your background image file */
-    /* background-image: url('assets/maps/region1-bg.jpg'); background-size: cover; background-position: center; */
+    background-color: #030806;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     z-index: 100;
+}
+
+/* Dark overlay so the gold nodes and path lines remain clearly readable */
+#level-map-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 8, 6, 0.65);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .level-map {
