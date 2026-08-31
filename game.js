@@ -330,15 +330,15 @@ function renderCurrentRegion() {
     } else if (viewedRegionId === 6) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Firelands.jpeg')";
     } else if (viewedRegionId === 7) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Shadow_Realm.jpeg')";
     } else if (viewedRegionId === 8) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Dragonlands.jpeg')";
     } else if (viewedRegionId === 9) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Sky_Kingdom.jpeg')";
     } else if (viewedRegionId === 10) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Sunken_Kingdom.jpeg')";
     } else if (viewedRegionId === 11) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Mystic_Marshes.jpeg')";
     } else if (viewedRegionId === 12) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
     } else if (viewedRegionId === 13) {
