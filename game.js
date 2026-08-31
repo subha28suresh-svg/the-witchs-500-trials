@@ -340,21 +340,21 @@ function renderCurrentRegion() {
     } else if (viewedRegionId === 11) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Mystic_Marshes.jpeg')";
     } else if (viewedRegionId === 12) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Warriors_Wastes.jpeg')";
     } else if (viewedRegionId === 13) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Haunted_Catacombs.jpeg')";
     } else if (viewedRegionId === 14) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Crystal_Caverns.jpeg')";
     } else if (viewedRegionId === 15) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Astral_Realm.jpeg')";
     } else if (viewedRegionId === 16) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Time-lost_Kingdom.jpeg')";
     } else if (viewedRegionId === 17) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Realm_Of_Illusions.jpeg')";
     } else if (viewedRegionId === 18) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Forbidden_Citadel.jpeg')";
     } else if (viewedRegionId === 19) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witch's_Domain.jpeg')";
     } else if (viewedRegionId === 20) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
     } else if (viewedRegionId === 21) {
