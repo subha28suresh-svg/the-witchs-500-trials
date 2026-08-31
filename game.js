@@ -348,15 +348,15 @@ function renderCurrentRegion() {
     } else if (viewedRegionId === 15) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Astral_Realm.jpeg')";
     } else if (viewedRegionId === 16) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Time-lost_Kingdom.jpeg')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Time_Lost_Kingdom.jpeg')";
     } else if (viewedRegionId === 17) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Realm_Of_Illusions.jpeg')";
     } else if (viewedRegionId === 18) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Forbidden_Citadel.jpeg')";
     } else if (viewedRegionId === 19) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witch's_Domain.jpeg')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witchs_Domain.jpeg')";
     } else if (viewedRegionId === 20) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witch's_castle.jpeg')";
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witchs_Castle.jpeg')";
     } else {
         levelMapScreenEl.style.backgroundImage = "none";
     }
