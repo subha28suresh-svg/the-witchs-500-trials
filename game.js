@@ -13,7 +13,7 @@
       ========================================= */
    
    const REGIONS = [
-       { id: 1, name: "Kingdom of Aurelia", start: 1, end: 25 },
+       { id: 1, name: "Kingdom of Valoria", start: 1, end: 25 },
        { id: 2, name: "Scorched Desert", start: 26, end: 50 },
        { id: 3, name: "Enchanted Forest", start: 51, end: 75 },
        { id: 4, name: "Frozen Peaks", start: 76, end: 100 },
@@ -41,7 +41,7 @@
    
    const STORY_REVEALS = {
        25: {
-           title: "TRIAL OF AURELIA COMPLETE",
+           title: "TRIAL OF VALORIA COMPLETE",
            text: "The King has conquered the first realm. But the Witch's domain stretches far beyond...",
            image: "assets/comics/story-region-01.png"
        },
