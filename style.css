@@ -632,23 +632,45 @@ button {
 }
 
 /* Prominent Mythical Hint Trigger Button */
+/* Prominent Mythical Hint Trigger Button */
 .hint-trigger-btn {
     width: 100%;
     margin-top: 12px;
-    padding: 12px;
-    background: linear-gradient(135deg, #3b2a5c, #1f1435);
-    color: #f3d16c;
-    border: 1.5px solid #9a73e3;
+    padding: 14px;
+    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 50%, #d97706 100%);
+    color: #fef08a;
+    border: 2px solid #fcd34d;
     border-radius: 12px;
     font-weight: bold;
-    font-size: 0.95srem;
+    font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5), 0 0 15px rgba(252, 211, 77, 0.3);
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    animation: hintPulseGlow 2s infinite ease-in-out;
+}
+
+.hint-trigger-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #5b21b6 50%, #f59e0b 100%);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.7), 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+.hint-trigger-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes hintPulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), 0 0 10px rgba(252, 211, 77, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(124, 58, 237, 0.8), 0 0 22px rgba(252, 211, 77, 0.5);
+    }
 }
 
 .hint-trigger-btn:hover {
