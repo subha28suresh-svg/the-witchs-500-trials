@@ -357,16 +357,6 @@ function renderCurrentRegion() {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witch's_Domain.jpeg')";
     } else if (viewedRegionId === 20) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Witch's_castle.jpeg')";
-    } else if (viewedRegionId === 21) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
-    } else if (viewedRegionId === 22) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
-    } else if (viewedRegionId === 23) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
-    } else if (viewedRegionId === 24) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
-    } else if (viewedRegionId === 25) {
-        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
     } else {
         levelMapScreenEl.style.backgroundImage = "none";
     }
