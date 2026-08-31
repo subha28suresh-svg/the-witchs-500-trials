@@ -446,15 +446,31 @@ if (nextRegionButton) {
    OPEN RIDDLE
    ========================================= */
 
-function openRiddle(level) {
+   function openRiddle(level) {
     if (level > currentLevel) {
         return;
     }
 
     activeLevel = level;
     showScreen(riddleScreen);
-    updateGemDisplays(); // Added to refresh gem counter badge
-    riddleLevel.textContent = `LEVEL ${level}`;
+    updateGemDisplays(); // Refresh gem counter badge
+
+    const riddleScreenElement = document.getElementById("riddle-screen");
+
+    // Check if it's a boss level and apply the distinct boss look, feel, and warning text
+    if (isBossLevel(activeLevel)) {
+        riddleLevel.textContent = "⚠️ BOSS LEVEL: BEAT IT IF YOU CAN! ⚠️";
+        riddleScreenElement.classList.add("boss-screen-theme");
+        witchMessage.textContent = "🔥 The Boss watches closely... Your intellect will be tested!";
+        witchMessage.style.color = "#fda4af";
+        witchMessage.style.fontWeight = "bold";
+    } else {
+        riddleLevel.textContent = `LEVEL ${level}`;
+        riddleScreenElement.classList.remove("boss-screen-theme");
+        witchMessage.textContent = "The Witch awaits your answer...";
+        witchMessage.style.color = "#cbb4d4";
+        witchMessage.style.fontWeight = "normal";
+    }
 
     const riddle = QUESTIONS[activeLevel];
     if (!riddle) {
@@ -468,7 +484,6 @@ function openRiddle(level) {
     submitAnswer.disabled = false;
     resultMessage.textContent = "";
     nextLevelButton.classList.add("hidden");
-    witchMessage.textContent = "The Witch awaits your answer...";
 
     setTimeout(() => {
         answerInput.focus();
