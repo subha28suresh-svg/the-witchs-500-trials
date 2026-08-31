@@ -242,17 +242,17 @@ button {
    3D GEMSTONE LEVEL NODES
    ========================================= */
 
-.level-node {
+   .level-node {
     position: absolute;
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
     
-    /* True 3D Gem Shape & Multi-layer Bevel Shading */
-    border-radius: 12px 4px 12px 4px;
+    /* Perfect Round Magical Coin / Wax Seal Shape */
+    border-radius: 50%;
     background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
     border: 2px solid rgba(255, 255, 255, 0.3);
     
@@ -260,7 +260,7 @@ button {
     font-size: 0.85rem;
     font-weight: bold;
     
-    /* 3D Depth Shadows */
+    /* 3D Depth Shadows & Glow */
     box-shadow: 
         0 6px 12px rgba(0, 0, 0, 0.7),
         inset 0 2px 3px rgba(255, 255, 255, 0.25),
@@ -298,11 +298,11 @@ button {
     cursor: default;
 }
 
-/* ACTIVE / CURRENT LEVEL: Smaller, High-Intensity Glowing 3D Sun Gem */
+/* ACTIVE / CURRENT LEVEL: Glowing 3D Sun Gem */
 .level-node.current {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px 4px 14px 4px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
     background: linear-gradient(135deg, #fef08a 0%, #ca8a04 100%);
     border-color: #ffffff;
     color: #422006;
@@ -323,7 +323,7 @@ button {
     background: linear-gradient(135deg, #f43f5e 0%, #881337 100%);
     border-color: #fda4af;
     color: #fff;
-    border-radius: 4px 14px 4px 14px; /* Inverted crystal shape */
+    border-radius: 50%;
 }
 
 .level-node.current.boss {
@@ -334,6 +334,17 @@ button {
         0 0 25px rgba(225, 29, 72, 0.9),
         inset 0 2px 5px rgba(255, 255, 255, 0.8),
         inset 0 -2px 4px rgba(136, 19, 55, 0.8);
+}
+
+/* Smooth, glowing golden thread path lines connecting nodes */
+.level-path-line {
+    position: absolute;
+    height: 4px;
+    background: linear-gradient(90deg, #b8860b, #f3d16c, #b8860b);
+    box-shadow: 0 0 8px rgba(243, 209, 108, 0.6);
+    border-radius: 2px;
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Tiny crisp checkmark overlay */

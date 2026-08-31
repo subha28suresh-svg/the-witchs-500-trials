@@ -301,10 +301,7 @@
        renderCurrentRegion();
    }
    
-   /* =========================================
-      RENDER CURRENT REGION
-      ========================================= */
-   
+  
    /* =========================================
    RENDER CURRENT REGION
    ========================================= */
@@ -379,17 +376,20 @@ function renderCurrentRegion() {
    
        levelPath.innerHTML = "";
    
-       const gridCoords = [
-           {col: 1, row: 1}, {col: 2, row: 1}, {col: 3, row: 1}, {col: 4, row: 1}, {col: 5, row: 1},
-           {col: 5, row: 2}, {col: 4, row: 2}, {col: 3, row: 2}, {col: 2, row: 2}, {col: 1, row: 2},
-           {col: 1, row: 3}, {col: 2, row: 3}, {col: 3, row: 3}, {col: 4, row: 3}, {col: 5, row: 3},
-           {col: 5, row: 4}, {col: 4, row: 4}, {col: 3, row: 4}, {col: 2, row: 4}, {col: 1, row: 4},
-           {col: 1, row: 5}, {col: 2, row: 5}, {col: 3, row: 5}, {col: 4, row: 5}, {col: 5, row: 5}
-       ];
+       // Professional zigzag serpentine grid mapping (every alternate row reverses)
+       const gridCoords = [];
+       for (let row = 1; row <= 5; row++) {
+           for (let col = 1; col <= 5; col++) {
+               // If it's an even row (2 or 4), reverse the column order for a winding S-curve
+               let actualCol = (row % 2 === 0) ? (6 - col) : col;
+               gridCoords.push({ col: actualCol, row: row });
+           }
+       }
    
+       // Perfectly centered and proportioned scaling for a single screen
        const nodeCoords = gridCoords.map((pos) => {
-           let leftPercent = 12 + (pos.col - 1) * 19;
-           let topPercent = 12 + (pos.row - 1) * 19;
+           let leftPercent = 18 + (pos.col - 1) * 16;
+           let topPercent = 18 + (pos.row - 1) * 14;
            return { left: leftPercent, top: topPercent };
        });
    
