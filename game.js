@@ -319,6 +319,54 @@ function renderCurrentRegion() {
     const levelMapScreenEl = document.getElementById("level-map-screen");
     if (viewedRegionId === 1) {
         levelMapScreenEl.style.backgroundImage = "url('assets/regions/Kingdom_of_Aurelia.jpeg')";
+    } else if (viewedRegionId === 2) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Scorched_Desert.jpeg')";
+    } else if (viewedRegionId === 3) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Enchanted_Forest.jpeg')";
+    } else if (viewedRegionId === 4) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Frozen_Peaks.jpeg')";
+    } else if (viewedRegionId === 5) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Lost_Ruins.jpeg')";
+    } else if (viewedRegionId === 6) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/Firelands.jpeg')";
+    } else if (viewedRegionId === 7) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 8) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 9) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 10) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 11) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 12) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 13) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 14) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 15) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 16) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 17) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 18) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 19) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 20) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 21) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 22) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 23) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 24) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
+    } else if (viewedRegionId === 25) {
+        levelMapScreenEl.style.backgroundImage = "url('assets/regions/')";
     } else {
         levelMapScreenEl.style.backgroundImage = "none";
     }
