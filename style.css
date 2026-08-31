@@ -931,3 +931,99 @@ button {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.6; }
 }
+
+/* =========================================
+   PROFESSIONAL GEM CURRENCY BADGE & + BUTTON
+   ========================================= */
+
+   .gem-currency-badge {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    background: linear-gradient(135deg, rgba(30, 15, 45, 0.95), rgba(10, 5, 20, 0.95));
+    border: 1.5px solid #e6c56b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #fef08a;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 60;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.gem-currency-badge:hover {
+    transform: scale(1.03);
+}
+
+.gem-plus-glow-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fffbeb;
+    border: 1px solid #fef08a;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+    animation: gemPlusPulse 1.5s infinite ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes gemPlusPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 6px rgba(245, 158, 11, 0.6); }
+    50% { transform: scale(1.15); box-shadow: 0 0 14px rgba(254, 240, 138, 0.9); }
+}
+
+/* =========================================
+   PROFESSIONAL RIDDLE SCREEN WATCH AD BUTTON
+   ========================================= */
+
+.riddle-ad-glow-btn {
+    width: 100%;
+    height: 50px;
+    margin-top: 14px;
+    background: linear-gradient(135deg, #059669 0%, #047857 50%, #d97706 100%);
+    color: #fef08a;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid #34d399;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4), 0 0 12px rgba(252, 211, 77, 0.3);
+    animation: riddleAdPulse 1.8s infinite ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.riddle-ad-glow-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #059669 0%, #065f46 50%, #b45309 100%);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.7), 0 0 18px rgba(252, 211, 77, 0.6);
+    border-color: #ffffff;
+}
+
+.riddle-ad-glow-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes riddleAdPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4), 0 0 10px rgba(252, 211, 77, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 22px rgba(5, 150, 105, 0.8), 0 0 20px rgba(252, 211, 77, 0.5);
+    }
+}
