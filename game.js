@@ -419,57 +419,102 @@
    }
    
    /* =========================================
-      OPEN RIDDLE
-      ========================================= */
-   
-   function openRiddle(level) {
-       if (level > currentLevel) {
-           return;
-       }
-   
-       activeLevel = level;
-       showScreen(riddleScreen);
-       updateGemDisplays();
-   
-       const riddleScreenElement = document.getElementById("riddle-screen");
-   
-       if (isBossLevel(activeLevel)) {
-           riddleLevel.textContent = "⚠️ BOSS LEVEL: BEAT IT IF YOU CAN! ⚠️";
-           riddleScreenElement.classList.add("boss-screen-theme");
-           witchMessage.textContent = "🔥 The Boss watches closely... Your intellect will be tested!";
-           witchMessage.style.color = "#fda4af";
-           witchMessage.style.fontWeight = "bold";
-       } else {
-           riddleLevel.textContent = `LEVEL ${level}`;
-           riddleScreenElement.classList.remove("boss-screen-theme");
-           witchMessage.textContent = "The Witch awaits your answer...";
-           witchMessage.style.color = "#cbb4d4";
-           witchMessage.style.fontWeight = "normal";
-       }
-   
-       const riddle = QUESTIONS[activeLevel];
-       if (!riddle) {
-           questionText.textContent = "This trial is being prepared...";
-       } else {
-           questionText.textContent = riddle.question;
-       }
-   
-       answerInput.value = "";
-       answerInput.disabled = false;
-       submitAnswer.disabled = false;
-       resultMessage.textContent = "";
-       nextLevelButton.classList.add("hidden");
-   
-       // Ensure watch ad button remains visible/enabled on every level load
-       const riddleAdBonusBtn = document.getElementById("riddle-ad-bonus-btn");
-       if (riddleAdBonusBtn) {
-           riddleAdBonusBtn.style.display = "flex";
-       }
-   
-       setTimeout(() => {
-           answerInput.focus();
-       }, 100);
-   }
+   OPEN RIDDLE
+   ========================================= */
+
+function openRiddle(level) {
+    if (level > currentLevel) {
+        return;
+    }
+
+    activeLevel = level;
+    
+    // Check if it's a boss level and show the interactive transition popup
+    if (isBossLevel(activeLevel)) {
+        const bossOverlay = document.getElementById("boss-transition-overlay");
+        const bossTitle = document.getElementById("boss-transition-title");
+        const bossSubtitle = document.getElementById("boss-transition-subtitle");
+        const bossContinueBtn = document.getElementById("boss-continue-btn");
+        const bossAdBtn = document.getElementById("boss-ad-btn");
+
+        bossTitle.textContent = `⚠️ BOSS LEVEL ${activeLevel} ⚠️`;
+        bossSubtitle.textContent = `Region Guardian approaches. Prepare your mind!`;
+
+        if (bossOverlay) {
+            bossOverlay.classList.add("active");
+
+            // Define clean event handlers for the popup buttons
+            const handleContinue = () => {
+                bossOverlay.classList.remove("active");
+                cleanupBossListeners();
+                proceedToRiddleScreen(level);
+            };
+
+            const handleWatchAd = () => {
+                triggerAdReward(() => {
+                    // Optional: Give instant feedback or let them stay on screen to click continue
+                });
+            };
+
+            const cleanupBossListeners = () => {
+                bossContinueBtn.removeEventListener("click", handleContinue);
+                bossAdBtn.removeEventListener("click", handleWatchAd);
+            };
+
+            // Attach listeners fresh to prevent multi-trigger stacking
+            bossContinueBtn.onclick = handleContinue;
+            bossAdBtn.onclick = handleWatchAd;
+
+            return;
+        }
+    }
+
+    proceedToRiddleScreen(level);
+}
+
+// Helper to handle standard riddle screen setup
+function proceedToRiddleScreen(level) {
+    showScreen(riddleScreen);
+    updateGemDisplays();
+
+    const riddleScreenElement = document.getElementById("riddle-screen");
+
+    if (isBossLevel(activeLevel)) {
+        riddleLevel.textContent = `⚠️ BOSS LEVEL ${activeLevel} ⚠️`;
+        riddleScreenElement.classList.add("boss-screen-theme");
+        witchMessage.textContent = "🔥 The Boss watches closely... Your intellect will be tested!";
+        witchMessage.style.color = "#fda4af";
+        witchMessage.style.fontWeight = "bold";
+    } else {
+        riddleLevel.textContent = `LEVEL ${level}`;
+        riddleScreenElement.classList.remove("boss-screen-theme");
+        witchMessage.textContent = "The Witch awaits your answer...";
+        witchMessage.style.color = "#cbb4d4";
+        witchMessage.style.fontWeight = "normal";
+    }
+
+    const riddle = QUESTIONS[activeLevel];
+    if (!riddle) {
+        questionText.textContent = "This trial is being prepared...";
+    } else {
+        questionText.textContent = riddle.question;
+    }
+
+    answerInput.value = "";
+    answerInput.disabled = false;
+    submitAnswer.disabled = false;
+    resultMessage.textContent = "";
+    nextLevelButton.classList.add("hidden");
+
+    const riddleAdBonusBtn = document.getElementById("riddle-ad-bonus-btn");
+    if (riddleAdBonusBtn) {
+        riddleAdBonusBtn.style.display = "flex";
+    }
+
+    setTimeout(() => {
+        answerInput.focus();
+    }, 100);
+}
    
    /* =========================================
       CHECK ANSWER
