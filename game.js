@@ -553,7 +553,7 @@ function proceedToRiddleScreen(level) {
    }
    
    /* =========================================
-      CORRECT & WRONG ANSWERS
+      CORRECT & WRONG ANSWERS OVERLAY
       ========================================= */
       let wisdomMessageIndex = Number(localStorage.getItem("witchWisdomIndex")) || 0;
 
