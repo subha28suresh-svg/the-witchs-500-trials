@@ -40,106 +40,26 @@
       ================================= */
    
    const STORY_REVEALS = {
-       25: {
-           title: "TRIAL OF VALORIA COMPLETE",
-           text: "The King has conquered the first realm. But the Witch's domain stretches far beyond...",
-           image: "assets/comics/story-region-01.png"
-       },
-       50: {
-           title: "SCORCHED DESERT CONQUERED",
-           text: "The blistering sands fall silent. A cooler, darker mystery awaits ahead.",
-           image: "assets/comics/story-region-02.png"
-       },
-       75: {
-           title: "ENCHANTED FOREST CLEARED",
-           text: "The whispering trees part to reveal harsh new heights to climb.",
-           image: "assets/comics/story-region-03.png"
-       },
-       100: {
-           title: "FROZEN PEAKS SURVIVED",
-           text: "The icy winds quiet down as ancient, forgotten stones emerge from the mist.",
-           image: "assets/comics/story-region-04.png"
-       },
-       125: {
-           title: "LOST RUINS UNLOCKED",
-           text: "Secrets of the ancients are laid bare, but the heat of the next trial rises.",
-           image: "assets/comics/story-region-05.png"
-       },
-       150: {
-           title: "FIRELANDS TAMED",
-           text: "The rivers of lava are crossed. Now, shadows claim the path ahead.",
-           image: "assets/comics/story-region-06.png"
-       },
-       175: {
-           title: "SHADOW REALM PIERCED",
-           text: "The darkness retreats before the crown's light, revealing the domain of dragons.",
-           image: "assets/comics/story-region-07.png"
-       },
-       200: {
-           title: "DRAGONLANDS CONQUERED",
-           text: "Beasts of old bow to intellect. The skies above call out next.",
-           image: "assets/comics/story-region-08.png"
-       },
-       225: {
-           title: "SKY KINGDOM ASCENDED",
-           text: "Floating islands are left behind as the trials sink beneath the waves.",
-           image: "assets/comics/story-region-09.png"
-       },
-       250: {
-           title: "SUNKEN KINGDOM DRAINED",
-           text: "Deep sea mysteries solved, the muddy bogs of the marshland approach.",
-           image: "assets/comics/story-region-10.png"
-       },
-       275: {
-           title: "MYSTIC MARSHES NAVIGATED",
-           text: "The toxic fogs clear, leading to the harsh grounds of the warriors.",
-           image: "assets/comics/story-region-11.png"
-       },
-       300: {
-           title: "WARRIOR'S WASTES VICTORIOUS",
-           text: "Might and mind prevail. The cold stone of catacombs echoes ahead.",
-           image: "assets/comics/story-region-12.png"
-       },
-       325: {
-           title: "HAUNTED CATACOMBS ESCAPED",
-           text: "Spirits are put to rest as brilliant crystal lights guide the way.",
-           image: "assets/comics/story-region-13.png"
-       },
-       350: {
-           title: "CRYSTAL CAVERNS SHINED",
-           text: "Refracted light opens portals to the stars themselves.",
-           image: "assets/comics/story-region-14.png"
-       },
-       375: {
-           title: "ASTRAL REALM TRANSCENDED",
-           text: "Time bends and loops, pulling the King into a historical labyrinth.",
-           image: "assets/comics/story-region-15.png"
-       },
-       400: {
-           title: "TIME-LOST KINGDOM RECLAIMED",
-           text: "History is rewritten, but reality warps into pure illusion.",
-           image: "assets/comics/story-region-16.png"
-       },
-       425: {
-           title: "REALM OF ILLUSIONS SEEN THROUGH",
-           text: "Tricks and phantoms fade. Only the Forbidden Citadel remains.",
-           image: "assets/comics/story-region-17.png"
-       },
-       450: {
-           title: "FORBIDDEN CITADEL BREACHED",
-           text: "The Witch's outer defenses fall. Her private domain lies open.",
-           image: "assets/comics/story-region-18.png"
-       },
-       475: {
-           title: "WITCH'S DOMAIN ENTERED",
-           text: "The final gate stands before you. The ultimate trial awaits at the Castle.",
-           image: "assets/comics/story-region-19.png"
-       },
-       500: {
-           title: "THE WITCH'S 500 TRIALS COMPLETE",
-           text: "The crown triumphs over all! The Witch is defeated, and peace is restored.",
-           image: "assets/comics/story-region-20.png"
-       }
+       25: {image: "assets/comics/story-region-01.png"},
+       50: {image: "assets/comics/story-region-02.png"},
+       75: {image: "assets/comics/story-region-03.png"},
+       100: {image: "assets/comics/story-region-04.png"},
+       125: {image: "assets/comics/story-region-05.png"},
+       150: {image: "assets/comics/story-region-06.png"},
+       175: {image: "assets/comics/story-region-07.png"},
+       200: {image: "assets/comics/story-region-08.png"},
+       225: {image: "assets/comics/story-region-09.png"},
+       250: {image: "assets/comics/story-region-10.png"},
+       275: {image: "assets/comics/story-region-11.png"},
+       300: {image: "assets/comics/story-region-12.png"},
+       325: {image: "assets/comics/story-region-13.png"},
+       350: {image: "assets/comics/story-region-14.png"},
+       375: {image: "assets/comics/story-region-15.png"},
+       400: {image: "assets/comics/story-region-16.png"},
+       425: {image: "assets/comics/story-region-17.png"},
+       450: {image: "assets/comics/story-region-18.png"},
+       475: {image: "assets/comics/story-region-19.png"},
+       500: {image: "assets/comics/story-region-20.png"}
    };
    
    /* =========================================
