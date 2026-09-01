@@ -559,12 +559,69 @@ function proceedToRiddleScreen(level) {
    /* =========================================
       CORRECT & WRONG ANSWERS
       ========================================= */
-   
+      let wisdomMessageIndex = Number(localStorage.getItem("witchWisdomIndex")) || 0;
+
+      function showTrialPassedEffect() {
+          const overlay = document.createElement('div');
+          overlay.className = 'victory-overlay';
+      
+          // 1. Updated list with 7, 9, and 12 removed
+          const wisdomPhrases = [
+              "Your wisdom pierces the shadows...",                  // 1
+              "A triumph of keen intellect and wit...",              // 2
+              "True wisdom unlocks the path ahead...",               // 3
+              "Your mind outshines the ancient dark...",             // 4
+              "Wit and wisdom shatter the seal...",                  // 5
+              "A brilliant deduction echoes through the realm...",   // 6
+              "The ancient trial yields to you...",                  // 7
+              "The riddle surrenders its secrets...",                // 8
+              "Another seal breaks...",                              // 9
+              "Trial conquered by pure wit..."                       // 10
+          ];
+      
+          const currentPhrase = wisdomPhrases[wisdomMessageIndex];
+          wisdomMessageIndex = (wisdomMessageIndex + 1) % wisdomPhrases.length;
+          localStorage.setItem("witchWisdomIndex", wisdomMessageIndex);
+      
+          // Create the Victory Banner in the center with the rotating phrase
+          const banner = document.createElement('div');
+          banner.className = 'victory-banner';
+          banner.innerHTML = `
+              <h2>Trial Conquered!</h2>
+              <p>${currentPhrase}</p>
+          `;
+          overlay.appendChild(banner);
+      
+          // 2. Spawn a massive shower of floating runes and symbols across the entire screen
+          const runeSymbols = ['✨', '🔮', '⚡', '🌟', '📜', '💫', '⭐', '👁️', '⚗️', '🕯️', '🪄', '🌙'];
+          
+          for (let i = 0; i < 30; i++) {
+              const rune = document.createElement('div');
+              rune.className = 'magical-rune';
+              rune.innerText = runeSymbols[Math.floor(Math.random() * runeSymbols.length)];
+              
+              rune.style.left = `${2 + Math.random() * 96}%`;
+              rune.style.top = `${5 + Math.random() * 90}%`;
+              rune.style.fontSize = `${1.2 + Math.random() * 2}rem`;
+              rune.style.animationDelay = `${Math.random() * 0.4}s`;
+              
+              overlay.appendChild(rune);
+          }
+      
+          document.body.appendChild(overlay);
+      
+          setTimeout(() => {
+              overlay.remove();
+          }, 2500);
+      }
+
+
    function handleCorrectAnswer() {
        const alreadyCompleted = isLevelCompleted(activeLevel);
    
        markLevelCompleted(activeLevel);
-   
+       showTrialPassedEffect();
+
        if (!alreadyCompleted) {
            playerGems += 10;
            saveGems();
