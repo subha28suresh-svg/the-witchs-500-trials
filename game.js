@@ -34,6 +34,38 @@
        { id: 19, name: "Witch's Domain", start: 451, end: 475 },
        { id: 20, name: "Witch's Castle", start: 476, end: 500 }
    ];
+
+   /* =========================================
+   PRELOAD REGION BACKGROUNDS INSTANTLY
+   ========================================= */
+const regionImages = [
+    "assets/regions/Kingdom_of_Aurelia.jpeg",
+    "assets/regions/Scorched_Desert.jpeg",
+    "assets/regions/Enchanted_Forest.jpeg",
+    "assets/regions/Frozen_Peaks.jpeg",
+    "assets/regions/Lost_Ruins.jpeg",
+    "assets/regions/Firelands.jpeg",
+    "assets/regions/Shadow_Realm.jpeg",
+    "assets/regions/Dragonlands.jpeg",
+    "assets/regions/Sky_Kingdom.jpeg",
+    "assets/regions/Sunken_Kingdom.jpeg",
+    "assets/regions/Mystic_Marshes.jpeg",
+    "assets/regions/Warriors_Wastes.jpeg",
+    "assets/regions/Haunted_Catacombs.jpeg",
+    "assets/regions/Crystal_Caverns.jpeg",
+    "assets/regions/Astral_Realm.jpeg",
+    "assets/regions/Time_Lost_Kingdom.jpeg",
+    "assets/regions/Realm_Of_Illusions.jpeg",
+    "assets/regions/Forbidden_Citadel.jpeg",
+    "assets/regions/Witchs_Domain.jpeg",
+    "assets/regions/Witchs_Castle.jpeg"
+];
+
+// Silently load and cache every background image into browser memory immediately
+regionImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
    
    /* =================================
       STORY REVEALS
