@@ -862,3 +862,40 @@ function proceedToRiddleScreen(level) {
            });
        });
    }
+
+   // =========================================
+// CUSTOM MAGICAL VIRTUAL KEYBOARD CONTROLLER
+// =========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const keyboard = document.getElementById("custom-keyboard");
+    if (!keyboard) return;
+
+    keyboard.addEventListener("click", (e) => {
+        const btn = e.target.closest("button");
+        if (!btn) return;
+
+        const answerInput = document.getElementById("answer-input");
+        if (!answerInput || answerInput.disabled) return;
+
+        const letterKey = btn.getAttribute("data-key");
+        const action = btn.getAttribute("data-action");
+
+        if (letterKey) {
+            // Append letter in UPPERCASE automatically
+            answerInput.value += letterKey;
+            answerInput.focus();
+        } else if (action === "backspace") {
+            // Remove last character
+            answerInput.value = answerInput.value.slice(0, -1);
+            answerInput.focus();
+        } else if (action === "clear") {
+            // Clear entire input box
+            answerInput.value = "";
+            answerInput.focus();
+        } else if (action === "enter") {
+            // Trigger answer submission[cite: 1]
+            checkAnswer();
+        }
+    });
+});

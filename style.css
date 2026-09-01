@@ -1202,3 +1202,76 @@ button {
     color: #e0e0e0;
     margin: 0;
   }
+
+  /* =========================================
+   CUSTOM MAGICAL VIRTUAL KEYBOARD STYLES
+   ========================================= */
+
+.custom-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(15, 10, 25, 0.95);
+    border: 2px solid #b19cd9;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 0 20px rgba(147, 112, 219, 0.4);
+    width: 100%; /* Fills the container width perfectly */
+    margin: 15px 0 0 0;
+    user-select: none;
+    box-sizing: border-box;
+  }
+  
+  .keyboard-row {
+    display: flex;
+    justify-content: space-between; /* Spreads keys evenly to fit the borders */
+    gap: 6px;
+    width: 100%;
+  }
+  
+  /* Individual Key Styling */
+  .key-btn {
+    background: linear-gradient(to bottom, #2d224c, #1a1330);
+    color: #f3e8ff;
+    border: 1px solid #ffd700; /* Shiny gold border */
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: bold;
+    padding: 14px 0; /* Taller keys for easier mobile tapping */
+    flex: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 215, 0, 0.3);
+    transition: all 0.1s ease;
+  }
+  
+  .key-btn:active {
+    background: #ffd700;
+    color: #1a1330;
+    transform: translateY(2px);
+    box-shadow: 0 0 10px #ffd700;
+  }
+  
+  /* Utility and Enter Buttons */
+  .utility-btn {
+    background: linear-gradient(to bottom, #4a154b, #2b0b2c);
+    border-color: #ff758c;
+    flex: 1.2;
+    font-size: 0.9rem;
+  }
+  
+  .enter-btn {
+    background: linear-gradient(to bottom, #10b981, #047857);
+    border-color: #34d399;
+    color: #ffffff;
+    flex: 1;
+    padding: 14px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  }
+  
+  .enter-btn:active {
+    background: #34d399;
+    color: #064e3b;
+  }
