@@ -474,11 +474,64 @@ function openRiddle(level) {
 }
 
 // Helper to handle standard riddle screen setup
+// Helper to handle standard riddle screen setup
 function proceedToRiddleScreen(level) {
     showScreen(riddleScreen);
     updateGemDisplays();
 
     const riddleScreenElement = document.getElementById("riddle-screen");
+
+    // 1. Determine which region this level belongs to
+    const regionId = getRegionForLevel(level);
+
+    // 2. Set the background image dynamically based on the region ID
+    if (regionId === 1) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Kingdom_of_Aurelia.jpeg')";
+    } else if (regionId === 2) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Scorched_Desert.jpeg')";
+    } else if (regionId === 3) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Enchanted_Forest.jpeg')";
+    } else if (regionId === 4) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Frozen_Peaks.jpeg')";
+    } else if (regionId === 5) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Lost_Ruins.jpeg')";
+    } else if (regionId === 6) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Firelands.jpeg')";
+    } else if (regionId === 7) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Shadow_Realm.jpeg')";
+    } else if (regionId === 8) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Dragonlands.jpeg')";
+    } else if (regionId === 9) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Sky_Kingdom.jpeg')";
+    } else if (regionId === 10) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Sunken_Kingdom.jpeg')";
+    } else if (regionId === 11) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Mystic_Marshes.jpeg')";
+    } else if (regionId === 12) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Warriors_Wastes.jpeg')";
+    } else if (regionId === 13) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Haunted_Catacombs.jpeg')";
+    } else if (regionId === 14) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Crystal_Caverns.jpeg')";
+    } else if (regionId === 15) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Astral_Realm.jpeg')";
+    } else if (regionId === 16) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Time_Lost_Kingdom.jpeg')";
+    } else if (regionId === 17) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Realm_Of_Illusions.jpeg')";
+    } else if (regionId === 18) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Forbidden_Citadel.jpeg')";
+    } else if (regionId === 19) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Witchs_Domain.jpeg')";
+    } else if (regionId === 20) {
+        riddleScreenElement.style.backgroundImage = "url('assets/regions/Witchs_Castle.jpeg')";
+    } else {
+        riddleScreenElement.style.backgroundImage = "none";
+    }
+
+    // Ensure background styles cover the screen nicely
+    riddleScreenElement.style.backgroundSize = "cover";
+    riddleScreenElement.style.backgroundPosition = "center";
 
     if (isBossLevel(activeLevel)) {
         riddleLevel.textContent = `⚠️ BOSS LEVEL ${activeLevel} ⚠️`;
