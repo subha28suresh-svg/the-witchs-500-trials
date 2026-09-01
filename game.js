@@ -95,7 +95,7 @@ regionImages.forEach(src => {
    };
    
    /* =========================================
-      PROGRESS
+      PROGRESS OF THE GAME
       ========================================= */
    
    let currentLevel = Number(localStorage.getItem("witchCurrentLevel")) || 1;
