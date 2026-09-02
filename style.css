@@ -47,7 +47,10 @@ button {
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: radial-gradient(circle at center, #2d183f 0%, #100b18 60%, #040508 100%);
+    background-image: url('assets/regions/Landing_Page.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .title-content {

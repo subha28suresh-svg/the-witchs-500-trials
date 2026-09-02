@@ -39,6 +39,7 @@
    PRELOAD REGION BACKGROUNDS INSTANTLY
    ========================================= */
 const regionImages = [
+    "assets/regions/Landing_Page.png",
     "assets/regions/Kingdom_of_Aurelia.jpeg",
     "assets/regions/Scorched_Desert.jpeg",
     "assets/regions/Enchanted_Forest.jpeg",
