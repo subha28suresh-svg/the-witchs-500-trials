@@ -84,16 +84,95 @@ button {
 }
 
 #start-button {
+    position: relative;
     width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #5b3275 0%, #2f173f 100%);
-    color: #ffe8a3;
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: 2px solid #e6c56b;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+    padding: 20px 24px;
+    /* Radiant, rich golden magical gradients */
+    background: linear-gradient(135deg, #f7efd2 0%, #d4af37 50%, #aa7c11 100%);
+    color: #241103;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    /* Mystical dual border layout */
+    border: 2px solid #fff3cd;
+    border-radius: 16px;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.4), 
+        0 8px 25px rgba(0, 0, 0, 0.7), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.6),
+        inset 0 -2px 4px rgba(100, 60, 0, 0.4);
+    animation: mysticGoldPulse 2.5s infinite ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shimmer overlay effect across the button */
+#start-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 70%
+    );
+    transform: rotate(30deg) translateX(-100%);
+    animation: goldShimmer 4s infinite linear;
+}
+
+#start-button:hover {
+    background: linear-gradient(135deg, #fff5dc 0%, #e6c547 50%, #bd8b16 100%);
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 0 35px rgba(255, 215, 0, 0.8), 
+        0 12px 30px rgba(0, 0, 0, 0.8), 
+        inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+#start-button:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 
+        0 0 15px rgba(212, 175, 55, 0.6), 
+        0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Breathing and glowing keyframes */
+@keyframes mysticGoldPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 15px rgba(212, 175, 55, 0.4), 
+            0 8px 25px rgba(0, 0, 0, 0.7), 
+            inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 
+            0 0 35px rgba(255, 223, 79, 0.8), 
+            0 10px 30px rgba(0, 0, 0, 0.8), 
+            inset 0 2px 8px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Sweeping light shimmer effect */
+@keyframes goldShimmer {
+    0% {
+        transform: rotate(30deg) translateX(-100%);
+    }
+    20% {
+        transform: rotate(30deg) translateX(100%);
+    }
+    100% {
+        transform: rotate(30deg) translateX(100%);
+    }
 }
 
 /* =========================================
