@@ -900,18 +900,20 @@ function proceedToRiddleScreen(level) {
     const riddle = QUESTIONS[activeLevel];
     const unlockedCount = getUnlockedCountForActiveLevel();
     const hintsArr = riddle ? riddle.hints : [];
+    const isCompleted = isLevelCompleted(activeLevel); // Checks if active trial was already solved
 
     for (let i = 0; i < 3; i++) {
         const hintNum = i + 1;
-        const isUnlocked = hintNum <= unlockedCount;
-        const canUnlockNow = (hintNum === 1) || (hintNum === unlockedCount + 1);
+        // If solved, all 3 hints are unlocked automatically; otherwise follow sequential unlock count
+        const isUnlocked = isCompleted || (hintNum <= unlockedCount);
+        const canUnlockNow = !isCompleted && ((hintNum === 1) || (hintNum === unlockedCount + 1));
 
         const itemDiv = document.createElement("div");
         itemDiv.className = `mythical-hint-item ${isUnlocked ? 'unlocked' : ''}`;
 
         let innerHTML = `
             <div class="hint-row-header">
-                <span class="hint-row-title">Hint ${hintNum} (30 💎)</span>
+                <span class="hint-row-title">Hint ${hintNum} ${isCompleted ? '' : '(30 💎)'}</span>
         `;
 
         if (!isUnlocked) {
@@ -930,69 +932,104 @@ function proceedToRiddleScreen(level) {
         hintsListContainer.appendChild(itemDiv);
     }
 
-    // 4th Row: Only show Skip Level if NOT already completed AND NOT already skipped
-    const isAlreadyPassedOrSkipped = isLevelCompleted(activeLevel) || isLevelSkipped(activeLevel);
-    if (!isAlreadyPassedOrSkipped) {
-        const skipDiv = document.createElement("div");
-        skipDiv.className = "mythical-hint-item skip-row";
-        skipDiv.innerHTML = `
-            <div class="hint-row-header" style="align-items: center;">
-                <span class="hint-row-title" style="color: #fde047;">⚡ Skip Trial</span>
-                <button class="unlock-hint-btn" onclick="trySkipLevel()" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">100 💎</button>
-            </div>
-            <div class="hint-row-content" style="color: #cbd5e1;">Bypass this trial. You can replay it later for gems and glory.</div>
-        `;
-        hintsListContainer.appendChild(skipDiv);
+        // 4th Row: Only show Skip Level if NOT completed AND NOT skipped
+        const isAlreadyPassedOrSkipped = isLevelCompleted(activeLevel) || isLevelSkipped(activeLevel);
+        if (!isAlreadyPassedOrSkipped) {
+            const skipDiv = document.createElement("div");
+            skipDiv.className = "mythical-hint-item skip-row";
+            skipDiv.innerHTML = `
+                <div class="hint-row-header" style="align-items: center;">
+                    <span class="hint-row-title" style="color: #fde047;">⚡ Skip Trial</span>
+                    <button class="unlock-hint-btn" onclick="trySkipLevel()" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">100 💎</button>
+                </div>
+                <div class="hint-row-content" style="color: #cbd5e1;">Bypass this trial. You can replay it later for gems and glory.</div>
+            `;
+            hintsListContainer.appendChild(skipDiv);
+        }
     }
-}
 
-window.tryUnlockHint = function(hintNum) {
-    if (playerGems >= 30) {
-        playerGems -= 30;
-        unlockedHintLevels[activeLevel] = hintNum;
-        saveGems();
-        updateGemDisplays();
-        renderHintsModalContent();
-    } else {
+    window.tryUnlockHint = function(hintNum) {
+        if (playerGems >= 30) {
+            playerGems -= 30;
+            unlockedHintLevels[activeLevel] = hintNum;
+            saveGems();
+            updateGemDisplays();
+            renderHintsModalContent();
+        } else {
+            hintsModal.classList.remove("active");
+            adPromptModal.classList.add("active");
+        }
+    };
+
+    window.trySkipLevel = function() {
+        if (playerGems >= 100) {
+            playerGems -= 100;
+            saveGems();
+            updateGemDisplays();
+            executeSkipLevel();
+        } else {
+            // Insufficient gems for skip: route to the ad prompt modal
+            hintsModal.classList.remove("active");
+            adPromptModal.classList.add("active");
+        }
+    };
+
+    function executeSkipLevel() {
         hintsModal.classList.remove("active");
-        if (shopModal) shopModal.classList.add("active"); // Directs to Mystic Treasury shop
+    
+        // Mark as skipped (turns slate on map, no victory gems)
+        markLevelSkipped(activeLevel);
+    
+        // Show the Witch's skip mocking popup
+        const skipModal = document.getElementById("witch-skip-modal");
+        const proceedBtn = document.getElementById("skip-proceed-btn");
+    
+        if (skipModal) {
+            skipModal.classList.add("active");
+    
+            proceedBtn.onclick = () => {
+                skipModal.classList.remove("active");
+    
+                // Advance to story comic if it was a boss, otherwise next riddle
+                if (isBossLevel(activeLevel)) {
+                    showStoryReveal(activeLevel);
+                    return;
+                }
+    
+                if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
+                    currentLevel = activeLevel + 1;
+                    saveProgress();
+                }
+    
+                if (activeLevel < 500) {
+                    openRiddle(activeLevel + 1);
+                } else {
+                    showScreen(levelMapScreen);
+                    renderCurrentRegion();
+                }
+            };
+        }
     }
-};
 
-window.trySkipLevel = function() {
-    if (playerGems >= 100) {
-        playerGems -= 100;
-        saveGems();
-        updateGemDisplays();
-        executeSkipLevel();
-    } else {
-        hintsModal.classList.remove("active");
-        if (shopModal) shopModal.classList.add("active"); // Directs to Mystic Treasury shop
-    }
-};
-
-function executeSkipLevel() {
-    hintsModal.classList.remove("active");
-
-    markLevelSkipped(activeLevel);
-
-    if (isBossLevel(activeLevel)) {
-        showStoryReveal(activeLevel);
-        return;
+    // "Yes" opens the in-app purchase and watch ad shop modal
+    if (adYesBtn) {
+        adYesBtn.addEventListener("click", () => {
+            adPromptModal.classList.remove("active");
+            if (shopModal) {
+                shopModal.classList.add("active");
+            }
+        });
     }
 
-    if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
-        currentLevel = activeLevel + 1;
-        saveProgress();
+    // "No" returns the player back to the hints window
+    if (adNoBtn) {
+        adNoBtn.addEventListener("click", () => {
+            adPromptModal.classList.remove("active");
+            if (hintsModal) {
+                hintsModal.classList.add("active");
+            }
+        });
     }
-
-    if (activeLevel < 500) {
-        openRiddle(activeLevel + 1);
-    } else {
-        showScreen(levelMapScreen);
-        renderCurrentRegion();
-    }
-}
    
    window.tryUnlockHint = function(hintNum) {
        if (playerGems >= 30) {

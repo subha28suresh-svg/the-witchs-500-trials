@@ -314,6 +314,22 @@
 
 </main>
 
+    <!-- WITCH SKIP LEVEL POPUP -->
+    <div id="witch-skip-modal" class="mythical-modal-overlay">
+        <div class="mythical-modal-box" style="border-color: #f59e0b; box-shadow: 0 16px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.3);">
+            <div style="font-size: 3rem; margin-bottom: 8px; animation: floatWitch 2.5s infinite ease-in-out;">🧙‍♀️</div>
+            <h3 class="mythical-modal-title" style="color: #fda4af; font-size: 1.15rem; font-style: italic; margin-bottom: 8px;">
+                "Trying the easy way out? I see you!!"
+            </h3>
+            <p style="color: #fef08a; font-size: 1rem; font-weight: bold; letter-spacing: 1px; margin-bottom: 22px;">
+                Level skipped...
+            </p>
+            <button id="skip-proceed-btn" class="hint-trigger-btn" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">
+                Proceed to Next level →
+            </button>
+        </div>
+    </div>
+
     <!-- MYTHICAL HINT MODAL -->
     <div id="hints-modal" class="mythical-modal-overlay">
         <div class="mythical-modal-box">
@@ -330,7 +346,7 @@
     <div id="ad-prompt-modal" class="mythical-modal-overlay">
         <div class="mythical-modal-box">
             <h3 class="mythical-modal-title">ASTRAL BURDEN</h3>
-            <p class="ad-prompt-text">Oh Oh! Insufficient gems, do you want to watch an ad for 30 gems?</p>
+            <p class="ad-prompt-text">Oh oh! Insufficient gems. Do you want to watch an ad or purchase extra gems?</p>
             <div class="ad-prompt-actions">
                 <button id="ad-yes-btn" class="ad-btn-yes">Yes</button>
                 <button id="ad-no-btn" class="ad-btn-no">No</button>
