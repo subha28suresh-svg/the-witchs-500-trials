@@ -139,8 +139,37 @@
             <div class="level-map">
 
             <!-- Floating Clean Golden Navigation Arrows -->
-            <button id="prev-region-button" class="mystic-nav-arrow prev-arrow" title="Previous Region">◀</button>
-            <button id="next-region-button" class="mystic-nav-arrow next-arrow" title="Next Region">▶</button>
+            <button id="prev-region-button" class="mystic-nav-arrow prev-arrow" title="Previous Region">
+                <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="mythicGoldGradLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#b45309" />
+                            <stop offset="45%" stop-color="#f59e0b" />
+                            <stop offset="70%" stop-color="#fef08a" />
+                            <stop offset="100%" stop-color="#ffffff" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Barbed spearhead pointing left with center spine -->
+                    <path d="M 4 12 L 19 3 L 15 12 L 19 21 Z" fill="url(#mythicGoldGradLeft)" stroke="#78350f" stroke-width="0.8" stroke-linejoin="round"/>
+                    <line x1="4" y1="12" x2="15" y2="12" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1" />
+                </svg>
+            </button>
+
+            <button id="next-region-button" class="mystic-nav-arrow next-arrow" title="Next Region">
+                <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="mythicGoldGradRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#b45309" />
+                            <stop offset="45%" stop-color="#f59e0b" />
+                            <stop offset="70%" stop-color="#fef08a" />
+                            <stop offset="100%" stop-color="#ffffff" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Barbed spearhead pointing right with center spine -->
+                    <path d="M 20 12 L 5 3 L 9 12 L 5 21 Z" fill="url(#mythicGoldGradRight)" stroke="#78350f" stroke-width="0.8" stroke-linejoin="round"/>
+                    <line x1="20" y1="12" x2="9" y2="12" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1" />
+                </svg>
+            </button>
 
             <!-- Region heading -->
             <header class="region-header">
@@ -244,11 +273,8 @@
                         placeholder="Type your answer"
                     >
 
-                    <button id="submit-answer">
-                        ANSWER
-                    </button>
-
                 </div>
+                
                 <!-- >>> CUSTOM KEYBOARD HTML CODE HERE <<< -->
                 <div id="custom-keyboard" class="custom-keyboard">
                     <!-- Row 1 -->

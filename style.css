@@ -609,13 +609,13 @@ button {
 }
 
 .answer-area {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 #answer-input {
     width: 100%;
+    box-sizing: border-box;
     height: 52px;
     padding: 0 16px;
     background: #ffffff;
@@ -624,6 +624,7 @@ button {
     color: #111;
     font-size: 1.1rem;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 #submit-answer {
@@ -967,7 +968,7 @@ button {
 }
 
 /* =========================================
-   CLEAN SOLID GOLDEN ARROW BUTTONS
+   MYTHIC ARROWHEAD NAVIGATION BUTTONS
    ========================================= */
 
    .mystic-nav-arrow {
@@ -976,52 +977,49 @@ button {
     transform: translateY(-50%);
     z-index: 1000;
     
-    /* Solid rich dark background so the gold pops */
-    background: #181026;
-    border: 2px solid #ffd700;
-    color: #ffd700;
+    background: linear-gradient(145deg, #1f122e 0%, #0d0614 100%);
+    border: 1.5px solid #d97706;
+    border-radius: 10px;
     
-    font-size: 1.5rem;
-    width: 52px;
-    height: 64px;
-    
-    border-radius: 12px;
+    width: 48px;
+    height: 60px;
     
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     
-    /* Standard clean shadow, NO pulsating animation */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), 
+                inset 0 1px 1px rgba(254, 240, 138, 0.3),
+                0 0 10px rgba(217, 119, 6, 0.25);
+                
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    transition: all 0.15s ease;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .prev-arrow {
-    left: 12px;
+    left: 10px;
+    padding-right: 2px;
 }
 
 .next-arrow {
-    right: 12px;
+    right: 10px;
+    padding-left: 2px;
 }
 
-/* Crisp Hover & Active States */
 .mystic-nav-arrow:hover:not(:disabled) {
-    background: #2a1b42;
-    border-color: #ffae42;
-    color: #ffae42;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 215, 0, 0.4);
+    border-color: #fde047;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.9), 
+                0 0 16px rgba(245, 158, 11, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.08);
 }
 
 .mystic-nav-arrow:active:not(:disabled) {
     transform: translateY(-50%) scale(0.95);
 }
 
-/* Hidden state */
 .mystic-nav-arrow.hidden {
     opacity: 0;
     pointer-events: none;

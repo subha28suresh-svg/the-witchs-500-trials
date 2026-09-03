@@ -685,13 +685,15 @@ function proceedToRiddleScreen(level) {
     }, 100);
 }
    
-   /* =========================================
+    /* =========================================
       CHECK ANSWER
       ========================================= */
    
-   submitAnswer.addEventListener("click", () => {
-       checkAnswer();
-   });
+      if (submitAnswer) {
+        submitAnswer.addEventListener("click", () => {
+            checkAnswer();
+        });
+    }
    
    answerInput.addEventListener("keydown", (event) => {
        if (event.key === "Enter") {
