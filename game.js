@@ -230,6 +230,14 @@ regionImages.forEach(src => {
    const storyText = document.getElementById("story-text");
    const storyContinueButton = document.getElementById("story-continue-button");
    
+   // HOW TO PLAY DOM ELEMENTS
+   const howToPlayModal = document.getElementById("how-to-play-modal");
+   const howToPlayTitleBtn = document.getElementById("how-to-play-title-btn");
+   const mapHelpBtn = document.getElementById("map-help-btn");
+   const closeTutorialBtn = document.getElementById("close-tutorial-btn");
+   const tutorialGotItBtn = document.getElementById("tutorial-got-it-btn");
+
+
    /* =========================================
       HELPERS
       ========================================= */
@@ -539,6 +547,12 @@ function openRiddle(level) {
     }
 
     activeLevel = level;
+
+    // Show tutorial automatically once before Level 1 starts
+    if (level === 1 && !localStorage.getItem("witchSeenTutorial")) {
+        openTutorialModal();
+        localStorage.setItem("witchSeenTutorial", "true");
+    }
     
     // Check if it's a boss level and show the interactive transition popup
     if (isBossLevel(activeLevel)) {
@@ -1159,3 +1173,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// =========================================
+// HOW TO PLAY MODAL CONTROLLER
+// =========================================
+
+function openTutorialModal() {
+    if (howToPlayModal) {
+        howToPlayModal.classList.add("active");
+    }
+}
+
+function closeTutorialModal() {
+    if (howToPlayModal) {
+        howToPlayModal.classList.remove("active");
+    }
+}
+
+if (howToPlayTitleBtn) howToPlayTitleBtn.addEventListener("click", openTutorialModal);
+if (mapHelpBtn) mapHelpBtn.addEventListener("click", openTutorialModal);
+if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", closeTutorialModal);
+if (tutorialGotItBtn) tutorialGotItBtn.addEventListener("click", closeTutorialModal);
+
+if (howToPlayModal) {
+    howToPlayModal.addEventListener("click", (e) => {
+        if (e.target === howToPlayModal) {
+            closeTutorialModal();
+        }
+    });
+}

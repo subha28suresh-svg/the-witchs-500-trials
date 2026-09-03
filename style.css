@@ -1531,3 +1531,110 @@ button {
     background: rgba(245, 158, 11, 0.08);
     margin-top: 14px;
 }
+
+/* =========================================
+   HOW TO PLAY & TUTORIAL STYLES
+   ========================================= */
+
+/* Title Screen Entry Button */
+.title-how-to-play-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+    background: rgba(30, 20, 50, 0.85);
+    color: #e2d7c1;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #e6c56b;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.title-how-to-play-btn:hover {
+    background: rgba(60, 40, 95, 0.95);
+    border-color: #ffd700;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Map Screen Circular ? Button */
+.map-help-circle-btn {
+    position: absolute;
+    top: 15px;
+    left: 70px; /* Sits next to the global mute button on the top-left */
+    width: 38px;
+    height: 38px;
+    background: #181026;
+    border: 1.5px solid #e6c56b;
+    border-radius: 50%;
+    color: #ffe8a3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.map-help-circle-btn:hover {
+    border-color: #ffd700;
+    transform: scale(1.08);
+}
+
+/* Tutorial Box & Image Sizing */
+.tutorial-box {
+    max-width: 440px;
+    width: 90%;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 16px;
+}
+
+.tutorial-image-container {
+    width: 100%;
+    border: 1px solid #4a3b5c;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+    background: #000;
+}
+
+.tutorial-guide-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.tutorial-summary-text {
+    font-size: 0.85rem;
+    color: #e2d7c1;
+    line-height: 1.4;
+    text-align: center;
+    margin: 8px 0 14px 0;
+}
+
+.tutorial-confirm-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #7c3aed, #4c1d95);
+    color: #fef08a;
+    border: 1.5px solid #fcd34d;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.tutorial-confirm-btn:active {
+    transform: scale(0.98);
+}
