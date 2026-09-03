@@ -1102,13 +1102,15 @@ function proceedToRiddleScreen(level) {
        });
    }
    
-   function triggerAdReward(callback) {
-       alert("Ad playing... (Placeholder integration)");
-       playerGems += 30;
-       saveGems();
-       updateGemDisplays();
-       if (callback) callback();
-   }
+   function triggerAdReward(callback, awardGems = true) {
+        alert("Ad playing... (Placeholder integration)");
+        if (awardGems) {
+            playerGems += 30;
+            saveGems();
+            updateGemDisplays();
+        }
+        if (callback) callback();
+    }
    
    if (shopWatchAdBtn) {
        shopWatchAdBtn.addEventListener("click", () => {
@@ -1321,6 +1323,6 @@ if (dailyDoubleAdBtn) {
     dailyDoubleAdBtn.addEventListener("click", () => {
         triggerAdReward(() => {
             finalizeDailyClaim(2);
-        });
+        }, false);
     });
 }
