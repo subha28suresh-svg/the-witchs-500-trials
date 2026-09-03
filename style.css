@@ -1404,9 +1404,11 @@ button {
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
   }
   
-  .enter-btn:active {
-    background: #34d399;
-    color: #064e3b;
+  .key-btn:active {
+    background: #ffd700;
+    color: #1a1330;
+    transform: translateY(2px);
+    box-shadow: 0 0 10px #ffd700;
   }
 
   /* =========================================
