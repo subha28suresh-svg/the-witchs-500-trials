@@ -128,6 +128,54 @@ regionImages.forEach(src => {
    let viewedRegionId = getRegionForLevel(currentLevel);
    
    /* =========================================
+      AUDIO MANAGER (BGM & MUTE)
+      ========================================= */
+
+      const bgmNormal = document.getElementById("bgm-normal");
+      const bgmBoss = document.getElementById("bgm-boss");
+      const globalMuteBtn = document.getElementById("global-mute-btn");
+      let isMuted = localStorage.getItem("witchIsMuted") === "true";
+   
+      function applyMuteState() {
+          if (bgmNormal) bgmNormal.muted = isMuted;
+          if (bgmBoss) bgmBoss.muted = isMuted;
+          if (globalMuteBtn) {
+              globalMuteBtn.textContent = isMuted ? "🔇" : "🔊";
+              globalMuteBtn.classList.toggle("muted", isMuted);
+          }
+      }
+   
+      function toggleMute() {
+          isMuted = !isMuted;
+          localStorage.setItem("witchIsMuted", isMuted);
+          applyMuteState();
+      }
+   
+      if (globalMuteBtn) {
+          globalMuteBtn.addEventListener("click", toggleMute);
+      }
+   
+      function playBGM(trackType) {
+          if (!bgmNormal || !bgmBoss) return;
+   
+          applyMuteState();
+   
+          if (trackType === "boss") {
+              if (!bgmNormal.paused) bgmNormal.pause();
+              bgmNormal.currentTime = 0;
+              if (bgmBoss.paused) {
+                  bgmBoss.play().catch(() => {});
+              }
+          } else if (trackType === "normal") {
+              if (!bgmBoss.paused) bgmBoss.pause();
+              bgmBoss.currentTime = 0;
+              if (bgmNormal.paused) {
+                  bgmNormal.play().catch(() => {});
+              }
+          }
+      }
+
+   /* =========================================
       SCREENS
       ========================================= */
    
@@ -214,9 +262,13 @@ regionImages.forEach(src => {
       EVENT LISTENERS: START & COMIC
       ========================================= */
    
-   startButton.addEventListener("click", () => {
-       showScreen(comicScreen);
-   });
+      startButton.addEventListener("click", () => {
+        if (globalMuteBtn) {
+            globalMuteBtn.classList.add("active");
+        }
+        playBGM("normal");
+        showScreen(comicScreen);
+    });
    
    comicNextButton.addEventListener("click", () => {
        if (currentComicPage === 1) {
@@ -233,6 +285,7 @@ regionImages.forEach(src => {
    });
    
    storyContinueButton.addEventListener("click", () => {
+        playBGM("normal");
        if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
            currentLevel = activeLevel + 1;
            saveProgress();
@@ -475,11 +528,17 @@ function openRiddle(level) {
 }
 
 // Helper to handle standard riddle screen setup
-// Helper to handle standard riddle screen setup
 function proceedToRiddleScreen(level) {
     showScreen(riddleScreen);
     updateGemDisplays();
 
+    // Trigger Boss Music during Boss Levels, otherwise keep Normal BGM
+    if (isBossLevel(activeLevel)) {
+        playBGM("boss");
+    } else {
+        playBGM("normal");
+    }
+    
     const riddleScreenElement = document.getElementById("riddle-screen");
 
     // 1. Determine which region this level belongs to
@@ -755,6 +814,7 @@ function proceedToRiddleScreen(level) {
    });
    
    backToMapButton.addEventListener("click", () => {
+       playBGM("normal");
        showScreen(levelMapScreen);
        renderCurrentRegion();
    });

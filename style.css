@@ -1412,3 +1412,39 @@ button {
     margin: 0;
     font-style: italic;
   }
+
+  .defeat-banner p {
+    color: #f3e8ff;
+    font-size: 1.1rem;
+    margin: 0;
+    font-style: italic;
+  }
+/* =========================================
+     GLOBAL MUTE BUTTON
+     ========================================= */
+
+     .global-mute-button {
+        position: fixed;
+        top: 15px;
+        left: 16px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(30, 15, 45, 0.95), rgba(10, 5, 20, 0.95));
+        border: 1.5px solid #e6c56b;
+        color: #fef08a;
+        font-size: 1.2rem;
+        display: none; /* Hidden on title/loading screen by default */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 0.15s ease;
+    }
+  
+    .global-mute-button.active {
+        display: flex; /* Displays after Begin the Quest is clicked */
+    }
