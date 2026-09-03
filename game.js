@@ -412,23 +412,49 @@ function renderCurrentRegion() {
            }
        }
    
-       // Perfectly centered and proportioned scaling for a single screen
-       const nodeCoords = gridCoords.map((pos) => {
-           let leftPercent = 18 + (pos.col - 1) * 16;
-           let topPercent = 18 + (pos.row - 1) * 14;
-           return { left: leftPercent, top: topPercent };
-       });
-   
-       let svgHTML = `<svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">`;
-       for (let i = 0; i < nodeCoords.length - 1; i++) {
-           let p1 = nodeCoords[i];
-           let p2 = nodeCoords[i+1];
-           svgHTML += `<line x1="${p1.left}%" y1="${p1.top}%" x2="${p2.left}%" y2="${p2.top}%" stroke="rgba(230, 197, 107, 0.45)" stroke-width="3" stroke-dasharray="4 2" />`;
-       }
-       svgHTML += `</svg>`;
-       levelPath.innerHTML += svgHTML;
-   
-       nodeCoords.forEach((coord, index) => {
+        // Perfectly centered and proportioned scaling for a single screen
+        const nodeCoords = gridCoords.map((pos) => {
+            let leftPercent = 18 + (pos.col - 1) * 16;
+            let topPercent = 18 + (pos.row - 1) * 14;
+            return { left: leftPercent, top: topPercent };
+        });
+
+        // SVG path with straight segments within rows and smooth curved loops at the row ends
+        let pathD = `M ${nodeCoords[0].left} ${nodeCoords[0].top}`;
+
+        for (let i = 0; i < nodeCoords.length - 1; i++) {
+            let p1 = nodeCoords[i];
+            let p2 = nodeCoords[i + 1];
+
+            // Check if next node is on the same row (top percentages match)
+            let isSameRow = Math.abs(p1.top - p2.top) < 2;
+
+            if (isSameRow) {
+                // Direct straight line across row
+                pathD += ` L ${p2.left} ${p2.top}`;
+            } else {
+                // Loop around the edge: arc outward toward the margin before swinging back into the next row
+                let loopDirection = (p1.left > 50) ? 9 : -9; // loop outward to the right or left
+                let controlX1 = p1.left + loopDirection;
+                let controlY1 = p1.top + 2;
+                let controlX2 = p2.left + loopDirection;
+                let controlY2 = p2.top - 2;
+
+                pathD += ` C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${p2.left} ${p2.top}`;
+            }
+        }
+
+        let svgHTML = `
+           <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+               <!-- Soft ambient glow -->
+               <path d="${pathD}" fill="none" stroke="rgba(217, 119, 6, 0.3)" stroke-width="1.4" stroke-linecap="round" />
+               <!-- Refined golden dashed trail -->
+               <path d="${pathD}" fill="none" stroke="rgba(252, 211, 77, 0.6)" stroke-width="0.7" stroke-dasharray="2 1.5" stroke-linecap="round" />
+           </svg>
+       `;
+        levelPath.innerHTML += svgHTML;
+
+        nodeCoords.forEach((coord, index) => {
             const levelNum = region.start + index;
             const isCompleted = isLevelCompleted(levelNum);
             const isSkipped = isLevelSkipped(levelNum);
