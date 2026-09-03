@@ -333,6 +333,7 @@ regionImages.forEach(src => {
        showScreen(levelMapScreen);
        updateGemDisplays();
        renderCurrentRegion();
+       checkDailyLoginBonus();
    }
    
   
@@ -1200,5 +1201,126 @@ if (howToPlayModal) {
         if (e.target === howToPlayModal) {
             closeTutorialModal();
         }
+    });
+}
+
+// =========================================
+// 7-DAY PROGRESSIVE DAILY LOGIN SHRINE LOGIC
+// =========================================
+
+const DAILY_REWARDS = [15, 20, 25, 30, 40, 50, 100]; // Day 1 to Day 7 rewards
+
+const dailyLoginModal = document.getElementById("daily-login-modal");
+const dailyShrineGrid = document.getElementById("daily-shrine-grid");
+const dailyClaimBtn = document.getElementById("daily-claim-btn");
+const dailyDoubleAdBtn = document.getElementById("daily-double-ad-btn");
+
+function getTodayDateString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function checkDailyLoginBonus() {
+    const todayStr = getTodayDateString();
+    const lastClaimDate = localStorage.getItem("witchLastClaimDate");
+
+    // If player already claimed today, do not show popup
+    if (lastClaimDate === todayStr) {
+        return;
+    }
+
+    let currentStreak = Number(localStorage.getItem("witchLoginStreak")) || 0;
+
+    if (lastClaimDate) {
+        const lastDate = new Date(lastClaimDate);
+        const currentDate = new Date(todayStr);
+        const diffDays = Math.round((currentDate - lastDate) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 1) {
+            // Logged in on consecutive day
+            currentStreak = (currentStreak % 7) + 1;
+        } else if (diffDays > 1) {
+            // Missed more than 1 day: reset streak to Day 1
+            currentStreak = 1;
+        }
+    } else {
+        // Very first time opening game
+        currentStreak = 1;
+    }
+
+    localStorage.setItem("witchPendingStreak", currentStreak);
+    renderDailyShrineUI(currentStreak);
+
+    if (dailyLoginModal) {
+        dailyLoginModal.classList.add("active");
+    }
+}
+
+function renderDailyShrineUI(activeStreak) {
+    if (!dailyShrineGrid) return;
+    dailyShrineGrid.innerHTML = "";
+
+    DAILY_REWARDS.forEach((gems, index) => {
+        const dayNum = index + 1;
+        const slot = document.createElement("div");
+        slot.className = `daily-slot ${dayNum === 7 ? 'day-7' : ''}`;
+
+        if (dayNum < activeStreak) {
+            slot.classList.add("claimed");
+        } else if (dayNum === activeStreak) {
+            slot.classList.add("active-today");
+        }
+
+        const crownOrChest = dayNum === 7 ? " 👑 Grand Chest" : "";
+        slot.innerHTML = `
+            <div class="daily-slot-day">Day ${dayNum}${crownOrChest}</div>
+            <div class="daily-slot-reward">${gems} 💎</div>
+        `;
+
+        dailyShrineGrid.appendChild(slot);
+    });
+
+    const rewardGems = DAILY_REWARDS[activeStreak - 1];
+    if (dailyClaimBtn) {
+        dailyClaimBtn.textContent = `CLAIM +${rewardGems} GEMS 💎`;
+    }
+    if (dailyDoubleAdBtn) {
+        dailyDoubleAdBtn.textContent = `✨ Watch Vision to Double (+${rewardGems * 2} 💎)`;
+    }
+}
+
+function finalizeDailyClaim(multiplier = 1) {
+    const todayStr = getTodayDateString();
+    const streak = Number(localStorage.getItem("witchPendingStreak")) || 1;
+    const baseReward = DAILY_REWARDS[streak - 1];
+    const totalAwarded = baseReward * multiplier;
+
+    playerGems += totalAwarded;
+    saveGems();
+    updateGemDisplays();
+
+    localStorage.setItem("witchLastClaimDate", todayStr);
+    localStorage.setItem("witchLoginStreak", streak);
+    localStorage.removeItem("witchPendingStreak");
+
+    if (dailyLoginModal) {
+        dailyLoginModal.classList.remove("active");
+    }
+}
+
+if (dailyClaimBtn) {
+    dailyClaimBtn.addEventListener("click", () => {
+        finalizeDailyClaim(1);
+    });
+}
+
+if (dailyDoubleAdBtn) {
+    dailyDoubleAdBtn.addEventListener("click", () => {
+        triggerAdReward(() => {
+            finalizeDailyClaim(2);
+        });
     });
 }

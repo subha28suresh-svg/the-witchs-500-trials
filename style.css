@@ -1638,3 +1638,139 @@ button {
 .tutorial-confirm-btn:active {
     transform: scale(0.98);
 }
+
+/* =========================================
+   7-DAY MYSTIC DAILY LOGIN SHRINE
+   ========================================= */
+
+   .daily-shrine-box {
+    max-width: 440px;
+    width: 92%;
+    padding: 24px 16px 20px 16px;
+}
+
+.daily-shrine-subtitle {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.daily-shrine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.daily-slot {
+    background: rgba(15, 8, 25, 0.7);
+    border: 1.5px solid #4a3575;
+    border-radius: 10px;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.daily-slot-day {
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.daily-slot-reward {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fef08a;
+    margin-top: 4px;
+}
+
+/* Day 7 spans full row as a Grand Celestial Reward */
+.daily-slot.day-7 {
+    grid-column: span 3;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.45), rgba(30, 10, 50, 0.85));
+    border-color: #d97706;
+}
+
+.daily-slot.day-7 .daily-slot-reward {
+    font-size: 1.1rem;
+    color: #fde047;
+    margin-top: 0;
+}
+
+/* Slot States */
+.daily-slot.claimed {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: #334155;
+    opacity: 0.55;
+}
+
+.daily-slot.claimed .daily-slot-reward::after {
+    content: " ✓";
+    color: #4ade80;
+}
+
+.daily-slot.active-today {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.3), rgba(67, 24, 107, 0.6));
+    border: 2px solid #fcd34d;
+    box-shadow: 0 0 16px rgba(252, 211, 77, 0.5), inset 0 0 10px rgba(252, 211, 77, 0.2);
+    transform: scale(1.04);
+}
+
+.daily-slot.active-today .daily-slot-day {
+    color: #fef08a;
+}
+
+.daily-shrine-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.daily-claim-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fffbeb;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #fde047;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+    transition: transform 0.1s ease;
+}
+
+.daily-claim-btn:active {
+    transform: scale(0.98);
+}
+
+.daily-double-ad-btn {
+    width: 100%;
+    padding: 11px;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #f0fdf4;
+    font-size: 0.88rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border: 1px solid #4ade80;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    transition: transform 0.1s ease;
+}
+
+.daily-double-ad-btn:active {
+    transform: scale(0.98);
+}
