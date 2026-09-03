@@ -1030,38 +1030,7 @@ function proceedToRiddleScreen(level) {
             }
         });
     }
-   
-   window.tryUnlockHint = function(hintNum) {
-       if (playerGems >= 30) {
-           playerGems -= 30;
-           unlockedHintLevels[activeLevel] = hintNum;
-           saveGems();
-           updateGemDisplays();
-           renderHintsModalContent();
-       } else {
-           hintsModal.classList.remove("active");
-           adPromptModal.classList.add("active");
-       }
-   };
-   
-   if (adNoBtn) {
-       adNoBtn.addEventListener("click", () => {
-           adPromptModal.classList.remove("active");
-           hintsModal.classList.add("active");
-       });
-   }
-   
-   if (adYesBtn) {
-       adYesBtn.addEventListener("click", () => {
-           alert("Ad integration coming soon! 30 gems granted for testing.");
-           playerGems += 30;
-           saveGems();
-           updateGemDisplays();
-           adPromptModal.classList.remove("active");
-           hintsModal.classList.add("active");
-           renderHintsModalContent();
-       });
-   }
+
    
    // =========================================
    // SHOP & IAP MODAL EVENT LISTENERS
