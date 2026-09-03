@@ -1448,3 +1448,42 @@ button {
     .global-mute-button.active {
         display: flex; /* Displays after Begin the Quest is clicked */
     }
+
+    /* =========================================
+     SKIPPED LEVEL NODE STYLING (Enabled, not golden)
+     ========================================= */
+
+  .level-node.skipped {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+    border-color: #94a3b8;
+    color: #f1f5f9;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.6),
+        inset 0 2px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Skip marker icon (subtle skip indicator instead of green checkmark) */
+.level-skip-icon {
+    position: absolute;
+    right: -6px;
+    bottom: -4px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #475569;
+    color: #cbd5e1;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border: 1.5px solid #94a3b8;
+}
+
+/* Skip row inside hints modal */
+.mythical-hint-item.skip-row {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.08);
+    margin-top: 14px;
+}

@@ -99,12 +99,27 @@ regionImages.forEach(src => {
       PROGRESS OF THE GAME
       ========================================= */
    
-   let currentLevel = Number(localStorage.getItem("witchCurrentLevel")) || 1;
-   let activeLevel = currentLevel;
+    let currentLevel = Number(localStorage.getItem("witchCurrentLevel")) || 1;
+    let activeLevel = currentLevel;
    
-   let completedLevels = JSON.parse(
-       localStorage.getItem("witchCompletedLevels")
-   ) || [];
+    let completedLevels = JSON.parse(
+    localStorage.getItem("witchCompletedLevels")
+    ) || [];
+
+    let skippedLevels = JSON.parse(
+        localStorage.getItem("witchSkippedLevels")
+    ) || [];
+
+    function isLevelSkipped(level) {
+        return skippedLevels.includes(level);
+    }
+
+    function markLevelSkipped(level) {
+        if (!skippedLevels.includes(level)) {
+            skippedLevels.push(level);
+            localStorage.setItem("witchSkippedLevels", JSON.stringify(skippedLevels));
+        }
+    }
    
    /* =========================================
       GEMS & HINTS ECONOMY
@@ -236,16 +251,22 @@ regionImages.forEach(src => {
    }
    
    function markLevelCompleted(level) {
-       if (!completedLevels.includes(level)) {
-           completedLevels.push(level);
-           saveProgress();
-       }
-   }
-   
-   function saveProgress() {
-       localStorage.setItem("witchCurrentLevel", currentLevel);
-       localStorage.setItem("witchCompletedLevels", JSON.stringify(completedLevels));
-   }
+        // If player previously skipped this level, remove it from skipped so it turns gold
+        if (skippedLevels.includes(level)) {
+            skippedLevels = skippedLevels.filter(lvl => lvl !== level);
+            localStorage.setItem("witchSkippedLevels", JSON.stringify(skippedLevels));
+        }
+        if (!completedLevels.includes(level)) {
+            completedLevels.push(level);
+            saveProgress();
+        }
+    }
+
+    function saveProgress() {
+        localStorage.setItem("witchCurrentLevel", currentLevel);
+        localStorage.setItem("witchCompletedLevels", JSON.stringify(completedLevels));
+        localStorage.setItem("witchSkippedLevels", JSON.stringify(skippedLevels));
+    }
    
    /* =========================================
       SCREEN MANAGEMENT
@@ -408,32 +429,41 @@ function renderCurrentRegion() {
        levelPath.innerHTML += svgHTML;
    
        nodeCoords.forEach((coord, index) => {
-           const levelNum = region.start + index;
-           const isCompleted = isLevelCompleted(levelNum);
-           const isCurrent = levelNum === currentLevel;
-           const isLocked = levelNum > currentLevel;
-           const isBoss = isBossLevel(levelNum);
-   
-           const node = document.createElement('div');
-           node.className = `level-node`;
-           node.style.left = `${coord.left}%`;
-           node.style.top = `${coord.top}%`;
-   
-           if (isCompleted) node.classList.add('completed');
-           if (isCurrent) node.classList.add('current');
-           if (isLocked) node.classList.add('locked');
-           if (isBoss) node.classList.add('boss');
-   
-           let content = `<span>${levelNum}</span>`;
-           if (isCompleted) {
-               content += `<div class="level-check">✓</div>`;
-           }
-           if (isBoss) {
-               content += `<div class="boss-symbol"></div>`;
-           }
-           if (isCurrent) {
-               content += `<div class="king-marker">👑</div>`;
-           }
+            const levelNum = region.start + index;
+            const isCompleted = isLevelCompleted(levelNum);
+            const isSkipped = isLevelSkipped(levelNum);
+            const isCurrent = levelNum === currentLevel;
+            const isLocked = levelNum > currentLevel;
+            const isBoss = isBossLevel(levelNum);
+
+            const node = document.createElement('div');
+            node.className = `level-node`;
+            node.style.left = `${coord.left}%`;
+            node.style.top = `${coord.top}%`;
+
+            if (isCompleted) {
+                node.classList.add('completed');
+            } else if (isSkipped) {
+                node.classList.add('skipped'); // Enabled, but not golden
+            }
+
+            if (isCurrent) node.classList.add('current');
+            if (isLocked) node.classList.add('locked');
+            if (isBoss) node.classList.add('boss');
+
+            let content = `<span>${levelNum}</span>`;
+            if (isCompleted) {
+                content += `<div class="level-check">✓</div>`;
+            } else if (isSkipped) {
+                content += `<div class="level-skip-icon">↷</div>`;
+            }
+
+            if (isBoss) {
+                content += `<div class="boss-symbol"></div>`;
+            }
+            if (isCurrent) {
+                content += `<div class="king-marker">👑</div>`;
+            }
    
            node.innerHTML = content;
    
@@ -864,42 +894,105 @@ function proceedToRiddleScreen(level) {
    }
    
    function renderHintsModalContent() {
-       if (!hintsListContainer) return;
-       hintsListContainer.innerHTML = "";
-   
-       const riddle = QUESTIONS[activeLevel];
-       const unlockedCount = getUnlockedCountForActiveLevel();
-       const hintsArr = riddle ? riddle.hints : [];
-   
-       for (let i = 0; i < 3; i++) {
-           const hintNum = i + 1;
-           const isUnlocked = hintNum <= unlockedCount;
-           const canUnlockNow = (hintNum === 1) || (hintNum === unlockedCount + 1);
-   
-           const itemDiv = document.createElement("div");
-           itemDiv.className = `mythical-hint-item ${isUnlocked ? 'unlocked' : ''}`;
-   
-           let innerHTML = `
-               <div class="hint-row-header">
-                   <span class="hint-row-title">Hint ${hintNum} (30 💎)</span>
-           `;
-   
-           if (!isUnlocked) {
-               innerHTML += `<button class="unlock-hint-btn" ${!canUnlockNow ? 'disabled' : ''} onclick="tryUnlockHint(${hintNum})">Reveal</button>`;
-           } else {
-               innerHTML += `<span style="color: #38bdf8; font-size: 0.8rem; font-weight: bold;">✓ Unlocked</span>`;
-           }
-   
-           innerHTML += `</div>`;
-   
-           if (isUnlocked && hintsArr && hintsArr[i]) {
-               innerHTML += `<div class="hint-row-content">${hintsArr[i]}</div>`;
-           }
-   
-           itemDiv.innerHTML = innerHTML;
-           hintsListContainer.appendChild(itemDiv);
-       }
-   }
+    if (!hintsListContainer) return;
+    hintsListContainer.innerHTML = "";
+
+    const riddle = QUESTIONS[activeLevel];
+    const unlockedCount = getUnlockedCountForActiveLevel();
+    const hintsArr = riddle ? riddle.hints : [];
+
+    for (let i = 0; i < 3; i++) {
+        const hintNum = i + 1;
+        const isUnlocked = hintNum <= unlockedCount;
+        const canUnlockNow = (hintNum === 1) || (hintNum === unlockedCount + 1);
+
+        const itemDiv = document.createElement("div");
+        itemDiv.className = `mythical-hint-item ${isUnlocked ? 'unlocked' : ''}`;
+
+        let innerHTML = `
+            <div class="hint-row-header">
+                <span class="hint-row-title">Hint ${hintNum} (30 💎)</span>
+        `;
+
+        if (!isUnlocked) {
+            innerHTML += `<button class="unlock-hint-btn" ${!canUnlockNow ? 'disabled' : ''} onclick="tryUnlockHint(${hintNum})">Reveal</button>`;
+        } else {
+            innerHTML += `<span style="color: #38bdf8; font-size: 0.8rem; font-weight: bold;">✓ Unlocked</span>`;
+        }
+
+        innerHTML += `</div>`;
+
+        if (isUnlocked && hintsArr && hintsArr[i]) {
+            innerHTML += `<div class="hint-row-content">${hintsArr[i]}</div>`;
+        }
+
+        itemDiv.innerHTML = innerHTML;
+        hintsListContainer.appendChild(itemDiv);
+    }
+
+    // 4th Row: Only show Skip Level if NOT already completed AND NOT already skipped
+    const isAlreadyPassedOrSkipped = isLevelCompleted(activeLevel) || isLevelSkipped(activeLevel);
+    if (!isAlreadyPassedOrSkipped) {
+        const skipDiv = document.createElement("div");
+        skipDiv.className = "mythical-hint-item skip-row";
+        skipDiv.innerHTML = `
+            <div class="hint-row-header" style="align-items: center;">
+                <span class="hint-row-title" style="color: #fde047;">⚡ Skip Trial</span>
+                <button class="unlock-hint-btn" onclick="trySkipLevel()" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">100 💎</button>
+            </div>
+            <div class="hint-row-content" style="color: #cbd5e1;">Bypass this trial. You can replay it later for gems and glory.</div>
+        `;
+        hintsListContainer.appendChild(skipDiv);
+    }
+}
+
+window.tryUnlockHint = function(hintNum) {
+    if (playerGems >= 30) {
+        playerGems -= 30;
+        unlockedHintLevels[activeLevel] = hintNum;
+        saveGems();
+        updateGemDisplays();
+        renderHintsModalContent();
+    } else {
+        hintsModal.classList.remove("active");
+        if (shopModal) shopModal.classList.add("active"); // Directs to Mystic Treasury shop
+    }
+};
+
+window.trySkipLevel = function() {
+    if (playerGems >= 100) {
+        playerGems -= 100;
+        saveGems();
+        updateGemDisplays();
+        executeSkipLevel();
+    } else {
+        hintsModal.classList.remove("active");
+        if (shopModal) shopModal.classList.add("active"); // Directs to Mystic Treasury shop
+    }
+};
+
+function executeSkipLevel() {
+    hintsModal.classList.remove("active");
+
+    markLevelSkipped(activeLevel);
+
+    if (isBossLevel(activeLevel)) {
+        showStoryReveal(activeLevel);
+        return;
+    }
+
+    if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
+        currentLevel = activeLevel + 1;
+        saveProgress();
+    }
+
+    if (activeLevel < 500) {
+        openRiddle(activeLevel + 1);
+    } else {
+        showScreen(levelMapScreen);
+        renderCurrentRegion();
+    }
+}
    
    window.tryUnlockHint = function(hintNum) {
        if (playerGems >= 30) {
