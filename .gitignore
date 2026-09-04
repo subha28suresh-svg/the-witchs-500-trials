@@ -4,3 +4,7 @@ node_modules/
 platforms/
 plugins/
 node_modules/
+witchtrials-release.keystore
+keystore_base64.txt
+release.keystore
+build.json
