@@ -1326,3 +1326,52 @@ if (dailyDoubleAdBtn) {
         }, false);
     });
 }
+
+// =========================================
+// ANDROID HARDWARE BACK-BUTTON HANDLER
+// =========================================
+
+document.addEventListener("backbutton", onHardwareBackButton, false);
+
+function onHardwareBackButton(e) {
+    if (e) e.preventDefault();
+
+    // 1. Close any open modal popup first
+    const activeModal = document.querySelector(".mythical-modal-overlay.active");
+    if (activeModal) {
+        activeModal.classList.remove("active");
+        return;
+    }
+
+    // 2. Return to map if playing a riddle
+    if (riddleScreen && riddleScreen.classList.contains("active")) {
+        playBGM("normal");
+        showScreen(levelMapScreen);
+        renderCurrentRegion();
+        return;
+    }
+
+    // 3. Return to map if reading story or comic
+    if ((comicScreen && comicScreen.classList.contains("active")) || 
+        (storyScreen && storyScreen.classList.contains("active"))) {
+        playBGM("normal");
+        showScreen(levelMapScreen);
+        renderCurrentRegion();
+        return;
+    }
+
+    // 4. Return to Title screen if on level map
+    if (levelMapScreen && levelMapScreen.classList.contains("active")) {
+        showScreen(titleScreen);
+        return;
+    }
+
+    // 5. If on Title screen, prompt confirmation before exiting
+    if (titleScreen && titleScreen.classList.contains("active")) {
+        if (confirm("Do you wish to leave the Witch's realm?")) {
+            if (navigator.app && navigator.app.exitApp) {
+                navigator.app.exitApp();
+            }
+        }
+    }
+}
