@@ -31,11 +31,19 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install Gradle 8.2
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.2'
+
       - name: Install dependencies
         run: npm install
 
       - name: Add Cordova Android platform
         run: npx cordova platform add android@12.0.1
+
+      - name: Verify Gradle version
+        run: gradle --version
 
       - name: Build release AAB
         run: npx cordova build android --release -- --packageType=bundle
