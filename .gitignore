@@ -1,1 +1,6 @@
 node_modules/
+
+# Cordova build outputs and platforms
+platforms/
+plugins/
+node_modules/

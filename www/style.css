@@ -1,1 +1,1776 @@
-../style.css
+/* =========================================
+   THE WITCH'S 500 TRIALS — DESIGN SYSTEM
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    background: #05070c;
+    color: #f7f1e3;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   1. TITLE SCREEN
+   ========================================= */
+
+#title-screen {
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-image: url('assets/regions/Landing_Page.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-content {
+    width: min(90%, 550px);
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.crown {
+    font-size: 4.5rem;
+    color: #f3d16c;
+    text-shadow: 0 0 25px rgba(243, 209, 108, 0.6);
+    margin-bottom: 12px;
+    animation: floatCrown 3s infinite ease-in-out;
+}
+
+.title-content h1 {
+    color: #f9e3a2;
+    font-size: clamp(2.2rem, 8vw, 4.2rem);
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(184, 134, 11, 0.3);
+    margin-bottom: 16px;
+}
+
+.tagline {
+    color: #d1c4a9;
+    font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    font-style: italic;
+}
+
+#start-button {
+    position: relative;
+    width: 100%;
+    padding: 20px 24px;
+    /* Radiant, rich golden magical gradients */
+    background: linear-gradient(135deg, #f7efd2 0%, #d4af37 50%, #aa7c11 100%);
+    color: #241103;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    /* Mystical dual border layout */
+    border: 2px solid #fff3cd;
+    border-radius: 16px;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.4), 
+        0 8px 25px rgba(0, 0, 0, 0.7), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.6),
+        inset 0 -2px 4px rgba(100, 60, 0, 0.4);
+    animation: mysticGoldPulse 2.5s infinite ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shimmer overlay effect across the button */
+#start-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 70%
+    );
+    transform: rotate(30deg) translateX(-100%);
+    animation: goldShimmer 4s infinite linear;
+}
+
+#start-button:hover {
+    background: linear-gradient(135deg, #fff5dc 0%, #e6c547 50%, #bd8b16 100%);
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 0 35px rgba(255, 215, 0, 0.8), 
+        0 12px 30px rgba(0, 0, 0, 0.8), 
+        inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+#start-button:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 
+        0 0 15px rgba(212, 175, 55, 0.6), 
+        0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Breathing and glowing keyframes */
+@keyframes mysticGoldPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 15px rgba(212, 175, 55, 0.4), 
+            0 8px 25px rgba(0, 0, 0, 0.7), 
+            inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 
+            0 0 35px rgba(255, 223, 79, 0.8), 
+            0 10px 30px rgba(0, 0, 0, 0.8), 
+            inset 0 2px 8px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Sweeping light shimmer effect */
+@keyframes goldShimmer {
+    0% {
+        transform: rotate(30deg) translateX(-100%);
+    }
+    20% {
+        transform: rotate(30deg) translateX(100%);
+    }
+    100% {
+        transform: rotate(30deg) translateX(100%);
+    }
+}
+
+/* =========================================
+   2. COMIC & STORY REVEAL SCREENS
+   ========================================= */
+
+#comic-screen, #story-screen {
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: radial-gradient(circle at center, #1b1226 0%, #0a0710 100%);
+}
+
+.comic-page, .story-page {
+    position: relative;
+    width: min(100%, 600px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+#comic-image, #story-image {
+    max-width: 100%;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid rgba(230, 197, 107, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+    background: #000;
+}
+
+.story-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    padding: 0 10px;
+}
+
+.story-title {
+    color: #f3d16c;
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.story-text {
+    color: #e2d7c1;
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    line-height: 1.5;
+}
+
+#comic-next-button, #story-continue-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #4d2a63 0%, #22102f 100%);
+    color: #ffe8a3;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 2px solid #e6c56b;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+/* =========================================
+   3. SINGLE-SCREEN 3D LEVEL MAP
+   ========================================= */
+
+   #level-map-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #030806;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+/* Dark overlay so the gold nodes and path lines remain clearly readable */
+#level-map-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 8, 6, 0.65);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.level-map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Zero scrolling */
+}
+
+.region-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: max(12px, env(safe-area-inset-top)) 16px 8px;
+    text-align: center;
+    background: rgba(15, 8, 25, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(230, 197, 107, 0.3);    z-index: 50;
+    pointer-events: none;
+}
+
+.region-number {
+    color: #e6c56b;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.region-header h2 {
+    color: #fff8e1;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    margin-top: 2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* Container locking all 25 nodes inside the visible screen bounds */
+.level-scroll {
+    position: absolute;
+    inset: 0;
+    overflow: hidden; /* Disables all scrolling completely */
+}
+
+.level-path {
+    position: absolute;
+    top: 75px;
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   3D GEMSTONE LEVEL NODES
+   ========================================= */
+
+   .level-node {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Perfect Round Magical Coin / Wax Seal Shape */
+    border-radius: 50%;
+    background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: bold;
+    
+    /* 3D Depth Shadows & Glow */
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.7),
+        inset 0 2px 3px rgba(255, 255, 255, 0.25),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+        
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s;
+}
+
+.level-node:active {
+    transform: translate(-50%, -50%) scale(0.92);
+}
+
+/* COMPLETED LEVELS: Solid Polished Golden Gem */
+.level-node.completed {
+    background: linear-gradient(135deg, #d97706 0%, #78350f 100%);
+    border-color: #fcd34d;
+    color: #fffbeb;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(254, 240, 138, 0.5),
+        inset 0 -2px 4px rgba(120, 53, 15, 0.8);
+}
+
+/* INCOMPLETE / LOCKED LEVELS: Solid, Clear Stone */
+.level-node.locked {
+    background: linear-gradient(135deg, #243044 0%, #111827 100%) !important;
+    border: 2px solid rgba(148, 163, 184, 0.35) !important;
+    color: #94a3b8 !important; /* Crisp, readable level numbers */
+    opacity: 1 !important;     /* Solid opacity so the line behind does NOT bleed through */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+    cursor: default;
+}
+
+/* Ensure ALL nodes sit firmly above the connecting line */
+.level-node {
+    z-index: 10 !important;
+}
+
+/* Boss Level Skull Badge */
+.boss-symbol {
+    position: absolute;
+    top: -10px !important;
+    left: -8px !important;
+    transform: none !important;
+    font-size: 1.15rem !important;
+    background: #1e111a;
+    border: 1.5px solid #f43f5e;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    z-index: 15 !important;
+}
+
+.level-node.boss .boss-symbol::after {
+    content: "💀";
+    font-size: 0.85rem;
+}
+
+/* ACTIVE / CURRENT LEVEL: Glowing 3D Sun Gem */
+.level-node.current {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fef08a 0%, #ca8a04 100%);
+    border-color: #ffffff;
+    color: #422006;
+    
+    /* Glowing 3D Aura */
+    box-shadow: 
+        0 0 0 4px rgba(253, 224, 71, 0.3),
+        0 8px 20px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(234, 179, 8, 0.9),
+        inset 0 2px 5px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(161, 98, 7, 0.8);
+        
+    animation: currentPulse 1.8s infinite ease-in-out;
+}
+
+/* BOSS LEVELS: Special Ruby Gemstone */
+.level-node.boss {
+    background: linear-gradient(135deg, #f43f5e 0%, #881337 100%);
+    border-color: #fda4af;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.level-node.current.boss {
+    background: linear-gradient(135deg, #ffe4e6 0%, #e11d48 100%);
+    box-shadow: 
+        0 0 0 4px rgba(244, 63, 94, 0.3),
+        0 8px 20px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(225, 29, 72, 0.9),
+        inset 0 2px 5px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(136, 19, 55, 0.8);
+}
+
+/* Smooth, glowing golden thread path lines connecting nodes */
+.level-path-line {
+    position: absolute;
+    height: 4px;
+    background: linear-gradient(90deg, #b8860b, #f3d16c, #b8860b);
+    box-shadow: 0 0 8px rgba(243, 209, 108, 0.6);
+    border-radius: 2px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Tiny crisp checkmark overlay */
+.level-check {
+    position: absolute;
+    right: -6px;
+    bottom: -4px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #15803d;
+    color: #f0fdf4;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border: 1.5px solid #bbf7d0;
+}
+
+/* Boss Level Skull Icon - Positioned on the left side so it never clashes with the King's crown */
+.boss-symbol {
+    position: absolute;
+    top: 50%;
+    left: -14px;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.9));
+    z-index: 12;
+}
+
+/* Force the boss-symbol text content to display a skull for boss levels */
+.level-node.boss .boss-symbol::after {
+    content: "💀";
+}
+
+/* Compact King Marker tracking current position */
+.king-marker {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8));
+    animation: kingFloat 1.6s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.current-level-button {
+    position: absolute;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    width: 46px;
+    height: 46px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e6c56b;
+    border-radius: 50%;
+    background: rgba(20, 12, 28, 0.95);
+    color: #ffe8a3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.current-level-button.visible {
+    display: flex;
+}
+
+/* =========================================
+   4. RIDDLE / GAMEPLAY SCREEN
+   ========================================= */
+
+#riddle-screen {
+    align-items: center;
+    justify-content: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    background: radial-gradient(circle at 50% 20%, #281636 0%, #11091a 50%, #050308 100%);
+    overflow-y: auto;
+}
+
+.riddle-container {
+    width: min(100%, 620px);
+    display: flex;
+    flex-direction: column;
+}
+
+.riddle-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+#back-to-map-button {
+    padding: 8px 16px;
+    background: #181026 !important; /* Solid dark mystical color */
+    border: 2px solid #e6c56b !important; /* Clear gold border */
+    border-radius: 8px;
+    color: #ffd700;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Strong shadow to lift it off the background */
+    cursor: pointer;
+}
+
+#riddle-level {
+    color: #e6c56b;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.riddle-card {
+    background: rgba(15, 8, 25, 0.65) !important; /* Solid dark tint without blur */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 2px solid rgba(230, 197, 107, 0.6);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.witch-symbol {
+    font-size: 2.4rem;
+    margin-bottom: 4px;
+    animation: floatWitch 2.5s infinite ease-in-out;
+}
+
+#witch-message {
+    color: #cbb4d4;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 14px;
+}
+
+#question-text {
+    color: #fffbea;
+    font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5) !important; /* Clean transparent black */
+    backdrop-filter: none !important;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.answer-area {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#answer-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 52px;
+    padding: 0 16px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    color: #111;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#submit-answer {
+    width: 100%;
+    height: 52px;
+    background: linear-gradient(135deg, #5b3275 0%, #301741 100%);
+    color: #ffe8a3;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 2px solid #e6c56b;
+    border-radius: 12px;
+}
+
+#result-message {
+    min-height: 24px;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #f3d16c;
+}
+
+#next-level-button {
+    width: 100%;
+    height: 52px;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #166534 0%, #052e16 100%);
+    color: #bbf7d0;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 2px solid #4ade80;
+    border-radius: 12px;
+}
+
+#next-level-button.hidden {
+    display: none;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes kingFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes floatCrown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes floatWitch {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes currentPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(253, 224, 71, 0.2), 0 8px 20px rgba(0,0,0,0.7), 0 0 20px rgba(234, 179, 8, 0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(253, 224, 71, 0.3), 0 8px 20px rgba(0,0,0,0.7), 0 0 35px rgba(234, 179, 8, 0.95); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* =========================================
+   POLISHED REGION NAVIGATION BUTTONS
+   ========================================= */
+
+.region-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    gap: 10px;
+    pointer-events: auto; /* Re-enables clicking inside the header */
+}
+
+.region-titles {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.nav-arrow-btn {
+    background: linear-gradient(135deg, #5b3e8c, #3b2a5c);
+    color: #f3e9dc;
+    border: 1px solid #9a73e3;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7a55bc, #5b3e8c);
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(154, 115, 227, 0.4);
+}
+
+.nav-arrow-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.nav-arrow-btn:disabled {
+    background: #221d2b;
+    color: #554d63;
+    border-color: #332b40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+/* =========================================
+   MYTHICAL GEMS & HINT MODAL SYSTEM
+   ========================================= */
+
+/* Gem Counter Badge on Map/Riddle Screens */
+.gem-currency-badge {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    background: linear-gradient(135deg, rgba(30, 15, 45, 0.95), rgba(10, 5, 20, 0.95));
+    border: 1.5px solid #e6c56b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #fef08a;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 60;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Prominent Mythical Hint Trigger Button */
+/* Prominent Mythical Hint Trigger Button */
+.hint-trigger-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 50%, #d97706 100%);
+    color: #fef08a;
+    border: 2px solid #fcd34d;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5), 0 0 15px rgba(252, 211, 77, 0.3);
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: hintPulseGlow 2s infinite ease-in-out;
+}
+
+.hint-trigger-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #5b21b6 50%, #f59e0b 100%);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.7), 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+.hint-trigger-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes hintPulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), 0 0 10px rgba(252, 211, 77, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(124, 58, 237, 0.8), 0 0 22px rgba(252, 211, 77, 0.5);
+    }
+}
+
+.hint-trigger-btn:hover {
+    background: linear-gradient(135deg, #4d3778, #2a1b4a);
+    border-color: #e6c56b;
+    transform: translateY(-1px);
+}
+
+/* Mythical Modal Overlay */
+.mythical-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 5, 10, 0.85);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.mythical-modal-overlay.active {
+    display: flex;
+}
+
+/* Mythical Modal Box */
+.mythical-modal-box {
+    position: relative;
+    width: min(100%, 420px);
+    background: linear-gradient(145deg, #241338, #0e0717);
+    border: 2px solid #e6c56b;
+    border-radius: 20px;
+    padding: 24px 20px 20px 20px;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(154, 115, 227, 0.2);
+    text-align: center;
+    color: #f7f1e3;
+}
+
+/* Close Button Top Right */
+.mythical-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(230, 197, 107, 0.4);
+    color: #e2d7c1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mythical-close-btn:hover {
+    background: #e6c56b;
+    color: #111;
+}
+
+.mythical-modal-title {
+    color: #f3d16c;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+/* Hint Item Rows inside Modal */
+.mythical-hint-item {
+    background: rgba(15, 8, 25, 0.6);
+    border: 1px solid #4a3575;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.mythical-hint-item.unlocked {
+    border-color: #38bdf8;
+    background: rgba(3, 105, 161, 0.15);
+}
+
+.hint-row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hint-row-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #f3d16c;
+}
+
+.unlock-hint-btn {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #e0f2fe;
+    border: 1px solid #38bdf8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.unlock-hint-btn:disabled {
+    background: #1e293b;
+    color: #64748b;
+    border-color: #334155;
+    cursor: not-allowed;
+}
+
+.hint-row-content {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #bae6fd;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Insufficient Gems Dialog Popup Styling */
+.ad-prompt-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #fef08a;
+}
+
+.ad-prompt-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.ad-btn-yes, .ad-btn-no {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.ad-btn-yes {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #dcfce7;
+    border: 1px solid #4ade80;
+}
+
+.ad-btn-no {
+    background: linear-gradient(135deg, #475569, #334155);
+    color: #f1f5f9;
+    border: 1px solid #64748b;
+}
+
+/* =========================================
+   MYTHIC ARROWHEAD NAVIGATION BUTTONS
+   ========================================= */
+
+   .mystic-nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    
+    background: linear-gradient(145deg, #1f122e 0%, #0d0614 100%);
+    border: 1.5px solid #d97706;
+    border-radius: 10px;
+    
+    width: 48px;
+    height: 60px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), 
+                inset 0 1px 1px rgba(254, 240, 138, 0.3),
+                0 0 10px rgba(217, 119, 6, 0.25);
+                
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.prev-arrow {
+    left: 10px;
+    padding-right: 2px;
+}
+
+.next-arrow {
+    right: 10px;
+    padding-left: 2px;
+}
+
+.mystic-nav-arrow:hover:not(:disabled) {
+    border-color: #fde047;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.9), 
+                0 0 16px rgba(245, 158, 11, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.mystic-nav-arrow:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.mystic-nav-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+/* =========================================
+   BOSS LEVEL IMMERSIVE THEME & LOOK
+   ========================================= */
+
+/* Retain region background image via relative positioning, adding an ominous crimson filter layer */
+.screen.active.boss-screen-theme {
+    position: relative;
+    border: 4px solid #f43f5e;
+    box-shadow: inset 0 0 60px rgba(244, 63, 94, 0.75), 0 0 25px rgba(244, 63, 94, 0.4);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Crimson boss atmosphere overlay placed on top of the region image */
+.screen.active.boss-screen-theme::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 25%, rgba(136, 19, 55, 0.45) 0%, rgba(76, 5, 25, 0.65) 50%, rgba(15, 3, 8, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure card and controls sit above the red atmosphere layer */
+.boss-screen-theme .riddle-container {
+    position: relative;
+    z-index: 2;
+}
+
+.boss-screen-theme .gem-currency-badge {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    z-index: 60;
+}
+
+/* Premium translucent crimson glass card that lets the background show through */
+.boss-screen-theme .riddle-card {
+    background: rgba(45, 8, 18, 0.68) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(244, 63, 94, 0.85) !important;
+    box-shadow: 0 0 35px rgba(244, 63, 94, 0.45), 0 16px 40px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Pulsing red warning top heading badge */
+.boss-screen-theme #riddle-level {
+    color: #fda4af !important;
+    font-size: 0.95rem !important;
+    text-shadow: 0 0 12px rgba(244, 63, 94, 0.9);
+    animation: bossPulseText 1.5s infinite ease-in-out;
+}
+
+@keyframes bossPulseText {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* =========================================
+   PROFESSIONAL GEM CURRENCY BADGE & + BUTTON
+   ========================================= */
+
+   .gem-currency-badge {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    background: linear-gradient(135deg, rgba(30, 15, 45, 0.95), rgba(10, 5, 20, 0.95));
+    border: 1.5px solid #e6c56b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #fef08a;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 60;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.gem-currency-badge:hover {
+    transform: scale(1.03);
+}
+
+.gem-plus-glow-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fffbeb;
+    border: 1px solid #fef08a;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+    animation: gemPlusPulse 1.5s infinite ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes gemPlusPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 6px rgba(245, 158, 11, 0.6); }
+    50% { transform: scale(1.15); box-shadow: 0 0 14px rgba(254, 240, 138, 0.9); }
+}
+
+/* =========================================
+   PROFESSIONAL RIDDLE SCREEN WATCH AD BUTTON
+   ========================================= */
+
+.riddle-ad-glow-btn {
+    width: 100%;
+    height: 50px;
+    margin-top: 14px;
+    background: linear-gradient(135deg, #059669 0%, #047857 50%, #d97706 100%);
+    color: #fef08a;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid #34d399;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4), 0 0 12px rgba(252, 211, 77, 0.3);
+    animation: riddleAdPulse 1.8s infinite ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.riddle-ad-glow-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #059669 0%, #065f46 50%, #b45309 100%);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.7), 0 0 18px rgba(252, 211, 77, 0.6);
+    border-color: #ffffff;
+}
+
+.riddle-ad-glow-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes riddleAdPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4), 0 0 10px rgba(252, 211, 77, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 22px rgba(5, 150, 105, 0.8), 0 0 20px rgba(252, 211, 77, 0.5);
+    }
+}
+
+/* Boss Level Interactive Transition Overlay */
+.boss-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(68, 10, 20, 0.96) 0%, rgba(15, 5, 10, 0.99) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.boss-transition-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.boss-transition-content {
+    text-align: center;
+    padding: 30px;
+    max-width: 420px;
+    width: 90%;
+}
+
+.boss-transition-crown {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+#boss-transition-title {
+    font-size: 1.8rem;
+    color: #f87171;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px rgba(248, 113, 113, 0.6);
+}
+
+#boss-transition-subtitle {
+    font-size: 1rem;
+    color: #e2e8f0;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.boss-transition-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.boss-btn-continue {
+    background: linear-gradient(135deg, #eab308, #ca8a04);
+    color: #1e1b4b;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
+    transition: transform 0.1s ease;
+}
+
+.boss-btn-continue:active {
+    transform: scale(0.98);
+}
+
+.boss-btn-ad {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #ffffff;
+    border: 1px solid #4ade80;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);
+    transition: transform 0.1s ease;
+}
+
+.boss-btn-ad:active {
+    transform: scale(0.98);
+}
+
+/* Victory Overlay Container */
+.victory-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  /* Floating Runes Animation */
+  .magical-rune {
+    position: absolute;
+    font-size: 2rem;
+    color: #b19cd9; /* Soft mystical purple */
+    text-shadow: 0 0 10px #9370db;
+    opacity: 0;
+    animation: floatUp 2s ease-out forwards;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(20px) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120px) scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  /* Triumphant Banner */
+  .victory-banner {
+    background: rgba(20, 15, 30, 0.9);
+    border: 2px solid #ffd700; /* Gold trim */
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+  }
+  
+  @keyframes popIn {
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .victory-banner h2 {
+    color: #ffd700;
+    font-family: serif;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+  }
+  
+  .victory-banner p {
+    color: #e0e0e0;
+    margin: 0;
+  }
+
+  /* =========================================
+   CUSTOM MAGICAL VIRTUAL KEYBOARD STYLES
+   ========================================= */
+
+   .custom-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(15, 10, 25, 0.7) !important; /* Clear see-through tint */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 2px solid #b19cd9;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    margin: 15px 0 0 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+  
+  .keyboard-row {
+    display: flex;
+    justify-content: space-between; /* Spreads keys evenly to fit the borders */
+    gap: 6px;
+    width: 100%;
+  }
+  
+  /* Individual Key Styling */
+  .key-btn {
+    background: linear-gradient(to bottom, #2d224c, #1a1330);
+    color: #f3e8ff;
+    border: 1px solid #ffd700; /* Shiny gold border */
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: bold;
+    padding: 14px 0; /* Taller keys for easier mobile tapping */
+    flex: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 215, 0, 0.3);
+    transition: all 0.1s ease;
+  }
+  
+  .key-btn:active {
+    background: #ffd700;
+    color: #1a1330;
+    transform: translateY(2px);
+    box-shadow: 0 0 10px #ffd700;
+  }
+  
+  /* Utility and Enter Buttons */
+  .utility-btn {
+    background: linear-gradient(to bottom, #4a154b, #2b0b2c);
+    border-color: #ff758c;
+    flex: 1.2;
+    font-size: 0.9rem;
+  }
+  
+  .enter-btn {
+    background: linear-gradient(to bottom, #10b981, #047857);
+    border-color: #34d399;
+    color: #ffffff;
+    flex: 1;
+    padding: 14px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  }
+  
+  .key-btn:active {
+    background: #ffd700;
+    color: #1a1330;
+    transform: translateY(2px);
+    box-shadow: 0 0 10px #ffd700;
+  }
+
+  /* =========================================
+   DEFEAT / TRY AGAIN POP-UP OVERLAY
+   ========================================= */
+
+.defeat-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 5, 15, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeInOverlay 0.2s ease-out forwards;
+    pointer-events: none; /* Allows clicks to pass through if needed */
+  }
+  
+  .defeat-banner {
+    background: linear-gradient(135deg, #4a0e17, #1f0509);
+    border: 3px solid #ff4d4d;
+    border-radius: 16px;
+    padding: 25px 40px;
+    text-align: center;
+    box-shadow: 0 0 35px rgba(255, 77, 77, 0.6);
+    animation: popUpBanner 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  .defeat-banner h2 {
+    color: #ff8080;
+    font-size: 1.8rem;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+  }
+  
+  .defeat-banner p {
+    color: #f3e8ff;
+    font-size: 1.1rem;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .defeat-banner p {
+    color: #f3e8ff;
+    font-size: 1.1rem;
+    margin: 0;
+    font-style: italic;
+  }
+/* =========================================
+     GLOBAL MUTE BUTTON
+     ========================================= */
+
+     .global-mute-button {
+        position: fixed;
+        top: 15px;
+        left: 16px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(30, 15, 45, 0.95), rgba(10, 5, 20, 0.95));
+        border: 1.5px solid #e6c56b;
+        color: #fef08a;
+        font-size: 1.2rem;
+        display: none; /* Hidden on title/loading screen by default */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 0.15s ease;
+    }
+  
+    .global-mute-button.active {
+        display: flex; /* Displays after Begin the Quest is clicked */
+    }
+
+    /* =========================================
+     SKIPPED LEVEL NODE STYLING (Enabled, not golden)
+     ========================================= */
+
+  .level-node.skipped {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+    border-color: #94a3b8;
+    color: #f1f5f9;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.6),
+        inset 0 2px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Skip marker icon (subtle skip indicator instead of green checkmark) */
+.level-skip-icon {
+    position: absolute;
+    right: -6px;
+    bottom: -4px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #475569;
+    color: #cbd5e1;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border: 1.5px solid #94a3b8;
+}
+
+/* Skip row inside hints modal */
+.mythical-hint-item.skip-row {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.08);
+    margin-top: 14px;
+}
+
+/* =========================================
+   HOW TO PLAY & TUTORIAL STYLES
+   ========================================= */
+
+/* Title Screen Entry Button */
+.title-how-to-play-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+    background: rgba(30, 20, 50, 0.85);
+    color: #e2d7c1;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #e6c56b;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.title-how-to-play-btn:hover {
+    background: rgba(60, 40, 95, 0.95);
+    border-color: #ffd700;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Map Screen Circular ? Button */
+.map-help-circle-btn {
+    position: absolute;
+    top: 15px;
+    left: 70px; /* Sits next to the global mute button on the top-left */
+    width: 38px;
+    height: 38px;
+    background: #181026;
+    border: 1.5px solid #e6c56b;
+    border-radius: 50%;
+    color: #ffe8a3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.map-help-circle-btn:hover {
+    border-color: #ffd700;
+    transform: scale(1.08);
+}
+
+/* Tutorial Box & Image Sizing */
+.tutorial-box {
+    max-width: 440px;
+    width: 90%;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 16px;
+}
+
+.tutorial-image-container {
+    width: 100%;
+    border: 1px solid #4a3b5c;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+    background: #000;
+}
+
+.tutorial-guide-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.tutorial-summary-text {
+    font-size: 0.85rem;
+    color: #e2d7c1;
+    line-height: 1.4;
+    text-align: center;
+    margin: 8px 0 14px 0;
+}
+
+.tutorial-confirm-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #7c3aed, #4c1d95);
+    color: #fef08a;
+    border: 1.5px solid #fcd34d;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.tutorial-confirm-btn:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   7-DAY MYSTIC DAILY LOGIN SHRINE
+   ========================================= */
+
+   .daily-shrine-box {
+    max-width: 440px;
+    width: 92%;
+    padding: 24px 16px 20px 16px;
+}
+
+.daily-shrine-subtitle {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.daily-shrine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.daily-slot {
+    background: rgba(15, 8, 25, 0.7);
+    border: 1.5px solid #4a3575;
+    border-radius: 10px;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.daily-slot-day {
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.daily-slot-reward {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fef08a;
+    margin-top: 4px;
+}
+
+/* Day 7 spans full row as a Grand Celestial Reward */
+.daily-slot.day-7 {
+    grid-column: span 3;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.45), rgba(30, 10, 50, 0.85));
+    border-color: #d97706;
+}
+
+.daily-slot.day-7 .daily-slot-reward {
+    font-size: 1.1rem;
+    color: #fde047;
+    margin-top: 0;
+}
+
+/* Slot States */
+.daily-slot.claimed {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: #334155;
+    opacity: 0.55;
+}
+
+.daily-slot.claimed .daily-slot-reward::after {
+    content: " ✓";
+    color: #4ade80;
+}
+
+.daily-slot.active-today {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.3), rgba(67, 24, 107, 0.6));
+    border: 2px solid #fcd34d;
+    box-shadow: 0 0 16px rgba(252, 211, 77, 0.5), inset 0 0 10px rgba(252, 211, 77, 0.2);
+    transform: scale(1.04);
+}
+
+.daily-slot.active-today .daily-slot-day {
+    color: #fef08a;
+}
+
+.daily-shrine-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.daily-claim-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fffbeb;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #fde047;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+    transition: transform 0.1s ease;
+}
+
+.daily-claim-btn:active {
+    transform: scale(0.98);
+}
+
+.daily-double-ad-btn {
+    width: 100%;
+    padding: 11px;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #f0fdf4;
+    font-size: 0.88rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border: 1px solid #4ade80;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    transition: transform 0.1s ease;
+}
+
+.daily-double-ad-btn:active {
+    transform: scale(0.98);
+}
