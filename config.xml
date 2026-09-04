@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.vividmindstudios.witchtrials" 
+        version="1.0.0" 
+        android-versionCode="1" 
+        xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+    <name>The Witch's 500 Trials</name>
+    <description>
+        Think Like a King. Outsmart the Witch. Rescue the Queen. Solve 500 mystical riddles across 20 enchanted realms.
+    </description>
+    <author email="vividmindstudios@gmail.com" href="https://subha28suresh-svg.github.io/the-witchs-500-trials/privacy-policy.html">
+        Vividmind Studios
+    </author>
+
+    <content src="index.html" />
+
+    <!-- External Network & Intent Whitelist -->
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <!-- Android Platform Configuration -->
+    <platform name="android">
+        <preference name="Orientation" value="portrait" />
+        <preference name="Fullscreen" value="true" />
+        <preference name="BackgroundColor" value="#05070c" />
+        <preference name="KeepRunning" value="true" />
+        <preference name="ShowSplashScreenSpinner" value="false" />
+        <preference name="SplashMaintainAspectRatio" value="true" />
+        <preference name="SplashShowOnlyFirstTime" value="true" />
+
+        <!-- Launcher Icons -->
+        <icon src="assets/icons/icon-192.png" density="mdpi" />
+        <icon src="assets/icons/icon-512.png" density="xxxhdpi" />
+    </platform>
+
+    <preference name="DisallowOverscroll" value="true" />
+</widget>
