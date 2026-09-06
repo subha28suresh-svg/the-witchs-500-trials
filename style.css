@@ -8,13 +8,28 @@
     padding: 0;
 }
 
+:root {
+    --sat: env(safe-area-inset-top, 24px);
+    --sab: env(safe-area-inset-bottom, 16px);
+}
+
 html, body {
     width: 100%;
     height: 100%;
+    height: 100dvh;
     overflow: hidden;
     font-family: 'Georgia', serif;
     background: #05070c;
     color: #f7f1e3;
+}
+
+/* Safe area breathing room below camera punch-hole */
+.global-mute-button,
+.gem-currency-badge,
+.map-help-circle-btn,
+.region-header,
+.riddle-top {
+    margin-top: var(--sat) !important;
 }
 
 button, input {
@@ -181,30 +196,33 @@ button {
 
 #comic-screen, #story-screen {
     align-items: center;
-    justify-content: center;
-    padding: 16px;
+    justify-content: space-between;
+    padding: var(--sat) 12px var(--sab) 12px;
     background: radial-gradient(circle at center, #1b1226 0%, #0a0710 100%);
+    box-sizing: border-box;
 }
 
 .comic-page, .story-page {
     position: relative;
-    width: min(100%, 600px);
+    width: 100%;
+    max-width: 480px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 80px;
+    justify-content: space-between;
+    padding-bottom: 12px;
 }
 
 #comic-image, #story-image {
-    max-width: 100%;
-    max-height: 62vh;
+    width: 95%;
+    max-height: 75dvh;
     object-fit: contain;
-    border-radius: 12px;
-    border: 2px solid rgba(230, 197, 107, 0.4);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 14px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 14px 40px rgba(0, 0, 0, 0.9);
     background: #000;
+    margin: auto 0;
 }
 
 .story-content {
@@ -229,20 +247,31 @@ button {
 }
 
 #comic-next-button, #story-continue-button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 14px 36px;
-    background: linear-gradient(135deg, #4d2a63 0%, #22102f 100%);
-    color: #ffe8a3;
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    border: 2px solid #e6c56b;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    max-width: 360px;
+    min-height: 52px;
+    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 50%, #d97706 100%);
+    color: #fffbeb;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #fde047;
+    border-radius: 26px;
+    box-shadow: 0 4px 18px rgba(124, 58, 237, 0.5), 0 0 14px rgba(253, 224, 71, 0.4);
     z-index: 10;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 10px;
+}
+
+#comic-next-button:active, #story-continue-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(253, 224, 71, 0.7);
 }
 
 /* =========================================
@@ -661,7 +690,13 @@ button {
 }
 
 #next-level-button.hidden {
-    display: none;
+    display: none !important;
+}
+
+#next-level-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* =========================================
@@ -1586,32 +1621,39 @@ button {
     transform: scale(1.08);
 }
 
-/* Tutorial Box & Image Sizing */
+/* Tutorial box */
+
 .tutorial-box {
     max-width: 440px;
-    width: 90%;
-    max-height: 88vh;
+    width: 92%;
+    max-height: 86dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    padding: 20px 16px;
+    padding: 16px 14px;
 }
 
 .tutorial-image-container {
     width: 100%;
-    border: 1px solid #4a3b5c;
-    border-radius: 8px;
+    max-height: 52dvh;
+    border: 1.5px solid #d4af37;
+    border-radius: 10px;
     overflow: hidden;
-    margin: 10px 0;
-    background: #000;
+    margin: 8px 0;
+    background: #05070c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tutorial-guide-img {
     width: 100%;
     height: auto;
+    max-height: 52dvh;
     display: block;
     object-fit: contain;
+    aspect-ratio: 9 / 16;
 }
 
 .tutorial-summary-text {

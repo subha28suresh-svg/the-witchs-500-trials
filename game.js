@@ -313,15 +313,19 @@ regionImages.forEach(src => {
        openLevelMap();
    });
    
-   storyContinueButton.addEventListener("click", () => {
+    storyContinueButton.addEventListener("click", () => {
         playBGM("normal");
        if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
            currentLevel = activeLevel + 1;
            saveProgress();
        }
        storyScreen.classList.remove("active");
-       viewedRegionId = getRegionForLevel(currentLevel);
-       openLevelMap();
+
+       // Show Interstitial Ad after Boss Comic, then load the next region map
+       showInterstitialAd(() => {
+           viewedRegionId = getRegionForLevel(currentLevel);
+           openLevelMap();
+       });
    });
    
    /* =========================================
@@ -817,13 +821,17 @@ function proceedToRiddleScreen(level) {
             saveGems();
             updateGemDisplays();
         }
-    
-        nextLevelButton.classList.remove("hidden");
-    
+  
         if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
             currentLevel = activeLevel + 1;
             saveProgress();
         }
+
+        // Keep hidden while victory banner plays, reveal smoothly after 1.8s
+        setTimeout(() => {
+            nextLevelButton.classList.remove("hidden");
+            nextLevelButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 1800);
     }
    
    function showDefeatEffect() {
@@ -867,17 +875,83 @@ function proceedToRiddleScreen(level) {
        riddleScreen.classList.remove("active");
        storyScreen.classList.add("active");
    }
-   
+  
+   /* =========================================
+   INTERSTITIAL AD SYSTEM (EVERY 5 LEVELS & BOSSES)
+   ========================================= */
+
+    function showInterstitialAd(onAdClosed) {
+        let adModal = document.getElementById("ad-interstitial-modal");
+        if (!adModal) {
+            adModal = document.createElement("div");
+            adModal.id = "ad-interstitial-modal";
+            adModal.className = "mythical-modal-overlay active";
+            adModal.innerHTML = `
+                <div class="mythical-modal-box" style="border-color: #38bdf8; max-width: 360px;">
+                    <div style="font-size: 0.75rem; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase;">Advertisement</div>
+                    <div style="font-size: 2.8rem; margin: 12px 0;">🔮</div>
+                    <h3 class="mythical-modal-title" style="color: #fef08a; font-size: 1.15rem; margin-bottom: 8px;">A Short Intermission</h3>
+                    <p id="ad-interstitial-status" style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px;">The arcane gates are opening in 3...</p>
+                    <button id="close-interstitial-btn" class="hint-trigger-btn" style="display: none; background: linear-gradient(135deg, #0284c7, #0369a1); border-color: #38bdf8;">
+                        Resume Journey →
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(adModal);
+        } else {
+            adModal.classList.add("active");
+        }
+
+        let secondsLeft = 3;
+        const statusText = document.getElementById("ad-interstitial-status");
+        const closeBtn = document.getElementById("close-interstitial-btn");
+        closeBtn.style.display = "none";
+        statusText.textContent = `The arcane gates are opening in ${secondsLeft}...`;
+
+        const timer = setInterval(() => {
+            secondsLeft--;
+            if (secondsLeft > 0) {
+                statusText.textContent = `The arcane gates are opening in ${secondsLeft}...`;
+            } else {
+                clearInterval(timer);
+                statusText.textContent = "Path unlocked.";
+                closeBtn.style.display = "block";
+            }
+        }, 1000);
+
+        closeBtn.onclick = () => {
+            adModal.classList.remove("active");
+            if (typeof onAdClosed === "function") {
+                onAdClosed();
+            }
+        };
+    }
+
    /* =========================================
       NAVIGATION BUTTONS
       ========================================= */
    
    nextLevelButton.addEventListener("click", () => {
+       // 1. Boss levels (25, 50, etc.): Open the story comic first (Ad triggers after the comic)
        if (isBossLevel(activeLevel)) {
            showStoryReveal(activeLevel);
            return;
        }
    
+       // 2. Regular 5-level intervals (e.g., Level 5, 10, 15, 20): Trigger Interstitial Ad
+       if (activeLevel % 5 === 0) {
+           showInterstitialAd(() => {
+               if (activeLevel < 500) {
+                   openRiddle(activeLevel + 1);
+               } else {
+                   showScreen(levelMapScreen);
+                   renderCurrentRegion();
+               }
+           });
+           return;
+       }
+
+       // 3. Normal progression (Levels 1-4, 6-9, etc.)
        if (activeLevel < 500) {
            openRiddle(activeLevel + 1);
        } else {
