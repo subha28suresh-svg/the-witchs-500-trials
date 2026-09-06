@@ -691,8 +691,13 @@ function proceedToRiddleScreen(level) {
 
     answerInput.value = "";
     answerInput.disabled = false;
-    submitAnswer.disabled = false;
-    nextLevelButton.classList.add("hidden");
+    if (submitAnswer) submitAnswer.disabled = false;
+
+    // Hard-reset the Continue button on every level load
+    if (nextLevelButton) {
+        nextLevelButton.classList.add("hidden");
+        nextLevelButton.style.display = "none";
+    }
 
     const riddleAdBonusBtn = document.getElementById("riddle-ad-bonus-btn");
     if (riddleAdBonusBtn) {
@@ -829,8 +834,11 @@ function proceedToRiddleScreen(level) {
 
         // Keep hidden while victory banner plays, reveal smoothly after 1.8s
         setTimeout(() => {
-            nextLevelButton.classList.remove("hidden");
-            nextLevelButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (nextLevelButton) {
+                nextLevelButton.classList.remove("hidden");
+                nextLevelButton.style.display = "flex";
+                nextLevelButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }, 1800);
     }
    
