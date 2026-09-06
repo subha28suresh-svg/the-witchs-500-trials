@@ -1624,45 +1624,49 @@ button {
 /* Tutorial box */
 
 .tutorial-box {
-    max-width: 420px;
-    width: 92%;
-    max-height: 90dvh;
+    /* Maximize horizontal and vertical real estate */
+    width: 96% !important;
+    max-width: 460px !important;
+    max-height: 94dvh !important;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 14px 16px 14px;
-    overflow: hidden;
+    
+    /* Keep clearance below camera notch and mute button */
+    padding: max(10px, var(--sat)) 10px max(12px, var(--sab)) 10px !important;
+    border-radius: 16px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .tutorial-guide-img {
-    width: 100%;
-    height: auto;
-    max-height: 74dvh;
+    /* Fill full container width cleanly without horizontal compression */
+    width: 100% !important;
+    height: auto !important;
+    max-height: 78dvh !important;
+    aspect-ratio: 9 / 16;
     object-fit: contain;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    margin-bottom: 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
     display: block;
 }
 
 .tutorial-confirm-btn {
-    width: 100%;
+    width: 100% !important;
     min-height: 48px;
-    padding: 12px 20px;
+    padding: 12px;
     background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
     color: #fffbeb;
     border: 2px solid #fde047;
     border-radius: 12px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: bold;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
     flex-shrink: 0;
 }
 
