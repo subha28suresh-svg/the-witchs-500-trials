@@ -30,9 +30,12 @@
         <preference name="Fullscreen" value="true" />
         <preference name="BackgroundColor" value="#05070c" />
         <preference name="KeepRunning" value="true" />
+        <preference name="SplashScreenDelay" value="0" />
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="FadeSplashScreen" value="false" />
         <preference name="ShowSplashScreenSpinner" value="false" />
-        <preference name="SplashMaintainAspectRatio" value="true" />
-        <preference name="SplashShowOnlyFirstTime" value="true" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#05070c" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="assets/icons/transparent_icon.png" />
 
         <!-- Launcher Icons -->
         <icon src="assets/icons/icon-192.png" density="mdpi" />

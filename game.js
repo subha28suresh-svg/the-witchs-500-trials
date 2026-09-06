@@ -1402,22 +1402,51 @@ if (dailyDoubleAdBtn) {
 }
 
 // =========================================
-// ANDROID HARDWARE BACK-BUTTON HANDLER
+// NATIVE CORDOVA BRIDGE: BACK BUTTON, LIFECYCLE & AUDIO
 // =========================================
 
-document.addEventListener("backbutton", onHardwareBackButton, false);
+const exitModal = document.getElementById("exit-game-modal");
+const exitConfirmYes = document.getElementById("exit-confirm-yes");
+const exitConfirmNo = document.getElementById("exit-confirm-no");
+
+if (exitConfirmYes) {
+    exitConfirmYes.addEventListener("click", () => {
+        if (navigator.app && navigator.app.exitApp) {
+            navigator.app.exitApp();
+        } else if (navigator.device && navigator.device.exitApp) {
+            navigator.device.exitApp();
+        } else {
+            window.close();
+        }
+    });
+}
+
+if (exitConfirmNo) {
+    exitConfirmNo.addEventListener("click", () => {
+        if (exitModal) exitModal.classList.remove("active");
+    });
+}
 
 function onHardwareBackButton(e) {
-    if (e) e.preventDefault();
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
 
-    // 1. Close any open modal popup first
+    // 1. If Exit Modal is open, dismiss it
+    if (exitModal && exitModal.classList.contains("active")) {
+        exitModal.classList.remove("active");
+        return;
+    }
+
+    // 2. Close any open game modal (Hints, Shop, Daily Login, How to Play, etc.)
     const activeModal = document.querySelector(".mythical-modal-overlay.active");
-    if (activeModal) {
+    if (activeModal && activeModal !== exitModal) {
         activeModal.classList.remove("active");
         return;
     }
 
-    // 2. Return to map if playing a riddle
+    // 3. Riddle Screen -> Go back to Level Map
     if (riddleScreen && riddleScreen.classList.contains("active")) {
         playBGM("normal");
         showScreen(levelMapScreen);
@@ -1425,7 +1454,7 @@ function onHardwareBackButton(e) {
         return;
     }
 
-    // 3. Return to map if reading story or comic
+    // 4. Comic Screen / Story Screen -> Go back to Level Map
     if ((comicScreen && comicScreen.classList.contains("active")) || 
         (storyScreen && storyScreen.classList.contains("active"))) {
         playBGM("normal");
@@ -1434,18 +1463,75 @@ function onHardwareBackButton(e) {
         return;
     }
 
-    // 4. Return to Title screen if on level map
+    // 5. Level Map Screen -> Return to Title Screen
     if (levelMapScreen && levelMapScreen.classList.contains("active")) {
         showScreen(titleScreen);
         return;
     }
 
-    // 5. If on Title screen, prompt confirmation before exiting
+    // 6. Title Screen (Root) -> Prompt Exit Game Dialog
     if (titleScreen && titleScreen.classList.contains("active")) {
-        if (confirm("Do you wish to leave the Witch's realm?")) {
-            if (navigator.app && navigator.app.exitApp) {
-                navigator.app.exitApp();
-            }
+        if (exitModal) {
+            exitModal.classList.add("active");
         }
     }
 }
+
+// Background / Minimize audio state management
+let wasBgmPlayingBeforePause = false;
+let pausedTrackType = "normal";
+
+function onAppMinimized() {
+    if (bgmNormal && !bgmNormal.paused) {
+        pausedTrackType = "normal";
+        wasBgmPlayingBeforePause = true;
+        bgmNormal.pause();
+    } else if (bgmBoss && !bgmBoss.paused) {
+        pausedTrackType = "boss";
+        wasBgmPlayingBeforePause = true;
+        bgmBoss.pause();
+    } else {
+        wasBgmPlayingBeforePause = false;
+    }
+}
+
+function onAppResumed() {
+    if (wasBgmPlayingBeforePause && !isMuted) {
+        playBGM(pausedTrackType);
+    }
+}
+
+// Ensure all listeners bind after Cordova native bridge is fully initialized
+document.addEventListener("deviceready", () => {
+    // Intercept native hardware back button
+    document.addEventListener("backbutton", onHardwareBackButton, false);
+
+    // App minimized to background
+    document.addEventListener("pause", onAppMinimized, false);
+
+    // App returned to foreground
+    document.addEventListener("resume", onAppResumed, false);
+
+    // Physical Volume Sync
+    [bgmNormal, bgmBoss].forEach(audio => {
+        if (!audio) return;
+        audio.addEventListener("volumechange", () => {
+            if (audio.volume === 0 && !isMuted) {
+                isMuted = true;
+                applyMuteState();
+            } else if (audio.volume > 0 && isMuted) {
+                isMuted = false;
+                applyMuteState();
+            }
+        });
+    });
+}, false);
+
+// Fallback for browser/webview visibility changes
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        onAppMinimized();
+    } else {
+        onAppResumed();
+    }
+});
