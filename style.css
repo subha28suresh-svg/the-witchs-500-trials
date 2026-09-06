@@ -1624,27 +1624,24 @@ button {
 /* Tutorial box */
 
 .tutorial-box {
-    /* Maximize horizontal and vertical real estate */
     width: 96% !important;
     max-width: 460px !important;
     max-height: 94dvh !important;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
-    /* Keep clearance below camera notch and mute button */
-    padding: max(10px, var(--sat)) 10px max(12px, var(--sab)) 10px !important;
+    padding: max(10px, var(--sat)) 12px max(12px, var(--sab)) 12px !important;
     border-radius: 16px;
     box-sizing: border-box;
     overflow: hidden;
 }
 
 .tutorial-guide-img {
-    /* Fill full container width cleanly without horizontal compression */
     width: 100% !important;
-    height: auto !important;
+    /* Allows image to flex-shrink automatically on short screens */
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
     max-height: 78dvh !important;
     aspect-ratio: 9 / 16;
     object-fit: contain;
@@ -1667,7 +1664,8 @@ button {
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
-    flex-shrink: 0;
+    /* Guarantees the button is never squashed or hidden */
+    flex-shrink: 0 !important;
 }
 
 .tutorial-confirm-btn:active {
