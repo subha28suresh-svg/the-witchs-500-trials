@@ -298,7 +298,8 @@ regionImages.forEach(src => {
       EVENT LISTENERS: START & COMIC
       ========================================= */
    
-      startButton.addEventListener("click", () => {
+    startButton.addEventListener("click", () => {
+        enableScreenWakeLock();
         if (globalMuteBtn) {
             globalMuteBtn.classList.add("active");
         }
@@ -1513,6 +1514,7 @@ function onAppResumed() {
 
 // Ensure all listeners bind after Cordova native bridge is fully initialized
 document.addEventListener("deviceready", () => {
+    enableScreenWakeLock();
     // Intercept native hardware back button
     document.addEventListener("backbutton", onHardwareBackButton, false);
 
@@ -1548,5 +1550,31 @@ document.addEventListener("visibilitychange", () => {
         onAppMinimized();
     } else {
         onAppResumed();
+    }
+});
+
+/* =========================================
+   KEEP SCREEN AWAKE CONTROLLER
+   ========================================= */
+
+let screenWakeLock = null;
+
+async function enableScreenWakeLock() {
+    try {
+        if ('wakeLock' in navigator) {
+            screenWakeLock = await navigator.wakeLock.request('screen');
+            screenWakeLock.addEventListener('release', () => {
+                screenWakeLock = null;
+            });
+        }
+    } catch (err) {
+        console.warn('Screen Wake Lock error:', err);
+    }
+}
+
+// Re-acquire lock when the user switches back into the game
+document.addEventListener('visibilitychange', async () => {
+    if (document.visibilityState === 'visible') {
+        await enableScreenWakeLock();
     }
 });
