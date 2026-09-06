@@ -151,20 +151,27 @@ regionImages.forEach(src => {
       const globalMuteBtn = document.getElementById("global-mute-btn");
       let isMuted = localStorage.getItem("witchIsMuted") === "true";
    
-      function applyMuteState() {
-          if (bgmNormal) bgmNormal.muted = isMuted;
-          if (bgmBoss) bgmBoss.muted = isMuted;
-          if (globalMuteBtn) {
-              globalMuteBtn.textContent = isMuted ? "🔇" : "🔊";
-              globalMuteBtn.classList.toggle("muted", isMuted);
-          }
-      }
-   
-      function toggleMute() {
-          isMuted = !isMuted;
-          localStorage.setItem("witchIsMuted", isMuted);
-          applyMuteState();
-      }
+        function applyMuteState() {
+            if (bgmNormal) bgmNormal.muted = isMuted;
+            if (bgmBoss) bgmBoss.muted = isMuted;
+            if (globalMuteBtn) {
+                globalMuteBtn.textContent = isMuted ? "🔇" : "🔊";
+                globalMuteBtn.classList.toggle("muted", isMuted);
+            }
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            localStorage.setItem("witchIsMuted", isMuted ? "true" : "false");
+
+            // If unmuting, make sure track volume is restored to audible level
+            if (!isMuted) {
+                if (bgmNormal && bgmNormal.volume === 0) bgmNormal.volume = 1.0;
+                if (bgmBoss && bgmBoss.volume === 0) bgmBoss.volume = 1.0;
+            }
+
+            applyMuteState();
+        }
    
       if (globalMuteBtn) {
           globalMuteBtn.addEventListener("click", toggleMute);
@@ -1515,15 +1522,20 @@ document.addEventListener("deviceready", () => {
     // App returned to foreground
     document.addEventListener("resume", onAppResumed, false);
 
-    // Physical Volume Sync
+    // Physical Volume Sync (Ignores programmatic mute toggles)
     [bgmNormal, bgmBoss].forEach(audio => {
         if (!audio) return;
         audio.addEventListener("volumechange", () => {
+            // Ignore volumechange events caused by toggling the mute button itself
+            if (audio.muted) return;
+
             if (audio.volume === 0 && !isMuted) {
                 isMuted = true;
+                localStorage.setItem("witchIsMuted", "true");
                 applyMuteState();
             } else if (audio.volume > 0 && isMuted) {
                 isMuted = false;
+                localStorage.setItem("witchIsMuted", "false");
                 applyMuteState();
             }
         });
