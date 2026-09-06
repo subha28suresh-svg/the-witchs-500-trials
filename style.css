@@ -191,15 +191,17 @@ button {
 }
 
 /* =========================================
-   2. COMIC & STORY REVEAL SCREENS
+   2. COMIC & STORY REVEAL SCREENS (MAXIMIZED)
    ========================================= */
 
 #comic-screen, #story-screen {
     align-items: center;
-    justify-content: space-between;
-    padding: var(--sat) 12px var(--sab) 12px;
+    justify-content: center;
+    /* Respect notch/punch-hole at top and gestures at bottom */
+    padding: max(10px, var(--sat)) 10px max(12px, var(--sab)) 10px !important;
     background: radial-gradient(circle at center, #1b1226 0%, #0a0710 100%);
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .comic-page, .story-page {
@@ -211,67 +213,88 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-#comic-image, #story-image {
-    width: 95%;
-    max-height: 75dvh;
+#comic-image {
+    width: 100% !important;
+    height: auto !important;
+    /* Expands fluidly while staying bound to phone height */
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: 84dvh !important;
+    aspect-ratio: 9 / 16;
     object-fit: contain;
-    border-radius: 14px;
-    border: 2px solid #d4af37;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 14px 40px rgba(0, 0, 0, 0.9);
-    background: #000;
-    margin: auto 0;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+    background: transparent;
+    display: block;
+    margin: 0 auto 8px auto;
+}
+
+#story-image {
+    width: 100% !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: 70dvh !important;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+    background: transparent;
+    display: block;
+    margin: 0 auto;
 }
 
 .story-content {
     width: 100%;
     text-align: center;
-    margin-top: 16px;
-    padding: 0 10px;
+    margin: 6px 0 8px 0;
+    padding: 0 8px;
+    flex-shrink: 0;
 }
 
 .story-title {
     color: #f3d16c;
-    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
     font-weight: bold;
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .story-text {
     color: #e2d7c1;
-    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-    line-height: 1.5;
+    font-size: clamp(0.85rem, 3.2vw, 1rem);
+    line-height: 1.4;
 }
 
 #comic-next-button, #story-continue-button {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 90%;
-    max-width: 360px;
-    min-height: 52px;
-    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 50%, #d97706 100%);
+    width: 100% !important;
+    max-width: 480px !important;
+    min-height: 48px;
+    padding: 12px;
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
     color: #fffbeb;
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 1.05rem;
+    font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 2px solid #fde047;
-    border-radius: 26px;
-    box-shadow: 0 4px 18px rgba(124, 58, 237, 0.5), 0 0 14px rgba(253, 224, 71, 0.4);
-    z-index: 10;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
     cursor: pointer;
+    flex-shrink: 0 !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-    margin-top: 10px;
 }
 
 #comic-next-button:active, #story-continue-button:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(253, 224, 71, 0.7);
+    transform: scale(0.98);
 }
 
 /* =========================================
