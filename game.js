@@ -1471,17 +1471,12 @@ function onHardwareBackButton(e) {
         return;
     }
 
-    // 5. Level Map Screen -> Return to Title Screen
+    // 5. Level Map Screen (Main Hub) -> Prompt Exit Game Dialog directly
     if (levelMapScreen && levelMapScreen.classList.contains("active")) {
-        showScreen(titleScreen);
-        return;
-    }
-
-    // 6. Title Screen (Root) -> Prompt Exit Game Dialog
-    if (titleScreen && titleScreen.classList.contains("active")) {
         if (exitModal) {
             exitModal.classList.add("active");
         }
+        return;
     }
 }
 
