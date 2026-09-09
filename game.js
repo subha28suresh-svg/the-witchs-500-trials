@@ -901,55 +901,82 @@ function proceedToRiddleScreen(level) {
    }
   
    /* =========================================
-   INTERSTITIAL AD SYSTEM (EVERY 5 LEVELS & BOSSES)
-   ========================================= */
+      REAL ADMOB INTEGRATION (TEST IDS)
+      ========================================= */
 
-    function showInterstitialAd(onAdClosed) {
-        let adModal = document.getElementById("ad-interstitial-modal");
-        if (!adModal) {
-            adModal = document.createElement("div");
-            adModal.id = "ad-interstitial-modal";
-            adModal.className = "mythical-modal-overlay active";
-            adModal.innerHTML = `
-                <div class="mythical-modal-box" style="border-color: #38bdf8; max-width: 360px;">
-                    <div style="font-size: 0.75rem; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase;">Advertisement</div>
-                    <div style="font-size: 2.8rem; margin: 12px 0;">🔮</div>
-                    <h3 class="mythical-modal-title" style="color: #fef08a; font-size: 1.15rem; margin-bottom: 8px;">A Short Intermission</h3>
-                    <p id="ad-interstitial-status" style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px;">The arcane gates are opening in 3...</p>
-                    <button id="close-interstitial-btn" class="hint-trigger-btn" style="display: none; background: linear-gradient(135deg, #0284c7, #0369a1); border-color: #38bdf8;">
-                        Resume Journey →
-                    </button>
-                </div>
-            `;
-            document.body.appendChild(adModal);
-        } else {
-            adModal.classList.add("active");
-        }
+   const ADMOB_REWARDED_ID = "ca-app-pub-3940256099942544/5224354917";
+   const ADMOB_INTERSTITIAL_ID = "ca-app-pub-3940256099942544/1033173712";
 
-        let secondsLeft = 3;
-        const statusText = document.getElementById("ad-interstitial-status");
-        const closeBtn = document.getElementById("close-interstitial-btn");
-        closeBtn.style.display = "none";
-        statusText.textContent = `The arcane gates are opening in ${secondsLeft}...`;
+   let rewardedAd = null;
+   let interstitialAd = null;
 
-        const timer = setInterval(() => {
-            secondsLeft--;
-            if (secondsLeft > 0) {
-                statusText.textContent = `The arcane gates are opening in ${secondsLeft}...`;
-            } else {
-                clearInterval(timer);
-                statusText.textContent = "Path unlocked.";
-                closeBtn.style.display = "block";
-            }
-        }, 1000);
+   async function initAdMob() {
+       if (typeof admob === "undefined") {
+           console.warn("AdMob plugin not detected (browser or preview mode)");
+           return;
+       }
+       try {
+           await admob.start();
+           prepareRewardedAd();
+           prepareInterstitialAd();
+       } catch (err) {
+           console.error("AdMob initialization failed:", err);
+       }
+   }
 
-        closeBtn.onclick = () => {
-            adModal.classList.remove("active");
-            if (typeof onAdClosed === "function") {
-                onAdClosed();
-            }
-        };
-    }
+   async function prepareRewardedAd() {
+       if (typeof admob === "undefined") return;
+       try {
+           rewardedAd = new admob.RewardedAd({ adUnitId: ADMOB_REWARDED_ID });
+           await rewardedAd.load();
+       } catch (e) {
+           console.warn("Rewarded ad pre-load error:", e);
+       }
+   }
+
+   async function prepareInterstitialAd() {
+       if (typeof admob === "undefined") return;
+       try {
+           interstitialAd = new admob.InterstitialAd({ adUnitId: ADMOB_INTERSTITIAL_ID });
+           await interstitialAd.load();
+       } catch (e) {
+           console.warn("Interstitial ad pre-load error:", e);
+       }
+   }
+
+   async function showInterstitialAd(onAdClosed) {
+       if (typeof admob === "undefined") {
+           if (typeof onAdClosed === "function") onAdClosed();
+           return;
+       }
+
+       try {
+           if (!interstitialAd || !(await interstitialAd.isLoaded())) {
+               interstitialAd = new admob.InterstitialAd({ adUnitId: ADMOB_INTERSTITIAL_ID });
+               await interstitialAd.load();
+           }
+
+           const wasMutedBeforeAd = isMuted;
+           if (!wasMutedBeforeAd) {
+               if (bgmNormal) bgmNormal.muted = true;
+               if (bgmBoss) bgmBoss.muted = true;
+           }
+
+           interstitialAd.on("dismiss", () => {
+               if (!wasMutedBeforeAd) {
+                   if (bgmNormal) bgmNormal.muted = false;
+                   if (bgmBoss) bgmBoss.muted = false;
+               }
+               prepareInterstitialAd();
+               if (typeof onAdClosed === "function") onAdClosed();
+           });
+
+           await interstitialAd.show();
+       } catch (err) {
+           console.error("Failed to show interstitial ad:", err);
+           if (typeof onAdClosed === "function") onAdClosed();
+       }
+   }
 
    /* =========================================
       NAVIGATION BUTTONS
@@ -1200,15 +1227,57 @@ function proceedToRiddleScreen(level) {
        });
    }
    
-   function triggerAdReward(callback, awardGems = true) {
-        alert("Ad playing... (Placeholder integration)");
-        if (awardGems) {
-            playerGems += 30;
-            saveGems();
-            updateGemDisplays();
-        }
-        if (callback) callback();
-    }
+   async function triggerAdReward(callback, awardGems = true) {
+       if (typeof admob === "undefined") {
+           if (awardGems) {
+               playerGems += 30;
+               saveGems();
+               updateGemDisplays();
+           }
+           if (callback) callback();
+           return;
+       }
+
+       try {
+           if (!rewardedAd || !(await rewardedAd.isLoaded())) {
+               rewardedAd = new admob.RewardedAd({ adUnitId: ADMOB_REWARDED_ID });
+               await rewardedAd.load();
+           }
+
+           const wasMutedBeforeAd = isMuted;
+           if (!wasMutedBeforeAd) {
+               if (bgmNormal) bgmNormal.muted = true;
+               if (bgmBoss) bgmBoss.muted = true;
+           }
+
+           rewardedAd.on("reward", () => {
+               if (awardGems) {
+                   playerGems += 30;
+                   saveGems();
+                   updateGemDisplays();
+               }
+               if (callback) callback();
+           });
+
+           rewardedAd.on("dismiss", () => {
+               if (!wasMutedBeforeAd) {
+                   if (bgmNormal) bgmNormal.muted = false;
+                   if (bgmBoss) bgmBoss.muted = false;
+               }
+               prepareRewardedAd();
+           });
+
+           await rewardedAd.show();
+       } catch (err) {
+           console.error("Failed to show rewarded ad:", err);
+           if (awardGems) {
+               playerGems += 30;
+               saveGems();
+               updateGemDisplays();
+           }
+           if (callback) callback();
+       }
+   }
    
    if (shopWatchAdBtn) {
        shopWatchAdBtn.addEventListener("click", () => {
@@ -1523,6 +1592,7 @@ function onAppResumed() {
 // Ensure all listeners bind after Cordova native bridge is fully initialized
 document.addEventListener("deviceready", () => {
     enableScreenWakeLock();
+    initAdMob();
     // Intercept native hardware back button
     document.addEventListener("backbutton", onHardwareBackButton, false);
 
