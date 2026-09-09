@@ -142,7 +142,8 @@ regionImages.forEach(src => {
    
    let viewedRegionId = getRegionForLevel(currentLevel);
    
-   /* =========================================
+
+     /* =========================================
       AUDIO MANAGER (BGM & MUTE)
       ========================================= */
 
@@ -150,28 +151,35 @@ regionImages.forEach(src => {
       const bgmBoss = document.getElementById("bgm-boss");
       const globalMuteBtn = document.getElementById("global-mute-btn");
       let isMuted = localStorage.getItem("witchIsMuted") === "true";
-   
-        function applyMuteState() {
-            if (bgmNormal) bgmNormal.muted = isMuted;
-            if (bgmBoss) bgmBoss.muted = isMuted;
-            if (globalMuteBtn) {
-                globalMuteBtn.textContent = isMuted ? "🔇" : "🔊";
-                globalMuteBtn.classList.toggle("muted", isMuted);
-            }
-        }
+      let isProgrammaticMute = false; // Prevents listener feedback loops
 
-        function toggleMute() {
-            isMuted = !isMuted;
-            localStorage.setItem("witchIsMuted", isMuted ? "true" : "false");
+      function applyMuteState() {
+          isProgrammaticMute = true;
+          if (bgmNormal) bgmNormal.muted = isMuted;
+          if (bgmBoss) bgmBoss.muted = isMuted;
+          if (globalMuteBtn) {
+              globalMuteBtn.textContent = isMuted ? "🔇" : "🔊";
+              globalMuteBtn.classList.toggle("muted", isMuted);
+          }
+          setTimeout(() => { isProgrammaticMute = false; }, 50);
+      }
 
-            // If unmuting, make sure track volume is restored to audible level
-            if (!isMuted) {
-                if (bgmNormal && bgmNormal.volume === 0) bgmNormal.volume = 1.0;
-                if (bgmBoss && bgmBoss.volume === 0) bgmBoss.volume = 1.0;
-            }
+      function setGameMute(muteStatus) {
+          if (isMuted === muteStatus) return;
+          isMuted = muteStatus;
+          localStorage.setItem("witchIsMuted", isMuted ? "true" : "false");
 
-            applyMuteState();
-        }
+          if (!isMuted) {
+              if (bgmNormal && bgmNormal.volume === 0) bgmNormal.volume = 1.0;
+              if (bgmBoss && bgmBoss.volume === 0) bgmBoss.volume = 1.0;
+          }
+
+          applyMuteState();
+      }
+
+      function toggleMute() {
+          setGameMute(!isMuted);
+      }
    
       if (globalMuteBtn) {
           globalMuteBtn.addEventListener("click", toggleMute);
@@ -1524,24 +1532,39 @@ document.addEventListener("deviceready", () => {
     // App returned to foreground
     document.addEventListener("resume", onAppResumed, false);
 
-    // Physical Volume Sync (Ignores programmatic mute toggles)
+    // Sync with HTML5 volume property changes (without deadlocking on audio.muted)
     [bgmNormal, bgmBoss].forEach(audio => {
         if (!audio) return;
         audio.addEventListener("volumechange", () => {
-            // Ignore volumechange events caused by toggling the mute button itself
-            if (audio.muted) return;
+            if (isProgrammaticMute) return;
 
-            if (audio.volume === 0 && !isMuted) {
-                isMuted = true;
-                localStorage.setItem("witchIsMuted", "true");
-                applyMuteState();
-            } else if (audio.volume > 0 && isMuted) {
-                isMuted = false;
-                localStorage.setItem("witchIsMuted", "false");
-                applyMuteState();
+            // Volume reduced to 0 -> switch UI to Muted
+            if ((audio.volume === 0 || audio.muted) && !isMuted) {
+                setGameMute(true);
+            }
+            // Volume raised above 0 -> resume music & switch UI to Unmuted
+            else if (audio.volume > 0 && !audio.muted && isMuted) {
+                setGameMute(false);
             }
         });
     });
+
+    // Native Cordova Hardware Volume Button Listeners
+    let currentHardwareVolume = 10; // Nominal scale 0 - 10
+
+    document.addEventListener("volumedownbutton", () => {
+        currentHardwareVolume = Math.max(0, currentHardwareVolume - 1);
+        if (currentHardwareVolume === 0 && !isMuted) {
+            setGameMute(true);
+        }
+    }, false);
+
+    document.addEventListener("volumeupbutton", () => {
+        currentHardwareVolume = Math.min(10, currentHardwareVolume + 1);
+        if (currentHardwareVolume > 0 && isMuted) {
+            setGameMute(false);
+        }
+    }, false);
 }, false);
 
 // Fallback for browser/webview visibility changes
