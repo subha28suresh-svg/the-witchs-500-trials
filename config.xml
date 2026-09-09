@@ -40,7 +40,19 @@
         <!-- Launcher Icons -->
         <icon src="assets/icons/icon-192.png" density="mdpi" />
         <icon src="assets/icons/icon-512.png" density="xxxhdpi" />
+
+        <!-- AdMob Android Manifest Meta-Data -->
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-3940256099942544~3347511713" />
+        </config-file>
     </platform>
 
-    <preference name="DisallowOverscroll" value="true" />
+        <!-- Google AdMob Plugin -->
+        <plugin name="cordova-plugin-admob-plus" spec="^1.28.0">
+            <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
+        </plugin>
+
+        <preference name="DisallowOverscroll" value="true" />
 </widget>
