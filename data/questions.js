@@ -4536,7 +4536,7 @@ const QUESTIONS = {
         ] 
     },
     500: { 
-        question: "The five hundred trials are conquered. The Witch bows before you. Name the supreme virtue that outsmarted every hex and freed the realm.", 
+        question: "The five hundred trials are about to be conquered. The Witch bows before you. Name the supreme virtue that outsmarted every hex and freed the realm.", 
         answer: "love", 
         hints: [
             "The profound devotion and selfless affection that drove the King to cross twenty perilous realms[cite: 6].",
