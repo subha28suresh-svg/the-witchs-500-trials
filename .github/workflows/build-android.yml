@@ -43,16 +43,11 @@ jobs:
         run: |
           mkdir -p www
           cp index.html style.css game.js www/
-          cp -r data assets www/
+          cp -r data assets www/ 2>/dev/null || true
           cp riddles.js save.js www/ 2>/dev/null || true
 
       - name: Add Android Platform
         run: cordova platform add android@12.0.1
-
-      - name: Build Debug APK (For Local Device Testing)
-        env:
-          CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL: "https://services.gradle.org/distributions/gradle-8.2-all.zip"
-        run: cordova build android
 
       - name: Decode Release Keystore
         env:
@@ -79,16 +74,21 @@ jobs:
           }
           EOCONF
 
-      - name: Build Signed Release Android App Bundle (.aab)
+      - name: Build Signed Release APK (For Device Testing)
+        env:
+          CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL: "https://services.gradle.org/distributions/gradle-8.2-all.zip"
+        run: cordova build android --release --buildConfig=build.json
+
+      - name: Build Signed Release AAB (For Google Play Store)
         env:
           CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL: "https://services.gradle.org/distributions/gradle-8.2-all.zip"
         run: cordova build android --release --buildConfig=build.json -- --packageType=bundle
 
-      - name: Upload Test APK
+      - name: Upload Signed Test APK
         uses: actions/upload-artifact@v4
         with:
-          name: WitchTrials-Debug-APK
-          path: platforms/android/app/build/outputs/apk/debug/*.apk
+          name: WitchTrials-Signed-APK
+          path: platforms/android/app/build/outputs/apk/release/*.apk
 
       - name: Upload Signed Play Store Release AAB
         uses: actions/upload-artifact@v4
