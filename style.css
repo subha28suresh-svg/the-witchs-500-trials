@@ -197,8 +197,8 @@ button {
 #comic-screen, #story-screen {
     align-items: center;
     justify-content: center;
-    /* Respect notch/punch-hole at top and gestures at bottom */
-    padding: max(10px, var(--sat)) 10px max(12px, var(--sab)) 10px !important;
+    /* Top padding reserves 58px below safe-area notch so mute button floats freely */
+    padding: calc(var(--sat) + 54px) 10px max(12px, var(--sab)) 10px !important;
     background: radial-gradient(circle at center, #1b1226 0%, #0a0710 100%);
     box-sizing: border-box;
     overflow: hidden;
@@ -220,10 +220,10 @@ button {
 #comic-image {
     width: 100% !important;
     height: auto !important;
-    /* Expands fluidly while staying bound to phone height */
+    /* Reduced from 84dvh to 74dvh to accommodate the top clearance */
     flex: 1 1 auto !important;
     min-height: 0 !important;
-    max-height: 84dvh !important;
+    max-height: 74dvh !important;
     aspect-ratio: 9 / 16;
     object-fit: contain;
     border-radius: 12px;
@@ -237,9 +237,10 @@ button {
 #story-image {
     width: 100% !important;
     height: auto !important;
+    /* Reduced from 70dvh to 63dvh so story text & continue button fit cleanly */
     flex: 1 1 auto !important;
     min-height: 0 !important;
-    max-height: 70dvh !important;
+    max-height: 63dvh !important;
     aspect-ratio: 9 / 16;
     object-fit: contain;
     border-radius: 12px;
