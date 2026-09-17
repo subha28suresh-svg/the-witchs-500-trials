@@ -187,6 +187,24 @@ regionImages.forEach(src => {
         }
 
         function playBGM(trackType) {
+            if (!bgmNormal || !bgmBoss) return;
+
+            applyMuteState();
+
+            if (trackType === "boss") {
+                if (!bgmNormal.paused) bgmNormal.pause();
+                bgmNormal.currentTime = 0;
+                if (bgmBoss.paused) {
+                    bgmBoss.play().catch(() => {});
+                }
+            } else if (trackType === "normal") {
+                if (!bgmBoss.paused) bgmBoss.pause();
+                bgmBoss.currentTime = 0;
+                if (bgmNormal.paused) {
+                    bgmNormal.play().catch(() => {});
+                }
+            }
+        }
 
     /* =========================================
       STORY CHRONICLES REGISTRY & CONTROLLER
