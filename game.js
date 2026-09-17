@@ -858,15 +858,34 @@ function proceedToRiddleScreen(level) {
         }, 1800);
     }
    
+   let sarcasticFailIndex = Number(localStorage.getItem("witchSarcasticFailIndex")) || 0;
+
    function showDefeatEffect() {
         const overlay = document.createElement('div');
         overlay.className = 'defeat-overlay';
+
+        const sarcasticPhrases = [
+            "Nice try, but the cauldron remains unimpressed...",                     // 1
+            "A creative guess! Completely wrong, but creative...",                   // 2
+            "Even the castle gargoyles tilted their heads at that one...",           // 3
+            "Close... if we were playing an entirely different game!",               // 4
+            "The crystal ball got dizzy trying to make sense of that...",            // 5
+            "Bold strategy! Let's pretend that was just a warm-up...",               // 6
+            "The spell fizzled. Maybe blow the dust off your thinking cap?",         // 7
+            "Points for enthusiasm! Minus several points for accuracy...",           // 8
+            "The Witch chuckled... and not in a complimentary way.",                 // 9
+            "Not quite! The spirits are still laughing in the back row..."           // 10
+        ];
+
+        const currentPhrase = sarcasticPhrases[sarcasticFailIndex];
+        sarcasticFailIndex = (sarcasticFailIndex + 1) % sarcasticPhrases.length;
+        localStorage.setItem("witchSarcasticFailIndex", sarcasticFailIndex);
 
         const banner = document.createElement('div');
         banner.className = 'defeat-banner';
         banner.innerHTML = `
             <h2>Trial Failed</h2>
-            <p>The Witch mocks your attempt...</p>
+            <p>${currentPhrase}</p>
         `;
         overlay.appendChild(banner);
         document.body.appendChild(overlay);
@@ -879,7 +898,7 @@ function proceedToRiddleScreen(level) {
 
    function handleWrongAnswer() {
        showDefeatEffect();
-       witchMessage.textContent = "Oh dear... that wasn't quite clever enough.";
+       witchMessage.textContent = "The Witch awaits your next incantation...";
        answerInput.focus();
        answerInput.select();
    }
