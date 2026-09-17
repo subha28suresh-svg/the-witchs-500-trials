@@ -1871,3 +1871,80 @@ button {
         transform: translateX(0);
     }
 }
+
+/* =========================================
+   STORY CHRONICLES GALLERY MODAL
+   ========================================= */
+
+.chronicles-box {
+    width: 96% !important;
+    max-width: 460px !important;
+    max-height: 94dvh !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: max(10px, var(--sat)) 12px max(12px, var(--sab)) 12px !important;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.chronicles-viewer {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 4px 0 8px 0;
+}
+
+.chronicles-img {
+    width: 100%;
+    height: auto;
+    max-height: 68dvh;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+}
+
+.chronicles-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    padding: 0 4px;
+}
+
+.chronicles-nav-btn {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px;
+    background: linear-gradient(135deg, #5b3e8c, #3b2a5c);
+    color: #f3e9dc;
+    border: 1.5px solid #d4af37;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.chronicles-nav-btn:disabled {
+    background: #1e1927;
+    color: #554d63;
+    border-color: #332b40;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.chronicles-nav-btn:active:not(:disabled) {
+    transform: scale(0.97);
+}

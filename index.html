@@ -74,6 +74,11 @@
                 HOW TO PLAY
             </button>
 
+            <!-- STORY CHRONICLES BUTTON -->
+            <button id="chronicles-title-btn" class="title-how-to-play-btn" style="margin-top: 10px; background: rgba(55, 30, 20, 0.85); border-color: #d97706; color: #fde047;">
+                📜 STORY CHRONICLES
+            </button>
+
         </div>
 
     </section>
@@ -144,6 +149,9 @@
 
             <!-- Help / How to Play Icon Button -->
             <button id="map-help-btn" class="map-help-circle-btn" title="How to Play">?</button>
+
+            <!-- Story Chronicles Map Icon Button -->
+            <button id="map-chronicles-btn" class="map-help-circle-btn" style="left: 116px;" title="Story Chronicles">📜</button>
 
             <!-- Persistent Gem Counter Badge (Shop Triggered via Class) -->
             <div class="gem-currency-badge open-shop-trigger">
@@ -352,6 +360,25 @@
         </div>
 
     </section>
+
+    <!-- STORY CHRONICLES GALLERY MODAL -->
+    <div id="chronicles-modal" class="mythical-modal-overlay">
+        <div class="mythical-modal-box chronicles-box">
+            <button id="close-chronicles-modal" class="mythical-close-btn">×</button>
+            <h3 class="mythical-modal-title" style="margin-bottom: 8px;">📜 STORY CHRONICLES</h3>
+            <p id="chronicles-chapter-title" style="color: #fde047; font-size: 0.95rem; font-weight: bold; margin-bottom: 10px;">Prologue: Part I</p>
+            
+            <div class="chronicles-viewer">
+                <img id="chronicles-img" src="assets/comics/intro-page-01.png" alt="Chronicle Comic" class="chronicles-img">
+            </div>
+
+            <div class="chronicles-controls">
+                <button id="chronicles-prev-btn" class="chronicles-nav-btn">← PREV</button>
+                <span id="chronicles-page-indicator" style="color: #cbd5e1; font-size: 0.85rem; font-weight: bold;">1 / 23</span>
+                <button id="chronicles-next-btn" class="chronicles-nav-btn">NEXT →</button>
+            </div>
+        </div>
+    </div>
 
 </main>
 

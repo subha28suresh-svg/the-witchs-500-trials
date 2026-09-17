@@ -188,6 +188,80 @@ regionImages.forEach(src => {
 
         function playBGM(trackType) {
 
+    /* =========================================
+      STORY CHRONICLES REGISTRY & CONTROLLER
+      ========================================= */
+
+   const CHRONICLES_LIST = [
+       { title: "Prologue: Part I", image: "assets/comics/intro-page-01.png", unlockLevel: 1 },
+       { title: "Prologue: Part II", image: "assets/comics/intro-page-02.png", unlockLevel: 1 },
+       { title: "Prologue: Part III", image: "assets/comics/intro-page-03.png", unlockLevel: 1 },
+       { title: "Region 1: Valoria", image: "assets/comics/story-region-01.png", unlockLevel: 25 },
+       { title: "Region 2: Scorched Desert", image: "assets/comics/story-region-02.png", unlockLevel: 50 },
+       { title: "Region 3: Enchanted Forest", image: "assets/comics/story-region-03.png", unlockLevel: 75 },
+       { title: "Region 4: Frozen Peaks", image: "assets/comics/story-region-04.png", unlockLevel: 100 },
+       { title: "Region 5: Lost Ruins", image: "assets/comics/story-region-05.png", unlockLevel: 125 },
+       { title: "Region 6: Firelands", image: "assets/comics/story-region-06.png", unlockLevel: 150 },
+       { title: "Region 7: Shadow Realm", image: "assets/comics/story-region-07.png", unlockLevel: 175 },
+       { title: "Region 8: Dragonlands", image: "assets/comics/story-region-08.png", unlockLevel: 200 },
+       { title: "Region 9: Sky Kingdom", image: "assets/comics/story-region-09.png", unlockLevel: 225 },
+       { title: "Region 10: Sunken Kingdom", image: "assets/comics/story-region-10.png", unlockLevel: 250 },
+       { title: "Region 11: Mystic Marshes", image: "assets/comics/story-region-11.png", unlockLevel: 275 },
+       { title: "Region 12: Warrior's Wastes", image: "assets/comics/story-region-12.png", unlockLevel: 300 },
+       { title: "Region 13: Haunted Catacombs", image: "assets/comics/story-region-13.png", unlockLevel: 325 },
+       { title: "Region 14: Crystal Caverns", image: "assets/comics/story-region-14.png", unlockLevel: 350 },
+       { title: "Region 15: Astral Realm", image: "assets/comics/story-region-15.png", unlockLevel: 375 },
+       { title: "Region 16: Time-Lost Kingdom", image: "assets/comics/story-region-16.png", unlockLevel: 400 },
+       { title: "Region 17: Realm of Illusions", image: "assets/comics/story-region-17.png", unlockLevel: 425 },
+       { title: "Region 18: Forbidden Citadel", image: "assets/comics/story-region-18.png", unlockLevel: 450 },
+       { title: "Region 19: Witch's Domain", image: "assets/comics/story-region-19.png", unlockLevel: 475 },
+       { title: "Region 20: Witch's Castle", image: "assets/comics/story-region-20.png", unlockLevel: 500 }
+   ];
+
+   let chroniclesActiveIndex = 0;
+
+   function getUnlockedChronicles() {
+       // A region's comic unlocks as soon as its boss level is completed or unlocked
+       return CHRONICLES_LIST.filter(c => currentLevel >= c.unlockLevel);
+   }
+
+   function openChroniclesModal() {
+       const modal = document.getElementById("chronicles-modal");
+       if (!modal) return;
+
+       chroniclesActiveIndex = 0; // Start at first page
+       renderChronicleView();
+       modal.classList.add("active");
+   }
+
+   function closeChroniclesModal() {
+       const modal = document.getElementById("chronicles-modal");
+       if (modal) modal.classList.remove("active");
+   }
+
+   function renderChronicleView() {
+       const unlocked = getUnlockedChronicles();
+       if (unlocked.length === 0) return;
+
+       if (chroniclesActiveIndex >= unlocked.length) chroniclesActiveIndex = unlocked.length - 1;
+       if (chroniclesActiveIndex < 0) chroniclesActiveIndex = 0;
+
+       const currentChapter = unlocked[chroniclesActiveIndex];
+
+       const titleEl = document.getElementById("chronicles-chapter-title");
+       const imgEl = document.getElementById("chronicles-img");
+       const pageIndicator = document.getElementById("chronicles-page-indicator");
+       const prevBtn = document.getElementById("chronicles-prev-btn");
+       const nextBtn = document.getElementById("chronicles-next-btn");
+
+       if (titleEl) titleEl.textContent = currentChapter.title;
+       if (imgEl) imgEl.src = currentChapter.image;
+       if (pageIndicator) pageIndicator.textContent = `${chroniclesActiveIndex + 1} / ${unlocked.length}`;
+
+       if (prevBtn) prevBtn.disabled = chroniclesActiveIndex === 0;
+       if (nextBtn) nextBtn.disabled = chroniclesActiveIndex === unlocked.length - 1;
+   }
+
    /* =========================================
       SCREENS
       ========================================= */
@@ -1406,6 +1480,48 @@ if (howToPlayModal) {
     howToPlayModal.addEventListener("click", (e) => {
         if (e.target === howToPlayModal) {
             closeTutorialModal();
+        }
+    });
+}
+
+// =========================================
+// STORY CHRONICLES CONTROLLER
+// =========================================
+
+const chroniclesTitleBtn = document.getElementById("chronicles-title-btn");
+const mapChroniclesBtn = document.getElementById("map-chronicles-btn");
+const closeChroniclesBtn = document.getElementById("close-chronicles-modal");
+const chroniclesPrevBtn = document.getElementById("chronicles-prev-btn");
+const chroniclesNextBtn = document.getElementById("chronicles-next-btn");
+const chroniclesModal = document.getElementById("chronicles-modal");
+
+if (chroniclesTitleBtn) chroniclesTitleBtn.addEventListener("click", openChroniclesModal);
+if (mapChroniclesBtn) mapChroniclesBtn.addEventListener("click", openChroniclesModal);
+if (closeChroniclesBtn) closeChroniclesBtn.addEventListener("click", closeChroniclesModal);
+
+if (chroniclesPrevBtn) {
+    chroniclesPrevBtn.addEventListener("click", () => {
+        if (chroniclesActiveIndex > 0) {
+            chroniclesActiveIndex--;
+            renderChronicleView();
+        }
+    });
+}
+
+if (chroniclesNextBtn) {
+    chroniclesNextBtn.addEventListener("click", () => {
+        const unlocked = getUnlockedChronicles();
+        if (chroniclesActiveIndex < unlocked.length - 1) {
+            chroniclesActiveIndex++;
+            renderChronicleView();
+        }
+    });
+}
+
+if (chroniclesModal) {
+    chroniclesModal.addEventListener("click", (e) => {
+        if (e.target === chroniclesModal) {
+            closeChroniclesModal();
         }
     });
 }
