@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     env:
       ANDROID_HOME: /usr/local/lib/android/sdk
 
@@ -26,15 +27,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Gradle 8.2
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.2'
-
-      - name: Accept Android Licenses & Install Build Tools
+      - name: Accept Android Licenses & Install SDK
         run: |
           yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;33.0.2"
+          sdkmanager "platform-tools" "platforms;android-36" "build-tools;35.0.0"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,7 +38,10 @@ jobs:
           node-version: '20'
 
       - name: Install Cordova
-        run: npm install -g cordova@12.0.0
+        run: npm install -g cordova@13.0.0
+
+      - name: Install Project Dependencies
+        run: npm ci
 
       - name: Prepare Web Assets
         run: |
@@ -53,6 +52,20 @@ jobs:
 
       - name: Add Android Platform
         run: cordova platform add android@15.0.0
+
+      - name: Verify Android Build Configuration
+        run: |
+          echo "Cordova CLI:"
+          cordova --version
+
+          echo "Cordova Android:"
+          cordova platform ls
+
+          echo "Generated Gradle configuration:"
+          cat platforms/android/cdv-gradle-config.json
+
+          echo "Gradle wrapper:"
+          grep distributionUrl platforms/android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Decode Release Keystore
         env:
@@ -80,13 +93,9 @@ jobs:
           EOCONF
 
       - name: Build Signed Release APK (For Device Testing)
-        env:
-          CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL: "https://services.gradle.org/distributions/gradle-8.2-all.zip"
         run: cordova build android --release --buildConfig=build.json
 
       - name: Build Signed Release AAB (For Google Play Store)
-        env:
-          CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL: "https://services.gradle.org/distributions/gradle-8.2-all.zip"
         run: cordova build android --release --buildConfig=build.json -- --packageType=bundle
 
       - name: Upload Signed Test APK
