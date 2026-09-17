@@ -55,8 +55,8 @@
             <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
         </plugin>
 
-        <!-- Modern Local Notifications Plugin (Gradle 8+ / Android 14 Compatible) -->
-        <plugin name="@havescript/cordova-plugin-local-notification" spec="^1.0.0" />
+        <!-- Local Notifications -->
+        <plugin name="cordova-plugin-local-notification" spec="1.2.3" />
 
 
         <preference name="DisallowOverscroll" value="true" />
