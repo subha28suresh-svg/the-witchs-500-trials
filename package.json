@@ -9,7 +9,7 @@
         "admob-plus-cordova": "1.28.0"
     },
     "devDependencies": {
-        "cordova-android": "^12.0.1",
+        "cordova-android": "^15.0.0",
         "vite": "^7.0.0"
     },
     "cordova": {
