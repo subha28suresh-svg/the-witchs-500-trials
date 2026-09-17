@@ -152,7 +152,7 @@ regionImages.forEach(src => {
         const globalMuteBtn = document.getElementById("global-mute-btn");
 
         let isMuted = localStorage.getItem("witchIsMuted") === "true";
-        let isProgrammaticMute = false; // Prevents listener feedback loops
+        let isProgrammaticMute = false;
 
         function applyMuteState() {
             isProgrammaticMute = true;
@@ -187,24 +187,6 @@ regionImages.forEach(src => {
         }
 
         function playBGM(trackType) {
-            if (!bgmNormal || !bgmBoss) return;
-
-            applyMuteState();
-
-            if (trackType === "boss") {
-                if (!bgmNormal.paused) bgmNormal.pause();
-                bgmNormal.currentTime = 0;
-                if (bgmBoss.paused) {
-                    bgmBoss.play().catch(() => {});
-                }
-            } else if (trackType === "normal") {
-                if (!bgmBoss.paused) bgmBoss.pause();
-                bgmBoss.currentTime = 0;
-                if (bgmNormal.paused) {
-                    bgmNormal.play().catch(() => {});
-                }
-            }
-        }
 
    /* =========================================
       SCREENS
@@ -1665,15 +1647,11 @@ document.addEventListener("deviceready", () => {
 
             // Physical volume lowered to zero -> Set game mute UI to 🔇
             if ((audio.volume === 0 || audio.muted) && !isMuted) {
-                isMuted = true;
-                localStorage.setItem("witchIsMuted", "true");
-                applyMuteState();
+                setGameMute(true);
             }
             // Physical volume raised above zero -> Restore game mute UI to 🔊
             else if (audio.volume > 0 && !audio.muted && isMuted) {
-                isMuted = false;
-                localStorage.setItem("witchIsMuted", "false");
-                applyMuteState();
+                setGameMute(false);
             }
         });
     });
