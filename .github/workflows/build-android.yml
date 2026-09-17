@@ -91,7 +91,7 @@ jobs:
           EOCONF
 
       - name: Build Signed Release APK (For Device Testing)
-        run: cordova build android --release --buildConfig=build.json
+        run: cordova build android --release --buildConfig=build.json -- --packageType=apk
 
       - name: Build Signed Release AAB (For Google Play Store)
         run: cordova build android --release --buildConfig=build.json -- --packageType=bundle
