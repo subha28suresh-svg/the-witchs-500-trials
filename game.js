@@ -1764,6 +1764,26 @@ function onAppResumed() {
 document.addEventListener("deviceready", () => {
     enableScreenWakeLock();
     initAdMob();
+
+    // Schedule Daily Retention Reminder (Local Notifications)
+    if (window.cordova && cordova.plugins && cordova.plugins.notification) {
+        cordova.plugins.notification.local.hasPermission((granted) => {
+            if (!granted) {
+                cordova.plugins.notification.local.requestPermission();
+            }
+        });
+
+        cordova.plugins.notification.local.schedule({
+            id: 1,
+            title: "✨ The Astral Shrine Awaits!",
+            text: "Your daily gems are ready to claim. Keep your trial streak alive! 💎",
+            trigger: {
+                every: { hour: 20, minute: 0 }
+            },
+            foreground: true
+        });
+    }
+
     // Intercept native hardware back button
     document.addEventListener("backbutton", onHardwareBackButton, false);
 
