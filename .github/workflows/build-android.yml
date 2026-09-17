@@ -96,11 +96,14 @@ jobs:
       - name: Build Signed Release AAB (For Google Play Store)
         run: cordova build android --release --buildConfig=build.json -- --packageType=bundle
 
-      - name: Upload Signed Test APK
+      - name: Find and Upload Signed Test APK
         uses: actions/upload-artifact@v4
         with:
           name: WitchTrials-Signed-APK
-          path: platforms/android/app/build/outputs/apk/release/*.apk
+          path: |
+            platforms/android/app/build/outputs/**/*.apk
+            platforms/android/build/outputs/**/*.apk
+          if-no-files-found: error
 
       - name: Upload Signed Play Store Release AAB
         uses: actions/upload-artifact@v4
