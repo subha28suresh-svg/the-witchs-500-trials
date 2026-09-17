@@ -858,49 +858,84 @@ function proceedToRiddleScreen(level) {
         }, 1800);
     }
    
+   /* =========================================
+      SYNTHESIZED BUZZER & WRONG ANSWER LOGIC
+      ========================================= */
+
    let sarcasticFailIndex = Number(localStorage.getItem("witchSarcasticFailIndex")) || 0;
 
-   function showDefeatEffect() {
-        const overlay = document.createElement('div');
-        overlay.className = 'defeat-overlay';
+   // Web Audio API procedural buzzer sound (no external file needed)
+   function playBuzzerSound() {
+       if (isMuted) return;
 
-        const sarcasticPhrases = [
-            "Nice try, but the cauldron remains unimpressed...",                     // 1
-            "A creative guess! Completely wrong, but creative...",                   // 2
-            "Even the castle gargoyles tilted their heads at that one...",           // 3
-            "Close... if we were playing an entirely different game!",               // 4
-            "The crystal ball got dizzy trying to make sense of that...",            // 5
-            "Bold strategy! Let's pretend that was just a warm-up...",               // 6
-            "The spell fizzled. Maybe blow the dust off your thinking cap?",         // 7
-            "Points for enthusiasm! Minus several points for accuracy...",           // 8
-            "The Witch chuckled... and not in a complimentary way.",                 // 9
-            "Not quite! The spirits are still laughing in the back row..."           // 10
-        ];
+       try {
+           const AudioContext = window.AudioContext || window.webkitAudioContext;
+           if (!AudioContext) return;
 
-        const currentPhrase = sarcasticPhrases[sarcasticFailIndex];
-        sarcasticFailIndex = (sarcasticFailIndex + 1) % sarcasticPhrases.length;
-        localStorage.setItem("witchSarcasticFailIndex", sarcasticFailIndex);
+           const ctx = new AudioContext();
+           const osc = ctx.createOscillator();
+           const gain = ctx.createGain();
 
-        const banner = document.createElement('div');
-        banner.className = 'defeat-banner';
-        banner.innerHTML = `
-            <h2>Trial Failed</h2>
-            <p>${currentPhrase}</p>
-        `;
-        overlay.appendChild(banner);
-        document.body.appendChild(overlay);
+           // Low abrasive sawtooth wave for a spell-fizzle / buzzer tone
+           osc.type = "sawtooth";
+           osc.frequency.setValueAtTime(140, ctx.currentTime);
+           osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.25);
 
-        // Remove the pop-up overlay automatically after 1.8 seconds
-        setTimeout(() => {
-            overlay.remove();
-        }, 1800);
-    }
+           gain.gain.setValueAtTime(0.2, ctx.currentTime);
+           gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+
+           osc.connect(gain);
+           gain.connect(ctx.destination);
+
+           osc.start();
+           osc.stop(ctx.currentTime + 0.25);
+       } catch (err) {
+           console.warn("AudioContext buzzer blocked or unavailable:", err);
+       }
+   }
 
    function handleWrongAnswer() {
-       showDefeatEffect();
-       witchMessage.textContent = "The Witch awaits your next incantation...";
-       answerInput.focus();
-       answerInput.select();
+       // 1. Play error sound
+       playBuzzerSound();
+
+       // 2. Trigger input field shake and red flash
+       if (answerInput) {
+           answerInput.classList.remove("input-shake");
+           // Trigger DOM reflow so repeated wrong guesses re-fire the animation
+           void answerInput.offsetWidth;
+           answerInput.classList.add("input-shake");
+
+           setTimeout(() => {
+               answerInput.classList.remove("input-shake");
+           }, 450);
+
+           answerInput.focus();
+           answerInput.select();
+       }
+
+       // 3. Cycle sarcastic message directly in the Witch's speech line (No pop-up)
+       const sarcasticPhrases = [
+           "Nice try, but the cauldron remains unimpressed...",
+           "A creative guess! Completely wrong, but creative...",
+           "Even the castle gargoyles tilted their heads at that one...",
+           "Close... if we were playing an entirely different game!",
+           "The crystal ball got dizzy trying to make sense of that...",
+           "Bold strategy! Let's pretend that was just a warm-up...",
+           "The spell fizzled. Maybe blow the dust off your thinking cap?",
+           "Points for enthusiasm! Minus several points for accuracy...",
+           "The Witch chuckled... and not in a complimentary way.",
+           "Not quite! The spirits are still laughing in the back row..."
+       ];
+
+       const currentPhrase = sarcasticPhrases[sarcasticFailIndex];
+       sarcasticFailIndex = (sarcasticFailIndex + 1) % sarcasticPhrases.length;
+       localStorage.setItem("witchSarcasticFailIndex", sarcasticFailIndex);
+
+       if (witchMessage) {
+           witchMessage.textContent = currentPhrase;
+           witchMessage.style.color = "#fda4af";
+           witchMessage.style.fontWeight = "bold";
+       }
    }
    
    /* =========================================
