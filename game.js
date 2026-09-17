@@ -1229,7 +1229,34 @@ function proceedToRiddleScreen(level) {
         hintsListContainer.appendChild(itemDiv);
     }
 
-        // 4th Row: Only show Skip Level if NOT completed AND NOT skipped
+        // 4th Row: Reveal Answer (Only available once Hint 3 is purchased)
+        const isCompleted = isLevelCompleted(activeLevel);
+        if (!isCompleted) {
+            const hasAllHints = unlockedCount >= 3;
+            const revealDiv = document.createElement("div");
+            revealDiv.className = `mythical-hint-item ${hasAllHints ? 'unlocked' : ''}`;
+            revealDiv.style.borderColor = hasAllHints ? "#a855f7" : "#4a3575";
+            revealDiv.style.background = hasAllHints ? "rgba(168, 85, 247, 0.15)" : "rgba(15, 8, 25, 0.6)";
+
+            let revealHTML = `
+                <div class="hint-row-header" style="align-items: center;">
+                    <span class="hint-row-title" style="color: #e9d5ff;">👁️ Reveal Answer (10 💎)</span>
+            `;
+
+            if (!hasAllHints) {
+                revealHTML += `<button class="unlock-hint-btn" disabled style="background:#1e293b; color:#64748b; border-color:#334155; cursor:not-allowed;">Locked</button>`;
+            } else {
+                revealHTML += `<button class="unlock-hint-btn" onclick="tryRevealAnswer()" style="background: linear-gradient(135deg, #9333ea, #6b21a8); border-color: #c084fc;">Reveal</button>`;
+            }
+
+            revealHTML += `</div>`;
+            revealHTML += `<div class="hint-row-content" style="color: #cbd5e1; font-size: 0.85rem;">${hasAllHints ? 'Unveil the Witch\'s secret and complete this trial (+0 💎).' : 'Requires unlocking all 3 hints first.'}</div>`;
+
+            revealDiv.innerHTML = revealHTML;
+            hintsListContainer.appendChild(revealDiv);
+        }
+
+        // 5th Row: Skip Trial (60 💎, available immediately if not passed/skipped)
         const isAlreadyPassedOrSkipped = isLevelCompleted(activeLevel) || isLevelSkipped(activeLevel);
         if (!isAlreadyPassedOrSkipped) {
             const skipDiv = document.createElement("div");
@@ -1237,9 +1264,9 @@ function proceedToRiddleScreen(level) {
             skipDiv.innerHTML = `
                 <div class="hint-row-header" style="align-items: center;">
                     <span class="hint-row-title" style="color: #fde047;">⚡ Skip Trial</span>
-                    <button class="unlock-hint-btn" onclick="trySkipLevel()" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">100 💎</button>
+                    <button class="unlock-hint-btn" onclick="trySkipLevel()" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047;">60 💎</button>
                 </div>
-                <div class="hint-row-content" style="color: #cbd5e1;">Bypass this trial. You can replay it later for gems and glory.</div>
+                <div class="hint-row-content" style="color: #cbd5e1; font-size: 0.85rem;">Bypass this trial. You can replay it later for gems and glory (+0 💎).</div>
             `;
             hintsListContainer.appendChild(skipDiv);
         }
@@ -1258,14 +1285,59 @@ function proceedToRiddleScreen(level) {
         }
     };
 
+    window.tryRevealAnswer = function() {
+        if (playerGems >= 10) {
+            playerGems -= 10;
+            saveGems();
+            updateGemDisplays();
+            executeRevealAnswer();
+        } else {
+            hintsModal.classList.remove("active");
+            adPromptModal.classList.add("active");
+        }
+    };
+
+    function executeRevealAnswer() {
+        hintsModal.classList.remove("active");
+
+        const riddle = QUESTIONS[activeLevel];
+        if (!riddle) return;
+
+        // Auto-fill the correct answer into the input field
+        if (answerInput) {
+            answerInput.value = riddle.answer.toUpperCase();
+            answerInput.disabled = true;
+        }
+
+        // Mark as completed (turns gold on map)
+        markLevelCompleted(activeLevel);
+
+        // Play victory effect without granting the +10 pass gems
+        showTrialPassedEffect(false);
+
+        // Update progress high-water mark
+        if (activeLevel < 500 && (activeLevel + 1) > currentLevel) {
+            currentLevel = activeLevel + 1;
+            saveProgress();
+        }
+
+        // Reveal Continue button after celebration
+        setTimeout(() => {
+            if (nextLevelButton) {
+                nextLevelButton.classList.remove("hidden");
+                nextLevelButton.style.display = "flex";
+                nextLevelButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 1800);
+    }
+
     window.trySkipLevel = function() {
-        if (playerGems >= 100) {
-            playerGems -= 100;
+        if (playerGems >= 60) {
+            playerGems -= 60;
             saveGems();
             updateGemDisplays();
             executeSkipLevel();
         } else {
-            // Insufficient gems for skip: route to the ad prompt modal
             hintsModal.classList.remove("active");
             adPromptModal.classList.add("active");
         }
