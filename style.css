@@ -1037,10 +1037,13 @@ button {
     
     background: linear-gradient(145deg, #1f122e 0%, #0d0614 100%);
     border: 1.5px solid #d97706;
-    border-radius: 10px;
+    border-radius: 8px;
     
-    width: 48px;
+    /* Reduced container width from 48px to 34px to clear circular level nodes */
+    width: 34px;
     height: 60px;
+    padding: 0;
+    overflow: hidden;
     
     display: flex;
     align-items: center;
@@ -1056,14 +1059,21 @@ button {
     transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
+/* Placed closer to screen edges (4px) to maximize node clearance */
 .prev-arrow {
-    left: 10px;
-    padding-right: 2px;
+    left: 4px;
 }
 
 .next-arrow {
-    right: 10px;
-    padding-left: 2px;
+    right: 4px;
+}
+
+.mystic-nav-arrow svg {
+    /* Retains the original arrow shape dimensions without overflowing */
+    width: 26px;
+    height: 26px;
+    display: block;
+    flex-shrink: 0;
 }
 
 .mystic-nav-arrow:hover:not(:disabled) {
