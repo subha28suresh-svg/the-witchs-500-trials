@@ -587,13 +587,16 @@ button {
 #riddle-screen {
     align-items: center;
     justify-content: center;
-    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    /* Reduce side padding on mobile from 16px down to 8px */
+    padding: max(16px, env(safe-area-inset-top)) 8px max(16px, env(safe-area-inset-bottom));
     background: radial-gradient(circle at 50% 20%, #281636 0%, #11091a 50%, #050308 100%);
     overflow-y: auto;
 }
 
 .riddle-container {
-    width: min(100%, 620px);
+    /* Full edge-to-edge width on phones */
+    width: 100%;
+    max-width: 520px;
     display: flex;
     flex-direction: column;
 }
@@ -626,12 +629,13 @@ button {
 }
 
 .riddle-card {
-    background: rgba(15, 8, 25, 0.65) !important; /* Solid dark tint without blur */
+    background: rgba(15, 8, 25, 0.65) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border: 2px solid rgba(230, 197, 107, 0.6);
     border-radius: 20px;
-    padding: 20px;
+    /* Reduce side padding inside the card from 20px down to 10px */
+    padding: 16px 10px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
     text-align: center;
 }
@@ -1403,82 +1407,80 @@ button {
     margin: 0;
   }
 
-  /* =========================================
-   CUSTOM MAGICAL VIRTUAL KEYBOARD STYLES
-   ========================================= */
+    /* =========================================
+    CUSTOM MAGICAL VIRTUAL KEYBOARD STYLES
+    ========================================= */
 
-   .custom-keyboard {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background: rgba(15, 10, 25, 0.7) !important; /* Clear see-through tint */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 2px solid #b19cd9;
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    width: 100%;
-    margin: 15px 0 0 0;
-    user-select: none;
-    box-sizing: border-box;
-}
-  
-  .keyboard-row {
-    display: flex;
-    justify-content: space-between; /* Spreads keys evenly to fit the borders */
-    gap: 6px;
-    width: 100%;
-  }
-  
-  /* Individual Key Styling */
-  .key-btn {
-    background: linear-gradient(to bottom, #2d224c, #1a1330);
-    color: #f3e8ff;
-    border: 1px solid #ffd700; /* Shiny gold border */
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 1.1rem; /* Slightly larger text */
-    font-weight: bold;
-    padding: 14px 0; /* Taller keys for easier mobile tapping */
-    flex: 1;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 215, 0, 0.3);
-    transition: all 0.1s ease;
-  }
-  
-  .key-btn:active {
-    background: #ffd700;
-    color: #1a1330;
-    transform: translateY(2px);
-    box-shadow: 0 0 10px #ffd700;
-  }
-  
-  /* Utility and Enter Buttons */
-  .utility-btn {
-    background: linear-gradient(to bottom, #4a154b, #2b0b2c);
-    border-color: #ff758c;
-    flex: 1.2;
-    font-size: 0.9rem;
-  }
-  
-  .enter-btn {
-    background: linear-gradient(to bottom, #10b981, #047857);
-    border-color: #34d399;
-    color: #ffffff;
-    flex: 1;
-    padding: 14px;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
-  }
-  
-  .key-btn:active {
-    background: #ffd700;
-    color: #1a1330;
-    transform: translateY(2px);
-    box-shadow: 0 0 10px #ffd700;
-  }
+    .custom-keyboard {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: rgba(15, 10, 25, 0.7) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 1.5px solid #b19cd9;
+        border-radius: 12px;
+        /* Trimmed down from 12px to 6px 3px so keys expand to edges */
+        padding: 6px 3px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        width: 100%;
+        margin: 12px 0 0 0;
+        user-select: none;
+        box-sizing: border-box;
+    }
+    
+    .keyboard-row {
+        display: flex;
+        justify-content: space-between;
+        /* Tightened from 6px to 3px so each key gains horizontal width */
+        gap: 3px;
+        width: 100%;
+    }
+    
+    /* Individual Key Styling */
+    .key-btn {
+        background: linear-gradient(to bottom, #2d224c, #1a1330);
+        color: #f3e8ff;
+        border: 1px solid #ffd700;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1.2rem;
+        font-weight: bold;
+        min-height: 48px;
+        padding: 11px 0;
+        flex: 1;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 215, 0, 0.3);
+        transition: transform 0.08s ease, background 0.08s ease;
+        touch-action: manipulation;
+    }
+    
+    /* Utility and Enter Buttons */
+    .utility-btn {
+        background: linear-gradient(to bottom, #4a154b, #2b0b2c);
+        border-color: #ff758c;
+        flex: 1.25;
+        font-size: 0.95rem;
+    }
+    
+    .enter-btn {
+        background: linear-gradient(to bottom, #10b981, #047857);
+        border-color: #34d399;
+        color: #ffffff;
+        flex: 1;
+        min-height: 48px;
+        padding: 11px 0;
+        font-size: 1.05rem;
+        letter-spacing: 1px;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+    
+    .key-btn:active, .enter-btn:active, .utility-btn:active {
+        background: #ffd700;
+        color: #1a1330;
+        transform: translateY(2px);
+        box-shadow: 0 0 10px #ffd700;
+    }
 
   /* =========================================
    DEFEAT / TRY AGAIN POP-UP OVERLAY
