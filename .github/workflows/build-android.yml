@@ -26,9 +26,12 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 13.0
 
       - name: Install Android Build-Tools & Platforms
         run: |
+          yes | sdkmanager --licenses || true
           sdkmanager "platform-tools" "platforms;android-34" "build-tools;33.0.2"
 
       - name: Setup Node.js
