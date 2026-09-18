@@ -381,14 +381,32 @@ regionImages.forEach(src => {
       EVENT LISTENERS: START & COMIC
       ========================================= */
    
+    const comicSkipButton = document.getElementById("comic-skip-button");
+
     startButton.addEventListener("click", () => {
         enableScreenWakeLock();
         if (globalMuteBtn) {
             globalMuteBtn.classList.add("active");
         }
         playBGM("normal");
+
+        // If returning player (level > 1 or already solved any level), bypass comic directly to map
+        if (currentLevel > 1 || (completedLevels && completedLevels.length > 0)) {
+            openLevelMap();
+            return;
+        }
+
+        // Otherwise show prologue comic for new players
+        currentComicPage = 1;
+        comicImage.src = "assets/comics/intro-page-01.png";
         showScreen(comicScreen);
     });
+
+    if (comicSkipButton) {
+        comicSkipButton.addEventListener("click", () => {
+            openLevelMap();
+        });
+    }
    
    comicNextButton.addEventListener("click", () => {
        if (currentComicPage === 1) {
