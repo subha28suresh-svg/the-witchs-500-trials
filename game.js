@@ -1230,7 +1230,6 @@ function proceedToRiddleScreen(level) {
     }
 
         // 4th Row: Reveal Answer (Only available once Hint 3 is purchased)
-        const isCompleted = isLevelCompleted(activeLevel);
         if (!isCompleted) {
             const hasAllHints = unlockedCount >= 3;
             const revealDiv = document.createElement("div");
@@ -1257,7 +1256,7 @@ function proceedToRiddleScreen(level) {
         }
 
         // 5th Row: Skip Trial (60 💎, available immediately if not passed/skipped)
-        const isAlreadyPassedOrSkipped = isLevelCompleted(activeLevel) || isLevelSkipped(activeLevel);
+        const isAlreadyPassedOrSkipped = isCompleted || isLevelSkipped(activeLevel);
         if (!isAlreadyPassedOrSkipped) {
             const skipDiv = document.createElement("div");
             skipDiv.className = "mythical-hint-item skip-row";
