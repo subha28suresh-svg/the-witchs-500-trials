@@ -1,6 +1,6 @@
 {
-  "name": "The Witch's 500 Trials",
-  "short_name": "WitchTrials",
+  "name": "500 Riddles: The Witch's Curse",
+  "short_name": "500Riddles",
   "start_url": "./index.html",
   "display": "fullscreen",
   "orientation": "portrait",
