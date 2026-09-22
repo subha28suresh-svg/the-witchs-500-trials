@@ -636,7 +636,7 @@ const QUESTIONS = {
         answer: "teapot", 
         hints: [
             "Ceramic or iron vessel brewing dried leaves in boiling water.",
-            "Look at the word itself: T-E-A-P-O-T.",
+            "Something that is used to carry a hot drink",
             "6 letters, starts with T."
         ] 
     },
@@ -668,7 +668,7 @@ const QUESTIONS = {
         ] 
     },
     74: { 
-        question: "What has a ring, but no finger, and chimes when someone arrives?", 
+        question: "What has a ring, but no finger, and chimes when someone touches it?", 
         answer: "doorbell", 
         hints: [
             "Mounted beside the front entrance of a manor or town home.",
@@ -711,7 +711,7 @@ const QUESTIONS = {
         hints: [
             "A fuzzy yellow sphere struck back and forth with stringed rackets.",
             "The opening hit to start a rally bears this culinary name.",
-            "10 letters (often typed TENNISBALL), starts with T."
+            "10 letters, starts with T."
         ] 
     },
     79: { 
@@ -719,7 +719,7 @@ const QUESTIONS = {
         answer: "flea", 
         hints: [
             "A tiny wingless insect known for incredible springing jumps.",
-            "Castles and mountains cannot jump at all, making the comparison a clever trick.",
+            "This insects causes itching in pets.",
             "4 letters, starts with F."
         ] 
     },
@@ -742,7 +742,7 @@ const QUESTIONS = {
         ] 
     },
     82: { 
-        question: "I am taken from a mine and shut up in an iron cage, from which I am never let out, yet I am used by almost every person. What am I?", 
+        question: "I am taken from a mine and shut up in an iron cage, yet I am used by almost every person. What am I?", 
         answer: "coal", 
         hints: [
             "A dark, combustible black rock dug out of subterranean tunnels.",
@@ -751,7 +751,7 @@ const QUESTIONS = {
         ] 
     },
     83: { 
-        question: "What can you hold without ever touching it with your physical hands?", 
+        question: "What can you hold with someone, without ever touching it with your physical hands?", 
         answer: "conversation", 
         hints: [
             "An exchange of thoughts, ideas, and words between two people.",
@@ -933,7 +933,7 @@ const QUESTIONS = {
         ] 
     },
     103: { 
-        question: "What goes up and never, ever comes back down as birthdays pass?", 
+        question: "What goes up everyday and never, ever comes back down?", 
         answer: "age", 
         hints: [
             "It measures the years you have lived upon this earth.",
@@ -979,15 +979,15 @@ const QUESTIONS = {
     },
     108: { 
         question: "What has a head that weeps wax tears when lit in the dark?", 
-        answer: "taper", 
+        answer: "candle", 
         hints: [
-            "A slender, elegant wax candle set in a polished dining candelabra.",
+            "A slender, elegant wax taper set in a polished dining candelabra.",
             "Its dripping wax hardens as the wick burns down through dinner.",
-            "5 letters, starts with T."
+            "6 letters, starts with C."
         ] 
     },
     109: { 
-        question: "What gets smaller the more you wash your hands with it at the basin?", 
+        question: "What gets smaller the more you wash?", 
         answer: "soap", 
         hints: [
             "Lathers into aromatic white foam when rubbed with warm water.",
@@ -1014,7 +1014,7 @@ const QUESTIONS = {
         ] 
     },
     112: { 
-        question: "What has a golden tooth and bites through timber, but has no stomach or tongue?", 
+        question: "What has a tooth and bites through timber, but has no stomach or tongue?", 
         answer: "saw", 
         hints: [
             "Carpenters push and pull its serrated steel blade back and forth.",
@@ -1023,7 +1023,7 @@ const QUESTIONS = {
         ] 
     },
     113: { 
-        question: "What can be swallowed by pride, yet tastes bitter on the tongue?", 
+        question: "What can be swallowed by pride, yet tastes bitter in the heart?", 
         answer: "defeat", 
         hints: [
             "The hard lesson learned when your strategy collapses on the field.",
@@ -1032,7 +1032,7 @@ const QUESTIONS = {
         ] 
     },
     114: { 
-        question: "What has a bridge of wood, six silver wires, and sings when stroked?", 
+        question: "What has a bridge of wood and wires, and sings when stroked?", 
         answer: "guitar", 
         hints: [
             "A classic acoustic fretted instrument strummed by bards and musicians.",
@@ -1041,7 +1041,7 @@ const QUESTIONS = {
         ] 
     },
     115: { 
-        question: "What has an eye that never blinks, guiding ships away from jagged rocks?", 
+        question: "What has an eye that never blinks, keeping ships safe?", 
         answer: "lighthouse", 
         hints: [
             "A towering stone beacon standing tall on a dangerous coastal headland.",
@@ -1059,12 +1059,12 @@ const QUESTIONS = {
         ] 
     },
     117: { 
-        question: "What has an iron tongue that strikes a bell at every passing hour?", 
-        answer: "clapper", 
+        question: "What has an iron tongue that strikes every passing hour?", 
+        answer: "bell", 
         hints: [
-            "The heavy metal rod suspended inside the mouth of a bronze bell.",
-            "Swinging back and forth, it strikes the bell's lip to ring out tones.",
-            "7 letters, starts with C."
+            "It's used to measure the hour of the day.",
+            "Swinging back and forth, it strikes to ring out tones.",
+            "4 letters, starts with B."
         ] 
     },
     118: { 
