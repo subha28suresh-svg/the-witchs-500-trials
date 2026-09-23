@@ -1077,7 +1077,7 @@ const QUESTIONS = {
         ] 
     },
     119: { 
-        question: "What kind of paper never bears written ink, but covers every royal table?", 
+        question: "What kind of paper never bears written ink, but is part of every royal table?", 
         answer: "napkin", 
         hints: [
             "Tucked into a collar or folded neatly beside the banquet plate.",
@@ -1214,12 +1214,12 @@ const QUESTIONS = {
         ] 
     },
     134: { 
-        question: "What has an eye that guides the thread, yet weeps no salty tears?", 
-        answer: "bodkin", 
+        question: "What has an eye that neither sees nor weeps?", 
+        answer: "needle", 
         hints: [
-            "A blunt, thick needle with a large eye used by leatherworkers.",
+            "A blunt, thick bodkin with a large eye used by leatherworkers.",
             "Draws cords, ribbons, and leather thongs through heavy fabric.",
-            "6 letters, starts with B."
+            "6 letters, starts with N."
         ] 
     },
     135: { 
@@ -1277,7 +1277,7 @@ const QUESTIONS = {
         ] 
     },
     141: { 
-        question: "What has a coat of spiky quills that guards it from the wolf's bite?", 
+        question: "What has a coat of spiky quills that guards it from the enemy's bite?", 
         answer: "porcupine", 
         hints: [
             "A slow-moving woodland rodent covered in sharp defensive armor.",
@@ -1349,7 +1349,7 @@ const QUESTIONS = {
         ] 
     },
     149: { 
-        question: "What can you lose in the dark that you never possessed with your fingers?", 
+        question: "What can you lose that you never physically possessed?", 
         answer: "temper", 
         hints: [
             "Your patience and calm emotional composure.",
@@ -1450,7 +1450,7 @@ const QUESTIONS = {
         ] 
     },
     160: { 
-        question: "What has two sharp steel blades joined at the waist that glide through silk and paper?", 
+        question: "What is X-shaped that glides through silk and paper?", 
         answer: "scissors", 
         hints: [
             "A household cutting tool with two loop handles for your fingers.",
@@ -1459,7 +1459,7 @@ const QUESTIONS = {
         ] 
     },
     161: { 
-        question: "What can you catch in the meadow that flutters with painted wings, but never sings a note?", 
+        question: "What flutters with painted wings in a meadow, but never sings a note?", 
         answer: "butterfly", 
         hints: [
             "An insect with colorful, powdery wings that drinks nectar from blossoms.",
