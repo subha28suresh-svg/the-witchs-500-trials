@@ -237,8 +237,8 @@ const QUESTIONS = {
         question: "What has to be broken before you can use it?", 
         answer: "egg", 
         hints: [
-            "It comes packaged in a fragile shell[cite: 10].",
-            "A breakfast staple, scrambled, boiled, or baked into cakes[cite: 10].",
+            "It comes packaged in a fragile shell.",
+            "A breakfast staple, scrambled, boiled, or baked into cakes.",
             "3 letters, starts with E."
         ] 
     },
@@ -246,8 +246,8 @@ const QUESTIONS = {
         question: "What is full of holes, yet holds water without spilling a drop?", 
         answer: "sponge", 
         hints: [
-            "A soft, porous tool found in kitchens and bathhouses[cite: 10].",
-            "It swells and holds many times its weight in liquid[cite: 9, 10].",
+            "A soft, porous tool found in kitchens and bathhouses.",
+            "It swells and holds many times its weight in liquid.",
             "6 letters, starts with S."
         ] 
     },
@@ -255,8 +255,8 @@ const QUESTIONS = {
         question: "What runs all around a backyard or pasture, but never moves an inch?", 
         answer: "fence", 
         hints: [
-            "It defines the border of an estate or garden[cite: 10].",
-            "Constructed of timber posts, stone rails, or wire[cite: 10].",
+            "It defines the border of an estate or garden.",
+            "Constructed of timber posts, stone rails, or wire.",
             "5 letters, starts with F."
         ] 
     },
@@ -264,8 +264,8 @@ const QUESTIONS = {
         question: "What has an endless supply of letters, but starts its day completely empty?", 
         answer: "mailbox", 
         hints: [
-            "Couriers and post carriers visit it daily[cite: 10].",
-            "It sits at the gate or doorway waiting for parchment and letters[cite: 10].",
+            "Couriers and post carriers visit it daily.",
+            "It sits at the gate or doorway waiting for parchment and letters.",
             "7 letters, starts with M."
         ] 
     },
@@ -273,8 +273,8 @@ const QUESTIONS = {
         question: "What kind of coat is always put on completely wet, yet dries into a solid shield?", 
         answer: "paint", 
         hints: [
-            "Artists and decorators spread it with wide bristle brushes[cite: 10].",
-            "It changes the color of palace walls, canvas, and woodwork[cite: 10].",
+            "Artists and decorators spread it with wide bristle brushes.",
+            "It changes the color of palace walls, canvas, and woodwork.",
             "5 letters, starts with P."
         ] 
     },
@@ -282,8 +282,8 @@ const QUESTIONS = {
         question: "What tree can you always carry in your own hand?", 
         answer: "palm", 
         hints: [
-            "A tropical tree bearing sweet dates and coconuts[cite: 10].",
-            "Also the inner surface of your hand between wrist and fingers[cite: 10].",
+            "A tropical tree bearing sweet dates and coconuts.",
+            "Also the inner surface of your hand between wrist and fingers.",
             "4 letters, starts with P."
         ] 
     },
@@ -291,8 +291,8 @@ const QUESTIONS = {
         question: "What comes down from the grey clouds, but can never climb back up?", 
         answer: "rain", 
         hints: [
-            "It patters across roof shingles and swells rivers after storms[cite: 9, 10].",
-            "Farmers pray for it to nourish their dry crops[cite: 9, 10].",
+            "It patters across roof shingles and swells rivers after storms.",
+            "Farmers pray for it to nourish their dry crops.",
             "4 letters, starts with R."
         ] 
     },
@@ -300,8 +300,8 @@ const QUESTIONS = {
         question: "What word is spelled incorrectly in every single dictionary across the world?", 
         answer: "incorrectly", 
         hints: [
-            "A clever linguistic trick hidden in plain sight[cite: 10].",
-            "The riddle states the literal spelling within the question itself[cite: 10].",
+            "A clever linguistic trick hidden in plain sight.",
+            "The riddle states the literal spelling within the question itself.",
             "11 letters, starts with I."
         ] 
     },
@@ -309,8 +309,8 @@ const QUESTIONS = {
         question: "What has eyes that never see, and a tongue that never speaks or tastes?", 
         answer: "shoe", 
         hints: [
-            "You lace it tight before walking across rocky roads[cite: 9, 10].",
-            "The leather flap beneath the laces bears this anatomical name[cite: 9, 10].",
+            "You lace it tight before walking across rocky roads.",
+            "The leather flap beneath the laces bears this anatomical name.",
             "4 letters, starts with S."
         ] 
     },
@@ -318,8 +318,8 @@ const QUESTIONS = {
         question: "What gets sharper and sharper the more you put it to use?", 
         answer: "brain", 
         hints: [
-            "It resides inside your skull, working tirelessly behind your eyes[cite: 10].",
-            "Solving logic trials, chess, and riddles keeps it in prime condition[cite: 9, 10].",
+            "It resides inside your skull, working tirelessly behind your eyes.",
+            "Solving logic trials, chess, and riddles keeps it in prime condition.",
             "5 letters, starts with B."
         ] 
     },
@@ -327,8 +327,8 @@ const QUESTIONS = {
         question: "What has a spine and covers, but no bones, flesh, or heartbeat?", 
         answer: "book", 
         hints: [
-            "Scholars keep thousands lined upon wooden library shelves[cite: 9, 10].",
-            "You turn its paper leaves to read tales of adventure and lore[cite: 9, 10].",
+            "Scholars keep thousands lined upon wooden library shelves.",
+            "You turn its paper leaves to read tales of adventure and lore.",
             "4 letters, starts with B."
         ] 
     },
@@ -336,8 +336,8 @@ const QUESTIONS = {
         question: "What has a hard protective shell, but is neither insect, reptile, nor mollusk?", 
         answer: "nut", 
         hints: [
-            "Foliage yields walnuts, chestnuts, acorns, and pecans[cite: 10].",
-            "Woodland squirrels gather and bury them before winter arrives[cite: 10].",
+            "Foliage yields walnuts, chestnuts, acorns, and pecans.",
+            "Woodland squirrels gather and bury them before winter arrives.",
             "3 letters, starts with N."
         ] 
     },
@@ -345,8 +345,8 @@ const QUESTIONS = {
         question: "What can you break without ever lifting a finger or making a physical sound?", 
         answer: "promise", 
         hints: [
-            "A solemn bond or verbal oath sealed between honorable people[cite: 9, 10].",
-            "Failing to keep your word shatters it permanently[cite: 9, 10].",
+            "A solemn bond or verbal oath sealed between honorable people.",
+            "Failing to keep your word shatters it permanently.",
             "7 letters, starts with P."
         ] 
     },
@@ -354,8 +354,8 @@ const QUESTIONS = {
         question: "What is bought by the long yard, but worn solely by the foot?", 
         answer: "carpet", 
         hints: [
-            "Merchants weave and sell it in rolled bolts of fabric[cite: 10].",
-            "It blankets stone floors, stairs, and halls to keep feet warm[cite: 10].",
+            "Merchants weave and sell it in rolled bolts of fabric.",
+            "It blankets stone floors, stairs, and halls to keep feet warm.",
             "6 letters, starts with C."
         ] 
     },
@@ -363,8 +363,8 @@ const QUESTIONS = {
         question: "The more you take away from it, the larger and deeper it grows. What is it?", 
         answer: "hole", 
         hints: [
-            "Created when a spade digs into soft earth or fabric tears[cite: 9, 10].",
-            "Removing soil only expands the empty space left behind[cite: 9, 10].",
+            "Created when a spade digs into soft earth or fabric tears.",
+            "Removing soil only expands the empty space left behind.",
             "4 letters, starts with H."
         ] 
     },
@@ -372,17 +372,17 @@ const QUESTIONS = {
         question: "What has a nose, wings, and belly, but neither smells, flaps, nor eats?", 
         answer: "airplane", 
         hints: [
-            "A metallic flying transport built to carry travelers above the clouds[cite: 10].",
-            "Pilots navigate it along air currents between distant cities[cite: 10].",
+            "A metallic flying transport built to carry travelers above the clouds.",
+            "Pilots navigate it along air currents between distant cities.",
             "8 letters, starts with A."
         ] 
     },
     42: { 
-        question: "What can you clearly hear, but never see, touch, or hold in your hand?", 
+        question: "I have no body but I can be loud, I have no mouth but through you I am heard", 
         answer: "voice", 
         hints: [
-            "It carries song, speech, whispers, and shouts from the throat[cite: 10].",
-            "Chambers capture its acoustic resonance without keeping its form[cite: 9, 10].",
+            "It carries song, speech, whispers, and shouts from the throat.",
+            "Chambers capture its acoustic resonance without keeping its form.",
             "5 letters, starts with V."
         ] 
     },
@@ -390,8 +390,8 @@ const QUESTIONS = {
         question: "Forward I am heavy, but backward I am not. What am I?", 
         answer: "ton", 
         hints: [
-            "A massive imperial unit of weight equal to two thousand pounds[cite: 10].",
-            "Read its three letters in reverse to reveal the word 'not'[cite: 10].",
+            "A massive imperial unit of weight equal to two thousand pounds.",
+            "Read its three letters in reverse to reveal the word 'not'.",
             "3 letters, starts with T."
         ] 
     },
@@ -399,8 +399,8 @@ const QUESTIONS = {
         question: "What has legs and a flat top, but cannot walk a single step?", 
         answer: "table", 
         hints: [
-            "Found in banqueting halls, dining rooms, and council chambers[cite: 10].",
-            "Feasts, parchment, and chessboards are spread across its surface[cite: 10].",
+            "Found in banqueting halls, dining rooms, and council chambers.",
+            "Feasts, parchment, and chessboards are spread across its surface.",
             "5 letters, starts with T."
         ] 
     },
@@ -408,8 +408,8 @@ const QUESTIONS = {
         question: "What kind of room has no doors, no windows, no floor, and no ceiling?", 
         answer: "mushroom", 
         hints: [
-            "A forest fungus with a stem and an umbrella-like cap[cite: 9, 10].",
-            "Look closely at the final four letters of its common name[cite: 10].",
+            "A forest fungus with a stem and an umbrella-like cap.",
+            "Look closely at the final four letters of its common name.",
             "8 letters, starts with M."
         ] 
     },
@@ -417,8 +417,8 @@ const QUESTIONS = {
         question: "What has an eye of white storm and a long tail of stardust blazing across space?", 
         answer: "comet", 
         hints: [
-            "An icy celestial traveler orbiting the sun across centuries[cite: 9, 10].",
-            "Halley's is among the most celebrated to streak across night skies[cite: 10].",
+            "An icy celestial traveler orbiting the sun across centuries.",
+            "Halley's is among the most celebrated to streak across night skies.",
             "5 letters, starts with C."
         ] 
     },
@@ -426,8 +426,8 @@ const QUESTIONS = {
         question: "What has keys, space, and letters, opens digital gates, but has no locks or rooms?", 
         answer: "keyboard", 
         hints: [
-            "Typists press its QWERTY array to write manuscripts and code[cite: 10].",
-            "It features an enter key, backspace, and a long central spacebar[cite: 10].",
+            "Typists press its QWERTY array to write manuscripts and code.",
+            "It features an enter key, backspace, and a long central spacebar.",
             "8 letters, starts with K."
         ] 
     },
@@ -435,8 +435,8 @@ const QUESTIONS = {
         question: "What carries ancient tales of kings and wars, yet cannot utter a single syllable?", 
         answer: "scroll", 
         hints: [
-            "Scribes roll this parchment or papyrus document tight with ribbon[cite: 9].",
-            "Unrolling it reveals handwritten decrees, maps, or arcane lore[cite: 9].",
+            "Scribes roll this parchment or papyrus document tight with ribbon.",
+            "Unrolling it reveals handwritten decrees, maps, or arcane lore.",
             "6 letters, starts with S."
         ] 
     },
@@ -444,8 +444,8 @@ const QUESTIONS = {
         question: "What is born in white fire, lives in boiling water, and vanishes the instant it cools?", 
         answer: "steam", 
         hints: [
-            "Scalding vapor rising off kettles and boiling cauldrons[cite: 9, 10].",
-            "Cool glass condenses it back into drops of liquid water[cite: 9, 10].",
+            "Scalding vapor rising off kettles and boiling cauldrons.",
+            "Cool glass condenses it back into drops of liquid water.",
             "5 letters, starts with S."
         ] 
     },
@@ -470,7 +470,7 @@ const QUESTIONS = {
         ] 
     },
     52: { 
-        question: "What has a head in the evening, but wakes up headless in the morning?", 
+        question: "At night, I am your favorite place, in the morning, you leave without a trace. What am I?", 
         answer: "bed", 
         hints: [
             "You rest upon its mattress after a long journey.",
@@ -479,7 +479,7 @@ const QUESTIONS = {
         ] 
     },
     53: { 
-        question: "I have no flesh, feathers, scales, or bone, yet I have four fingers and a thumb. What am I?", 
+        question: "Four fingers share one cozy space, while my thumb has its own little place. What am I?", 
         answer: "mitten", 
         hints: [
             "Knitted from thick wool to keep your hands warm in winter.",
@@ -488,7 +488,7 @@ const QUESTIONS = {
         ] 
     },
     54: { 
-        question: "What goes up white and comes down yellow and gold?", 
+        question: "I start as a tiny kernel, then pop with a sound, a fluffy crunchy treat is what you have found. What am I?", 
         answer: "popcorn", 
         hints: [
             "Dry kernels heated over an open hearth or hot pan.",
@@ -515,7 +515,7 @@ const QUESTIONS = {
         ] 
     },
     57: { 
-        question: "I have lakes with no water, mountains with no stone, and paths with no dirt. What am I?", 
+        question: "I sit on a stand and tilt on a pin, give me a flick and the whole world will spin. What am I?", 
         answer: "globe", 
         hints: [
             "A spherical model of the world resting on a scholar's desk.",
@@ -533,7 +533,7 @@ const QUESTIONS = {
         ] 
     },
     59: { 
-        question: "What can you catch outside, but never throw back?", 
+        question: "I bite without teeth and leave you bright red, a fiery reminder of the rays overhead. What am I?", 
         answer: "sunburn", 
         hints: [
             "The price of standing too long under the blazing summer heat.",
@@ -569,12 +569,12 @@ const QUESTIONS = {
         ] 
     },
     63: { 
-        question: "What has eighty-eight keys, but cannot open a single dungeon gate?", 
-        answer: "harpsichord", 
+        question: "I wear a frame shaped like an angel's wing, where bare fingertips pluck heaven from every string.", 
+        answer: "harp", 
         hints: [
             "An ancient plucked musical instrument played in royal courts.",
-            "Predecessor to the modern piano, featuring ivory and ebony keys.",
-            "11 letters, starts with H."
+            "I have dozens of vertical strings yet I require neither a bow or a plectrum to play.",
+            "4 letters, starts with H."
         ] 
     },
     64: { 
@@ -587,7 +587,7 @@ const QUESTIONS = {
         ] 
     },
     65: { 
-        question: "What has a single horn, but gives no milk and carries no knight?", 
+        question: "I am a heavy iron block with a horn that cannot blow, taking countless hammer blows to shape the fiery glow", 
         answer: "anvil", 
         hints: [
             "A heavy iron forging block resting inside a blacksmith's shop.",
@@ -605,7 +605,7 @@ const QUESTIONS = {
         ] 
     },
     67: { 
-        question: "I am light enough to float on water, but so heavy that the largest army cannot lift me. What am I?", 
+        question: "I steal the horizon on silent feet, hiding the world until the morning heat. What am I?", 
         answer: "fog", 
         hints: [
             "A thick blanket of vapor hanging over lakes and marshlands at dawn.",
@@ -615,15 +615,15 @@ const QUESTIONS = {
     },
     68: { 
         question: "What can you hold in your right hand, but never in your left?", 
-        answer: "left-hand", 
+        answer: "lefthand", 
         hints: [
             "Look down at your own two hands and try to grasp one with itself.",
             "Your left fingers cannot grasp the very limb they are attached to.",
-            "9 letters (often typed LEFTHAND), starts with L."
+            "8 letters, starts with L."
         ] 
     },
     69: { 
-        question: "What can run, but never walks, murmurs, but never talks, has a bed, but never sleeps?", 
+        question: "I chatter over pebbles and shallow stones, too small for a boat but never quiet in the woods.", 
         answer: "brook", 
         hints: [
             "A small, babbling stream of freshwater cutting through forest moss.",
@@ -677,12 +677,12 @@ const QUESTIONS = {
         ] 
     },
     75: { 
-        question: "The third region gate demands: What is full when the sun is at its height, hollow at dusk, and vanishes entirely when you close your eyes?", 
-        answer: "sight", 
+        question: "The third region gate demands: I have no hands, but I point the way; I fade in the dark, but guide you by day. What am I?", 
+        answer: "eyesight", 
         hints: [
             "One of the five fundamental senses granted to mortal beings.",
             "Without light, your eyes cannot grant you this perception.",
-            "5 letters, starts with S."
+            "8 letters, starts with E."
         ] 
     },
 
@@ -4539,8 +4539,8 @@ const QUESTIONS = {
         question: "The five hundred trials are about to be conquered. The Witch bows before you. Name the supreme virtue that outsmarted every hex and freed the realm.", 
         answer: "love", 
         hints: [
-            "The profound devotion and selfless affection that drove the King to cross twenty perilous realms[cite: 6].",
-            "Stronger than steel armor, deeper than ancient sorcery, and triumphant over all darkness[cite: 5].",
+            "The profound devotion and selfless affection that drove the King to cross twenty perilous realms.",
+            "Stronger than steel armor, deeper than ancient sorcery, and triumphant over all darkness.",
             "4 letters, starts with L."
         ] 
     },
