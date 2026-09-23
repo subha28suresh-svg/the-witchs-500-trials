@@ -706,12 +706,12 @@ const QUESTIONS = {
         ] 
     },
     78: { 
-        question: "What can you serve to your guests, but must never eat yourself?", 
-        answer: "tennisball", 
+        question: "Where love means zero and a deuce brings fear, a final ace ends the match right here.", 
+        answer: "tennis", 
         hints: [
-            "A fuzzy yellow sphere struck back and forth with stringed rackets.",
-            "The opening hit to start a rally bears this culinary name.",
-            "10 letters, starts with T."
+            "A game where fuzzy yellow sphere struck back and forth with stringed rackets.",
+            "The opening hit to start a rally bears the word serve.",
+            "6 letters, starts with T."
         ] 
     },
     79: { 
@@ -724,7 +724,7 @@ const QUESTIONS = {
         ] 
     },
     80: { 
-        question: "What has a bark, four legs, and wags its tail when its master returns?", 
+        question: "With four loyal paws and a welcoming bark, I will chase away sorrow and brighten the dark.", 
         answer: "dog", 
         hints: [
             "A faithful companion kept by shepherds, hunters, and kings.",
@@ -733,7 +733,7 @@ const QUESTIONS = {
         ] 
     },
     81: { 
-        question: "What has a lock on every side, yet keeps no gold or prisoner inside?", 
+        question: "Carved by human hands where no river ran, I carry floating trade through a locked, straight span.", 
         answer: "canal", 
         hints: [
             "An artificial waterway cut through land for barges and ships.",
@@ -760,7 +760,7 @@ const QUESTIONS = {
         ] 
     },
     84: { 
-        question: "What kind of room can you eat that is filled with mushrooms, broth, and meats?", 
+        question: "I bubble low and slow inside a heavy pot, turning simple scraps into a hearty, savoury broth. What am I?", 
         answer: "stew", 
         hints: [
             "A hearty, savory dish simmered slowly over a low hearth fire.",
@@ -805,7 +805,7 @@ const QUESTIONS = {
         ] 
     },
     89: { 
-        question: "What has a mouth that never smiles, a bed that never warms, and banks with no coins?", 
+        question: "Where a tired river fans its fingers wide to meet the sea, I drop my fertile silt and form a new geography.", 
         answer: "delta", 
         hints: [
             "A triangular tract of sediment deposited at the mouth of a river.",
@@ -814,7 +814,7 @@ const QUESTIONS = {
         ] 
     },
     90: { 
-        question: "What gets sharper the more you strike it against stone or steel?", 
+        question: "Struck on the head by a hammer's blow, my beveled steel cuts shapes from stone below. What am I?", 
         answer: "chisel", 
         hints: [
             "A long metal cutting tool with a beveled edge.",
@@ -823,7 +823,7 @@ const QUESTIONS = {
         ] 
     },
     91: { 
-        question: "What can you make that no one—not even you—can ever see?", 
+        question: "What can you make that no one, not even you, can ever see?", 
         answer: "noise", 
         hints: [
             "An audible sound that vibrates through the air into your ears.",
@@ -850,12 +850,12 @@ const QUESTIONS = {
         ] 
     },
     94: { 
-        question: "What has a ring around its body, but is neither a finger, planet, nor bell?", 
-        answer: "tree-ring", 
+        question: "I swim in silent gold without a sea, where a glass-walled bowl is my whole reality. What am I?", 
+        answer: "goldfish", 
         hints: [
-            "Found inside a sawed wooden stump or trunk.",
-            "Foresters count them to determine how many years the oak has lived.",
-            "Typed as RING or TREERING (8 letters, starts with T)."
+            "Found inside a glass bowl in many homes.",
+            "Myth says, my memory lasts only for 3 seconds.",
+            "8 letters, starts with G."
         ] 
     },
     95: { 
@@ -877,16 +877,16 @@ const QUESTIONS = {
         ] 
     },
     97: { 
-        question: "What has four wheels and flies, yet is neither a chariot, carriage, nor bird?", 
-        answer: "garbagetruck", 
+        question: "I freeze a fleeting second in a flash of light, to keep a faded memory forever bright. What am I?", 
+        answer: "photo", 
         hints: [
-            "A heavy utility vehicle rolling down municipal streets at dawn.",
-            "It collects discarded rubbish, attracting buzzing houseflies.",
-            "12 letters (often typed GARBAGETRUCK), starts with G."
+            "I can show you your own smile, but I cannot see.",
+            "I can be framed on the wall or stored in a gallery of pixels",
+            "5 letters, starts with P."
         ] 
     },
     98: { 
-        question: "What can fill a room with melody, but has no throat, lungs, or tongue?", 
+        question: "I have no voice until you sideways blow, but dancing fingers make my sweet breath flow. What am I?", 
         answer: "flute", 
         hints: [
             "A slender woodwind instrument held horizontally across the lips.",
@@ -895,7 +895,7 @@ const QUESTIONS = {
         ] 
     },
     99: { 
-        question: "What has a face that never smiles, hands that never hold, and ticks without a heart?", 
+        question: "What stays on your hand, has a face that never smiles, hands that never hold, and ticks without a heart?", 
         answer: "watch", 
         hints: [
             "A compact timepiece strapped to your wrist with leather or gold.",
@@ -915,7 +915,7 @@ const QUESTIONS = {
 
     // --- REGION: Lost Ruins (Levels 101 - 125) ---
     101: { 
-        question: "What has a lock, but no door, and holds back a river until it is turned?", 
+        question: "What stands as a concrete giant against the raging flow, holding back a river to make bright power glow?", 
         answer: "dam", 
         hints: [
             "A massive civil engineering barrier built across a deep river canyon.",
@@ -924,7 +924,7 @@ const QUESTIONS = {
         ] 
     },
     102: { 
-        question: "What can you break without dropping, hitting, or touching it with your hands?", 
+        question: "Built slowly over years with steady care, a single careless lie can shatter me beyond repair. What am I?", 
         answer: "trust", 
         hints: [
             "The foundation of friendship, loyalty, and honest oaths.",
@@ -942,7 +942,7 @@ const QUESTIONS = {
         ] 
     },
     104: { 
-        question: "What has two hands and a round face, but no legs or arms?", 
+        question: "A silver needle dances in a shallow case, ignoring all distractions just to find one faithful place. What am I?", 
         answer: "compass", 
         hints: [
             "Navigators rely on its magnetic needle to find true north at sea.",
@@ -951,7 +951,7 @@ const QUESTIONS = {
         ] 
     },
     105: { 
-        question: "What kind of coat can only be put on when dry, but keeps you warm in the howling snow?", 
+        question: "What has two empty arms and a teeth lined seam, but only come alive when the weather turns mean?", 
         answer: "jacket", 
         hints: [
             "An everyday piece of outerwear buttoned or zipped up to your chin.",
@@ -960,7 +960,7 @@ const QUESTIONS = {
         ] 
     },
     106: { 
-        question: "What has a ring of iron and an anchor of stone, yet can never marry?", 
+        question: "What is a dark, hollow cylinder sunk deep underground, where tossing a bucket turns silence to sound? ", 
         answer: "well", 
         hints: [
             "A deep vertical shaft sunk into the earth to tap groundwater.",
@@ -969,8 +969,8 @@ const QUESTIONS = {
         ] 
     },
     107: { 
-        question: "What can travel through glass without breaking a single pane?", 
-        answer: "sunbeam", 
+        question: "I travel eight silent minutes through the cold, only to paint the morning in liquid gold. What am I?", 
+        answer: "sunrays", 
         hints: [
             "A radiant ray of golden warmth passing directly through clean windows.",
             "Cast across the floorboards on bright, cloudless mornings.",
@@ -996,7 +996,7 @@ const QUESTIONS = {
         ] 
     },
     110: { 
-        question: "What has a mouth that never speaks, but can swallow whole ships when the sea churns?", 
+        question: "I spin a spiralling spiral without any thread, dragging all who wander close down to an empty bed. What am I?", 
         answer: "whirlpool", 
         hints: [
             "A swirling maritime vortex born where clashing tidal currents collide.",
