@@ -1531,16 +1531,16 @@ const QUESTIONS = {
         ] 
     },
     169: { 
-        question: "What has a leather saddle, pedal stirrups, and carries two travelers in tandem?", 
+        question: "What has a leather saddle, pedal stirrups, and carries two travelers in unison?", 
         answer: "tandem", 
         hints: [
-            "A bicycle built for two riders pedaling together in unison.",
+            "A bicycle built for two riders pedaling together in sync.",
             "Features two sets of handlebars and pedals on a stretched frame.",
             "6 letters, starts with T."
         ] 
     },
     170: { 
-        question: "What can you blow through a reed pipe that creates shimmering soap domes floating on air?", 
+        question: "I am floating sphere of soap that pops when touched by you, drifting gently on the breeze until I bid adieu. What am I?", 
         answer: "bubble", 
         hints: [
             "A thin, fragile sphere of soapy liquid trapping a pocket of breath.",
