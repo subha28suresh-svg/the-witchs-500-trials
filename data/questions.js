@@ -1041,7 +1041,7 @@ const QUESTIONS = {
         ] 
     },
     115: { 
-        question: "What has an eye that never blinks, keeping ships safe?", 
+        question: "I am a solitary tower keeping watch against the dark, sweeping a single beam across the perils of the deep. What am I?", 
         answer: "lighthouse", 
         hints: [
             "A towering stone beacon standing tall on a dangerous coastal headland.",
@@ -1068,12 +1068,12 @@ const QUESTIONS = {
         ] 
     },
     118: { 
-        question: "What is lighter than a leaf, but cannot be picked up once dropped upon the ground?", 
-        answer: "shadow", 
+        question: "Poor people have it, rich people need it, if you eat it you die. What is it?", 
+        answer: "nothing", 
         hints: [
-            "Cast across dirt and paving stones whenever an object blocks sunlight.",
-            "No human hand can grasp or lift its flat dark outline.",
-            "6 letters, starts with S."
+            "Feels like emptiness.",
+            "Opposite of everything.",
+            "7 letters, starts with N."
         ] 
     },
     119: { 
@@ -1142,7 +1142,7 @@ const QUESTIONS = {
     
     // --- REGION: Firelands (Levels 126 - 150) ---
     126: { 
-        question: "What has a red mouth that swallows dry logs, yet chokes to death on pure water?", 
+        question: "Fed on dead branches to keep the circle warm, I sent bright embers dancing into the cold night sky. What am I?", 
         answer: "bonfire", 
         hints: [
             "A large, roaring outdoor blaze built for celebrations or warmth.",
@@ -1178,7 +1178,7 @@ const QUESTIONS = {
         ] 
     },
     130: { 
-        question: "What has four legs, a single back, and invites you to rest your weary bones?", 
+        question: "I have four stiff legs that never take a stride, waiting patiently to bear the weight you set aside. What am I?", 
         answer: "chair", 
         hints: [
             "Every tavern, study, and dining hall is furnished with them.",
@@ -1187,16 +1187,16 @@ const QUESTIONS = {
         ] 
     },
     131: { 
-        question: "What has a tongue that tastes no honey, but laps water from a terracotta bowl?", 
-        answer: "dog", 
+        question: "Draped in rough brown hair high upon a coastal tree, a stony cup holds sweet water you can never see. What am I?", 
+        answer: "coconut", 
         hints: [
-            "A loyal hound guarding the gates and hunting in the woods.",
-            "Wags its tail eagerly when its master returns home.",
-            "3 letters, starts with D."
+            "You must crack my hard outer shell to reach the sweet, refreshing water hidden within.",
+            "Found in abundance in coastal area.",
+            "7 letters, starts with C."
         ] 
     },
     132: { 
-        question: "What falls down the mountain crag without getting hurt, yet shatters on stone?", 
+        question: "A rushing ribbon leaps from rocky heights above, breaking into thunderous mist with every leap of love. What am I?", 
         answer: "waterfall", 
         hints: [
             "A rushing cascade where a river leaps off a sheer rock ledge.",
@@ -1205,7 +1205,7 @@ const QUESTIONS = {
         ] 
     },
     133: { 
-        question: "What kind of key turns in no lock, but opens every bottle of fine vintage?", 
+        question: "With a spiralled steel spine I burrow deep into compressed bark, pulling free the captive vintage resting in the dark. What am I?", 
         answer: "corkscrew", 
         hints: [
             "A spiral steel tool twisted down into the neck of a wine bottle.",
@@ -1214,16 +1214,16 @@ const QUESTIONS = {
         ] 
     },
     134: { 
-        question: "What has an eye that neither sees nor weeps?", 
-        answer: "needle", 
+        question: "I hop across the plains with a cozy built-in pocket, bounding fast into the air like a furry rocket. What am I?", 
+        answer: "kangaroo", 
         hints: [
-            "A blunt, thick bodkin with a large eye used by leatherworkers.",
-            "Draws cords, ribbons, and leather thongs through heavy fabric.",
-            "6 letters, starts with N."
+            "I am found predominantly in Australia.",
+            "I have a pouch to hold my young one safely.",
+            "8 letters, starts with K."
         ] 
     },
     135: { 
-        question: "What can be struck with fury, yet feels no pain and never bleeds?", 
+        question: "A scrape against a rough ignites my fragile spine, I flash with brilliant fire and fade out in a line. What am I?", 
         answer: "matchstick", 
         hints: [
             "A thin wooden sliver tipped with flammable sulfur paste.",
@@ -1232,7 +1232,7 @@ const QUESTIONS = {
         ] 
     },
     136: { 
-        question: "What has two hands that meet twice a day, but never hold or greet each other?", 
+        question: "I wear the sky's brightest bloom and shrink you shadows down to the doom. What am I?", 
         answer: "noon", 
         hints: [
             "The exact midpoint of the day when the sun reaches its zenith.",
@@ -1241,12 +1241,12 @@ const QUESTIONS = {
         ] 
     },
     137: { 
-        question: "What has an iron skin and eats charcoal, pressing smooth the wrinkles of cloth?", 
-        answer: "flatiron", 
+        question: "A cruved stone anchor striking first upon the dusky track, bearing all your weight before the toe can push you back. What am I?", 
+        answer: "heel", 
         hints: [
-            "A heavy metal tool heated on a hearth or filled with glowing embers.",
-            "Tailors glide its hot base over linen to flatten every crease.",
-            "8 letters, starts with F."
+            "I share my name with a part of the shoe.",
+            "I touch the ground first while walking before any other part.",
+            "4 letters, starts with H."
         ] 
     },
     138: { 
@@ -1295,7 +1295,7 @@ const QUESTIONS = {
         ] 
     },
     143: { 
-        question: "What has an arch that spans the canyon, but was built without masonry or wood?", 
+        question: "A hungry ribbon chewing through the emerald leaf unseen, I spin a silk-wrapped slumber to awaken as a queen. What am I?", 
         answer: "caterpillar", 
         hints: [
             "A creeping larva that loops its fuzzy back as it inches along leaves.",
@@ -1304,7 +1304,7 @@ const QUESTIONS = {
         ] 
     },
     144: { 
-        question: "What can you catch in your open palm, but melts away before you can close your fist?", 
+        question: "What can you catch in your open palm, but melts away before you can close it calm?", 
         answer: "snowflake", 
         hints: [
             "A delicate hexagonal crystal of frozen water drifting from grey skies.",
@@ -1322,7 +1322,7 @@ const QUESTIONS = {
         ] 
     },
     146: { 
-        question: "What has an ear that hears no sound, but yields sweet golden kernels to eat?", 
+        question: "Wrapped in fine golden hair, I hide sweet yellow pearls inside a leafy lair. What am I?", 
         answer: "corn", 
         hints: [
             "A tall cereal grass wrapped in pale green husks and golden silk.",
@@ -1331,7 +1331,7 @@ const QUESTIONS = {
         ] 
     },
     147: { 
-        question: "What has a handle and bowl, but feeds on soup rather than cooking it?", 
+        question: "A silver arm that dives beneath the bubbling, scented sea, to scoop a steaming portion out and set the hunger free. What am I?", 
         answer: "ladle", 
         hints: [
             "A deep, long-handled spoon used by the castle cook.",
@@ -1370,20 +1370,20 @@ const QUESTIONS = {
     // --- REGION: Shadow Realm (Levels 151 - 175) ---
     151: { 
         question: "What has a head of golden foam, an amber body, and is poured into heavy glass steins?", 
-        answer: "ale", 
+        answer: "beer", 
         hints: [
             "A fermented malt beverage served in every bustling tavern.",
             "Tavern keepers tap wooden casks to fill mugs for celebrating patrons.",
-            "3 letters, starts with A."
+            "4 letters, starts with B."
         ] 
     },
     152: { 
         question: "What has a silver tongue that unrolls across the road, measuring distance for the builder?", 
-        answer: "tapemeasure", 
+        answer: "tape", 
         hints: [
             "A spring-loaded steel ribbon coiled inside a small pocket case.",
             "Carpenters pull its marked yellow or metal strip to check lengths in inches and feet.",
-            "11 letters, starts with T."
+            "4 letters, starts with T."
         ] 
     },
     153: { 
