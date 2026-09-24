@@ -1387,25 +1387,25 @@ const QUESTIONS = {
         ] 
     },
     153: { 
-        question: "What has no lungs, but howls through the keyhole on a pitch-black stormy night?", 
-        answer: "draft", 
+        question: "Ground down from ancient peaks by the relentless tide, I slip right through your fingers in a desert vast and wide. What am I?", 
+        answer: "sand", 
         hints: [
-            "A sneaky, cold current of air finding its way through tiny door gaps.",
-            "It flickers the flame of a nearby candle and chills the room.",
-            "5 letters, starts with D."
+            "Crushed stones turn into this.",
+            "While you walk, I track your footprints.",
+            "4 letters, starts with S."
         ] 
     },
     154: { 
-        question: "What can you crack open on a skillet, fry with butter, and flip with a spatula?", 
-        answer: "omelet", 
+        question: "Locked between two quiet poles within a metal cell, I bleed my captive lightning dry so other things can dwell. What am I?", 
+        answer: "battery", 
         hints: [
-            "A savory breakfast dish made by beating eggs and cooking them flat.",
-            "Often folded in half over melted cheese, herbs, and diced vegetables.",
-            "6 letters, starts with O."
+            "I hold a chemical fire tightly trapped between a + and a -",
+            "I live inside flashlights and remotes.",
+            "7 letters, starts with B."
         ] 
     },
     155: { 
-        question: "What has an emerald shell, crawls with sluggish patience, and pulls its head inside when threatened?", 
+        question: "An ancient cobblestone on slow and silent feet, I wear my fortress on my spine and never know defeat. What am I?", 
         answer: "tortoise", 
         hints: [
             "A land-dwelling reptile famous in fables for defeating the boastful hare.",
@@ -1414,7 +1414,7 @@ const QUESTIONS = {
         ] 
     },
     156: { 
-        question: "What has a spine of twisted wax that drowns in its own golden tears?", 
+        question: "A slender core drowned deep in white, drinking melting grease to feed a point of light. What am I?", 
         answer: "wick", 
         hints: [
             "The braided cotton cord running through the center of a tallow candle.",
@@ -1423,7 +1423,7 @@ const QUESTIONS = {
         ] 
     },
     157: { 
-        question: "What kind of dish has two wheels, handlebars, and takes you across town without a horse?", 
+        question: "A pair of spinning circles harnessed to a metal spine, balance keeps me upright as your motion powers mine. What am I?", 
         answer: "bicycle", 
         hints: [
             "A pedal-driven two-wheeled transport with rubber tires and a chain.",
@@ -1468,7 +1468,7 @@ const QUESTIONS = {
         ] 
     },
     162: { 
-        question: "What has a wooden handle, a heavy iron wedge, and splits logs with a single swing?", 
+        question: "What has a wooden handle, a heavy iron wedge, and splits logs with a single edge?", 
         answer: "axe", 
         hints: [
             "Woodcutters balance its handle to chop timber in the deep forest.",
@@ -1504,7 +1504,7 @@ const QUESTIONS = {
         ] 
     },
     166: { 
-        question: "What has an eye that peers through deep space, bringing distant galaxies into view?", 
+        question: "What has an eye that peers through deep space, bringing distant galaxies near the face?", 
         answer: "telescope", 
         hints: [
             "An optical tube fitted with curved glass lenses or reflective mirrors.",
@@ -1513,7 +1513,7 @@ const QUESTIONS = {
         ] 
     },
     167: { 
-        question: "What can you crack between your thumbs that hides sweet golden meat inside a woody shell?", 
+        question: "A wrinkled, wooden brain locked within a shell, I drop from lofty autumn boughs where bitter husks dwell. What am I?", 
         answer: "walnut", 
         hints: [
             "A craggy tree nut with a wrinkled shell that looks remarkably like a tiny brain.",
