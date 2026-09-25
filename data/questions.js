@@ -1785,12 +1785,12 @@ const QUESTIONS = {
         ] 
     },
     197: { 
-        question: "What has a handle of turned cherry, a dome of waterproof silk, and opens when raindrops fall?", 
-        answer: "parasol", 
+        question: "I am often running yet I have no legs. You need me but I don't need you. What am I?", 
+        answer: "water", 
         hints: [
-            "A light canopy frame carried overhead to shield skin from sun and rain.",
-            "Ladies spin its decorative ruffled edge while walking garden paths.",
-            "7 letters, starts with P."
+            "It's normally called the source of life",
+            "You need me on a dry warm day.",
+            "5 letters, starts with W."
         ] 
     },
     198: { 
@@ -1803,21 +1803,21 @@ const QUESTIONS = {
         ] 
     },
     199: { 
-        question: "What has a copper flue, brass boilers, and distills mountain spring water into clear spirits?", 
-        answer: "still", 
+        question: "I am 6 feet tall and work at the butcher's shop. I wear size 9 shoes, what do I weigh?", 
+        answer: "meat", 
         hints: [
-            "An apparatus used by distillers to vaporize and condense alcohol.",
-            "Features coiled copper worm tubes cooled in barrels of water.",
-            "5 letters, starts with S."
+            "I am not asking what my weight is.",
+            "Look at the job that I do.",
+            "4 letters, starts with M."
         ] 
     },
     200: { 
-        question: "The eighth region gate closes. The Witch poses: What can travel across oceans on a whisper of wind, yet sinks under the weight of a single cannonball?", 
-        answer: "galleon", 
+        question: "The eighth region gate closes. The Witch poses: Slayer of regrets, old and new, sought by many, found by few. What am I?", 
+        answer: "redemption", 
         hints: [
-            "A majestic multi-decked sailing warship of the age of sail.",
-            "Spread square canvas sails from three tall wooden masts.",
-            "7 letters, starts with G."
+            "Act of buying back or saving from sin.",
+            "Recovery from failure",
+            "10 letters, starts with R."
         ] 
     },
     
