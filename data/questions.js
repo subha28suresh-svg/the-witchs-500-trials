@@ -1596,7 +1596,7 @@ const QUESTIONS = {
 
     // --- REGION: Dragonlands (Levels 176 - 200) ---
     176: { 
-        question: "What has a serrated steel tongue, chews through timber, and leaves a mound of sawdust behind?", 
+        question: "I chew through the forest with teeth on a track, but I'm a horror movie monster when the night turns to black. What am I?", 
         answer: "chainsaw", 
         hints: [
             "A motorized lumberjack tool powered by fuel or electric charge.",
@@ -1605,25 +1605,25 @@ const QUESTIONS = {
         ] 
     },
     177: { 
-        question: "What has a head of brass, bristles of stiff wire, and cleans rusted pots until they shine?", 
-        answer: "wirebrush", 
+        question: "What is seen in the middle of March an April that can't be seen at the beginning or end of either month?", 
+        answer: "R", 
         hints: [
-            "A sturdy scrubbing tool used in smithies and sculleries.",
-            "Scrapes heavy carbon, paint, and crust from iron grates.",
-            "9 letters, starts with W."
+            "Observe March and April carefully. You should spot it.",
+            "It's pure word play, take a look at their spellings.",
+            "1 letter, R."
         ] 
     },
     178: { 
-        question: "What can you tie around your waist that holds your trousers high without buckle or latch?", 
-        answer: "sash", 
+        question: "What makes you, young?", 
+        answer: "ng", 
         hints: [
-            "A wide strip of silken or embroidered cloth draped about the hips.",
-            "Worn with ceremonial robes, pirate garb, and officer uniforms.",
-            "4 letters, starts with S."
+            "Observe the words you and young.",
+            "It's pure word play, take a look at their spellings.",
+            "2 letters, starts with n."
         ] 
     },
     179: { 
-        question: "What has four wheels, a canvas hood, and rattled across the untamed frontier with pioneer families?", 
+        question: "I have no engine, no steering wheel, or gas, but I'll haul all your pumpkins across the green grass. What am I?", 
         answer: "wagon", 
         hints: [
             "A sturdy wooden cart hauled by teams of oxen or draft horses.",
@@ -1632,12 +1632,12 @@ const QUESTIONS = {
         ] 
     },
     180: { 
-        question: "What has an ivory keyboard, pedal levers, and grand wings propped open for the maestro?", 
-        answer: "grandpiano", 
+        question: "Spelled forwards I'm what you do everyday, spelled backwards I'm something you hate. What am I?", 
+        answer: "live", 
         hints: [
-            "The premier concert instrument featured in symphony auditoriums.",
-            "Its long horizontal wooden lid reflects the stage footlights.",
-            "10 letters, starts with G."
+            "If you don't do this everyday, you won't survive",
+            "You have to do this and let others also do this.",
+            "4 letters, starts with L."
         ] 
     },
     181: { 
