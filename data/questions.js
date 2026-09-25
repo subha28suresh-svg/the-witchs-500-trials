@@ -261,7 +261,7 @@ const QUESTIONS = {
         ] 
     },
     29: { 
-        question: "What has an endless supply of letters, but starts its day completely empty?", 
+        question: "What starts with M and ends with X but has an endless amount of letters?", 
         answer: "mailbox", 
         hints: [
             "Couriers and post carriers visit it daily.",
@@ -1641,7 +1641,7 @@ const QUESTIONS = {
         ] 
     },
     181: { 
-        question: "What has a neck of silver, a globe of blown glass, and keeps storms off the lantern flame?", 
+        question: "I sit on the rooftop and puff away grey, waiting for Santa on Christmas Day. What am I?", 
         answer: "chimney", 
         hints: [
             "The clear cylindrical glass sleeve resting atop an oil lamp.",
@@ -1650,16 +1650,16 @@ const QUESTIONS = {
         ] 
     },
     182: { 
-        question: "What can you pop in the hot pan, toss with sea salt, and crunch by the handful at the theater?", 
-        answer: "popcorn", 
+        question: "What five letter word stays the same when you take away the first, third and last letter?", 
+        answer: "empty", 
         hints: [
-            "Dried maize kernels exploding into white puffs under steady heat.",
-            "Sold in paper buckets drenched with melted butter.",
-            "7 letters, starts with P."
+            "If you have something in your hand, your hands won't be this.",
+            "It's said that if you are rich, your pockets won't be this.",
+            "5 letters, starts with E."
         ] 
     },
     183: { 
-        question: "What has a single iron prong and an anchor hook, securing cattle inside the pasture pen?", 
+        question: "I bar the door tight with a click and a slide, keeping the cold and the strangers always outside. What am I?", 
         answer: "latch", 
         hints: [
             "A hinged metal bar dropped into a notch to keep gates closed.",
@@ -1668,7 +1668,7 @@ const QUESTIONS = {
         ] 
     },
     184: { 
-        question: "What has a leather pouch, elastic bands, and launches pebbles whistling toward targets?", 
+        question: "I have a wooden Y-shape and a pocket of leather, hurling small pebbles in any kind of weather. What am I?", 
         answer: "slingshot", 
         hints: [
             "A Y-shaped wooden or steel fork held firmly in one hand.",
@@ -1677,16 +1677,16 @@ const QUESTIONS = {
         ] 
     },
     185: { 
-        question: "What can you roll across green felt that ricochets with a sharp clack into corner pockets?", 
-        answer: "billiard", 
+        question: "I am a game on a able with felt colored green, where chalk on a stick keeps your accuracy clean. What am I?", 
+        answer: "billiards", 
         hints: [
-            "A hard resin sphere struck with cue sticks on a pool table.",
-            "Numbered balls striped and solid rolling across velvet rails.",
-            "8 letters, starts with B."
+            "You have to pocket all the balls to win, except the white one, of course.",
+            "Colored balls struck by a stick, rolling across velvet rails.",
+            "9 letters, starts with B."
         ] 
     },
     186: { 
-        question: "What has a handle of turned ash, a flat steel head, and pounds iron stakes into the earth?", 
+        question: "I am heavy and blunt with a long wooden spine, shattering concrete and walls down the line. What am I?", 
         answer: "sledgehammer", 
         hints: [
             "A heavy two-handed demolition mallet swung with full body force.",
@@ -1695,7 +1695,7 @@ const QUESTIONS = {
         ] 
     },
     187: { 
-        question: "What has an eye of brass that fastens tight, holding cloaks together in the wind?", 
+        question: "I am curved out of metal and hang from a line, catching the fish that swim deep in the brine. What am I?", 
         answer: "hook", 
         hints: [
             "A curved fastener paired with a small matching wire loop.",
@@ -1704,7 +1704,7 @@ const QUESTIONS = {
         ] 
     },
     188: { 
-        question: "What can you spread with a silver knife that melts over hot scones and morning toast?", 
+        question: "I am thicker than juice but I'm not quite a jelly, full of citrus fruit to fill up your belly. What am I?", 
         answer: "marmalade", 
         hints: [
             "A sweet, tangy fruit preserve made by boiling citrus rind and sugar.",
@@ -1713,7 +1713,7 @@ const QUESTIONS = {
         ] 
     },
     189: { 
-        question: "What has a steel barrel, spinning cylinder chambers, and smokes when the trigger snaps?", 
+        question: "I have a wheel that spins round but I don't go anywhere, packing six heavy punches that fly through air. What am I?", 
         answer: "revolver", 
         hints: [
             "A classic six-shooter sidearm carried in leather hip holsters.",
@@ -1722,21 +1722,21 @@ const QUESTIONS = {
         ] 
     },
     190: { 
-        question: "What has a handle of oak, brass wire teeth, and untangles the wool fleece before spinning?", 
-        answer: "carder", 
+        question: "What is 3/7 chicken, 2/3 cat and 2/4 goat?", 
+        answer: "chicago", 
         hints: [
-            "A paddle brush used by weavers to comb raw sheep fleece.",
-            "Aligns messy tangled fibers into smooth rolags ready for the wheel.",
-            "6 letters, starts with C."
+            "A beautiful city in America",
+            "Classic word play, with selection indicators.",
+            "7 letters, starts with C."
         ] 
     },
     191: { 
-        question: "What can you carve from an orange gourd, hollow out with a spoon, and light with a candle?", 
-        answer: "jackolantern", 
+        question: "I am carved with a grin and a candle inside, sitting out on the porch where the ghosties hide. What am I?", 
+        answer: "pumpkin", 
         hints: [
-            "A grinning pumpkin face set on doorsteps for autumn festivals.",
+            "A grinning jack-o-lantern face set on doorsteps for autumn festivals.",
             "Flickers with candlelight through cut eyes, nose, and jagged mouth.",
-            "12 letters, starts with J."
+            "7 letters, starts with P."
         ] 
     },
     192: { 
@@ -1749,7 +1749,7 @@ const QUESTIONS = {
         ] 
     },
     193: { 
-        question: "What has a needle of bone, balls of spun wool, and knits warm scarves for winter?", 
+        question: "I am chased by a kitten and fed to a loom, knitting warm blankets in a cold winter room. What am I?", 
         answer: "yarn", 
         hints: [
             "Continuous strands of spun wool or cotton wound into soft skeins.",
@@ -1776,7 +1776,7 @@ const QUESTIONS = {
         ] 
     },
     196: { 
-        question: "What has an ivory horn, curved ribs of ash, and glides across frozen ponds behind swift skates?", 
+        question: "What has an ivory horn, curved ribs of ash, and glides across frozen ponds in a flash?", 
         answer: "sled", 
         hints: [
             "A low wooden runner frame built to slide down snowy slopes.",
