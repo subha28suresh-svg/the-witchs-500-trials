@@ -1823,16 +1823,16 @@ const QUESTIONS = {
     
     // --- REGION: Sky Kingdom (Levels 201 - 225) ---
     201: { 
-        question: "What can you lose in the morning, find in the afternoon, and walk across all evening?", 
-        answer: "shadow", 
+        question: "If two's a company and three's a crowd, what are four and five?", 
+        answer: "nine", 
         hints: [
-            "A dark silhouette tracking your steps when light hits your back.",
-            "High midday sun shrinks it to your feet; dusk stretches it across the path.",
-            "6 letters, starts with S."
+            "A cat has these many lives.",
+            "Addition.",
+            "4 letters, starts with N."
         ] 
     },
     202: { 
-        question: "What has a single bed in the hospital, but never closes its eyes to sleep?", 
+        question: "I need no wound to bleed, yet beneath another's care, I wait for a clock only time can repair. What am I?", 
         answer: "patient", 
         hints: [
             "A person under medical observation or receiving care.",
@@ -1850,7 +1850,7 @@ const QUESTIONS = {
         ] 
     },
     204: { 
-        question: "What can you turn on its head to make a complete dozen vanish into nothing?", 
+        question: "Two glass bells with a waist so small, I count the seconds as my grains fall. What am I?", 
         answer: "hourglass", 
         hints: [
             "A dual glass bulb filled with measured quartz sand.",
@@ -1868,7 +1868,7 @@ const QUESTIONS = {
         ] 
     },
     206: { 
-        question: "What has a silver spine, hundred paper leaves, and costs pennies in the marketplace?", 
+        question: "I wear a wire spine and leaves of white, holding all your secrets before they fade from sight. What am I?", 
         answer: "notebook", 
         hints: [
             "Bound sheets used by students and scholars to record thoughts.",
@@ -1877,7 +1877,7 @@ const QUESTIONS = {
         ] 
     },
     207: { 
-        question: "What can you take from a man that leaves him with nothing, yet weighs less than breath?", 
+        question: "I am a spark in the dark that helps spirits take flight, keeping tomorrow alive through the sorrowful night; what am I?", 
         answer: "hope", 
         hints: [
             "The radiant light in the human spirit that dreams of better days.",
@@ -1886,7 +1886,7 @@ const QUESTIONS = {
         ] 
     },
     208: { 
-        question: "What kind of ring has no jewel, but circles the coldest reaches of the sun?", 
+        question: "I am a ring with no jewel that circles the sun, an endless celestial track never done—what am I?", 
         answer: "orbit", 
         hints: [
             "The gravitational curved path traveled by celestial bodies.",
@@ -1895,7 +1895,7 @@ const QUESTIONS = {
         ] 
     },
     209: { 
-        question: "What has a bronze face that turns green when the skies weep for years?", 
+        question: "I have eyes that cannot seeI have a face that cannot speak, and feet of stone that cannot roam; what am I?", 
         answer: "statue", 
         hints: [
             "A sculpted monument of a king or hero standing in the courtyard.",
@@ -1904,7 +1904,7 @@ const QUESTIONS = {
         ] 
     },
     210: { 
-        question: "What can you make on a snowy field that has arms and a head, but no pulse?", 
+        question: "I wear a carrot for a nose and melt away when warm wind blows; what am I?", 
         answer: "snowman", 
         hints: [
             "Rolled spheres of packed white precipitation stacked in three tiers.",
@@ -1913,7 +1913,7 @@ const QUESTIONS = {
         ] 
     },
     211: { 
-        question: "What has a key that clicks in the dark, but holds no gold or iron bars shut?", 
+        question: "Flick me to bring the dark or ignite the light, I flip back and forth from morning to night—what am I?", 
         answer: "switch", 
         hints: [
             "A small lever mounted on a wall or lantern base.",
@@ -1923,11 +1923,11 @@ const QUESTIONS = {
     },
     212: { 
         question: "What kind of pin carries no sharp point, but rolls strike after strike on polished lanes?", 
-        answer: "bowlingpin", 
+        answer: "bowling", 
         hints: [
             "A wooden bottle-shaped target arranged in a triangle of ten.",
             "Heavy rolling balls crash into them with a thunderous clatter.",
-            "10 letters, starts with B."
+            "7 letters, starts with B."
         ] 
     },
     213: { 
