@@ -1549,7 +1549,7 @@ const QUESTIONS = {
         ] 
     },
     171: { 
-        question: "What has a handle of turned horn, five steel prongs, and tosses sweet meadow hay?", 
+        question: "I am a fork that never touches a dinner plate, but I am always found handling a straw. What am I?", 
         answer: "pitchfork", 
         hints: [
             "A long wooden agricultural tool used in barns and stables.",
@@ -1558,7 +1558,7 @@ const QUESTIONS = {
         ] 
     },
     172: { 
-        question: "What has a dial that sets the heat, a glass door, and bakes golden loaves of sourdough?", 
+        question: "I get incredibly hot just to make things rise, but I will ruin your meal if you leave it inside. What am I?", 
         answer: "oven", 
         hints: [
             "An insulated cooking chamber in the castle kitchen or bakery.",
@@ -1567,7 +1567,7 @@ const QUESTIONS = {
         ] 
     },
     173: { 
-        question: "What can you thread through eyelet holes, pull tight across your boots, and knot with a bow?", 
+        question: "I go through many eyes but I can never see, my only job is to keep you standing on your feet. What am I?", 
         answer: "shoelace", 
         hints: [
             "A woven fabric cord with plastic aglet tips at both ends.",
@@ -1576,7 +1576,7 @@ const QUESTIONS = {
         ] 
     },
     174: { 
-        question: "What has a cage of bone and feathers, repeating every swear word overheard in the tavern?", 
+        question: "I wear bright feathers and repeat what you say, riding on a pirates's shoulder all through the day. What am I?", 
         answer: "parrot", 
         hints: [
             "A brightly colored tropical bird with a curved hook bill.",
@@ -1585,7 +1585,7 @@ const QUESTIONS = {
         ] 
     },
     175: { 
-        question: "The seventh region closes. The Witch challenges: What has a face that tells the day of the month, but has no hands, gears, or bells?", 
+        question: "The seventh region closes. The Witch challenges: I have plenty of dates but I never can eat, telling you the day that you're destined to meet. What am I?", 
         answer: "calendar", 
         hints: [
             "A printed grid of days, weeks, and months hung on the study wall.",
