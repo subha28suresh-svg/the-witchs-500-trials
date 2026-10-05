@@ -1,11 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.vividmindstudios.witchtrials" 
-        version="1.0.1" 
-        android-versionCode="3" 
-        xmlns="http://www.w3.org/ns/widgets" 
-        xmlns:cdv="http://cordova.apache.org/ns/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
+<widget android-versionCode="3" id="com.vividmindstudios.witchtrials" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>500 Riddles: The Witch's Curse</name>
     <description>
         Solve 500 dark fantasy riddles &amp; brain puzzles. Outsmart the Witch &amp; break her curse!
@@ -13,23 +7,15 @@
     <author email="vividmindstudios@gmail.com" href="https://subha28suresh-svg.github.io/the-witchs-500-trials/privacy-policy.html">
         Vividmind Studios
     </author>
-
     <content src="index.html" />
-
-    <!-- External Network & Intent Whitelist -->
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-
-    <!-- Android Platform Configuration -->
     <platform name="android">
         <preference name="android-minSdkVersion" value="24" />
         <preference name="android-targetSdkVersion" value="36" />
         <preference name="android-compileSdkVersion" value="36" />
-
-        <!-- Force modern Google Mobile Ads SDK version (v23+) -->
         <preference name="PLAY_SERVICES_ADS_VERSION" value="22.6.0" />
-
         <preference name="Orientation" value="portrait" />
         <preference name="Fullscreen" value="true" />
         <preference name="BackgroundColor" value="#05070c" />
@@ -40,22 +26,10 @@
         <preference name="ShowSplashScreenSpinner" value="false" />
         <preference name="AndroidWindowSplashScreenBackground" value="#05070c" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="assets/icons/transparent_icon.png" />
-
-        <!-- Launcher Icons -->
-        <icon src="assets/icons/icon-192.png" density="mdpi" />
-        <icon src="assets/icons/icon-512.png" density="xxxhdpi" />
+        <icon density="mdpi" src="assets/icons/icon-192.png" />
+        <icon density="xxxhdpi" src="assets/icons/icon-512.png" />
     </platform>
-
-    <!-- Google AdMob Plugin -->
-    <plugin name="admob-plus-cordova" spec="2.0.0-alpha.19">
-        <variable name="APP_ID_ANDROID" value="ca-app-pub-3193806204932924~5629910160" />
-    </plugin>
-
-    <!-- Google Play Billing (IAP) Plugin -->
     <plugin name="cordova-plugin-purchase" spec="^13.11.0" />
-
-    <!-- Local Notifications -->
     <plugin name="cordova-plugin-local-notification" spec="1.2.3" />
-
     <preference name="DisallowOverscroll" value="true" />
 </widget>
