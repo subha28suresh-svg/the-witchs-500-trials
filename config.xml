@@ -28,7 +28,7 @@
         <preference name="android-compileSdkVersion" value="36" />
 
         <!-- Force modern Google Mobile Ads SDK version (v23+) -->
-        <preference name="PLAY_SERVICES_ADS_VERSION" value="23.3.0" />
+        <preference name="PLAY_SERVICES_ADS_VERSION" value="22.6.0" />
 
         <preference name="Orientation" value="portrait" />
         <preference name="Fullscreen" value="true" />

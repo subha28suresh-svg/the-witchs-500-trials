@@ -53,14 +53,14 @@ jobs:
       - name: Add Android Platform
         run: cordova platform add android@15.0.0
 
-      - name: Force Modern Google Mobile Ads SDK (v23+)
+      - name: Force Modern Google Mobile Ads SDK (v22.6.0)
         run: |
           cat << 'EOF' >> platforms/android/app/build.gradle
 
           configurations.all {
               resolutionStrategy {
-                  force 'com.google.android.gms:play-services-ads:23.3.0'
-                  force 'com.google.android.gms:play-services-ads-lite:23.3.0'
+                  force 'com.google.android.gms:play-services-ads:22.6.0'
+                  force 'com.google.android.gms:play-services-ads-lite:22.6.0'
               }
           }
           EOF
