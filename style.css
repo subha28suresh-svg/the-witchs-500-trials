@@ -2016,3 +2016,50 @@ button {
 .ask-friends-btn:active {
     transform: scale(0.96);
 }
+
+/* =========================================
+   PERMANENT RATE US BUTTON (LEVEL MAP)
+   ========================================= */
+
+.map-rate-pill-btn {
+    position: absolute;
+    top: 15px;
+    left: 210px; /* Positioned cleanly past ?, Chronicles, and Share buttons */
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    border: 1.5px solid #fde047;
+    border-radius: 18px;
+    color: #fffbeb;
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(245, 158, 11, 0.4);
+    z-index: 60;
+    transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.map-rate-pill-btn:hover {
+    transform: scale(1.05);
+    border-color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7), 0 0 14px rgba(253, 224, 71, 0.6);
+}
+
+.map-rate-pill-btn:active {
+    transform: scale(0.96);
+}
+
+/* State when rated */
+.map-rate-pill-btn.rated {
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+    border-color: #86efac !important;
+    color: #dcfce7 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    opacity: 0.85;
+    cursor: default;
+}
