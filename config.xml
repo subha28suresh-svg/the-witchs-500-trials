@@ -44,13 +44,6 @@
         <!-- Launcher Icons -->
         <icon src="assets/icons/icon-192.png" density="mdpi" />
         <icon src="assets/icons/icon-512.png" density="xxxhdpi" />
-
-        <!-- AdMob Android Manifest Meta-Data -->
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <meta-data
-                android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-3193806204932924~5629910160" />
-        </config-file>
     </platform>
 
     <!-- Google AdMob Plugin -->
