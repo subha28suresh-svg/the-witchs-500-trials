@@ -143,8 +143,8 @@ regionImages.forEach(src => {
    let viewedRegionId = getRegionForLevel(currentLevel);
    
 
-     /* =========================================
-        AUDIO MANAGER (BGM & MUTE)
+    /* =========================================
+        AUDIO MANAGER (RANDOMIZED BGM & MUTE)
         ========================================= */
 
         const bgmNormal = document.getElementById("bgm-normal");
@@ -153,6 +153,36 @@ regionImages.forEach(src => {
 
         let isMuted = localStorage.getItem("witchIsMuted") === "true";
         let isProgrammaticMute = false;
+
+        // 4 Randomized Normal Exploration Tracks
+        const NORMAL_BGM_TRACKS = [
+            "assets/bgm/bgm_1.mp3",
+            "assets/bgm/bgm_2.mp3",
+            "assets/bgm/bgm_3.mp3",
+            "assets/bgm/bgm_4.mp3"
+        ];
+        let currentNormalTrackIndex = -1;
+
+        // Pick a random track without repeating the same track twice in a row
+        function pickRandomNormalTrack() {
+            if (NORMAL_BGM_TRACKS.length === 1) return NORMAL_BGM_TRACKS[0];
+            let nextIndex;
+            do {
+                nextIndex = Math.floor(Math.random() * NORMAL_BGM_TRACKS.length);
+            } while (nextIndex === currentNormalTrackIndex);
+            
+            currentNormalTrackIndex = nextIndex;
+            return NORMAL_BGM_TRACKS[currentNormalTrackIndex];
+        }
+
+        // When a normal track ends, automatically play the next random one
+        if (bgmNormal) {
+            bgmNormal.addEventListener("ended", () => {
+                if (bgmBoss && !bgmBoss.paused) return; // Don't interrupt boss fight
+                bgmNormal.src = pickRandomNormalTrack();
+                bgmNormal.play().catch(() => {});
+            });
+        }
 
         function applyMuteState() {
             isProgrammaticMute = true;
@@ -192,15 +222,22 @@ regionImages.forEach(src => {
             applyMuteState();
 
             if (trackType === "boss") {
+                // Stop normal music completely when entering a boss battle
                 if (!bgmNormal.paused) bgmNormal.pause();
                 bgmNormal.currentTime = 0;
                 if (bgmBoss.paused) {
                     bgmBoss.play().catch(() => {});
                 }
             } else if (trackType === "normal") {
+                // Stop boss music
                 if (!bgmBoss.paused) bgmBoss.pause();
                 bgmBoss.currentTime = 0;
+
+                // If normal music isn't currently playing, select a track and start
                 if (bgmNormal.paused) {
+                    if (!bgmNormal.src || bgmNormal.src.endsWith("normal_level.mp3") || bgmNormal.currentTime === 0) {
+                        bgmNormal.src = pickRandomNormalTrack();
+                    }
                     bgmNormal.play().catch(() => {});
                 }
             }

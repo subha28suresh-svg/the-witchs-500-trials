@@ -1922,7 +1922,7 @@ const QUESTIONS = {
         ] 
     },
     212: { 
-        question: "What kind of pin carries no sharp point, but rolls strike after strike on polished lanes?", 
+        question: "I roll down the lane with three holes in my head, to knock down ten pins that are standing instead. What am I?", 
         answer: "bowling", 
         hints: [
             "A wooden bottle-shaped target arranged in a triangle of ten.",
