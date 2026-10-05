@@ -143,7 +143,7 @@ regionImages.forEach(src => {
    let viewedRegionId = getRegionForLevel(currentLevel);
    
 
-    /* =========================================
+        /* =========================================
         AUDIO MANAGER (RANDOMIZED BGM & MUTE)
         ========================================= */
 
@@ -701,8 +701,9 @@ function openRiddle(level) {
 
     // Show tutorial automatically once before Level 1 starts
     if (level === 1 && !localStorage.getItem("witchSeenTutorial")) {
-        openTutorialModal();
-        localStorage.setItem("witchSeenTutorial", "true");
+        setTimeout(() => {
+            startDynamicWalkthrough();
+        }, 350);
     }
     
     // Check if it's a boss level and show the interactive transition popup
@@ -2103,3 +2104,143 @@ document.addEventListener("click", (e) => {
 });
 
 updatePermanentRateBtnUI();
+
+/* =========================================
+   DYNAMIC WALKTHROUGH CONTROLLER
+   ========================================= */
+
+const tutorialOverlay = document.getElementById("tutorial-walkthrough-overlay");
+const tutorialCard = document.getElementById("tutorial-tooltip-card");
+const tutorialStepBadge = document.getElementById("tutorial-step-badge");
+const tutorialStepTitle = document.getElementById("tutorial-step-title");
+const tutorialStepDesc = document.getElementById("tutorial-step-desc");
+const tutorialNextBtn = document.getElementById("tutorial-next-btn");
+const tutorialSkipBtn = document.getElementById("tutorial-skip-btn");
+
+let currentTutorialStep = 0;
+
+const TUTORIAL_STEPS = [
+    {
+        targetSelector: "#question-text",
+        title: "The Witch's Trial",
+        badge: "Step 1 of 5: The Riddle",
+        descHTML: "<p>Read each trial carefully. Every riddle is conquered with a <strong>single-word</strong> answer.</p>",
+        btnText: "Next ❯",
+        position: "bottom"
+    },
+    {
+        targetSelector: "#custom-keyboard",
+        title: "Mystic Runes",
+        badge: "Step 2 of 5: Typing",
+        descHTML: "<p>Tap the glowing rune keys to form your answer directly into the vessel.</p>",
+        btnText: "Next ❯",
+        position: "top"
+    },
+    {
+        targetSelector: ".utility-btn",
+        title: "Erase & Clear",
+        badge: "Step 3 of 5: Editing",
+        descHTML: "<p>Made a slip? Tap <strong>⌫</strong> to erase the last rune, or <strong>CLR</strong> to wipe the entire answer vessel clean.</p>",
+        btnText: "Next ❯",
+        position: "top"
+    },
+    {
+        targetSelector: "#open-hints-modal-btn",
+        title: "Ancient Hints",
+        badge: "Step 4 of 5: Guidance",
+        descHTML: "<p>Stuck in the dark? Spend astral gems here to unveil progressive clues or bypass the trial.</p>",
+        btnText: "Next ❯",
+        position: "bottom"
+    },
+    {
+        targetSelector: ".enter-btn",
+        title: "Cast Your Spell",
+        badge: "Step 5 of 5: Cast & Advance",
+        descHTML: "<p>When your deduction is ready, strike <strong>CAST SPELL</strong>. Conquering the trial shatters the seal, revealing the <strong>CONTINUE →</strong> button to advance.</p><div class='tutorial-lore-farewell'>The Queen’s fate rests in your hands, Seeker. May your wit pierce the shadows!</div>",
+        btnText: "BEGIN QUEST 👑",
+        position: "top"
+    }
+];
+
+function clearTutorialSpotlight() {
+    document.querySelectorAll(".tutorial-spotlight-focus").forEach(el => {
+        el.classList.remove("tutorial-spotlight-focus");
+    });
+}
+
+function positionTutorialCard(targetElement, preferredPosition) {
+    if (!tutorialCard || !targetElement) return;
+
+    const rect = targetElement.getBoundingClientRect();
+    const screenHeight = window.innerHeight;
+    const cardWidth = Math.min(window.innerWidth * 0.88, 340);
+    const leftPos = Math.max(12, (window.innerWidth - cardWidth) / 2);
+
+    tutorialCard.style.left = `${leftPos}px`;
+    tutorialCard.style.width = `${cardWidth}px`;
+
+    if (preferredPosition === "top" && rect.top > 220) {
+        const bottomPos = screenHeight - rect.top + 12;
+        tutorialCard.style.top = "auto";
+        tutorialCard.style.bottom = `${bottomPos}px`;
+    } else {
+        const topPos = Math.min(rect.bottom + 12, screenHeight - 210);
+        tutorialCard.style.bottom = "auto";
+        tutorialCard.style.top = `${topPos}px`;
+    }
+}
+
+function renderTutorialStep(stepIndex) {
+    clearTutorialSpotlight();
+
+    if (stepIndex >= TUTORIAL_STEPS.length) {
+        finishTutorialWalkthrough();
+        return;
+    }
+
+    const step = TUTORIAL_STEPS[stepIndex];
+    const targets = document.querySelectorAll(step.targetSelector);
+    if (!targets || targets.length === 0) {
+        finishTutorialWalkthrough();
+        return;
+    }
+
+    targets.forEach(t => t.classList.add("tutorial-spotlight-focus"));
+
+    tutorialStepBadge.textContent = step.badge;
+    tutorialStepTitle.textContent = step.title;
+    tutorialStepDesc.innerHTML = step.descHTML;
+    tutorialNextBtn.textContent = step.btnText;
+
+    positionTutorialCard(targets[0], step.position);
+}
+
+function startDynamicWalkthrough() {
+    currentTutorialStep = 0;
+    if (!tutorialOverlay) return;
+    tutorialOverlay.classList.add("active");
+    renderTutorialStep(currentTutorialStep);
+}
+
+function finishTutorialWalkthrough() {
+    localStorage.setItem("witchSeenTutorial", "true");
+    clearTutorialSpotlight();
+    if (tutorialOverlay) tutorialOverlay.classList.remove("active");
+}
+
+if (tutorialNextBtn) {
+    tutorialNextBtn.addEventListener("click", () => {
+        currentTutorialStep++;
+        if (currentTutorialStep < TUTORIAL_STEPS.length) {
+            renderTutorialStep(currentTutorialStep);
+        } else {
+            finishTutorialWalkthrough();
+        }
+    });
+}
+
+if (tutorialSkipBtn) {
+    tutorialSkipBtn.addEventListener("click", () => {
+        finishTutorialWalkthrough();
+    });
+}
