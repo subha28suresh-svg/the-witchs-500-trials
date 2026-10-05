@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.vividmindstudios.witchtrials" 
         version="1.0.0" 
-        android-versionCode="1" 
+        android-versionCode="2" 
         xmlns="http://www.w3.org/ns/widgets" 
         xmlns:cdv="http://cordova.apache.org/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android">
@@ -27,6 +27,9 @@
         <preference name="android-targetSdkVersion" value="36" />
         <preference name="android-compileSdkVersion" value="36" />
 
+        <!-- Force modern Google Mobile Ads SDK version (v23+) -->
+        <preference name="PLAY_SERVICES_ADS_VERSION" value="23.3.0" />
+
         <preference name="Orientation" value="portrait" />
         <preference name="Fullscreen" value="true" />
         <preference name="BackgroundColor" value="#05070c" />
@@ -50,14 +53,13 @@
         </config-file>
     </platform>
 
-        <!-- Google AdMob Plugin -->
-        <plugin name="admob-plus-cordova" spec="1.28.0">
-            <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
-        </plugin>
+    <!-- Google AdMob Plugin -->
+    <plugin name="admob-plus-cordova" spec="1.28.0">
+        <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
+    </plugin>
 
-        <!-- Local Notifications -->
-        <plugin name="cordova-plugin-local-notification" spec="1.2.3" />
+    <!-- Local Notifications -->
+    <plugin name="cordova-plugin-local-notification" spec="1.2.3" />
 
-
-        <preference name="DisallowOverscroll" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
 </widget>
