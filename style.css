@@ -2018,27 +2018,31 @@ button {
 }
 
 /* =========================================
-   PERMANENT RATE US BUTTON (LEVEL MAP)
+   PERMANENT RATE US BUTTON (MAP, RIDDLE & IAP)
    ========================================= */
 
 .map-rate-pill-btn {
     position: absolute;
     top: 15px;
-    left: 210px; /* Positioned cleanly past ?, Chronicles, and Share buttons */
+    right: 126px; /* Sits directly left of the gem badge on both Map and Riddle screens */
+    margin-top: var(--sat) !important;
     background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    border: 1.5px solid #fde047;
-    border-radius: 18px;
+    border: 1.5px solid #e6c56b;
+    border-radius: 20px;
     color: #fffbeb;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: bold;
     letter-spacing: 0.5px;
-    padding: 6px 12px;
-    display: flex;
+    padding: 6px 14px;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(245, 158, 11, 0.4);
-    z-index: 60;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    white-space: nowrap;
     transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -2054,12 +2058,14 @@ button {
     transform: scale(0.96);
 }
 
-/* State when rated */
-.map-rate-pill-btn.rated {
+/* State when rated (Applies across Map, Riddle, and IAP modal buttons) */
+.map-rate-pill-btn.rated,
+#shop-rate-btn.rated {
     background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
-    border-color: #86efac !important;
+    border: 1.5px solid #e6c56b !important;
+    border-radius: 20px !important;
     color: #dcfce7 !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
-    opacity: 0.85;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2) !important;
+    opacity: 0.95;
     cursor: default;
 }

@@ -153,16 +153,16 @@
             <!-- Help / How to Play Icon Button -->
             <button id="map-help-btn" class="map-help-circle-btn" title="How to Play">?</button>
 
-            <!-- Permanent Rate Us Button -->
-            <button id="permanent-rate-btn" class="map-rate-pill-btn" title="Rate the Game">
-                👑 Rate Us
-            </button>
-            
             <!-- Share App Map Icon Button -->
             <button id="map-share-btn" class="map-help-circle-btn" style="left: 162px;" title="Share with Friends">↗️</button>
 
             <!-- Story Chronicles Map Icon Button -->
             <button id="map-chronicles-btn" class="map-help-circle-btn" style="left: 116px;" title="Story Chronicles">📜</button>
+
+            <!-- Permanent Rate Us Button (Level Map) -->
+            <button class="map-rate-pill-btn permanent-rate-trigger" title="Rate the Game">
+                👑 Rate Us
+            </button>
 
             <!-- Persistent Gem Counter Badge (Shop Triggered via Class) -->
             <div class="gem-currency-badge open-shop-trigger">
@@ -209,7 +209,7 @@
             <header class="region-header">
                 <div class="region-titles">
                     <div id="region-number" class="region-number">REGION 1</div>
-                    <h2 id="region-name">Kingdom of Aurelia</h2>
+                    <h2 id="region-name">Kingdom of Aurelia</h2>                    
                 </div>
             </header>
 
@@ -246,7 +246,11 @@
          ===================================== -->
 
     <section id="riddle-screen" class="screen">
-        
+        <!-- Permanent Rate Us Button (Riddle Screen) -->
+        <button class="map-rate-pill-btn permanent-rate-trigger" title="Rate the Game">
+            👑 Rate Us
+        </button>
+
         <!-- Persistent Gem Counter Badge (Shop Triggered via Class) -->
         <div class="gem-currency-badge open-shop-trigger">
             <span>💎 <span id="gem-count-riddle">100</span></span>
@@ -494,6 +498,17 @@
                 <button class="unlock-hint-btn" onclick="buyIAP('chest', 500)">$2.99</button>
             </div>
             -->
+
+            <!-- 3. Permanent Footer: Support the Realm / Rate Us Row (At the Very Bottom) -->
+            <div class="mythical-hint-item" style="display: flex; align-items: center; justify-content: space-between; border-color: #fde047; margin-top: 14px; background: rgba(30, 20, 10, 0.45);">
+                <div style="text-align: left;">
+                    <div class="hint-row-title" style="color: #fde047; font-size: 0.95rem;">Support the Realm</div>
+                    <div class="hint-row-content" style="margin-top: 2px; font-size: 0.8rem; color: #cbd5e1;">Enjoying the trials? Leave a review</div>
+                </div>
+                <button id="shop-rate-btn" class="unlock-hint-btn" style="background: linear-gradient(135deg, #d97706, #b45309); border-color: #fde047; color: #fffbeb; padding: 6px 14px; font-weight: bold; white-space: nowrap;">
+                    👑 Rate Us
+                </button>
+            </div>
 
         </div>
     </div>

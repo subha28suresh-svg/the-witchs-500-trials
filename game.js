@@ -2011,30 +2011,33 @@ if (askFriendsBtn) {
 }
 
 // =========================================
-// RATE APP CONTROLLER (MILESTONES 7, 27, 42 & PERMANENT BUTTON)
+// RATE APP CONTROLLER (CLEAN & WORKING)
 // =========================================
-
-const rateModal = document.getElementById("rate-modal");
-const rateNowBtn = document.getElementById("rate-now-btn");
-const rateLaterBtn = document.getElementById("rate-later-btn");
-const permanentRateBtn = document.getElementById("permanent-rate-btn");
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.vividmindstudios.witchtrials";
 
-// Helper to update permanent button appearance
 function updatePermanentRateBtnUI() {
-    if (!permanentRateBtn) return;
     const hasRated = localStorage.getItem("witchHasRatedApp") === "true";
-    if (hasRated) {
-        permanentRateBtn.innerHTML = "✓ Rated";
-        permanentRateBtn.classList.add("rated");
-    } else {
-        permanentRateBtn.innerHTML = "👑 Rate Us";
-        permanentRateBtn.classList.remove("rated");
-    }
+
+    document.querySelectorAll(".permanent-rate-trigger, #shop-rate-btn").forEach(btn => {
+        if (hasRated) {
+            btn.innerHTML = "✓ Rated";
+            btn.classList.add("rated");
+        } else {
+            btn.innerHTML = "👑 Rate Us";
+            btn.classList.remove("rated");
+        }
+    });
 }
 
-// Milestone check for levels 7, 27, and 42
+function handleOpenRateStore() {
+    localStorage.setItem("witchHasRatedApp", "true");
+    updatePermanentRateBtnUI();
+    const rateModal = document.getElementById("rate-modal");
+    if (rateModal) rateModal.classList.remove("active");
+    window.open(PLAY_STORE_URL, "_system");
+}
+
 function checkRateAppTrigger(levelCompleted) {
     if (localStorage.getItem("witchHasRatedApp") === "true") return;
 
@@ -2044,39 +2047,22 @@ function checkRateAppTrigger(levelCompleted) {
     const promptLevels = [7, 27, 42];
     if (promptLevels.includes(levelCompleted)) {
         setTimeout(() => {
+            const rateModal = document.getElementById("rate-modal");
             if (rateModal) rateModal.classList.add("active");
         }, 2200);
     }
 }
 
-// Modal "Rate Now" button click
-if (rateNowBtn) {
-    rateNowBtn.addEventListener("click", () => {
-        localStorage.setItem("witchHasRatedApp", "true");
-        updatePermanentRateBtnUI();
-        if (rateModal) rateModal.classList.remove("active");
-        window.open(PLAY_STORE_URL, "_system");
-    });
-}
-
-// Modal "Maybe Later" button click
-if (rateLaterBtn) {
-    rateLaterBtn.addEventListener("click", () => {
+// Global click delegation — guarantees clicks register on Map, Level, and IAP screens
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".permanent-rate-trigger") || e.target.closest("#shop-rate-btn") || e.target.closest("#rate-now-btn")) {
+        handleOpenRateStore();
+    } else if (e.target.closest("#rate-later-btn")) {
         let dismissCount = Number(localStorage.getItem("witchRateDismissCount")) || 0;
         localStorage.setItem("witchRateDismissCount", dismissCount + 1);
+        const rateModal = document.getElementById("rate-modal");
         if (rateModal) rateModal.classList.remove("active");
-    });
-}
+    }
+});
 
-// Permanent "Rate Us" button click
-if (permanentRateBtn) {
-    permanentRateBtn.addEventListener("click", () => {
-        if (localStorage.getItem("witchHasRatedApp") === "true") return;
-        localStorage.setItem("witchHasRatedApp", "true");
-        updatePermanentRateBtnUI();
-        window.open(PLAY_STORE_URL, "_system");
-    });
-}
-
-// Initialize permanent button UI state on game launch
 updatePermanentRateBtnUI();
