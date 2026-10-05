@@ -1089,8 +1089,8 @@ function proceedToRiddleScreen(level) {
       REAL ADMOB INTEGRATION (TEST IDS)
       ========================================= */
 
-   const ADMOB_REWARDED_ID = "ca-app-pub-3940256099942544/5224354917";
-   const ADMOB_INTERSTITIAL_ID = "ca-app-pub-3940256099942544/1033173712";
+   const ADMOB_REWARDED_ID = "ca-app-pub-3193806204932924/8422585309";
+   const ADMOB_INTERSTITIAL_ID = "ca-app-pub-3193806204932924/8921278752";
 
    let rewardedAd = null;
    let interstitialAd = null;
@@ -1543,12 +1543,77 @@ function proceedToRiddleScreen(level) {
        });
    }
    
+   /* =========================================
+      GOOGLE PLAY BILLING (IAP ENGINE)
+      ========================================= */
+
+   const IAP_PRODUCT_POUCH = "gem_pack_150";
+   const IAP_PRODUCT_CHEST = "gem_pack_500";
+
+   let iapStore = null;
+
+   function initStore() {
+       if (typeof CdvPurchase === "undefined") {
+           console.warn("CdvPurchase (Google Play Billing) not detected on this platform.");
+           return;
+       }
+
+       iapStore = CdvPurchase.store;
+
+       iapStore.register([
+           {
+               id: IAP_PRODUCT_POUCH,
+               type: CdvPurchase.ProductType.CONSUMABLE,
+               platform: CdvPurchase.Platform.GOOGLE_PLAY
+           },
+           {
+               id: IAP_PRODUCT_CHEST,
+               type: CdvPurchase.ProductType.CONSUMABLE,
+               platform: CdvPurchase.Platform.GOOGLE_PLAY
+           }
+       ]);
+
+       iapStore.when()
+           .approved(transaction => {
+               transaction.verify();
+           })
+           .verified(receipt => {
+               receipt.finish();
+           })
+           .finished(transaction => {
+               if (transaction.products.some(p => p.id === IAP_PRODUCT_POUCH)) {
+                   playerGems += 150;
+                   saveGems();
+                   updateGemDisplays();
+                   alert("✨ Transmutation Complete! +150 Gems added to your treasury!");
+               } else if (transaction.products.some(p => p.id === IAP_PRODUCT_CHEST)) {
+                   playerGems += 500;
+                   saveGems();
+                   updateGemDisplays();
+                   alert("👑 Grand Offering Received! +500 Gems added to your treasury!");
+               }
+           });
+
+       iapStore.initialize([CdvPurchase.Platform.GOOGLE_PLAY]);
+   }
+
    window.buyIAP = function(packName, gemAmount) {
-       alert(`Processing purchase for ${packName} (${gemAmount} Gems). Placeholder integration.`);
-       playerGems += gemAmount;
-       saveGems();
-       updateGemDisplays();
-       shopModal.classList.remove("active");
+       if (!iapStore) {
+           alert("Connecting to Google Play Realm... Please check your internet connection.");
+           return;
+       }
+
+       const productId = (packName === "pouch") ? IAP_PRODUCT_POUCH : IAP_PRODUCT_CHEST;
+       const product = iapStore.get(productId);
+       const offer = product ? product.getOffer() : null;
+
+       if (offer) {
+           iapStore.order(offer);
+       } else {
+           alert("Fetching arcane prices from Google Play... Please try again in a moment.");
+       }
+
+       if (shopModal) shopModal.classList.remove("active");
    };
    
    // Riddle Screen Watch Ad Bonus Button Listener
@@ -1891,6 +1956,7 @@ function onAppResumed() {
 document.addEventListener("deviceready", () => {
     enableScreenWakeLock();
     initAdMob();
+    initStore();
 
     // Schedule Daily Retention Reminder (Local Notifications)
     if (window.cordova && cordova.plugins && cordova.plugins.notification) {

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.vividmindstudios.witchtrials" 
-        version="1.0.0" 
-        android-versionCode="2" 
+        version="1.0.1" 
+        android-versionCode="3" 
         xmlns="http://www.w3.org/ns/widgets" 
         xmlns:cdv="http://cordova.apache.org/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android">
@@ -49,14 +49,17 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
                 android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-3940256099942544~3347511713" />
+                android:value="ca-app-pub-3193806204932924~5629910160" />
         </config-file>
     </platform>
 
     <!-- Google AdMob Plugin -->
     <plugin name="admob-plus-cordova" spec="2.0.0-alpha.19">
-        <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
+        <variable name="APP_ID_ANDROID" value="ca-app-pub-3193806204932924~5629910160" />
     </plugin>
+
+    <!-- Google Play Billing (IAP) Plugin -->
+    <plugin name="cordova-plugin-purchase" spec="^13.11.0" />
 
     <!-- Local Notifications -->
     <plugin name="cordova-plugin-local-notification" spec="1.2.3" />

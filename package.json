@@ -6,7 +6,8 @@
         "start": "vite --host 0.0.0.0"
     },
     "dependencies": {
-        "admob-plus-cordova": "2.0.0-alpha.19"
+        "admob-plus-cordova": "2.0.0-alpha.19",
+        "cordova-plugin-purchase": "^13.11.0"
     },
     "devDependencies": {
         "cordova-android": "^15.1.0",
@@ -19,8 +20,9 @@
         ],
         "plugins": {
             "admob-plus-cordova": {
-                "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713"
+                "APP_ID_ANDROID": "ca-app-pub-3193806204932924~5629910160"
             },
+            "cordova-plugin-purchase": {},
             "cordova-plugin-local-notification": {}
         }
     }
