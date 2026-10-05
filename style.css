@@ -1979,3 +1979,40 @@ button {
     background: rgba(45, 25, 70, 0.95);
     border-color: #ffd700;
 }
+
+#map-share-btn:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+    transform: scale(1.08);
+}
+
+#map-share-btn:active {
+    transform: scale(0.95);
+}
+
+/* =========================================
+   ASK FRIENDS BUTTON (RIDDLE SCREEN)
+   ========================================= */
+
+.ask-friends-btn {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #1e1b4b, #312e81) !important;
+    border: 1.5px solid #818cf8 !important;
+    border-radius: 8px;
+    color: #e0e7ff !important;
+    font-size: 0.82rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.ask-friends-btn:hover {
+    border-color: #c7d2fe !important;
+    transform: scale(1.04);
+}
+
+.ask-friends-btn:active {
+    transform: scale(0.96);
+}

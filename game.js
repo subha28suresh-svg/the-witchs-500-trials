@@ -1934,3 +1934,78 @@ document.addEventListener('visibilitychange', async () => {
         await enableScreenWakeLock();
     }
 });
+
+// =========================================
+// SHARE APP CONTROLLER
+// =========================================
+
+const mapShareBtn = document.getElementById("map-share-btn");
+
+function triggerShareApp() {
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.vividmindstudios.witchtrials";
+    const shareData = {
+        title: "500 Riddles: The Witch's Curse",
+        text: "Can you outsmart the Witch and solve 500 dark fantasy riddles? Test your wit and break the curse with me!\n\n",
+        url: playStoreUrl
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData).catch((err) => {
+            console.log("Share sheet dismissed or canceled:", err);
+        });
+    } else {
+        const fullMessage = `${shareData.text}${playStoreUrl}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(fullMessage).then(() => {
+                alert("✨ Play Store link copied to clipboard! Share it with your friends.");
+            }).catch(() => {
+                prompt("Copy and share this link:", fullMessage);
+            });
+        } else {
+            prompt("Copy and share this link:", fullMessage);
+        }
+    }
+}
+
+if (mapShareBtn) {
+    mapShareBtn.addEventListener("click", triggerShareApp);
+}
+
+// =========================================
+// ASK FRIENDS CONTROLLER (CURRENT RIDDLE)
+// =========================================
+
+const askFriendsBtn = document.getElementById("ask-friends-button");
+
+function triggerAskFriends() {
+    const riddle = QUESTIONS[String(activeLevel)] || QUESTIONS[activeLevel];
+    const riddleText = riddle ? `"${riddle.question}"` : "Help me outsmart the Witch!";
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.vividmindstudios.witchtrials";
+
+    const shareData = {
+        title: `Help me with Level ${activeLevel}!`,
+        text: `🧙‍♀️ Can you help me solve Level ${activeLevel} in '500 Riddles: The Witch's Curse'?\n\n${riddleText}\n(1-word answer)\n\nBreak the curse with me:\n\n`,
+        url: playStoreUrl
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData).catch((err) => {
+            console.log("Ask friends share canceled:", err);
+        });
+    } else {
+        const fullMessage = `${shareData.text}${playStoreUrl}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(fullMessage).then(() => {
+                alert("✨ Riddle text & game link copied! Paste it in your chat with friends.");
+            }).catch(() => {
+                prompt("Copy and send this riddle to your friends:", fullMessage);
+            });
+        } else {
+            prompt("Copy and send this riddle to your friends:", fullMessage);
+        }
+    }
+}
+
+if (askFriendsBtn) {
+    askFriendsBtn.addEventListener("click", triggerAskFriends);
+}
