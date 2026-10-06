@@ -1931,7 +1931,7 @@ const QUESTIONS = {
         ] 
     },
     213: { 
-        question: "What can you break without dropping it, yet repair with a humble apology?", 
+        question: "Through thick and thin, we laugh and play—what bond stays strong day after day?", 
         answer: "friendship", 
         hints: [
             "A mutual bond of loyalty and affection shared between comrades.",
@@ -1949,7 +1949,7 @@ const QUESTIONS = {
         ] 
     },
     215: { 
-        question: "What has an eye that peers through the storm, but shuts tight when struck by hail?", 
+        question: "I guard your sight without a sound, I rise and fall but stay around. What am I?", 
         answer: "eyelid", 
         hints: [
             "A protective skin flap that blinks instinctively to shield your sight.",
@@ -1958,7 +1958,7 @@ const QUESTIONS = {
         ] 
     },
     216: { 
-        question: "What can you spend with a lavish hand that you can never earn back at market?", 
+        question: "What can you spend with a lavish hand that you can never earn back?", 
         answer: "time", 
         hints: [
             "The relentless march of seconds, minutes, and passing years.",
@@ -1967,16 +1967,16 @@ const QUESTIONS = {
         ] 
     },
     217: { 
-        question: "What has a pocket of leather, a weighted lead heart, and measures the depth of the sea?", 
-        answer: "plumbline", 
+        question: "I follow you without a face, leaving silent clues in every place. Who am I?", 
+        answer: "footsteps", 
         hints: [
-            "A weighted line dropped from the bow of a ship.",
-            "Mariners gauge how many fathoms remain beneath their wooden keel.",
-            "9 letters, starts with P."
+            "I can be seen, but never heard.",
+            "I appear where someone has been.",
+            "9 letters, starts with F."
         ] 
     },
     218: { 
-        question: "What has a golden crest, sleeps underground in winter, and blooms with the morning rays?", 
+        question: "I wear a golden crown, then drift away—what am I on a windy day?", 
         answer: "dandelion", 
         hints: [
             "A common yellow meadow blossom with serrated leaves.",
@@ -2012,7 +2012,7 @@ const QUESTIONS = {
         ] 
     },
     222: { 
-        question: "What has an eye of glass that captures a moment forever without drawing a breath?", 
+        question: "I catch your smile without a sound, then keep the moment safely bound. What am I?", 
         answer: "camera", 
         hints: [
             "An optical apparatus fitted with shutter, lens, and film or sensor.",
@@ -2021,7 +2021,7 @@ const QUESTIONS = {
         ] 
     },
     223: { 
-        question: "What has a tongue of ink, speaks across oceans, and folds flat into a square?", 
+        question: "I travel sealed, yet never roam, I carry words from home to home. What am I?", 
         answer: "letter", 
         hints: [
             "A written dispatch penned on parchment and sealed with wax.",
@@ -2039,7 +2039,7 @@ const QUESTIONS = {
         ] 
     },
     225: { 
-        question: "The ninth region summit is reached. The Witch tests your wit: What can be stolen with a smile, given freely without loss, and returned in the selfsame breath?", 
+        question: "Two hearts draw near, no words appear— what gentle moment makes love clear?", 
         answer: "kiss", 
         hints: [
             "A token of love, greeting, or deep affection pressed with the lips.",
@@ -2050,7 +2050,7 @@ const QUESTIONS = {
     
     // --- REGION: Sunken Kingdom (Levels 226 - 250) ---
     226: { 
-        question: "What has an emerald shell, snaps at river reeds, and suns its back upon a mossy log?", 
+        question: "I carry my shield wherever I glide, with ancient wisdom tucked inside. What am I?", 
         answer: "turtle", 
         hints: [
             "An aquatic reptile swimming gracefully through ponds and lakes.",
@@ -2077,16 +2077,16 @@ const QUESTIONS = {
         ] 
     },
     229: { 
-        question: "What has a silver dial that points toward true north through fog and tempest?", 
-        answer: "compassrose", 
+        question: "I hold your world yet have no hand, and ring on cue at your command.What am I?", 
+        answer: "phone", 
         hints: [
-            "The ornate star figure stamped upon navigational sea charts.",
-            "Marks the cardinal bearings of north, south, east, and west.",
-            "11 letters, starts with C."
+            "I fit in your palm, yet open doors to faraway lands.",
+            "I connect you to voices, faces, and messages from every strand.",
+            "5 letters, starts with P."
         ] 
     },
     230: { 
-        question: "What kind of head wears no helmet, but strikes sparks to ignite the hearth log?", 
+        question: "I sleep as stone, yet sparks I hint—what am I, with a hidden glint?", 
         answer: "flint", 
         hints: [
             "A hard, dark sedimentary quartz rock found along riverbeds.",
@@ -2095,7 +2095,7 @@ const QUESTIONS = {
         ] 
     },
     231: { 
-        question: "What can you crack on the countertop that yields two halves of white chalk?", 
+        question: "I wear no crown, yet lessons I frame, wipe me clean, and I start again. What am I?", 
         answer: "chalkboard", 
         hints: [
             "The dark writing slate mounted across classroom and lecture hall walls.",
@@ -2131,7 +2131,7 @@ const QUESTIONS = {
         ] 
     },
     235: { 
-        question: "What can you tie with a knot that floats in the breeze and pops with a pin?", 
+        question: "I rise without wings, dance on a string, and pop with a bang—what am I, this floating thing?", 
         answer: "balloon", 
         hints: [
             "A stretchy latex sphere inflated with breath or light helium gas.",
@@ -2140,16 +2140,16 @@ const QUESTIONS = {
         ] 
     },
     236: { 
-        question: "What has a mouth of bubbling clay that bakes round flatbreads against its curved walls?", 
-        answer: "tandoor", 
+        question: "I bite without a jaw, keep things in a stack, and with one little click, I never let back. What am I?", 
+        answer: "stapler", 
         hints: [
-            "A traditional cylindrical clay oven fired with charcoal or wood.",
-            "Naan flatbreads and skewered spiced meats roast inside its intense heat.",
-            "7 letters, starts with T."
+            "I join what wants to part. With a tiny click, I hold things tight.",
+            "I bring loose pages together just right.",
+            "7 letters, starts with S."
         ] 
     },
     237: { 
-        question: "What has a silver tongue that clicks into gear, counting every revolution of the carriage wheel?", 
+        question: " I count every journey made, but never take a step. I keep track as the miles roll by, watching the numbers rise. What am I?", 
         answer: "odometer", 
         hints: [
             "An instrument mounted on dashboards to measure total distance traveled.",
@@ -2158,7 +2158,7 @@ const QUESTIONS = {
         ] 
     },
     238: { 
-        question: "What has a wooden paddle, a canvas skirt, and cuts silently across mountain rapids?", 
+        question: "I glide where waters whisper low, with one small paddle as I go. What am I?", 
         answer: "kayak", 
         hints: [
             "A narrow, double-bladed watercraft steered with quick hip rolls.",
@@ -2167,7 +2167,7 @@ const QUESTIONS = {
         ] 
     },
     239: { 
-        question: "What has a handle of brass, a mesh of wire, and catches stray cinders from the fireplace?", 
+        question: "I guard against a fiery glow, yet through me the flames still show. What am I?", 
         answer: "firescreen", 
         hints: [
             "A protective barrier set in front of an open burning hearth.",
@@ -2185,7 +2185,7 @@ const QUESTIONS = {
         ] 
     },
     241: { 
-        question: "What has a horn of polished silver, three valves, and sounds the cavalry charge across the field?", 
+        question: "Three gates guide my golden cry. With borrowed breath, I wake the sky. What am I?", 
         answer: "trumpet", 
         hints: [
             "A brilliant brass wind instrument played with buzzed lips.",
@@ -2194,7 +2194,7 @@ const QUESTIONS = {
         ] 
     },
     242: { 
-        question: "What can you make with wet flour and yeast that rises like a cushion under a damp cloth?", 
+        question: "I start out pale, then rise with pride, shaped by hands before I am baked inside.", 
         answer: "dough", 
         hints: [
             "The malleable mixture kneaded by bakers before baking.",
@@ -2203,7 +2203,7 @@ const QUESTIONS = {
         ] 
     },
     243: { 
-        question: "What has an eye of crystal, a rim of tortoiseshell, and sharpens blurred print for the scholar?", 
+        question: "I guard one eye with stylish might, a single lens that makes things bright. Who am I?", 
         answer: "monocle", 
         hints: [
             "A single corrective glass lens held in place by squinting the eye muscles.",
@@ -2212,7 +2212,7 @@ const QUESTIONS = {
         ] 
     },
     244: { 
-        question: "What has four wheels, a flat timber bed, and rolls behind oxen loaded with grain sacks?", 
+        question: "Four wheels I bear, yet never roam alone —what am I that carries things home?", 
         answer: "cart", 
         hints: [
             "A simple, open wooden vehicle pulled by horses or farm draft beasts.",
@@ -2221,7 +2221,7 @@ const QUESTIONS = {
         ] 
     },
     245: { 
-        question: "What has an iron jaw that clamps tight on pipes, but has no teeth of flesh or bone?", 
+        question: "I grip what would not budge or quench, turning tight things with a sturdy clench.What am I?", 
         answer: "wrench", 
         hints: [
             "A levered metal hand tool with adjustable jaws.",
@@ -2230,7 +2230,7 @@ const QUESTIONS = {
         ] 
     },
     246: { 
-        question: "What can you shake from a cedar shaker that covers hot broth in a cloud of sneezing dust?", 
+        question: "I am shaked from a cedar shaker that covers hot broth in a cloud of sneezing dust. What am I?", 
         answer: "pepper", 
         hints: [
             "A pungent black or white spice ground from dried tropical berries.",
@@ -2239,16 +2239,16 @@ const QUESTIONS = {
         ] 
     },
     247: { 
-        question: "What has a needle of fine steel, a bobbin of thread, and stitches hems faster than ten tailors?", 
-        answer: "sewingmachine", 
+        question: "I pierce and glide with a silken flow, joining what only a thread can show. What am I?", 
+        answer: "sewing", 
         hints: [
-            "A mechanical apparatus driven by a foot treadle or electric motor.",
+            "I turn separate pieces into one.",
             "Pierces fabric in rapid succession with interlocking lockstitches.",
-            "13 letters, starts with S."
+            "6 letters, starts with S."
         ] 
     },
     248: { 
-        question: "What has a crown of golden foam, white sandy shores, and rules two-thirds of the planet?", 
+        question: "Where waves whisper and horizons gleam, I hide endless depths beyond a dream.What am I?", 
         answer: "sea", 
         hints: [
             "The vast expanse of saline water connecting every continent.",
@@ -2257,7 +2257,7 @@ const QUESTIONS = {
         ] 
     },
     249: { 
-        question: "What kind of well holds no fresh water, but yields black fuel that drives modern ships?", 
+        question: "Beneath the Earth I quietly dwell, bringing up riches from a hidden well. What am I?",
         answer: "oilwell", 
         hints: [
             "A deep derrick drill hole sunk into petroleum-bearing strata.",
@@ -2266,7 +2266,7 @@ const QUESTIONS = {
         ] 
     },
     250: { 
-        question: "The tenth region milestone arrives. The Witch poses: What can travel through stone walls, leap across ocean voids, and leave the heart bleeding without a scratch?", 
+        question: "I am built from letters, yet I am more. Unlock my meaning, find the door.", 
         answer: "words", 
         hints: [
             "The building blocks of human speech, decrees, curses, and poetry.",
@@ -2277,7 +2277,7 @@ const QUESTIONS = {
 
     // --- REGION: Mystic Marshes (Levels 251 - 275) ---
     251: { 
-        question: "I look at you, you look at me. I raise my right, you raise your left. What am I?", 
+        question: "I copy your face without a trace, yet never leave my place. What am I?", 
         answer: "mirror", 
         hints: [
             "A silvered glass surface that returns your gaze instantly.",
@@ -2286,7 +2286,7 @@ const QUESTIONS = {
         ] 
     },
     252: { 
-        question: "The farther you travel toward me, the farther I run away. You can see me clearly, but can never touch me. What am I?", 
+        question: "Where earth meets sky in a distant line, what am I that makes both align?", 
         answer: "horizon", 
         hints: [
             "The visual boundary line where sky appears to meet land or sea.",
@@ -2295,7 +2295,7 @@ const QUESTIONS = {
         ] 
     },
     253: { 
-        question: "The more of me you incur, the heavier you feel, yet I have no mass. When I am forgiven, I disappear entirely. What am I?", 
+        question: "I grow when you take, yet shrink when you make. What am I?", 
         answer: "debt", 
         hints: [
             "An obligation owed to another, either in coin, favor, or honor.",
@@ -2304,16 +2304,16 @@ const QUESTIONS = {
         ] 
     },
     254: { 
-        question: "I weep hot wax as my life slips away. Feed me air and I glow; starve me of breath and I perish. What am I?", 
-        answer: "candle", 
+        question: "I chase no feet, yet I’m always ahead; catch me today, and tomorrow is dead. What am I?", 
+        answer: "future", 
         hints: [
-            "A tallow cylinder with a central burning fiber.",
-            "Lit in dark chambers, growing shorter the longer it shines.",
-            "6 letters, starts with C."
+            "Everyone moves toward me, yet I’m always one step ahead.",
+            "I arrive after today, but never stay.",
+            "6 letters, starts with F."
         ] 
     },
     255: { 
-        question: "Strip off my outer skin and I will not weep, but I make the strongest chef shed bitter tears. What am I?", 
+        question: "Layers I hide, tears I inspire—peel me down and I am no liar.What am I?", 
         answer: "onion", 
         hints: [
             "A layered bulb harvested from root gardens and sliced for stews.",
@@ -2322,7 +2322,7 @@ const QUESTIONS = {
         ] 
     },
     256: { 
-        question: "I leap from heaven to earth in a split second, splintering ancient oaks without an axe. What am I?", 
+        question: "I split the night with a flash so bright, then vanish before you say goodnight. What am I?", 
         answer: "lightning", 
         hints: [
             "A sudden electrical discharge born within violent storm clouds.",
@@ -2331,7 +2331,7 @@ const QUESTIONS = {
         ] 
     },
     257: { 
-        question: "I rumble through the mountains without an engine, shake windowpanes without hands, and follow a blinding spark. What am I?", 
+        question: "I boom from the sky, yet never fall low; I shake the world, then quietly go. What am I?", 
         answer: "thunder", 
         hints: [
             "The acoustic shockwave generated by superheated air during a storm.",
@@ -2340,7 +2340,7 @@ const QUESTIONS = {
         ] 
     },
     258: { 
-        question: "The more you turn on the lamps, the less of me remains. When the last spark dies, I conquer the entire hall. What am I?", 
+        question: "I swallow every trace of light, yet vanish when you ignite.", 
         answer: "darkness", 
         hints: [
             "The absolute absence of visible light.",
@@ -2349,7 +2349,7 @@ const QUESTIONS = {
         ] 
     },
     259: { 
-        question: "You throw me out when you want to use me, and pull me back in when you are done. What am I?", 
+        question: "I hold things firm where waters roam, yet never sail or leave my home. What am I?", 
         answer: "anchor", 
         hints: [
             "A heavy forged iron hook dropped from a ship's bow.",
@@ -2358,7 +2358,7 @@ const QUESTIONS = {
         ] 
     },
     260: { 
-        question: "I am completely encircled by water, yet I am entirely composed of dry earth and stone. What am I?", 
+        question: "Where endless blue surrounds my side, I stand alone with nowhere to hide. What am ?",
         answer: "island", 
         hints: [
             "A sub-continental tract of land surrounded by ocean or lake tides.",
@@ -2367,16 +2367,16 @@ const QUESTIONS = {
         ] 
     },
     261: { 
-        question: "I have no voice, but I copy your silhouette in pools, lakes, and polished steel. What am I?", 
-        answer: "reflection", 
+        question: "I wind without a thread, yet guide each step ahead. What am I?", 
+        answer: "road", 
         hints: [
-            "An optical twin cast on smooth glass or undisturbed water.",
-            "Rippling the surface shatters it into a thousand liquid pieces.",
-            "10 letters, starts with R."
+            "Cars and travelers follow my trace.",
+            "I stretch far and connect one place to another",
+            "4 letters, starts with R."
         ] 
     },
     262: { 
-        question: "I pass through a narrow hole to fasten your coat, yet I have no thread, needle, or seam. What am I?", 
+        question: "I guard a tiny opening with pride, keeping two wandering sides allied.", 
         answer: "button", 
         hints: [
             "A small circular disk stitched to garments.",
@@ -2385,7 +2385,7 @@ const QUESTIONS = {
         ] 
     },
     263: { 
-        question: "I cannot be held, but I can overturn ships. I cannot be seen, but you hear me whistle through the pines. What am I?", 
+        question: "I dance with leaves but have no feet, unseen yet felt in every street.What am I?", 
         answer: "wind", 
         hints: [
             "Moving currents of atmospheric air sweeping across the landscape.",
@@ -2394,7 +2394,7 @@ const QUESTIONS = {
         ] 
     },
     264: { 
-        question: "I can be harsh, unvarnished, or bitter to swallow, yet living in deception is far worse. What am I?", 
+        question: "I hide in plain sight, yet never wear a disguise; seek me in words, not in lies. What am I?", 
         answer: "truth", 
         hints: [
             "The factual reality of things as they actually happened.",
@@ -2403,7 +2403,7 @@ const QUESTIONS = {
         ] 
     },
     265: { 
-        question: "I have a thousand twisting paths and high stone hedges, where every turn looks like the last. What am I?", 
+        question: "Twist and turn, where paths deceive—find the way out, if you believe.", 
         answer: "maze", 
         hints: [
             "A complex network of confusing passages designed to disorient travelers.",
@@ -2412,7 +2412,7 @@ const QUESTIONS = {
         ] 
     },
     266: { 
-        question: "I am a dark outline on bright paper or against the sunset, lacking all inner color and detail. What am I?", 
+        question: "I mimic your shape in the fading light, but vanish when darkness steals my sight.", 
         answer: "silhouette", 
         hints: [
             "A profile likeness showing only the exterior contours in solid black.",
@@ -2421,7 +2421,7 @@ const QUESTIONS = {
         ] 
     },
     267: { 
-        question: "I have a curved horn of polished brass that slides into your heel to ease tight boots on. What am I?", 
+        question: "I guide your heel with gentle grace, helping your foot slide into place.", 
         answer: "shoehorn", 
         hints: [
             "A smooth handheld lever used by gentlemen and shoe cobblers.",
@@ -2430,16 +2430,16 @@ const QUESTIONS = {
         ] 
     },
     268: { 
-        question: "I cap your finger with armored dimples so sharp steel never pierces your skin while stitching. What am I?", 
-        answer: "thimble", 
+        question: "I gleam at meals, yet never dine; I help you eat, but food is not mine.", 
+        answer: "cutlery", 
         hints: [
-            "A small metal or leather cup fitted over the sewer's fingertip.",
-            "Used to push needles through tough canvas and heavy cloth without pain.",
-            "7 letters, starts with T."
+            "I never taste what you bite .",
+            "I rest beside your plate and come in more than one kind.",  
+            "7 letters, starts with C."
         ] 
     },
     269: { 
-        question: "I grow downward from eaves and branches, pointed like a crystalline spear, but perish in the spring sun. What am I?", 
+        question: "I hang without a nail, sparkle without a light, and grow longer in the cold of night.", 
         answer: "icicle", 
         hints: [
             "A hanging spike of frozen dripping water formed during frosty thaws.",
@@ -2484,7 +2484,7 @@ const QUESTIONS = {
         ] 
     },
     274: { 
-        question: "Born in the sea as a gourd-like vine, I scrub away rough skin in the hot bath. What am I?", 
+        question: "Born from a gourd-like vine, I scrub away rough skin in the hot bath. What am I?", 
         answer: "loofah", 
         hints: [
             "A fibrous, dried plant sponge used for lathering soap and exfoliating.",
@@ -2493,7 +2493,7 @@ const QUESTIONS = {
         ] 
     },
     275: { 
-        question: "The eleventh region boss challenges: I am born of missed choices and wasted days. Looking backward makes me heavy, but I cannot rewrite a single page. What am I?", 
+        question: "I arrive too late, when choices change their state. What am I?", 
         answer: "regret", 
         hints: [
             "A sorrowful emotion felt over past actions or opportunities ignored.",
@@ -2513,7 +2513,7 @@ const QUESTIONS = {
         ] 
     },
     277: { 
-        question: "I have a U-shaped shackle of hardened steel that snaps shut, guarding gates until a key frees me. What am I?", 
+        question: "I guard what you hide, with a twist at my side. What am I?", 
         answer: "padlock", 
         hints: [
             "A portable detached lock with a pivoting bar snapped into a metal body.",
@@ -2522,7 +2522,7 @@ const QUESTIONS = {
         ] 
     },
     278: { 
-        question: "I plunge midday into eerie twilight as the black silhouette of the moon covers the fiery sun. What am I?", 
+        question: "I steal the sun without a fight, turning noon mysteriously into night.", 
         answer: "eclipse", 
         hints: [
             "A celestial phenomenon where one planetary body obscures another.",
@@ -2531,7 +2531,7 @@ const QUESTIONS = {
         ] 
     },
     279: { 
-        question: "I am a curved U-bar of hammered iron nailed to a steed's hoof, hung over doorways for good fortune. What am I?", 
+        question: "I guard a galloping toe, in a lucky arc I glow. What am I?", 
         answer: "horseshoe", 
         hints: [
             "A blacksmith-forged rim protecting equines from rocky paths.",
@@ -2540,7 +2540,7 @@ const QUESTIONS = {
         ] 
     },
     280: { 
-        question: "I stand alone in fields of corn with straw arms, wearing old clothes to terrify crows away. What am I?", 
+        question: "I stand all day, yet never roam, guarding fields I call my home. What am I?", 
         answer: "scarecrow", 
         hints: [
             "A crude decoy built of wooden posts, burlap sack heads, and dry hay.",
@@ -2549,7 +2549,7 @@ const QUESTIONS = {
         ] 
     },
     281: { 
-        question: "I use twin optical glass lenses to reveal monsters swimming in a single droplet of pond water. What am I?", 
+        question: "I make tiny worlds appear in sight, revealing secrets hidden from plain light.", 
         answer: "microscope", 
         hints: [
             "A laboratory scientific instrument for magnifying tiny specimens.",
@@ -2558,7 +2558,7 @@ const QUESTIONS = {
         ] 
     },
     282: { 
-        question: "I am a mountain with a burning throat of molten rock that sleeps for ages before erupting in fury. What am I?", 
+        question: "I sleep like a mountain, yet wake with a fiery crown—what am I that turns the earth upside down?", 
         answer: "volcano", 
         hints: [
             "A geological rupture in planetary crust venting ash, gas, and lava.",
@@ -2567,7 +2567,7 @@ const QUESTIONS = {
         ] 
     },
     283: { 
-        question: "I have a single tire in front, two wooden legs behind, and haul heavy dirt when lifted by two handles. What am I?", 
+        question: "I carry the load but never complain, one wheel guides me through sun and rain. What am I?", 
         answer: "wheelbarrow", 
         hints: [
             "A hand-propelled one-wheeled conveyance for gardens and stone quarries.",
@@ -2576,7 +2576,7 @@ const QUESTIONS = {
         ] 
     },
     284: { 
-        question: "I count a full one hundred years of empires, battles, and inventions from dawn to close. What am I?", 
+        question: "A hundred years I quietly span, yet I am no age of a mortal man.", 
         answer: "century", 
         hints: [
             "A temporal span of ten decades.",
@@ -2585,7 +2585,7 @@ const QUESTIONS = {
         ] 
     },
     285: { 
-        question: "Peer into my optical cylinder, rotate my ring, and watch colored glass shards form infinite symmetrical patterns. What am I?", 
+        question: "Twist me around, and colors collide. Countless little worlds appear inside.", 
         answer: "kaleidoscope", 
         hints: [
             "A handheld optical toy containing angled interior mirrors.",
@@ -2594,7 +2594,7 @@ const QUESTIONS = {
         ] 
     },
     286: { 
-        question: "I contain every single word known to scholars from A to Z, yet I can never utter a single thought of my own. What am I?", 
+        question: "I hold countless words in orderly flight, unlocking their meanings just right. What am I?", 
         answer: "dictionary", 
         hints: [
             "A massive bound lexicon defining words in alphabetical order.",
@@ -2603,7 +2603,7 @@ const QUESTIONS = {
         ] 
     },
     287: { 
-        question: "I am made of soft felt or rubber, and my sole purpose is to rub away the scribbles and mistakes of students. What am I?", 
+        question: "I make mistakes vanish from sight, leaving your page clean and bright.", 
         answer: "eraser", 
         hints: [
             "Friction tool mounted on pencil tips or held in drafting blocks.",
@@ -2612,7 +2612,7 @@ const QUESTIONS = {
         ] 
     },
     288: { 
-        question: "I am the bony helmet protecting your thoughts, with empty eye sockets that grin long after flesh is gone. What am I?", 
+        question: "I guard your thoughts behind a bony dome, silent and still, yet I am the home of your mind.", 
         answer: "skull", 
         hints: [
             "The skeletal framework of the head housing the human brain.",
@@ -2630,7 +2630,7 @@ const QUESTIONS = {
         ] 
     },
     290: { 
-        question: "I look like solid wet ground, but the moment you step upon me, my loose grains swallow your boots whole. What am I?", 
+        question: "I seem solid, yet pull you down. Step in too deep, and I will keep you around.", 
         answer: "quicksand", 
         hints: [
             "A colloid hydrogel of loose sand saturated with water.",
@@ -2639,7 +2639,7 @@ const QUESTIONS = {
         ] 
     },
     291: { 
-        question: "I swing in a steady rhythm from side to side inside a grandfather clock, marking every second with gravity. What am I?", 
+        question: "I dance without music, from side to side, yet time is my guide. What am I?", 
         answer: "pendulum", 
         hints: [
             "A weighted bob suspended from a pivot to swing back and forth freely.",
@@ -2648,7 +2648,7 @@ const QUESTIONS = {
         ] 
     },
     292: { 
-        question: "Click my button to freeze the sprint of a stallion down to the hundredth fraction of a second. What am I?", 
+        question: "I chase each beat but never run, counting moments one by one.", 
         answer: "stopwatch", 
         hints: [
             "A handheld precision timer used by race stewards and athletes.",
@@ -2657,7 +2657,7 @@ const QUESTIONS = {
         ] 
     },
     293: { 
-        question: "I raise my mirrored tube above the foaming waves so submarine captains can spy on enemy galleons from the deep. What am I?", 
+        question: "I peek from below, yet see what's high—what am I, with a hidden eye?", 
         answer: "periscope", 
         hints: [
             "An optical instrument featuring angled prisms at both ends of an extendable tube.",
@@ -2666,7 +2666,7 @@ const QUESTIONS = {
         ] 
     },
     294: { 
-        question: "I am a thin ribbon of leather or silk slipped between printed pages so you never lose your place. What am I?", 
+        question: "I mark your place without a trace, yet never read a single page.", 
         answer: "bookmark", 
         hints: [
             "A placeholder card or tassel set inside heavy novels and grimoires.",
@@ -2675,7 +2675,7 @@ const QUESTIONS = {
         ] 
     },
     295: { 
-        question: "I am the passage in your neck that swallows bread, carries speech, and tightens in moments of raw fear. What am I?", 
+        question: "I am a hidden bridge where words and breath meet—what am I, tucked where voices greet. What am I?", 
         answer: "throat", 
         hints: [
             "The anterior anatomy of the neck housing the pharynx and voice box.",
@@ -2693,7 +2693,7 @@ const QUESTIONS = {
         ] 
     },
     297: { 
-        question: "I am an upright slab of carved granite in the graveyard, bearing a name, two dates, and an epitaph. What am I?", 
+        question: "Where names lie still and tales are told, beneath my stone, secrets grow old. What am I?", 
         answer: "tombstone", 
         hints: [
             "A permanent funerary monument erected at the head of a grave.",
@@ -2702,7 +2702,7 @@ const QUESTIONS = {
         ] 
     },
     298: { 
-        question: "I am a rotating spiraling column of air or water pulling debris relentlessly into my center. What am I?", 
+        question: "I twist what I meet in a spiraling course, pulling all things toward my force.", 
         answer: "vortex", 
         hints: [
             "A fluid mass rotating swiftly about an axis forming a deep funnel.",
@@ -2711,7 +2711,7 @@ const QUESTIONS = {
         ] 
     },
     299: { 
-        question: "I wear a gummed flap on my paper brow, guarding royal letters until my seal is sliced open with a silver knife. What am I?", 
+        question: "I wear no face, yet guard a secret with a flap. What am I?", 
         answer: "envelope", 
         hints: [
             "A flat paper packet enclosing correspondence sent through postal couriers.",
@@ -2720,7 +2720,7 @@ const QUESTIONS = {
         ] 
     },
     300: { 
-        question: "The warrior's wastes are crossed. The Witch asks: I cannot be bought with gold, inherited from parents, or learned overnight, but age and bitter trials forge me in the mind. What am I?", 
+        question: "I grow when shared, yet never decrease—seek me in silence, and find your release.", 
         answer: "wisdom", 
         hints: [
             "The deep sound judgment gained through long life experience and truth.",
