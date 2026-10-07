@@ -3484,43 +3484,43 @@ const QUESTIONS = {
         ] 
     },
     384: { 
-        question: "I am an ancient era buried deep beneath the dirt of centuries, surviving only through broken pillars and forgotten inscriptions. What am I?", 
-        answer: "antiquity", 
+        question: "I speak in pictures, yet have no eyes, and light up stories before your eyes. What am I?", 
+        answer: "television", 
         hints: [
-            "The ancient past, especially the classical civilizations before the Middle Ages.",
-            "Archaeologists uncover its terracotta pottery and marble mosaics in ruined cities.",
-            "9 letters, starts with A."
+            "It brings shows, news, and stories into your home.",
+            "It has a screen and broadcasts programs.",
+            "10 letters, starts with T."
         ] 
     },
     385: { 
-        question: "I am a closed temporal circuit where the same tragic morning repeats over and over without escape until broken by truth. What am I?", 
-        answer: "timeloop", 
+        question: "I am a place where young minds grow, with books and lessons in a row. What am I?", 
+        answer: "school", 
         hints: [
-            "A chronological anomaly where a span of time resets back to its starting point.",
-            "Traps people in an unending cycle of identical repeating events.",
-            "8 letters, starts with T."
+            "Children and teachers meet here each day.",
+            "You learn subjects and make new friends here.",
+            "6 letters, starts with S."
         ] 
     },
     386: { 
-        question: "I am the reddish-brown decay of oxidation that eats slowly away at the gears of steel, turning strong machines to dust over time. What am I?", 
-        answer: "corrosion", 
+        question: "I carried words across the sky, before swift machines could fly. What am I?", 
+        answer: "pigeon", 
         hints: [
-            "The gradual chemical destruction of metals by reaction with oxygen and moisture.",
-            "Weakens neglected bridges, iron locks, and sunken armor plates over centuries.",
-            "9 letters, starts with C."
+            "Long ago, people trusted me to carry messages over great distances.",
+            "I am a bird often used as a messenger in olden days.",
+            "6 letters, starts with P."
         ] 
     },
     387: { 
-        question: "I am a vast geological chapter of planetary history spanning millions of years, divided into epochs and periods. What am I?", 
-        answer: "era", 
+        question: "Three corners I quietly claim, three straight sides complete my frame. What am I?", 
+        answer: "triangle", 
         hints: [
-            "A major division of geological or historical time of long, indefinite duration.",
-            "The Mesozoic and Cenozoic are prominent examples in earth's stone record.",
-            "3 letters, starts with E."
+            "I am a simple geometric shape.",
+            "I have three sides and three corners.",
+            "8 letters, starts with T."
         ] 
     },
     388: { 
-        question: "I am the inescapable future decreed for every mortal man, woven by three mythological sisters spinning threads of fate. What am I?", 
+        question: "You run from me only to walk through my door; the more that you flee, the more I'm in store. What am I?", 
         answer: "destiny", 
         hints: [
             "The predetermined course of events regarded as beyond human control.",
@@ -3529,7 +3529,7 @@ const QUESTIONS = {
         ] 
     },
     389: { 
-        question: "I am the dim, enchanting hour when the day dies but the night is not yet fully born, wrapping fields in purple twilight. What am I?", 
+        question: "I swallow the sun to ignite the first spark, bleeding in crimson before turning dark. What am I?", 
         answer: "dusk", 
         hints: [
             "The darkest stage of twilight occurring just before total nightfall settles.",
@@ -3538,7 +3538,7 @@ const QUESTIONS = {
         ] 
     },
     390: { 
-        question: "I am the written memory of an empire, recorded year by year in monastic scripts so future generations never forget. What am I?", 
+        question: "I am the written memory of an empire, recorded year by year with great care. What am I?", 
         answer: "chronicle", 
         hints: [
             "A continuous historical account of facts and events arranged in order of time.",
@@ -3547,25 +3547,25 @@ const QUESTIONS = {
         ] 
     },
     391: { 
-        question: "I am a clockwork spring mechanism that counts down thirty minutes before ringing an alarm bell upon the kitchen hearth. What am I?", 
-        answer: "timer", 
+        question: "I weave no silk yet catch the world inside my boundless strand, carrying voices across oceans without a single hand. What am I?", 
+        answer: "internet", 
         hints: [
-            "A small device set to measure a specific interval of passing time.",
-            "Alerts bakers when cakes have finished rising inside hot ovens.",
-            "5 letters, starts with T."
+            "It is something that you use everyday in your phone.",
+            "You rely on browsers, packets, and cables to enter my domain.",
+            "8 letters, starts with I."
         ] 
     },
     392: { 
-        question: "I am a fleeting fragment of a second that passes before an eyelid can blink, yet a decision made within me alters history. What am I?", 
-        answer: "instant", 
+        question: "Born in a blazing tomb, I wear a molten crown and break into wedges before I go down. What am I?", 
+        answer: "pizza", 
         hints: [
-            "An exceedingly brief period or pinpoint moment of passing time.",
-            "Lightning flashes and arrows strike home within this narrow boundary.",
-            "7 letters, starts with I."
+            "My journey starts out completely flat, yet I often leave behind a sturdy border that many choose not to eat.",
+            "Delivered in a square box, pulled out as a circle, and eaten in triangles.",
+            "5 letters, starts with P."
         ] 
     },
     393: { 
-        question: "I am a monumental stone pillar carved with glyphs and erected by ancient kings to mark the passing of thirty-year jubilees. What am I?", 
+        question: "I am a monumental stone-carved needle reaching high to pin the daylight to the sky. What am I?", 
         answer: "obelisk", 
         hints: [
             "A tall, four-sided narrow tapering monument ending in a pyramid-like top.",
@@ -3574,7 +3574,7 @@ const QUESTIONS = {
         ] 
     },
     394: { 
-        question: "I am a rhythmic mechanical metronome ticking steadily on top of a piano, training musicians to keep unyielding time. What am I?", 
+        question: "I sway without wind in a rigid design, and slice through the seconds to keep you in line. What am I?", 
         answer: "metronome", 
         hints: [
             "An inverted pendulum device that produces regular, repetitive acoustic clicks.",
@@ -3583,25 +3583,25 @@ const QUESTIONS = {
         ] 
     },
     395: { 
-        question: "I am the continuous irreversible flow of events from the past through the present into the future, measured by gears and stars. What am I?", 
-        answer: "time", 
+        question: "I rise and fall but never sway, I tell you heat without delay.", 
+        answer: "thermometer", 
         hints: [
-            "The non-spatial continuum in which events occur in apparently irreversible succession.",
-            "Waits for no man, ages kings to dust, and heals all grief.",
-            "4 letters, starts with T."
+            "I measure something you cannot see.",
+            "Doctors often use me to check body temperature.",
+            "11 letters, starts with T."
         ] 
     },
     396: { 
-        question: "I am a copper weathercock turning on top of a church steeple, showing which quarter the changing wind blows from. What am I?", 
-        answer: "weathervane", 
+        question: "I wake the earth with patient care, then reap its gifts from open air.", 
+        answer: "farmer", 
         hints: [
-            "A pivoting metal pointer mounted on high roofs to indicate wind direction.",
-            "Often fashioned in the silhouette of a crowing rooster or soaring arrow.",
-            "11 letters, starts with W."
+            "I work with soil, seeds, and growing crops.",
+            "My harvest feeds people and animals.",
+            "6 letters, starts with F."
         ] 
     },
     397: { 
-        question: "I am a temporal unit spanning ten full circuits of the sun around the zodiac, marking a decade of growth and reform. What am I?", 
+        question: "I mark ten years in a measured span, a quiet chapter in time’s great plan.", 
         answer: "decade", 
         hints: [
             "A period of ten consecutive years.",
@@ -3610,7 +3610,7 @@ const QUESTIONS = {
         ] 
     },
     398: { 
-        question: "I am a subterranean chamber buried with gold, sealed with a hundred-year delay lock that swings open only for future generations. What am I?", 
+        question: "I hide yesterday away, then let tomorrow read what I saved today.", 
         answer: "timecapsule", 
         hints: [
             "A secure historic cache of goods or information buried for future discovery.",
@@ -3619,7 +3619,7 @@ const QUESTIONS = {
         ] 
     },
     399: { 
-        question: "I am the steady rhythmic pulse of a healthy heart, measuring sixty to eighty beats per minute inside your breast. What am I?", 
+        question: "I thump without feet, yet keep perfect beat.",
         answer: "heartbeat", 
         hints: [
             "The pulsation of the cardiac muscle pumping crimson life through your veins.",
@@ -3628,12 +3628,12 @@ const QUESTIONS = {
         ] 
     },
     400: { 
-        question: "The time-lost kingdom is restored. The Witch demands: Name the physical dimension of duration that joins with height, width, and depth to shape reality.", 
-        answer: "fourth", 
+        question: "I offer a path when choices divide, a quiet thought to be your guide.", 
+        answer: "advice", 
         hints: [
-            "The numerical ranking given to the dimension of time in relativistic physics.",
-            "Follows the three classic spatial dimensions of height, length, and breadth.",
-            "6 letters, starts with F."
+            "It is something shared to help someone decide what to do.",
+            "A wise friend or mentor may give it when you face a difficult choice.",
+            "6 letters, starts with A."
         ] 
     },
 
