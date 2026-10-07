@@ -2866,30 +2866,30 @@ const QUESTIONS = {
         ] 
     },
     316: { 
-        question: "I am a traveler who enters the hall without knocking, leaves without footfalls, and turns hair silver over decades. What am I?", 
-        answer: "oldage", 
+        question: "I am a home with no wall or rent, where nights are spent. What am I?", 
+        answer: "tent", 
         hints: [
-            "The twilight phase of mortal life characterized by wrinkled skin and fading vigor.",
-            "Brings physical frailty alongside the hard-earned gifts of experience.",
-            "6 letters (typed OLDAGE), starts with O."
+            "I rise without a tower ans shelter without a door.",
+            "I fold when my journey ends and make a campsite feel like home.",
+            "4 letters, starts with T."
         ] 
     },
     317: { 
-        question: "I have an eye of polished glass and three legs of ash, standing still while artists paint surveying charts. What am I?", 
-        answer: "theodolite", 
+        question: "Wrapped in mystery, I wait with delight. Unwrap me to discover your present tonight.", 
+        answer: "gift", 
         hints: [
-            "A precision surveying instrument mounted on a sturdy tripod.",
-            "Measures horizontal and vertical angles across hills and roads.",
-            "10 letters, starts with T."
+            "I arrive with a bow, but I am not the aim of a hunter.",
+            "I am opened with curiosity, not a key.",
+            "4 letters, starts with G."
         ] 
     },
     318: { 
-        question: "I can be spent before I am earned, promised before I exist, and once squandered, all of nature cannot buy me back. What am I?", 
-        answer: "youth", 
+        question: "Blankets spread, laughter takes flight, a feast beneath the open light.", 
+        answer: "picnic", 
         hints: [
-            "The brief, vigorous springtime period of human life and vitality.",
-            "Characterized by boundless energy, bold dreams, and few gray hairs.",
-            "5 letters, starts with Y."
+            "A cloth on the ground becomes our table.",
+            "It turns an ordinary day into an outdoor play.",
+            "6 letters, starts with P."
         ] 
     },
     319: { 
@@ -2902,16 +2902,16 @@ const QUESTIONS = {
         ] 
     },
     320: { 
-        question: "I am a winding serpent of stone carved into high cliffs, carrying freshwater into royal fountains from miles away. What am I?", 
-        answer: "aqueduct", 
+        question: "I slip unseen where gears align, keeping motion smooth and fine. What am I?", 
+        answer: "oil", 
         hints: [
-            "A magnificent arched masonry canal engineered by ancient builders.",
-            "Transports mountain water across valleys on elevated stone bridges.",
-            "8 letters, starts with A."
+            "I can flow without being water.",
+            "I can come from deep beneath the earth.",
+            "3 letters, starts with O."
         ] 
     },
     321: { 
-        question: "I have a heart of sulfur and charcoal packed in an iron tube, roaring like a dragon when ignited. What am I?", 
+        question: "Fed by black dust and lit with a spark, I swallow heavy stones and bark in the dark.", 
         answer: "cannon", 
         hints: [
             "A heavy artillery siege gun mounted on wooden carriage wheels.",
@@ -2947,7 +2947,7 @@ const QUESTIONS = {
         ] 
     },
     325: { 
-        question: "The catacombs crumble. The Witch whispers: What can be broken without a hammer, mended without needles, yet leaves the sufferer weeping in the dark?", 
+        question: "I beat without a drum, yet from me all feelings come. What am I?", 
         answer: "heart", 
         hints: [
             "The emotional seat of human love, compassion, and grief in folklore.",
@@ -2976,21 +2976,21 @@ const QUESTIONS = {
         ] 
     },
     328: { 
-        question: "I hang like a rocky dagger from the cave ceiling, grown drop by mineral drop over centuries. What am I?", 
-        answer: "stalactite", 
+        question: "While I sleep deep beneath the earth awaiting pickaxes, you might also tread upon me carefully on a battlefield.", 
+        answer: "mine", 
         hints: [
-            "A tapered limestone spear clinging tightly to subterranean vaults.",
-            "Remember: it holds 'tight' to the ceiling above your head.",
-            "10 letters, starts with S."
+            "Men often risk darkness and toxic air to hollow out my veins, yet I give nothing freely unless you dig.",
+            "In history and war, I am not sought for wealth, but feared beneath footsteps in silence.",
+            "4 letters, starts with M."
         ] 
     },
     329: { 
-        question: "I climb slowly from the cavern floor to meet my dripping partner hanging directly overhead. What am I?", 
-        answer: "stalagmite", 
+        question: "Where fires dance and blades divide, I turn raw earth to warmth inside.", 
+        answer: "kitchen", 
         hints: [
-            "A mineral mound rising upward from limestone floor pools.",
-            "Formed by mineral deposits splashing from roof droplets over millennia.",
-            "10 letters, starts with S."
+            "Raw ingredients arrive in quiet disguise, but leave transformed by scent, steam, and fire.",
+            "Here, blistering flames and sub-zero frost coexist side by side without ever clashing.",
+            "7 letters, starts with K."
         ] 
     },
     330: { 
@@ -3003,16 +3003,16 @@ const QUESTIONS = {
         ] 
     },
     331: { 
-        question: "I am a precious green stone hidden in mica schist, prized above gold by ancient desert queens. What am I?", 
-        answer: "emerald", 
+        question: "I bite without teeth, hold without a hand, and help things stay where they stand.", 
+        answer: "nail", 
         hints: [
-            "A brilliant verdant beryl gemstone cut for royal diadems.",
-            "Famous for its lush green color and natural interior inclusions.",
-            "7 letters, starts with E."
+            "I enter without a door and hold things in place.",
+            "A hammer helps me win the race.",
+            "4 letters, starts with N."
         ] 
     },
     332: { 
-        question: "I burn with a pigeon-blood crimson glow inside marble veins, outshining all other stones of fire. What am I?", 
+        question: "Twin to the sapphire in dark stone bred, a trace of chromium burns me red.", 
         answer: "ruby", 
         hints: [
             "A blood-red variety of the mineral corundum.",
@@ -3021,25 +3021,25 @@ const QUESTIONS = {
         ] 
     },
     333: { 
-        question: "I am a golden honey gemstone that sparkles in pegmatite veins, named for an island of ancient mist. What am I?", 
-        answer: "topaz", 
+        question: "I am warm in a bowl, yet I am no coal. Sip me slow, and I soothe the soul. What am I?", 
+        answer: "soup", 
         hints: [
-            "A hard silicate mineral traditionally celebrated for its warm amber hues.",
-            "Flashes with golden fire when faceted by the master gemcutter.",
-            "5 letters, starts with T."
+            "A spoon is often my closest companion.",
+            "I can be thick, thin, clear, or creamy.",
+            "4 letters, starts with S."
         ] 
     },
     334: { 
-        question: "I am an azure gemstone reflecting the deep midnight sky, second only to diamond in enduring strength. What am I?", 
-        answer: "sapphire", 
+        question: "I climb without feet, with steps so neat. What am I?", 
+        answer: "ladder", 
         hints: [
-            "A deep celestial blue variety of the corundum mineral family.",
-            "Worn on the fingers of kings and high pontiffs.",
-            "8 letters, starts with S."
+            "I rise in a row, but never grow.",
+            "I reach up high, yet stay in one place.",
+            "6 letters, starts with L."
         ] 
     },
     335: { 
-        question: "I am an organic jewel plucked from ocean depths, formed when a grain of sand irritates a silent mollusk. What am I?", 
+        question: "Born of an ache the deep sea fed, I shine as a moon in a living bed.", 
         answer: "pearl", 
         hints: [
             "A lustrous, iridescent white sphere formed inside oyster shells.",
@@ -3048,111 +3048,111 @@ const QUESTIONS = {
         ] 
     },
     336: { 
-        question: "I am golden fossilized resin wept by prehistoric pines, trapping ancient winged insects for millions of years. What am I?", 
-        answer: "amber", 
+        question: "I swing without a tree, where weary dreamers rest with glee. What am I?", 
+        answer: "hammock", 
         hints: [
-            "Warm, honey-colored petrified tree sap washed ashore on northern beaches.",
-            "Glows translucent orange and can generate static electricity when rubbed.",
-            "5 letters, starts with A."
+            "It is stretched between two supports.",
+            "People can lie in it and relax or sleep.",
+            "7 letters, starts with H."
         ] 
     },
     337: { 
-        question: "I am a deep violet quartz crystal clustering in dark cavern pockets like bunches of royal grapes. What am I?", 
-        answer: "amethyst", 
+        question: "I leap from the sky when you must descend, opening wide before your journey's end.", 
+        answer: "parachute", 
         hints: [
-            "A purple variety of quartz once believed to prevent intoxication.",
-            "Lines the glittering purple inner hollows of massive geodes.",
-            "8 letters, starts with A."
+            "It slows a person's fall from the air.",
+            "It opens above the jumper like a canopy.",
+            "9 letters, starts with P."
         ] 
     },
     338: { 
-        question: "I am a shimmering iridescent stone that displays every color of the spectrum when tilted in sunlight. What am I?", 
-        answer: "opal", 
+        question: "I travel with clothes packed snug and tight, rolling beside you day and night.", 
+        answer: "suitcase", 
         hints: [
-            "A hydrated amorphous silica mineral famous for its play of rainbow light.",
-            "Mined from subterranean sandstone deposits across desert outbacks.",
-            "4 letters, starts with O."
+            "Travelers pack belongings inside",
+            "Many have wheels and a handle.",
+            "8 letters, starts with S."
         ] 
     },
     339: { 
-        question: "I am a pale green stone carved into sacred talismans and imperial seals across Eastern dynasties. What am I?", 
-        answer: "jade", 
+        question: "I stand in the sand with a prickly crown, storing precious water deep down.", 
+        answer: "cactus", 
         hints: [
-            "An ornamental mineral prized for musical resonance and silky green luster.",
-            "Sculpted into ornamental bangles, dragons, and royal ceremonial blades.",
-            "4 letters, starts with J."
+            "It thrives in dry deserts.",
+            "Many varieties have sharp spines.",
+            "6 letters, starts with C."
         ] 
     },
     340: { 
-        question: "I am an azure stone speckled with golden pyrite flecks, ground to powder to paint the cloaks of angels. What am I?", 
-        answer: "lapislazuli", 
+        question: "I buzz with workers who never tire, building golden food they all desire.", 
+        answer: "beehive", 
         hints: [
-            "A deep celestial blue metamorphic rock mined in remote mountains.",
-            "Ground by Renaissance masters to create the precious pigment ultramarine.",
-            "11 letters (typed LAPISLAZULI), starts with L."
+            "It is home to a colony of bees.",
+            "Bees produce honey inside it.",
+            "7 letters (typed LAPISLAZULI), starts with B."
         ] 
     },
     341: { 
-        question: "I am a glassy black volcanic mirror forged when liquid lava chills instantly upon contact with icy mountain air. What am I?", 
-        answer: "obsidian", 
+        question: "I wear you like a second skin when rainy skies begin, keeping you dry from neck to shin.", 
+        answer: "raincoat", 
         hints: [
-            "A dark volcanic glass with sharp, conchoidal fracture lines.",
-            "Flaked by ancient hunters to produce surgical scalpels and razor arrowheads.",
-            "8 letters, starts with O."
+            "It covers the body and has sleeves.",
+            "It is worn over your clothes during rain.",
+            "8 letters, starts with R."
         ] 
     },
     342: { 
-        question: "I am a pale sky-blue stone veined with black web lines, guarding desert travelers from ill fortune. What am I?", 
-        answer: "turquoise", 
+        question: "I breathe with bellows, yet sing with keys; squeeze me gently and I play with ease.", 
+        answer: "accordian", 
         hints: [
-            "A copper-based phosphate mineral prized by artisans of the arid Southwest.",
-            "Set into sterling silver belt buckles, amulets, and rings.",
-            "9 letters, starts with T."
+            "It is a musical instrument.",
+            "ts bellows are pushed and pulled to produce sound.",
+            "9 letters, starts with A."
         ] 
     },
     343: { 
-        question: "I am banded chalcedony carved with concentric rings of color, decorating signet rings and ornamental bowls. What am I?", 
-        answer: "agate", 
+        question: "I dance on a string as wild winds blow, with a diamond shaped body rising and dipping in a graceful flow.", 
+        answer: "kite", 
         hints: [
-            "A microcrystalline variety of silica featuring striped and layered bands.",
-            "Sliced into polished coasters and translucent ornamental medallions.",
-            "5 letters, starts with A."
+            "It is flown outdoors.",
+            "A long string keeps it connected to the flyer.",
+            "4 letters, starts with K."
         ] 
     },
     344: { 
-        question: "I am an orange-red variety of chalcedony that ancient scribes pressed into hot wax to seal private decrees. What am I?", 
-        answer: "carnelian", 
+        question: "I shield your clothes from every stain, tied in front while you cook again.", 
+        answer: "apron", 
         hints: [
-            "A brownish-red gemstone associated with courage and vitality in antiquity.",
-            "Its smooth waxy luster made it ideal for signet seals because wax never stuck to it.",
-            "9 letters, starts with C."
+            "It is worn while cooking or working.",
+            "It protects clothing from spills.",
+            "5 letters, starts with A."
         ] 
     },
     345: { 
-        question: "I am a deep garnet red stone found in metamorphic schists, resembling the crimson seeds of the pomegranate. What am I?", 
-        answer: "garnet", 
+        question: "I have two wheels and a standing deck, push with one foot and ride the trek.", 
+        answer: "scooter", 
         hints: [
-            "A group of silicate minerals celebrated since the Bronze Age for blood-red crystals.",
-            "Used as an abrasive cutting medium and as the traditional January birthstone.",
-            "6 letters, starts with G."
+            "You place your feet on its narrow deck while riding.",
+            "One foot pushes against the ground to make it move.",
+            "7 letters, starts with S."
         ] 
     },
     346: { 
-        question: "I am a pale olive-green crystal born in the mantle of the earth and brought to the surface in volcanic basalt. What am I?", 
-        answer: "peridot", 
+        question: "I bring faraway sights close to your eyes, revealing distant birds across the skies.", 
+        answer: "binoculars", 
         hints: [
-            "The gem-quality variety of the mineral olivine.",
-            "Found inside both volcanic lava flows and stony meteorite fragments from deep space.",
-            "7 letters, starts with P."
+            "They are used to view distant objects.",
+            "They have two optical tubes.",
+            "10 letters, starts with B."
         ] 
     },
     347: { 
-        question: "I am fibrous white gypsum that gleams like silky satin, named after the ancient moon goddess. What am I?", 
-        answer: "selenite", 
+        question: "I am narrow and light, with a paddle to steer, gliding through waters both calm and clear.", 
+        answer: "canoe", 
         hints: [
-            "A translucent crystalline variety of gypsum forming colossal underground swords.",
-            "Easily scratched with a fingernail due to its soft crystalline structure.",
-            "8 letters, starts with S."
+            "It is a narrow, lightweight watercraft.",
+            "A single-bladed paddle is commonly used to move it.",
+            "5 letters, starts with C."
         ] 
     },
     348: { 
@@ -3174,7 +3174,7 @@ const QUESTIONS = {
         ] 
     },
     350: { 
-        question: "The crystal caverns echo. The Witch tests your vision: What tool uses twin convex glass spheres to sharpen the sight of weary eyes?", 
+        question: "I perch upon your nose, yet help your eyes compose.", 
         answer: "spectacles", 
         hints: [
             "A wire or tortoiseshell frame perched upon the bridge of your nose.",
@@ -3185,12 +3185,12 @@ const QUESTIONS = {
 
     // --- REGION: Astral Realm (Levels 351 - 375) ---
     351: { 
-        question: "I am a boundless ocean where islands of spiraling suns drift in complete silence, having neither shore nor surface. What am I?", 
-        answer: "cosmos", 
+        question: "I shield your head when danger calls, taking the force if something falls.", 
+        answer: "helmet", 
         hints: [
-            "The entire ordered universe viewed as an immense system.",
-            "It holds all matter, dark void, galaxies, and passing time.",
-            "6 letters, starts with C."
+            "Cyclists and workers commonly use one.",
+            "It is worn for protection.",
+            "6 letters, starts with H."
         ] 
     },
     352: { 
@@ -3248,39 +3248,39 @@ const QUESTIONS = {
         ] 
     },
     358: { 
-        question: "I am an interstellar cloud of glowing hydrogen and stellar dust, serving as the nursery where newborn stars ignite. What am I?", 
-        answer: "nebula", 
+        question: "I hold a warm drink in a little embrace, with a handle resting in its place.", 
+        answer: "teacup", 
         hints: [
-            "A vast glowing interstellar cloud painted in violet and pink gas.",
-            "The Orion and Crab formations are famous celestial examples.",
-            "6 letters, starts with N."
+            "It is used for serving hot drinks.",
+            "It is smaller than many ordinary drinking vessels.",
+            "6 letters, starts with T."
         ] 
     },
     359: { 
-        question: "I am the violent cosmic explosion that outshines an entire galaxy for weeks as a massive star collapses in death. What am I?", 
-        answer: "supernova", 
+        question: "I glow without a flame, lighting the night with a tiny spark of fame.", 
+        answer: "firefly", 
         hints: [
-            "The catastrophic detonation marking the end of a heavy stellar life.",
-            "Scatters heavy forged elements into the void to birth future planets.",
-            "9 letters, starts with S."
+            "My light comes from my own body, not a flame.",
+            "I am a tiny flying insect.",
+            "7 letters, starts with F."
         ] 
     },
     360: { 
-        question: "I spin hundreds of times every single second in the dark, sweeping a lighthouse beam of radio pulses across the cosmos. What am I?", 
-        answer: "pulsar", 
+        question: "When the world grows still, I quietly take flight, carrying you to dreams through the night.", 
+        answer: "sleep", 
         hints: [
-            "A highly magnetized, rapidly rotating neutron star remnant.",
-            "Emits steady, rhythmic clock-like electromagnetic radiation beacons.",
-            "6 letters, starts with P."
+            "Your body renews while you remain in this state.",
+            "Dreams often appear while you're in its embrace.",
+            "5 letters, starts with S."
         ] 
     },
     361: { 
-        question: "I am a river of charged particles streaming outward from the sun, buffeting planetary magnetic shields across millions of leagues. What am I?", 
-        answer: "solarwind", 
+        question: "I hide in crystals white and bright, making bland bites taste just right.", 
+        answer: "salt", 
         hints: [
-            "The continuous supersonic plasma outflow escaping a star's corona.",
-            "Ignites dancing green auroras when it collides with upper atmosphere gases.",
-            "9 letters, starts with S."
+            "Too much of me can spoil the bite.",
+            "I come from the sea, though I never swim.",
+            "4 letters, starts with S."
         ] 
     },
     362: { 
@@ -3293,88 +3293,88 @@ const QUESTIONS = {
         ] 
     },
     363: { 
-        question: "I am a jagged rock drifting between Mars and Jupiter, too small to be a planet, yet massive enough to crater an empire. What am I?", 
-        answer: "asteroid", 
+        question: "I swing with care, then chase the white, seeking a distant hole in sight.", 
+        answer: "golf", 
         hints: [
-            "A minor rocky body orbiting the sun inside a wide debris belt.",
-            "Lacks an atmosphere and retains the raw composition of early solar creation.",
-            "8 letters, starts with A."
+            "I am played across fairways, bunkers, and greens.",
+            "A small white ball is my target on the green.",
+            "4 letters, starts with G."
         ] 
     },
     364: { 
-        question: "I am the luminous engine at the edge of the known universe, powered by a hungry supermassive core outshining a thousand galaxies. What am I?", 
-        answer: "quasar", 
+        question: "I wear a spiral crown by the sea, yet no royal blood belongs to me.", 
+        answer: "conch", 
         hints: [
-            "An active galactic nucleus of unimaginable optical luminosity.",
-            "Emits massive energy jets as surrounding matter falls toward its core.",
-            "6 letters, starts with Q."
+            "I hold a hidden song that waits for breath.",
+            "I am found along sandy shores.",
+            "5 letters, starts with C."
         ] 
     },
     365: { 
-        question: "I am an astronomical yardstick spanning the gulf between worlds, equal to the distance racing light travels in three hundred and sixty-five days. What am I?", 
-        answer: "lightyear", 
+        question: "I hum a tiny tune at night, then leave a sting from out of sight.", 
+        answer: "mosquito", 
         hints: [
-            "A unit of stellar measurement equal to nearly six trillion miles.",
-            "Used by astronomers to gauge distances to distant stars and nebulae.",
-            "9 letters, starts with L."
+            "I am small, swift, and hard to find.",
+            "I leave a tiny itch behind.",
+            "8 letters, starts with M."
         ] 
     },
     366: { 
-        question: "I am an invisible woven fabric of four dimensions that sags and bends under the heavy weight of suns and planets. What am I?", 
-        answer: "spacetime", 
+        question: "I drift on air without a wing, yet once I held a bird in spring.", 
+        answer: "feather", 
         hints: [
-            "The merged continuum of three spatial dimensions with the dimension of time.",
-            "Einstein showed that the curvature of this grid is what we feel as gravity.",
-            "9 letters, starts with S."
+            "It is light enough to float on a breeze.",
+            "Birds grow these to cover and protect their bodies.",
+            "7 letters, starts with F."
         ] 
     },
     367: { 
-        question: "I am the dying ember core left behind when a medium star expels its outer clouds, cooling slowly across trillions of years. What am I?", 
-        answer: "whitedwarf", 
+        question: "I have no voice, yet with one breath, I call attention with a piercing note.", 
+        answer: "whistle", 
         hints: [
-            "A compact, earth-sized stellar remnant composed of degenerate matter.",
-            "Lacks nuclear fusion fuel and glows solely from leftover thermal heat.",
-            "10 letters, starts with W."
+            "Referees often use one during games.",
+            "Air passing through it creates a sharp sound.",
+            "7 letters, starts with W."
         ] 
     },
     368: { 
-        question: "I am an imaginary sphere surrounding a black hole beyond which no escape is possible, marking the point of no return. What am I?", 
-        answer: "eventhorizon", 
+        question: "I rise in steps toward the sky, where ancient kings and secrets lie.", 
+        answer: "pyramid", 
         hints: [
-            "The boundary threshold where the escape velocity exceeds the speed of light.",
-            "Anything crossing this perimeter is pulled into the central crushing void.",
-            "12 letters, starts with E."
+            "It has a broad base and pointed top.",
+            "Ancient Egyptians built famous examples of it.",
+            "7 letters, starts with P."
         ] 
     },
     369: { 
-        question: "I am the faint acoustic and microwave hiss filling every corner of the sky, serving as the leftover echo from the birth of the cosmos. What am I?", 
-        answer: "afterglow", 
+        question: "I hide what you carry, yet reveal nothing I share. Find me where clothing keeps secrets with care.", 
+        answer: "pocket", 
         hints: [
-            "The cosmic microwave background radiation left behind by the Big Bang.",
-            "Pervades all empty space at roughly 2.7 degrees above absolute zero.",
-            "9 letters, starts with A."
+            "Clothing often has one sewn into it.",
+            "You can keep coins or small objects inside me.",
+            "6 letters, starts with P."
         ] 
     },
     370: { 
-        question: "I am an optical glass tube pointed toward the sky, using parabolic mirrors to gather dim starlight from millions of lightyears away. What am I?", 
-        answer: "reflector", 
+        question: "I span a gap from side to side, letting travelers safely cross my stride.", 
+        answer: "bridge", 
         hints: [
-            "A telescope design invented by Isaac Newton using curved mirrors instead of lenses.",
-            "Eliminates color distortion when magnifying distant galaxies and star clusters.",
-            "9 letters, starts with R."
-        ] 
-    },
-    371: { 
-        question: "I am a twin star system bound in a gravitational waltz, orbiting around a common center of balance in the dark. What am I?", 
-        answer: "binary", 
-        hints: [
-            "A celestial system where two companion stars circle one another.",
-            "Most star systems in our galaxy share this two-fold partnership.",
+            "It connects places separated by an obstacle.",
+            "Roads and railways can pass over rivers using one.",
             "6 letters, starts with B."
         ] 
     },
+    371: { 
+        question: "I beat without a heart inside, and keep a marching rhythm by my side.", 
+        answer: "drum", 
+        hints: [
+            "It is struck to produce sound.",
+            "Musicians use sticks or hands to play it.",
+            "4 letters, starts with D."
+        ] 
+    },
     372: { 
-        question: "I am the red planet of rust and basalt canyons, bearing the solar system's tallest volcano beneath a thin carbon sky. What am I?", 
+        question: "I glow like a rust-red ember, circling where no earthly footsteps enter.", 
         answer: "mars", 
         hints: [
             "The fourth planet from the sun, famous for its reddish oxidized soil.",
@@ -3392,7 +3392,7 @@ const QUESTIONS = {
         ] 
     },
     374: { 
-        question: "I am the colossal gas king of the solar system, holding seventy moons in my thrall while a Great Red Spot storm churns my clouds. What am I?", 
+        question: "I am the giant of the skies, with storms in my sight, crowned by a red spot that rages day and night.", 
         answer: "jupiter", 
         hints: [
             "The fifth and most massive planet orbiting our home sun.",
@@ -3401,36 +3401,36 @@ const QUESTIONS = {
         ] 
     },
     375: { 
-        question: "The astral realm is charted. The Witch tests your cosmic reason: What term describes the exact distance of 3.26 lightyears, measured by stellar parallax?", 
-        answer: "parsec", 
+        question: "I am a tiny world of colored pieces, mixed and turned until patterns meet.", 
+        answer: "puzzle", 
         hints: [
-            "A fundamental interstellar distance unit used by deep space astronomers.",
-            "Derived from a parallax angle of one arcsecond across earth's orbital radius.",
+            "It challenges you to solve or arrange somet",
+            "Jigsaw versions are made from interlocking pieces.",
             "6 letters, starts with P."
         ] 
     },
 
     // --- REGION: Time-Lost Kingdom (Levels 376 - 400) ---
     376: { 
-        question: "I have no beginning, middle, or end. In my grasp, empires fall in the blink of an eye while a single second stretches forever. What am I?", 
-        answer: "eternity", 
+        question: "I wait by the door, catching every trace before it crosses the floor.", 
+        answer: "doormat", 
         hints: [
-            "The state of infinite, boundless time without commencement or closure.",
-            "Philosophers consider it beyond the temporal limits of mortal life.",
-            "8 letters, starts with E."
+            "It is usually placed near an entrance.",
+            "People wipe their shoes on it.",
+            "7 letters, starts with D."
         ] 
     },
     377: { 
-        question: "I am a grandfather timekeeper whose heavy weights sink slowly in an oak cabinet, chiming solemn bells upon the hour. What am I?", 
-        answer: "tallclock", 
+        question: "I turn a chance into a cheer, appearing when fortune draws near.", 
+        answer: "luck", 
         hints: [
-            "A freestanding, weight-driven pendulum clock housed in a tall wooden tower case.",
-            "A classic parlor furniture piece ticking rhythmically across decades.",
-            "9 letters, starts with T."
+            "Some say it comes by chance, not might.",
+            "It is often called a gift from the fortune.",
+            "4 letters, starts with L."
         ] 
     },
     378: { 
-        question: "I am an hourglass whose fine silica flows from bulb to bulb, yet when flipped upside down, the lost hour begins anew. What am I?", 
+        question: "I hold falling grains in a glassy cage, measuring moments from age to age.", 
         answer: "sandglass", 
         hints: [
             "An ancient timing apparatus utilizing two blown glass bulbs connected by a narrow neck.",
@@ -3439,12 +3439,12 @@ const QUESTIONS = {
         ] 
     },
     379: { 
-        question: "I am the acoustic ghost of a word that bounced off canyon stone, returning to your ear after the speaker has fallen silent. What am I?", 
-        answer: "reverberation", 
+        question: "I chart no course, yet lands I trace; I hold the world within one place.", 
+        answer: "atlas", 
         hints: [
-            "The persistence of sound waves in an enclosed space after the original source stops.",
-            "Heard echoing down cathedral naves and hollow underground vaults.",
-            "13 letters, starts with R."
+            "It contains collections of maps.",
+            "It can show countries, oceans, and continents.",
+            "5 letters, starts with A."
         ] 
     },
     380: { 
