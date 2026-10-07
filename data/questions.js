@@ -2731,7 +2731,7 @@ const QUESTIONS = {
 
     // --- REGION: Haunted Catacombs (Levels 301 - 325) ---
     301: { 
-        question: "I have a spine of cold iron and ribs of timber, yet I cannot breathe until the sea fills my hollow belly. What am I?", 
+        question: "I danced with the waves, then sank from sight. What am I who is resting where darkness meets the light?", 
         answer: "shipwreck", 
         hints: [
             "A shattered wooden hull resting on the dark seabed.",
@@ -2740,7 +2740,7 @@ const QUESTIONS = {
         ] 
     },
     302: { 
-        question: "I have no teeth, but I bite through stone cliffs over centuries with steady drops. What am I?", 
+        question: "I wear down mountains, yet never take a break. What am I, for nature's slow mistake?", 
         answer: "erosion", 
         hints: [
             "The slow wearing down of bedrock and coastline by relentless waves.",
@@ -2749,7 +2749,7 @@ const QUESTIONS = {
         ] 
     },
     303: { 
-        question: "I run in circles inside a small glass cage, yet my needle never draws blood or sews a seam. What am I?", 
+        question: "I point to whispers of current flow, yet where it goes, only I know. What am I?", 
         answer: "galvanometer", 
         hints: [
             "A laboratory gauge measuring minute electric currents.",
@@ -2776,16 +2776,16 @@ const QUESTIONS = {
         ] 
     },
     306: { 
-        question: "I wear a crimson cap in dark cellars, tasting every barrel of vintage before a drop touches the king's lips. What am I?", 
-        answer: "sommelier", 
+        question: "I swing without a breeze, and steal what I please. Who am I?", 
+        answer: "monkey", 
         hints: [
-            "A trained wine steward in charge of royal cellars and goblets.",
-            "Pairs vintages with banquets and guards against spoiled casks.",
-            "9 letters, starts with S."
+            "I am clever, playful, and love to climb.",
+            "I love to leap from tree to tree.",
+            "6 letters, starts with M."
         ] 
     },
     307: { 
-        question: "I am a golden wheel that has no axle or spokes, yet I turn all night long across the heavens. What am I?", 
+        question: "I wander by night, yet never take flight. I fade with the sun, then return in sight.", 
         answer: "moon", 
         hints: [
             "The pale natural satellite revolving in orbit around the earth.",
@@ -2812,7 +2812,7 @@ const QUESTIONS = {
         ] 
     },
     310: { 
-        question: "I have a flat stone bed, a heavy roller of granite, and crush dried golden wheat into pale baking flour. What am I?", 
+        question: "I turn and grind, yet never roam. I make fine dust from what is thrown.", 
         answer: "millstone", 
         hints: [
             "A pair of massive circular stones turned by river wheels or wind sails.",
@@ -2821,7 +2821,7 @@ const QUESTIONS = {
         ] 
     },
     311: { 
-        question: "I am a curtain that hangs across the mountain pass, yet no hand can draw me aside or tie me back with rope. What am I?", 
+        question: "I sleep on peaks, then rush below. What am I that makes white rivers flow?", 
         answer: "avalanche", 
         hints: [
             "A thunderous rush of compacted snow and rock plunging down alpine cliffs.",
@@ -2830,30 +2830,30 @@ const QUESTIONS = {
         ] 
     },
     312: { 
-        question: "I have two arms that never embrace, swinging heavy iron weights to weigh grain bushels in balance. What am I?", 
-        answer: "steelyard", 
+        question: "I crown no head with strands, yet shine bright under sunny lands.", 
+        answer: "bald", 
         hints: [
-            "An ancient straight-beam balance scale used in open markets.",
-            "A counterpoise weight slides along its notched arm to show mass.",
-            "9 letters, starts with S."
+            "A comb finds little work with me.",
+            "I may still wear a hat with pride.",
+            "4 letters, starts with B."
         ] 
     },
     313: { 
-        question: "I am a ring that fastens around no finger, dropped into the ocean abyss to haul up brimming buckets of water. What am I?", 
-        answer: "wellcurb", 
+        question: "Silent in robe, I seek no throne, yet wisdom makes the world my own.", 
+        answer: "monk", 
         hints: [
-            "The circular protective stone rim encircling the opening of a deep water shaft.",
-            "Prevents dirt and travelers from tumbling into the dark reservoir below.",
-            "8 letters, starts with W."
+            "In simple robes I quietly tread, with worldly wants left far behind instead.",
+            "I leave the noise, embrace the still, and train the mind through quiet will.",
+            "4 letters, starts with M."
         ] 
     },
     314: { 
-        question: "I am the invisible shield that bends iron needles toward the pole star across uncharted oceans. What am I?", 
-        answer: "magnetism", 
+        question: "I court what I cannot touch, yet make iron dance in clutch.", 
+        answer: "magnet", 
         hints: [
-            "A fundamental force of attraction created by the earth's molten iron core.",
+            "I hide an unseen force, guiding metal to its course.",
             "Guides magnetic compasses reliably through pitch darkness and fog.",
-            "9 letters, starts with M."
+            "6 letters, starts with M."
         ] 
     },
     315: { 
