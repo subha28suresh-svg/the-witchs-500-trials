@@ -3639,7 +3639,7 @@ const QUESTIONS = {
 
     // --- REGION: Realm of Illusions (Levels 401 - 425) ---
     401: { 
-        question: "I show you an oasis of shimmering water across dry sand, but when you drop to your knees to drink, you swallow only dust. What am I?", 
+        question: "I borrow the golden glow of the desert, then vanish when you get too close to know.", 
         answer: "mirage", 
         hints: [
             "An optical illusion born from bending light over baking earth.",
@@ -3657,7 +3657,7 @@ const QUESTIONS = {
         ] 
     },
     403: { 
-        question: "I exist only while your eyes remain closed in deep slumber, spinning castles of mist that vanish with morning light. What am I?", 
+        question: "I visit without a door, paint worlds behind your eyes, then vanish before sunrise.", 
         answer: "dream", 
         hints: [
             "A sequence of visions and subconscious tales during sleep.",
@@ -3666,30 +3666,30 @@ const QUESTIONS = {
         ] 
     },
     404: { 
-        question: "I turn a straight timber shaft into a crooked broken stick the moment it dips beneath clear water. What am I?", 
-        answer: "refraction", 
+        question: "I watch wild life roam, while behind my gates, each creature finds its home.", 
+        answer: "zoo", 
         hints: [
-            "The physical bending of light rays passing between air and fluid.",
-            "Makes submerged fish appear where they are not.",
-            "10 letters, starts with R."
+            "I bring distant wild worlds close, though you cannot roam where they roam.",
+            "I have many guests, but none check in. Some roar, some fly, some swim.",
+            "3 letters, starts with Z."
         ] 
     },
     405: { 
-        question: "I am a riddle wrapped in mist, sealed inside a puzzle box that baffles the sharpest minds in the court. What am I?", 
-        answer: "enigma", 
+        question: "I hide where blossoms sweetly meet, a golden prize both bees and blooms greet.", 
+        answer: "nectar", 
         hints: [
-            "A deeply perplexing or mysterious riddle that defies easy reason.",
-            "Also the name of the celebrated historical cipher apparatus.",
-            "6 letters, starts with E."
+            "I help attract pollinators with my sugary taste.",
+            "Bees collect me while visiting blossoms.",
+            "6 letters, starts with N."
         ] 
     },
     406: { 
-        question: "I deceive the eye through nimble fingers and hidden pockets, making silver coins vanish into empty air. What am I?", 
-        answer: "sleight", 
+        question: "I glide through white without wheel or rail, drawn by a team along the winter trail.", 
+        answer: "sleigh", 
         hints: [
-            "Manual dexterity and cunning hand craft displayed by illusionists.",
-            "Often paired with the phrase 'of hand' during magical performances.",
-            "7 letters, starts with S."
+            "I travel over snow and ice with runners instead of wheel",
+            "Reindeer are famously known to pull me.",
+            "6 letters, starts with S."
         ] 
     },
     407: { 
@@ -3729,12 +3729,12 @@ const QUESTIONS = {
         ] 
     },
     411: { 
-        question: "I project dancing moving images upon a white wall of smoke, making shadows appear alive in the dark. What am I?", 
-        answer: "phantasm", 
+        question: "I roam without feet, and chill without rain, a silent old shadow that wanders the lane.", 
+        answer: "ghost", 
         hints: [
-            "An illusory likeness or spectral apparition produced by imagination.",
-            "Magic lanterns projected these ghostly displays in old parlors.",
-            "9 letters, starts with P."
+            "I have no body, yet people claim they can see me.",
+            "I am the spirit of someone who has died.",
+            "5 letters, starts with G."
         ] 
     },
     412: { 
@@ -3747,16 +3747,16 @@ const QUESTIONS = {
         ] 
     },
     413: { 
-        question: "I can be spun from empty words to hide an ugly deed, dressing up betrayal in the fine garments of honor. What am I?", 
-        answer: "pretense", 
+        question: "“I dance without feet, yet stand with pride, fluttering freely from side to side.”", 
+        answer: "flag", 
         hints: [
-            "An attempt to make something that is not true appear genuine.",
-            "A false display or insincere front put on for public show.",
-            "8 letters, starts with P."
+            "I can be raised, lowered, or carried.",
+            "I usually hangs from a pole or staff.",
+            "4 letters, starts with F."
         ] 
     },
     414: { 
-        question: "I create a twin image of myself upon cold glass, mimicking every movement until someone draws the velvet curtain. What am I?", 
+        question: "I mimic your face without being you, a borrowed twin that follows through.", 
         answer: "doppelganger", 
         hints: [
             "A ghostly double or living counterpart of a living mortal.",
@@ -3774,34 +3774,34 @@ const QUESTIONS = {
         ] 
     },
     416: { 
-        question: "I appear to be a solid staircase ascending into the rafters, but your boot passes straight through my holographic light. What am I?", 
-        answer: "hologram", 
+        question: "I wear no feet yet roam the ground, with silent twists I travel round.", 
+        answer: "snake", 
         hints: [
-            "A three-dimensional image formed by interference of light beams.",
-            "Shimmers in mid-air with complete depth without physical mass.",
-            "8 letters, starts with H."
+            "I can vanish into grass, rocks, or cracks.",
+            "I am a long, legless reptile that may strike when threatened.",
+            "5 letters, starts with S."
         ] 
     },
     417: { 
-        question: "I am an elaborate labyrinth of half-truths and forged seals designed to throw prosecutors off the conspirator's trail. What am I?", 
-        answer: "subterfuge", 
+        question: "I roam where sunlight fades from sight, beneath the waves I hide from light.", 
+        answer: "submarine", 
         hints: [
-            "Deceit used in order to achieve one's goal or escape blame.",
-            "Spies and court conspirators rely on it to navigate treacherous courts.",
-            "10 letters, starts with S."
+            "I carry people while moving through the depths.",
+            "I am a vessel designed to travel underwater.",
+            "9 letters, starts with S."
         ] 
     },
     418: { 
-        question: "I am an optical lens that stretches short men into giants and shrinks tall towers into pebbles when inverted. What am I?", 
-        answer: "lens", 
+        question: "Behind guarded doors where mysteries grow, I turn hidden secrets into what you know.", 
+        answer: "laboratory", 
         hints: [
-            "A piece of transparent curved glass that concentrates or disperses light.",
-            "Found in spectacles, spyglasses, and camera apertures.",
-            "4 letters, starts with L."
+            "Strange samples, instruments, and substances may surround me.",
+            "Experiments are performed here to uncover new findings.",
+            "10 letters, starts with L."
         ] 
     },
     419: { 
-        question: "I play with ambient light and velvet backdrop to make a floating lady seem severed in twin halves upon the stage. What am I?", 
+        question: "I borrow truth to fool your eyes, then vanish when you seek the disguise.", 
         answer: "illusion", 
         hints: [
             "A deceptive impression produced by cleverly manipulated sensory cues.",
@@ -3810,7 +3810,7 @@ const QUESTIONS = {
         ] 
     },
     420: { 
-        question: "I am a coin that looks like pure imperial gold, but scrape my edge with a steel file to reveal cheap lead beneath. What am I?", 
+        question: "I mimic what is treasured, yet truth slips through my guise; I fool the hand below, but not the watchful eyes.", 
         answer: "counterfeit", 
         hints: [
             "A fraudulent imitation forged with intent to deceive and defraud.",
@@ -3819,275 +3819,275 @@ const QUESTIONS = {
         ] 
     },
     421: { 
-        question: "I look like an unbroken wall of solid masonry, but press the carved stone lion to reveal a hidden passage. What am I?", 
-        answer: "secretdoor", 
+        question: "I frame a world without a shore, where silent swimmers rise and soar.", 
+        answer: "aquarium", 
         hints: [
-            "A concealed portal disguised to match adjoining paneling or stone.",
-            "Castle architects built them for monarchs escaping sudden sieges.",
-            "10 letters (typed SECRETDOOR), starts with S."
+            "My world has boundaries, but no roads or walls made of stone.",
+            "I am a glass enclosure designed to house fish and other aquatic life.",
+            "8 letters (typed SECRETDOOR), starts with A."
         ] 
     },
     422: { 
-        question: "I am a riddle with two conflicting faces, seeming impossible until a subtle shift in perspective reveals the truth. What am I?", 
-        answer: "conundrum", 
+        question: "I fold around what you need, kept close at hand for daily deed..", 
+        answer: "wallet", 
         hints: [
-            "A confusing and difficult problem, question, or word puzzle.",
-            "Features tricky double meanings that tease the analytical mind.",
-            "9 letters, starts with C."
+            "I am designed to fit easily into a pocket.",
+            "I commonly carry banknotes, cards, and identification.",
+            "9 letters, starts with W."
         ] 
     },
     423: { 
-        question: "I paint patterns of light on dark fog at night, tricking sailors into believing an island fortress looms ahead. What am I?", 
-        answer: "fata-morgana", 
+        question: "Born from bitter seeds, I melt with delight, a little dark treasure that tempts every bite.", 
+        answer: "chocolate", 
         hints: [
-            "A complex superior mirage seen in a narrow band above the horizon.",
-            "Distorts distant ships into floating castles and vertical cliffs.",
-            "11 letters (often typed FATAMORGANA), starts with F."
-        ] 
-    },
-    424: { 
-        question: "I am an actor upon the grand stage reciting solemn oaths, wearing tears of grief that cost my heart not a single sorrow. What am I?", 
-        answer: "charlatan", 
-        hints: [
-            "A person falsely claiming to have special knowledge, skill, or sorrow.",
-            "A mountebank selling bottled snake oil cures in the village square.",
+            "I come in forms ranging from dark to white.",
+            "I am a sweet confection made mainly from cocoa.",
             "9 letters, starts with C."
         ] 
     },
-    425: { 
-        question: "The realm of illusions dissolves into smoke. The Witch challenges: What is the scientific study of sensory deception and mental perception?", 
-        answer: "psychology", 
+    424: { 
+        question: "I stir the ground beneath your feet, then leave the world in strange defeat.", 
+        answer: "earthquake", 
         hints: [
-            "The academic discipline analyzing the human mind, behavior, and senses.",
-            "Examines how optical tricks fool the visual cortex into false beliefs.",
-            "10 letters, starts with P."
+            "My arrival may make solid things tremble.",
+            "I am a sudden shaking of the ground caused by movement deep within the Earth.",
+            "10 letters, starts with E."
+        ] 
+    },
+    425: { 
+        question: "I sleep where secrets guard their keep, while dreams of fortune watch me sleep.", 
+        answer: "treasure", 
+        hints: [
+            "I can be buried, locked away, or discovered unexpectedly.",
+            "Gold, jewels, and precious objects may form part of me.",
+            "8 letters, starts with T."
         ] 
     },
 
     // --- REGION: Forbidden Citadel (Levels 426 - 450) ---
     426: { 
-        question: "I am a heavy iron or wooden grating suspended above the castle portal, dropped instantly to sever invading lines. What am I?", 
-        answer: "portcullis", 
+        question: "With eight swirling arms and a beak made to bite, I squirt out dark clouds before vanishing from sight. What am I?", 
+        answer: "octopus", 
         hints: [
-            "A vertically sliding defensive gate with pointed iron-shod bottom stakes.",
-            "Chains on winches release it from above to seal the gatehouse arch.",
-            "10 letters, starts with P."
+            "I carry three beating hearts inside a soft, boneless body that can squeeze through the narrowest crack.",
+            "My name begins with the Greek prefix for the number eight, matching my famous set of tentacles.",
+            "7 letters, starts with O."
         ] 
     },
     427: { 
-        question: "I am a deep, wide ditch circling the outer fortress walls, filled with rushing water or sharp wooden stakes. What am I?", 
-        answer: "moat", 
+        question: "Stolen from petals and sealed in a comb, I never decay though centuries roam. What am I?", 
+        answer: "honey", 
         hints: [
-            "A defensive perimeter channel preventing siege towers from touching walls.",
-            "Crossed solely by a hinged drawbridge lowered from the gatehouse.",
-            "4 letters, starts with M."
+            "I am a thick, golden, sticky nectar often drizzled into hot tea, over warm toast, or stirred into remedies for a sore throat.",
+            "Thousands of buzzing insects make me inside a hive, and Winnie the Pooh can never get enough of me.",
+            "5 letters, starts with H."
         ] 
     },
     428: { 
-        question: "I am an overhanging stone gallery atop castle walls, featuring floor holes to drop boulders directly upon sappers below. What am I?", 
-        answer: "machicolation", 
+        question: "What five-letter word gets shorter when you add two letters to it?", 
+        answer: "short", 
         hints: [
-            "Projecting battlements supported by corbels along medieval parapets.",
-            "Floor openings allowed archers to pour boiling oil on enemies beneath.",
-            "13 letters, starts with M."
+            "Classic wordplay, for the keen-eyed.",
+            "The answer is in the question itself, if you can locate it.",
+            "5 letters, starts with S."
         ] 
     },
     429: { 
-        question: "I am a narrow vertical slit cut through three feet of solid rampart stone, letting castle bowmen shoot without exposure. What am I?", 
-        answer: "arrowslit", 
+        question: "A word I know, six letters it contains, remove one letter and 12 remains. What is it?", 
+        answer: "dozens", 
         hints: [
-            "A cruciform or narrow vertical aperture pierced through masonry.",
-            "Widened on the inner side to grant archers a broad angle of fire.",
-            "9 letters, starts with A."
+            "Ancient civilizations favored me as a base counting unit.",
+            "It is the standard quantity when buying a carton of eggs or a romantic bouquet of roses: exactly 12",
+            "6 letters, starts with D."
         ] 
     },
     430: { 
-        question: "I am a heavy siege engine using a massive counterweight on a swinging pivot arm to fling hundred-pound stones over towers. What am I?", 
-        answer: "trebuchet", 
+        question: "What part of London is in Brazil?", 
+        answer: "L", 
         hints: [
-            "The supreme gravity-powered catapult of the Middle Ages.",
-            "Hurled dead horses, firepots, and carved boulders across castle walls.",
-            "9 letters, starts with T."
+            "You don't need to know Geography to answer this.",
+            "Observe the two places mentioned, what is common?",
+            "1 letter answer."
         ] 
     },
     431: { 
-        question: "I am a massive oak trunk tipped with a bronze ram's head, swung on chains inside an armored shed to crush gate hinges. What am I?", 
-        answer: "batteringram", 
+        question: "Two monarchs clash across sixty-four squares, where the humble foot soldier to topple them dares. What am I?", 
+        answer: "chess", 
         hints: [
-            "A heavy siege instrument swung back and forth against wooden fortress gates.",
-            "Sheltered under a wheeled wet-hide roof to protect soldiers from flaming pitch.",
-            "12 letters, starts with B."
+            "It is a classic two-player strategy game waged in black and white.",
+            "The war ends when the ruler is captured with a checkmate.",
+            "5 letters, starts with C."
         ] 
     },
     432: { 
-        question: "I am the innermost, heavily fortified stone tower of a medieval castle, serving as the lord's last stronghold in defeat. What am I?", 
-        answer: "keep", 
+        question: "Soft in your fingers to yield every mold, I must walk through the fire to harden and hold.", 
+        answer: "clay", 
         hints: [
-            "The great central tower and residential citadel within castle walls.",
-            "Defenders retreated here when outer ramparts were breached.",
-            "4 letters, starts with K."
+            "Dug straight out of damp earth, I am an earthy soil rich in minerals that turns slick and malleable when mixed with water.",
+            "Artisans center a gray or reddish lump of me onto a spinning wheel to shape bowls, mugs, and vases.",
+            "4 letters, starts with C."
         ] 
     },
     433: { 
-        question: "I am an outer defensive earthwork or fortified outpost built before the main gatehouse to break the momentum of charges. What am I?", 
-        answer: "barbican", 
+        question: "We grow ever longer the more that we wait, shuffling forward in patience to reach through the gate.", 
+        answer: "queue", 
         hints: [
-            "A fortified forward entrance portal protecting a bridge or primary gate.",
-            "Forces attackers into a narrow lethal corridor flanked by crossbow loops.",
-            "8 letters, starts with B."
+            "The golden rule of our existence is first come, first served — and stepping ahead out of turn is considered terribly rude.",
+            "In computing, we are a classic FIFO data structure, but in everyday life, you join one at airport security or a ticket booth.",
+            "5 letters, starts with Q."
         ] 
     },
     434: { 
-        question: "I am an armored wheeled tower covered in wet rawhide, rolled up against fortress ramparts to disgorge storming infantry. What am I?", 
-        answer: "siegetower", 
+        question: "Forged deep in the fire to slice through the shield, I sleep in a scabbard till drawn on the field. What am I?", 
+        answer: "sword", 
         hints: [
-            "A multi-story timber assault engine pushed across filled moats.",
-            "Dropped an upper assault bridge directly onto the parapet battlements.",
+            "Blacksmiths fold glowing metal on an anvil and quench it in oil to craft my balanced form.",
+            "Knights and samurai carried me at their hip, gripped by a hilt with a crossguard to protect the wielder's hand.",
             "10 letters, starts with S."
         ] 
     },
     435: { 
-        question: "I am a defensive ditch or low embankment built around the foot of the outer curtain wall to prevent sappers from digging. What am I?", 
-        answer: "berm", 
+        question: "Begun with proud banners and argued by kings, I trade precious lives for the silence that rings.", 
+        answer: "war", 
         hints: [
-            "A narrow horizontal shelf of earth between a ditch and the parapet wall.",
-            "Stops dislodged rubble from sliding down and filling defensive moats.",
-            "4 letters, starts with B."
+            "History books divide eras around my conflicts, mapping empires that rose or crumbled under my treaties.",
+            "Helmets, trenches, rations, and cannons define my fields, while flags mark the opposing fronts.",
+            "3 letters, starts with W."
         ] 
     },
     436: { 
-        question: "I am an indented, notched parapet crest where solid stone merlons alternate with open embrasure gaps for defenders. What am I?", 
-        answer: "battlement", 
+        question: "Armored in shadow with twin crushing hands, I carry my venomous arch through the sands.", 
+        answer: "scorpion", 
         hints: [
-            "The tooth-like defensive crest lining the top walkway of a fortress wall.",
-            "Crossbowmen stepped into the notches to shoot and behind merlons to reload.",
-            "10 letters, starts with B."
+            "Under ultraviolet blacklight at night, my tough exoskeleton glows an eerie neon blue-green.",
+            "Like my spider cousins, I am an eight-legged arachnid that scuttles under desert stones and into boots.",
+            "8 letters, starts with S."
         ] 
     },
     437: { 
-        question: "I am a hidden tunnel dug under castle foundations, propped with timber beams that miners set ablaze to collapse stone towers. What am I?", 
+        question: "I bleed without pain through a wound in the bark, turning golden and sweet as I flow in the park.", 
         answer: "sap", 
         hints: [
-            "A subterranean siege trench or mine gallery excavated toward an enemy wall.",
-            "Burning the prop logs caused outer bastion walls to crash downward.",
+            "If you touch me on a pine or spruce branch, I leave your fingers sticky and smelling strongly of the woods.",
+            "Drill a tap into a sugar maple tree in early spring, and you can boil buckets of me down into pancake syrup.",
             "3 letters, starts with S."
         ] 
     },
     438: { 
-        question: "I am an ancient four-pronged iron caltrop scattered across grass, engineered so one lethal needle spike always points upward. What am I?", 
-        answer: "caltrop", 
+        question: "You cut me without bleeding and brush me in grace, yet I turn into silver as time marks your face.", 
+        answer: "hair", 
         hints: [
-            "An area-denial antipersonnel weapon forged with four radiating spikes.",
-            "Crippled charging warhorses and armored infantry marching in formation.",
-            "7 letters, starts with C."
+            "Made primarily of keratin, I feel no pain when clipped, trimmed, or styled, even though my roots live beneath your skin.",
+            "People lather me with shampoo, untangle me with combs, and color me with dye when natural gray begins to show.",
+            "4 letters, starts with H."
         ] 
     },
     439: { 
-        question: "I am an incendiary liquid weapon composed of naphtha and sulfur, projected from bronze siphons to burn even on foaming seawater. What am I?", 
-        answer: "greekfire", 
+        question: "I carry an entire story without speaking a phrase, defying all weight as on tip-toe I graze.", 
+        answer: "ballet", 
         hints: [
-            "A closely guarded state chemical secret used by Byzantine naval fleets.",
-            "Could not be quenched with water and destroyed wooden galleys in sheets of flame.",
-            "9 letters, starts with G."
-        ] 
-    },
-    440: { 
-        question: "I am an armored mechanical torsion engine resembling a colossal steel crossbow, firing five-foot iron-tipped bolts across valleys. What am I?", 
-        answer: "ballista", 
-        hints: [
-            "An ancient missile siege weapon powered by twin skeins of twisted sinew.",
-            "Sniped commanders off battlements with flat-trajectory sniper accuracy.",
-            "8 letters, starts with B."
-        ] 
-    },
-    441: { 
-        question: "I am the fortified curtain perimeter enclosing a castle courtyard, linking round flanking towers together in a stone ring. What am I?", 
-        answer: "bailey", 
-        hints: [
-            "The open grassy ward or courtyard situated within outer castle walls.",
-            "Housed blacksmith forges, barracks, stables, and grain storehouses.",
+            "Dancers practice strict, graceful positions using a wooden handrail called a barre.",
+            "Performers wear rigid pointe shoes and layered, stiff tulle skirts known as tutus.",
             "6 letters, starts with B."
         ] 
     },
-    442: { 
-        question: "I am a small, discrete rear escape door built into a secluded corner of the ramparts, used for sorties and secret messengers. What am I?", 
-        answer: "postern", 
+    440: { 
+        question: "I keep fast runners locked tight in their stalls, where golden dried bedding blankets the walls.", 
+        answer: "stable", 
         hints: [
-            "A secondary gate or concealed back door in a fortified fortification.",
-            "Allowed garrison captains to slip out scouts under the cover of dusk.",
-            "7 letters, starts with P."
+            "You will find saddles, bridles, horseshoes, and buckets of sweet oats kept inside me.",
+            "My wooden doors open into individual partitioned pens called stalls, often divided by Dutch split-doors.",
+            "6 letters, starts with S."
+        ] 
+    },
+    441: { 
+        question: "I heed neither sovereign nor laws of the land, chasing fortunes on waves with a blade in my hand.", 
+        answer: "pirate", 
+        hints: [
+            "My home is a vessel flying a black flag adorned with a skull and crossed bones.",
+            "Legends tell of my hidden wooden chests buried deep on deserted islands where 'X' marks the spot.",
+            "6 letters, starts with P."
+        ] 
+    },
+    442: { 
+        question: "Born soft as a pillow and powdery white, I melt into gold in the campfire light.", 
+        answer: "marshmallow", 
+        hints: [
+            "Tiny, miniature versions of me are commonly dropped into steaming mugs of hot chocolate to float and slowly dissolve.",
+            "Skewered on a stick over glowing embers, I turn gooey and charred.",
+            "11 letters, starts with M."
         ] 
     },
     443: { 
-        question: "I am a heavy reinforced wooden walkway built along the inner upper edge of a fortress wall, allowing sentries to patrol the perimeter. What am I?", 
-        answer: "allure", 
+        question: "No furnace was built yet I breathe out a blaze, melting knights in their armor wherever I gaze.", 
+        answer: "dragon", 
         hints: [
-            "The wall-walk or patrol passage behind the protective stone battlements.",
-            "Sentries paced its stone slabs in heavy boots through freezing night watches.",
-            "6 letters, starts with A."
+            "From the red crest of the Welsh flag to the soaring terrors of Westeros, I am the ultimate scaly beast of fantasy lore.",
+            "Brave champions seek glory by slaying me with enchanted swords before my gigantic, winged, reptilian fury burns down the kingdom.",
+            "6 letters, starts with D."
         ] 
     },
     444: { 
-        question: "I am an armored wooden gallery projecting from the top of the ramparts, built when siege began to eliminate blind spots at the wall's base. What am I?", 
-        answer: "hoarding", 
+        question: "An emerald island where no ocean can flow, I offer cool refuge when scorching winds blow.", 
+        answer: "oasis", 
         hints: [
-            "A temporary covered wooden parapet cantilevered out from masonry walls.",
-            "Covered in green animal hides to fend off enemy fire arrows and flaming pitch.",
-            "8 letters, starts with H."
+            "Palm trees and fertile vegetation flourish here, creating a vibrant sanctuary surrounded entirely by shifting sand dunes.",
+            "Thirsty travelers and desert camel caravans seek me out, praying my shimmering pool isn't just a heat mirage.",
+            "5 letters, starts with O."
         ] 
     },
     445: { 
-        question: "I am a massive circular artillery tower projecting forward from the wall angle, allowing cannons to rake besiegers from the flank. What am I?", 
-        answer: "bastion", 
+        question: "I have no eyes yet I close when it's night, sliding sideways on rings to keep out the light.", 
+        answer: "curtain", 
         hints: [
-            "A pentagonal or round structure projecting outward from a curtain wall.",
-            "Designed so defenders could fire along the faces of adjoining ramparts.",
-            "7 letters, starts with B."
+            "Hung from a rod above a glass pane, pulling me shut gives you instant privacy from passersby outside.",
+            "Whether sheer and breezy or heavy fabric drapes, you draw me across a window every evening before bed.",
+            "7 letters, starts with C."
         ] 
     },
     446: { 
-        question: "I am a low defensive masonry parapet with sloping earth ramparts behind, absorbing cannon fire rather than shattering like high walls. What am I?", 
-        answer: "glacis", 
+        question: "With an upturned tip and no wheels on my track, I carve frozen waves down the mountain's white back.", 
+        answer: "ski", 
         hints: [
-            "An artificial slope extending outward from a fortress embankment.",
-            "Kept attackers completely exposed to fire from the defensive parapet.",
-            "6 letters, starts with G."
+            "I need sub-zero weather to function properly, often starting my journey after a slow ride on a chairlift.",
+            "Heavy plastic boots snap directly into my bindings, and together with my twin, we glide down snowy slopes.",
+            "3 letters, starts with S."
         ] 
     },
     447: { 
-        question: "I am a coiled barrier of sharpened wooden branches pointing outward toward the enemy, slowing charging infantry under archer fire. What am I?", 
-        answer: "abatis", 
+        question: "Beneath murky currents I strike without venom or sound, coiling shadows and bone till no breath can be found.", 
+        answer: "anaconda", 
         hints: [
-            "A field defense formed by felling trees with sharpened boughs facing outward.",
-            "Served as the medieval predecessor to modern barbed-wire entanglements.",
-            "6 letters, starts with A."
+            "Lurking in the swamps and slow rivers of the South American Amazon basin, I am a semi-aquatic predator that constricts rather than bites with poison.",
+            "Olive green with dark blotches, I am the giant, coiled serpent famously known as the water boa—and the villainous star of classic creature-feature jungle films.",
+            "8 letters, starts with A."
         ] 
     },
     448: { 
-        question: "I am a stone channel through the floor of a gatehouse arch where defenders poured murder liquids directly onto intruders' helms. What am I?", 
-        answer: "murderhole", 
+        question: "With wheels on my heels and a loop in my hand, I herd the wild horns across dust-bitten land.", 
+        answer: "cowboy", 
         hints: [
-            "A ceiling aperture in gatehouse vaults between outer and inner gates.",
-            "Defenders dropped scalding water, stones, and arrows upon trapped foes.",
-            "10 letters, starts with M."
+            "My typical uniform includes a broad-brimmed Stetson hat, leather chaps, and jingling spurs.",
+            "Armed with a lasso and a quick-draw holster, I am the quintessential hero of classic Western films.",
+            "6 letters, starts with C."
         ] 
     },
     449: { 
-        question: "I am an armored iron spike driven into a cannon's touch-hole with a hammer to render the captured artillery barrel useless. What am I?", 
-        answer: "spikegun", 
+        question: "I am gathered in silence for the guest who can't speak, where the final goodbyes turn the strongest heart weak.", 
+        answer: "funeral", 
         hints: [
-            "The military action or tool used to disable artillery before retreating.",
-            "Breaking off an iron file in the vent prevents the enemy from firing it.",
-            "8 letters (often typed SPIKEGUN), starts with S."
+            "Black attire, dark suits, and somber veils fill the room, accompanied by wreaths of lilies and quiet tears.",
+            "The solemn service concludes as pallbearers carry a casket out toward a waiting hearse bound for a cemetery burial or crematorium.",
+            "7 letters (often typed SPIKEGUN), starts with F."
         ] 
     },
     450: { 
-        question: "The forbidden citadel is breached. The Witch poses: Name the specialized historical science of siege warfare and fortress defense.", 
-        answer: "poliorcetics", 
+        question: "I wear a bright star though I walk on the ground, keeping peace in the alleys where trouble is found.", 
+        answer: "police", 
         hints: [
-            "The classical military science dedicated to the art of besieging and defending towns.",
-            "Codified by ancient engineers studying catapult trajectories and wall angles.",
-            "12 letters, starts with P."
+            "When emergencies strike, dialing numbers like 911 or 999 puts you directly in touch with my dispatch.",
+            "Dressed in uniform with handcuffs at the hip and a silver or gold shield badge on the chest, I uphold the law and investigate crime.",
+            "6 letters, starts with P."
         ] 
     },
 
@@ -4102,12 +4102,12 @@ const QUESTIONS = {
         ] 
     },
     452: { 
-        question: "I am bundled birch twigs lashed to a long ash pole, swept across flagstones by day and ridden across clouds by dusk. What am I?", 
-        answer: "besom", 
+        question: "I have joints with no marrow and skin made of steel, turning blades into whispers no body should feel.", 
+        answer: "armour", 
         hints: [
-            "A traditional rustic broom crafted from woodland twigs tied to a staff.",
-            "Used in folklore rituals to sweep hearths or fly beneath full moons.",
-            "5 letters, starts with B."
+            "Medieval warriors strapped me over chainmail and padding to survive volleys of arrows, lances, and sword swings in battle.",
+            "Complete with a visor-front helmet, breastplate, and gauntlets, I am the shining metal suit famously worn by a knight.",
+            "6 letters, starts with A."
         ] 
     },
     453: { 
@@ -4129,7 +4129,7 @@ const QUESTIONS = {
         ] 
     },
     455: { 
-        question: "I am an enchanted glass flask containing an emerald draught that renders the drinker completely invisible to mortal eyes. What am I?", 
+        question: "Brewed in brass kettles to conquer the grave, I promise forever in the sip that you crave.", 
         answer: "elixir", 
         hints: [
             "A magical liquid prepared through secretive alchemical distillation.",
@@ -4138,7 +4138,7 @@ const QUESTIONS = {
         ] 
     },
     456: { 
-        question: "I am an ebony wood rod tipped with a glowing moonstone, channeling arcane willpower into dancing sparks. What am I?", 
+        question: "Carved from simple timber with a secret at my core, a flick of the wrist unlocks impossible lore.", 
         answer: "wand", 
         hints: [
             "A slender rod flicked by magicians to cast enchantments.",
@@ -4147,7 +4147,7 @@ const QUESTIONS = {
         ] 
     },
     457: { 
-        question: "I am sweet-smelling dried resin burned over glowing coals, filling the sanctuary with thick hypnotic smoke. What am I?", 
+        question: "I bleed only fragrance when kissed by a spark, leaving grey dust behind as I fade in the dark.", 
         answer: "incense", 
         hints: [
             "A fragrant botanical substance burned during rituals and meditations.",
@@ -4156,160 +4156,160 @@ const QUESTIONS = {
         ] 
     },
     458: { 
-        question: "I am an ancient forked root resembling a tiny human figure, said in folklore to shriek lethally when pulled from earth. What am I?", 
-        answer: "mandrake", 
+        question: "I dance on one foot as I roar through the sky, ripping roots from the earth with no sight in my eye.", 
+        answer: "tornado", 
         hints: [
-            "A mythical nightshade plant whose craggy root looks like a body.",
-            "Herbalists historically plugged their ears with wax when unearthing it.",
-            "8 letters, starts with M."
+            "When warning sirens wail across the plains, people head straight for storm cellars and basements to hide from my violent winds.",
+            "I am a dark, spinning funnel cloud dropping down from a thunderstorm, famously lifting Dorothy's house up to the Land of Oz.",
+            "7 letters, starts with T."
         ] 
     },
     459: { 
-        question: "I am a protective perimeter drawn upon stone floor with consecrated salt, keeping summoned entities at bay. What am I?", 
-        answer: "pentacle", 
+        question: "I swallow your harvests while holding a winter inside, yet wake with a glow whenever my doorway swings wide.", 
+        answer: "refrigerator", 
         hints: [
-            "A geometric five-pointed star figure inscribed within a circle.",
-            "Drawn on floor flagstones as a talisman of magical defense.",
-            "8 letters, starts with P."
+            "People open me late at night just to stare blankly inside, hunting for cold drinks, milk, or leftover takeout.",
+            "My metal door is often covered in colorful magnets, photos, and grocery lists right in the middle of the kitchen.",
+            "12 letters, starts with R."
         ] 
     },
     460: { 
-        question: "I am an animal companion sharing an arcane mental bond with a spellcaster, spying from rooftops in bird or feline form. What am I?", 
-        answer: "familiar", 
+        question: "I bend without breaking to quiet the race, uniting the breath with stillness and grace.", 
+        answer: "yoga", 
         hints: [
-            "A witch's supernatural animal guide, often a black cat, toad, or raven.",
-            "Aids its magical master with supernatural cunning and stealth.",
-            "8 letters, starts with F."
+            "Practitioners roll out a rubber mat barefoot, flowing through positions named after dogs, warriors, trees, and cobras.",
+            "Instructors often close my sessions with palms pressed together at the chest, bowing and saying Namaste",
+            "4 letters, starts with Y."
         ] 
     },
     461: { 
-        question: "I am a carved protective charm of amber or bone, worn upon a leather cord around the throat to deflect dark hexes. What am I?", 
-        answer: "talisman", 
+        question: "I drown in warm water to crown you in foam, then vanish down drains so you softly can comb.", 
+        answer: "shampoo", 
         hints: [
-            "An inscribed amulet believed to radiate good fortune and spiritual warding.",
-            "Touches the wearer's chest to ward off evil spirits and illness.",
-            "8 letters, starts with T."
+            "f you accidentally open your eyes while lathering me up, the suds will make them sting and water.",
+            "Squeeze a scented dollop from a plastic bottle, rub it into your wet scalp, and watch white bubbles appear.",
+            "7 letters, starts with S."
         ] 
     },
     462: { 
-        question: "I am a poisonous scarlet forest toadstool flecked with white warts, associated in fairy tales with witch dwellings. What am I?", 
-        answer: "flyagaric", 
+        question: "Drowned in a bath full of vinegar brine, I traded my crisp garden green to sour and shine.", 
+        answer: "pickle", 
         hints: [
-            "The iconic bright red mushroom featured in folklore and garden sculptures.",
-            "Produces potent psychoactive toxins and hallucinogenic delirium.",
-            "9 letters, starts with F."
+            "I sit preserved inside a glass jar alongside dill, garlic cloves, and peppercorns.",
+            "Whether sliced into crinkled chips for a juicy burger, spear-cut beside a sandwich, I deliver a salty, tangy crunch.",
+            "6 letters, starts with P."
         ] 
     },
     463: { 
-        question: "I am an alchemical glass vessel with a long downturned neck, distilling essential oils and spirits over steady heat. What am I?", 
-        answer: "retort", 
+        question: "Carved from the earth as my stony bones break, I hollow out mountains for builders to take.", 
+        answer: "quarry", 
         hints: [
-            "A classic laboratory flask with a bulbous body and long tapering neck.",
-            "Used by medieval alchemists to vaporize and condense volatile liquids.",
-            "6 letters, starts with R."
+            "Vast blocks of granite, limestone, and Carrara marble are extracted from my walls before being shipped to construction sites and sculptors.",
+            "When abandoned and filled with rainwater over decades, I often transform into a deep, turquoise swimming hole or lake.",
+            "6 letters, starts with Q."
         ] 
     },
     464: { 
-        question: "I am a dried aromatic plant hung in bundles from cottage rafters, said in legend to ward off vampires and werewolves. What am I?", 
-        answer: "wolfsbane", 
+        question: "I stand tall and proud when I'm stuffed to the brim, but collapse in a heap when my belly grows slim.", 
+        answer: "sack", 
         hints: [
-            "A poisonous perennial herb also known as aconite or monkshood.",
-            "Bears hooded purple flowers containing lethal neurotoxins.",
-            "9 letters, starts with W."
+            "Often woven from coarse brown burlap or tough paper, I am hauled onto shoulders to move bulk loads like potatoes, flour, or mail.",
+            "School picnics and field days often feature chaotic races where racers hop furiously across the grass tucked inside me.",
+            "4 letters, starts with S."
         ] 
     },
     465: { 
-        question: "I am a small cloth or wax effigy pierced with steel pins to inflict phantom ailments upon distant enemies in folklore. What am I?", 
-        answer: "poppet", 
+        question: "I dance without muscle and speak with no brain, bound to a master who pulls on my chain.", 
+        answer: "puppet", 
         hints: [
-            "A handmade humanoid doll used in historic sympathetic folk magic.",
-            "Stuffed with herbs and cloth scraps to represent a target.",
+            "My movements are guided entirely from above by strings, or from below by a hidden hand slipped inside my body.",
+            "When nobody holds my controls, I collapse into a limp, lifeless pile of wood, cloth, or plastic.",
             "6 letters, starts with P."
         ] 
     },
     466: { 
-        question: "I am a polished dish of black obsidian or still dark water, gazed into by seers to divine shadowy glimpses of the future. What am I?", 
-        answer: "scryingglass", 
+        question: "I have joints and a brain but no pulse in my chest, born of wire and code to fulfill your request.", 
+        answer: "robot", 
         hints: [
-            "A reflective divination surface used by seers to induce visions.",
-            "Practitioners stare into its dark depths to perceive distant events.",
-            "12 letters, starts with S."
+            "I can walk, speak, or assemble cars on a line, but I run on electricity instead of food.",
+            "Isaac Asimov wrote the three laws meant to govern my kind—I am a machine built to perform autonomous tasks.",
+            "5 letters, starts with R ."
         ] 
     },
     467: { 
-        question: "I am a sacred knife with a black handle and double-edged steel blade, used solely to cast circles and direct ritual force. What am I?", 
-        answer: "athame", 
+        question: "I bring in the virus or tame the germ's spite, to train all your soldiers before the real fight.", 
+        answer: "vaccine", 
         hints: [
-            "A ceremonial ceremonial blade featured in modern witchcraft traditions.",
-            "Never used for physical cutting, but for drawing energetic boundaries.",
-            "6 letters, starts with A."
+            "I am given to you while you are completely healthy—usually via a quick pinch in the arm—rather than as a treatment once you're already sick.",
+            "Inside me are weakened, inactivated, or partial blueprints of a bacteria or virus.",
+            "7 letters, starts with V."
         ] 
     },
     468: { 
-        question: "I am the poisonous berry of belladonna, once dropped into eyes by court ladies to dilate pupils at mortal cost. What am I?", 
-        answer: "nightshade", 
+        question: "I command a metal bird across the sky, trusting dials and throttle to safely fly.", 
+        answer: "pilot", 
         hints: [
-            "A toxic plant family yielding dark purple, glossy lethal berries.",
-            "Contains dangerous atropine alkaloids that paralyze muscles.",
-            "10 letters, starts with N."
+            "My office is called a cockpit or flight deck, filled with screens, pedals, and throttles.",
+            "I need a specialized commercial or private aviator's license to guide aircraft down the runway and into the clouds.",
+            "5 letters, starts with P."
         ] 
     },
     469: { 
-        question: "I am a small leather pouch packed with dried graveyard earth, herbs, and bones, carried in pockets for occult mojo. What am I?", 
-        answer: "gris-gris", 
+        question: "I bind many stories or songs into one, yet spin without moving when memories are spun.", 
+        answer: "album", 
         hints: [
-            "A traditional folk magic talisman amulet bag originating in folklore.",
-            "Contains a tailored mix of protective herbs, feathers, and inscribed prayers.",
-            "7 letters (often typed GRISGRIS), starts with G."
+            "You can flip through me on a coffee table or stream me through your headphones, as I can hold either visual moments or audio tracks.",
+            "In the visual world, I store treasured photographs from weddings and vacations; in the sonic world, artists release me with a curated tracklist and cover art.",
+            "5 letters (often typed GRISGRIS), starts with A."
         ] 
     },
     470: { 
-        question: "I am a mythical stone pursued by alchemists for centuries, said to transmute base lead into pure gold and confer eternal life. What am I?", 
-        answer: "philosophers", 
+        question: "A twist of my neck or a lift of my crown will summon a river that rushes straight down.", 
+        answer: "faucet", 
         hints: [
-            "The legendary crown jewel of alchemy, known with 'stone' appended.",
-            "Also called the magnum opus or elixir vitae of medieval science.",
-            "12 letters, starts with P."
+            "You stand before me in bathrooms and kitchens multiple times a day, usually paired with soap.",
+            "Mounted above a sink or basin, I often feature handles or knobs labeled with blue and red for cold and hot water.",
+            "6 letters, starts with F."
         ] 
     },
     471: { 
-        question: "I am a silver bell rung in ritual halls to clear lingering malice and awaken the spirits of the compass quarters. What am I?", 
-        answer: "chime", 
+        question: "Though sculpted from freezing, I trap every spark, a dome made of winter to sleep in the dark.", 
+        answer: "igloo", 
         hints: [
-            "A high-pitched percussion instrument struck to produce a pure lingering tone.",
-            "Its acoustic ring cleanses ritual spaces before incantations begin.",
-            "5 letters, starts with C."
+            "I am a dome-shaped shelter traditionally built in Arctic regions by Inuit hunters.",
+            "Despite being made entirely of hard-packed snow blocks, trapped body heat and a sunken entrance tunnel keep my interior remarkably warm.",
+            "5 letters, starts with I."
         ] 
     },
     472: { 
-        question: "I am a dried four-leaf clover pressed between parchment leaves, sought in grassy meadows to bring uncanny fortune. What am I?", 
-        answer: "shamrock", 
+        question: "I have dozens of teeth but I never can chew, yet I gather the fallen when autumn turns through.", 
+        answer: "rake", 
         hints: [
-            "A rare botanical anomaly of the common trifolium clover plant.",
-            "Folklore promises supreme luck and the ability to see woodland fairies.",
-            "8 letters, starts with S."
+            "You will typically find me resting in a shed, garage, or leaned against a fence alongside brooms and shovels.",
+            "I am wielded by a long handle with flexible tines or metal claws designed to groom gravel or pull debris across a lawn.",
+            "4 letters, starts with R."
         ] 
     },
     473: { 
-        question: "I am an ornate chalice carved from ram horn or silver, brimming with honeyed mead during midnight coven assemblies. What am I?", 
-        answer: "goblet", 
+        question: "I flow when I'm liquid and hold when I dry, bonding the broken with no need to tie.", 
+        answer: "glue", 
         hints: [
-            "A drinking vessel featuring a bowl perched upon a stemmed base.",
-            "Raised high in toasts by rulers, knights, and coven leaders.",
-            "6 letters, starts with G."
+            "I am a staple of craft tables, carpentry shops, and school pencil cases, kept in bottles, sticks, or guns.",
+            "As my moisture or solvent evaporates, I form a firm adhesive grip that joins surfaces like paper, wood, fabric, or plastic.",
+            "4 letters, starts with G."
         ] 
     },
     474: { 
-        question: "I am a knotted cord of red silk used by maritime witches in folklore, untying one knot to unleash a breeze and three for a gale. What am I?", 
-        answer: "windknot", 
+        question: "With a loop round my neck and an ear to your chest, I translate your symptoms to grant you some rest.", 
+        answer: "doctor", 
         hints: [
-            "A legendary maritime talisman sold to sailors to control ocean weather.",
-            "Loosening the tied cords released trapped atmospheric storms.",
-            "8 letters, starts with W."
+            "You typically visit my office when you are feeling unwell, injured, or simply due for an annual check-up.",
+            "My uniform often includes a white coat and scrubs, and I am infamous for writing prescriptions in notoriously illegible handwriting.",
+            "6 letters, starts with D."
         ] 
     },
     475: { 
-        question: "The Witch's domain yields its secrets. Name the historical proto-science that pursued the transmutation of elements and eternal youth.", 
+        question: "I chase after gold with a flask and a flame, to turn common lead into wealth and a name.", 
         answer: "alchemy", 
         hints: [
             "The medieval predecessor of chemistry blending metallurgy with philosophy.",
@@ -4320,16 +4320,16 @@ const QUESTIONS = {
 
     // --- REGION: Witch's Castle (Levels 476 - 500) ---
     476: { 
-        question: "I am the innermost sanctuary of the fortress where the Queen languishes within a crystal cage. What am I?", 
-        answer: "sanctum", 
+        question: "I lock away centuries behind panes of glass, where time stands dead still as the visitors pass.", 
+        answer: "museum", 
         hints: [
-            "A sacred, heavily fortified private retreat at the castle's core.",
-            "The ultimate hall where the final confrontation takes place.",
-            "7 letters, starts with S."
+            "Depending on the wing, you might find dinosaur fossils, ancient Egyptian sarcophagi, moon rocks, or Renaissance paintings.",
+            "Renowned global examples of my kind include the Louvre, the Smithsonian, the Met, and the British Museum.",
+            "6 letters, starts with M."
         ] 
     },
     477: { 
-        question: "I am a throne carved from jagged black obsidian, resting beneath a vault of frozen lightning bolts. What am I?", 
+        question: "I offer no comfort though carved out of gold. Whoever rests on me must rule what they hold.", 
         answer: "throne", 
         hints: [
             "The imposing ceremonial seat occupied by the dark sorceress.",
@@ -4338,7 +4338,7 @@ const QUESTIONS = {
         ] 
     },
     478: { 
-        question: "I am a diadem of beaten gold set with starry diamonds, stolen from Aurelia's rightful Queen. What am I?", 
+        question: "Smaller than a sovereign's crown, I rest upon noble heads of lesser renown.", 
         answer: "coronet", 
         hints: [
             "A small royal crown or jeweled circlet denoting sovereign authority.",
@@ -4347,39 +4347,39 @@ const QUESTIONS = {
         ] 
     },
     479: { 
-        question: "I am a crystalline seal that has bound the Queen's speech, shatterable only by a word spoken without deceit. What am I?", 
-        answer: "silence", 
+        question: "I drop my own tail when a hunter attacks, and scurry up walls without falling through cracks.", 
+        answer: "lizard", 
         hints: [
-            "The absence of all sound, speech, or audible vibration.",
-            "A single honest syllable breaks its hold upon the air.",
-            "7 letters, starts with S."
+            "I am a cold-blooded reptile frequently seen basking on sun-warmed rocks or clinging sideways to garden walls and ceilings.",
+            "If grabbed from behind, I can snap off my own tail to distract a predator and regrow it later.",
+            "6 letters, starts with L."
         ] 
     },
     480: { 
-        question: "I am an iron key with three wards shaped like crowns, turning the lock that drops the crystal portcullis. What am I?", 
-        answer: "skeletonkey", 
+        question: "I carry your frame while hidden from sight, a pillar of calcium standing upright.", 
+        answer: "skeleton", 
         hints: [
-            "A master key whose bit has been filed down to open many different doors.",
-            "Turns in heavy antique mortise locks where ordinary keys fail.",
-            "11 letters, starts with S."
+            "Without me, muscles would have nothing to pull against and you would collapse into an unsupported puddle on the floor.",
+            "You start out in infancy with around 270 pieces that fuse down to 206 by adulthood, frequently visible via X-ray imaging.",
+            "8 letters, starts with S."
         ] 
     },
     481: { 
-        question: "I am an ancient tapestry woven with threads of silver, depicting the rescue of the kingdom before the quest began. What am I?", 
-        answer: "prophecy", 
+        question: "Though modest in stature with razor-sharp teeth, I strip you to bone from the rivers beneath.", 
+        answer: "piranha", 
         hints: [
-            "A divinely inspired foretelling of future monumental events.",
-            "Spoken by ancient oracles and preserved in historical chronicles.",
-            "8 letters, starts with P."
+            "I am a freshwater fish native to the river basins of South America, most famously the Amazon and Orinoco.",
+            "I am a toothed fish famous for a pronounced underbite packed with triangular, interlocking blades.",
+            "7 letters, starts with P."
         ] 
     },
     482: { 
-        question: "I am the radiant blade forged from truth and patience, wielded not to slay but to sever dark bindings. What am I?", 
-        answer: "broadsword", 
+        question: "Though hollow inside and disguised as a tree, I am the fastest-grown grass you will ever see.", 
+        answer: "bamboo", 
         hints: [
-            "A heavy two-edged cutting blade fitted with a crossguard.",
-            "The classic weapon of heroic knights marching on perilous quests.",
-            "10 letters, starts with B."
+            "I am famous across Asia for my segmented, woody culms, commonly harvested for flooring, scaffolding, chopsticks, and paper.",
+            "My tender green shoots make up virtually the entire daily diet of the giant panda.",
+            "6 letters, starts with B."
         ] 
     },
     483: { 
@@ -4392,25 +4392,25 @@ const QUESTIONS = {
         ] 
     },
     484: { 
-        question: "I am a shattered stone gargoyle that collapses from the castle roof as the dark enchantments begin to crumble. What am I?", 
-        answer: "gargoyle", 
+        question: "I bleed on the sand for an emperor's cheer, trading my life for the roar of the sphere.", 
+        answer: "gladiator", 
         hints: [
-            "A carved grotesque stone beast perched on high cathedral gutters.",
-            "Designed to spout rainwater away from masonry walls in historic fortresses.",
-            "8 letters, starts with G."
+            "I was often an enslaved person, prisoner of war, or condemned criminal in ancient Rome.",
+            "My combat took place in grand stone arenas—most famously the Colosseum",
+            "9 letters, starts with G."
         ] 
     },
     485: { 
-        question: "I am the sound of heavy iron chains snapping link by link as five hundred wicked trials unravel. What am I?", 
-        answer: "liberation", 
+        question: "I leave rivers empty and meadows in dust, a thief stealing rain that the valleys all trust.", 
+        answer: "drought", 
         hints: [
-            "The release from captivity, servitude, or oppressive imprisonment.",
-            "Celebrated by rescued captives stepping back out into the sun.",
-            "10 letters, starts with L."
+            "I am a natural, slow-moving disaster characterized not by sudden violence, but by a prolonged absence of precipitation.",
+            "Under my reign, soil cracks into parched mosaic tiles and crops wither in the fields.",
+            "7 letters, starts with D."
         ] 
     },
     486: { 
-        question: "I am a golden tear shed upon the stone floor that turns into a fragrant white lily where it falls. What am I?", 
+        question: "I shatter the rules that the sciences bind, a wonder that leaves all the logic behind.", 
         answer: "miracle", 
         hints: [
             "An extraordinary, wonderful event attributed to supernatural grace.",
