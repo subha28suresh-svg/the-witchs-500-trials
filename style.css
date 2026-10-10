@@ -1891,6 +1891,7 @@ button {
 }
 
 .chronicles-viewer {
+    position: relative;
     width: 100%;
     flex: 1 1 auto;
     min-height: 0;
@@ -1910,6 +1911,52 @@ button {
     border-radius: 10px;
     display: block;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+    transition: filter 0.25s ease;
+}
+
+/* Blur & darken locked chronicle artwork */
+.chronicles-img.locked {
+    filter: blur(14px) brightness(0.28);
+    -webkit-filter: blur(14px) brightness(0.28);
+}
+
+/* Centered Padlock & Requirement Prompt */
+.chronicles-lock-overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.chronicles-lock-overlay.active {
+    display: flex;
+}
+
+.chronicles-lock-icon {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 12px rgba(253, 224, 71, 0.6));
+    animation: floatCrown 2.5s infinite ease-in-out;
+}
+
+.chronicles-lock-text {
+    color: #fef08a;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+    background: rgba(10, 5, 20, 0.75);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 197, 107, 0.4);
+    max-width: 85%;
 }
 
 .chronicles-controls {

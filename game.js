@@ -275,16 +275,11 @@ regionImages.forEach(src => {
 
    let chroniclesActiveIndex = 0;
 
-   function getUnlockedChronicles() {
-       // A region's comic unlocks as soon as its boss level is completed or unlocked
-       return CHRONICLES_LIST.filter(c => currentLevel >= c.unlockLevel);
-   }
-
    function openChroniclesModal() {
        const modal = document.getElementById("chronicles-modal");
        if (!modal) return;
 
-       chroniclesActiveIndex = 0; // Start at first page
+       chroniclesActiveIndex = 0;
        renderChronicleView();
        modal.classList.add("active");
    }
@@ -295,26 +290,47 @@ regionImages.forEach(src => {
    }
 
    function renderChronicleView() {
-       const unlocked = getUnlockedChronicles();
-       if (unlocked.length === 0) return;
+       if (CHRONICLES_LIST.length === 0) return;
 
-       if (chroniclesActiveIndex >= unlocked.length) chroniclesActiveIndex = unlocked.length - 1;
+       if (chroniclesActiveIndex >= CHRONICLES_LIST.length) chroniclesActiveIndex = CHRONICLES_LIST.length - 1;
        if (chroniclesActiveIndex < 0) chroniclesActiveIndex = 0;
 
-       const currentChapter = unlocked[chroniclesActiveIndex];
+       const currentChapter = CHRONICLES_LIST[chroniclesActiveIndex];
+       const isUnlocked = currentLevel >= currentChapter.unlockLevel;
 
        const titleEl = document.getElementById("chronicles-chapter-title");
        const imgEl = document.getElementById("chronicles-img");
+       const lockOverlay = document.getElementById("chronicles-lock-overlay");
+       const lockText = document.getElementById("chronicles-lock-text");
        const pageIndicator = document.getElementById("chronicles-page-indicator");
        const prevBtn = document.getElementById("chronicles-prev-btn");
        const nextBtn = document.getElementById("chronicles-next-btn");
 
-       if (titleEl) titleEl.textContent = currentChapter.title;
-       if (imgEl) imgEl.src = currentChapter.image;
-       if (pageIndicator) pageIndicator.textContent = `${chroniclesActiveIndex + 1} / ${unlocked.length}`;
+       if (titleEl) {
+           titleEl.textContent = isUnlocked 
+               ? currentChapter.title 
+               : `${currentChapter.title} (🔒 Locked)`;
+       }
+
+       if (imgEl) {
+           imgEl.src = currentChapter.image;
+           imgEl.classList.toggle("locked", !isUnlocked);
+       }
+
+       if (lockOverlay) {
+           lockOverlay.classList.toggle("active", !isUnlocked);
+       }
+
+       if (lockText && !isUnlocked) {
+           lockText.textContent = `Conquer Boss Level ${currentChapter.unlockLevel} to unveil this chronicle`;
+       }
+
+       if (pageIndicator) {
+           pageIndicator.textContent = `${chroniclesActiveIndex + 1} / ${CHRONICLES_LIST.length}`;
+       }
 
        if (prevBtn) prevBtn.disabled = chroniclesActiveIndex === 0;
-       if (nextBtn) nextBtn.disabled = chroniclesActiveIndex === unlocked.length - 1;
+       if (nextBtn) nextBtn.disabled = chroniclesActiveIndex === CHRONICLES_LIST.length - 1;
    }
 
    /* =========================================
@@ -1720,8 +1736,7 @@ if (chroniclesPrevBtn) {
 
 if (chroniclesNextBtn) {
     chroniclesNextBtn.addEventListener("click", () => {
-        const unlocked = getUnlockedChronicles();
-        if (chroniclesActiveIndex < unlocked.length - 1) {
+        if (chroniclesActiveIndex < CHRONICLES_LIST.length - 1) {
             chroniclesActiveIndex++;
             renderChronicleView();
         }
