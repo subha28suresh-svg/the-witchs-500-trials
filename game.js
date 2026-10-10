@@ -1146,10 +1146,16 @@ function proceedToRiddleScreen(level) {
    }
 
    async function showInterstitialAd(onAdClosed) {
-       if (typeof admob === "undefined") {
+       
+        if (localStorage.getItem("witchAdsRemoved") === "true") {
            if (typeof onAdClosed === "function") onAdClosed();
            return;
-       }
+        }
+    
+        if (typeof admob === "undefined") {
+           if (typeof onAdClosed === "function") onAdClosed();
+           return;
+        }
 
        try {
            if (!interstitialAd || !(await interstitialAd.isLoaded())) {
@@ -1182,34 +1188,64 @@ function proceedToRiddleScreen(level) {
    /* =========================================
       NAVIGATION BUTTONS
       ========================================= */
-   
-   nextLevelButton.addEventListener("click", () => {
-       // 1. Boss levels (25, 50, etc.): Open the story comic first (Ad triggers after the comic)
-       if (isBossLevel(activeLevel)) {
-           showStoryReveal(activeLevel);
-           return;
-       }
-   
-       // 2. Regular 5-level intervals (e.g., Level 5, 10, 15, 20): Trigger Interstitial Ad
-       if (activeLevel % 5 === 0) {
-           showInterstitialAd(() => {
-               if (activeLevel < 500) {
-                   openRiddle(activeLevel + 1);
-               } else {
-                   showScreen(levelMapScreen);
-                   renderCurrentRegion();
-               }
-           });
-           return;
-       }
 
-       // 3. Normal progression (Levels 1-4, 6-9, etc.)
+   function advanceToNextTrial() {
        if (activeLevel < 500) {
            openRiddle(activeLevel + 1);
        } else {
            showScreen(levelMapScreen);
            renderCurrentRegion();
        }
+   }
+   
+   nextLevelButton.addEventListener("click", () => {
+       // 1. Boss levels (25, 50, etc.): Open story comic first
+       if (isBossLevel(activeLevel)) {
+           showStoryReveal(activeLevel);
+           return;
+       }
+   
+       // 2. First-time Level 5 Support Prompt
+       const hasAskedAdSupport = localStorage.getItem("witchAskedAdSupport") === "true";
+       if (activeLevel === 5 && !hasAskedAdSupport) {
+           localStorage.setItem("witchAskedAdSupport", "true");
+           
+           const adSupportModal = document.getElementById("ad-support-modal");
+           const adSupportYesBtn = document.getElementById("ad-support-yes-btn");
+           const adSupportRemoveBtn = document.getElementById("ad-support-remove-btn");
+
+           if (adSupportModal) {
+               adSupportModal.classList.add("active");
+
+               // Option 1: Watch the ad
+               adSupportYesBtn.onclick = () => {
+                   adSupportModal.classList.remove("active");
+                   showInterstitialAd(() => {
+                       advanceToNextTrial();
+                   });
+               };
+
+               // Option 2: Remove ads ($1.99)
+               adSupportRemoveBtn.onclick = () => {
+                   adSupportModal.classList.remove("active");
+                   window.buyIAP("remove_ads");
+                   advanceToNextTrial();
+               };
+
+               return; // Exit here so regular ad doesn't immediately fire underneath
+           }
+       }
+
+       // 3. Regular 5-level intervals (Levels 10, 15, 20, etc.)
+       if (activeLevel % 5 === 0) {
+           showInterstitialAd(() => {
+               advanceToNextTrial();
+           });
+           return;
+       }
+
+       // 4. Normal progression (Levels 1-4, 6-9, etc.)
+       advanceToNextTrial();
    });
    
    backToMapButton.addEventListener("click", () => {
@@ -1565,6 +1601,7 @@ function proceedToRiddleScreen(level) {
 
    const IAP_PRODUCT_POUCH = "gem_pack_150";
    const IAP_PRODUCT_CHEST = "gem_pack_500";
+   const IAP_PRODUCT_REMOVE_ADS = "remove_ads";
 
    let iapStore = null;
 
@@ -1576,6 +1613,7 @@ function proceedToRiddleScreen(level) {
 
        iapStore = CdvPurchase.store;
 
+       // 1. Register all three products
        iapStore.register([
            {
                id: IAP_PRODUCT_POUCH,
@@ -1586,9 +1624,15 @@ function proceedToRiddleScreen(level) {
                id: IAP_PRODUCT_CHEST,
                type: CdvPurchase.ProductType.CONSUMABLE,
                platform: CdvPurchase.Platform.GOOGLE_PLAY
+           },
+           {
+               id: IAP_PRODUCT_REMOVE_ADS,
+               type: CdvPurchase.ProductType.NON_CONSUMABLE,
+               platform: CdvPurchase.Platform.GOOGLE_PLAY
            }
        ]);
 
+       // 2. Transaction lifecycle handlers
        iapStore.when()
            .approved(transaction => {
                transaction.verify();
@@ -1597,29 +1641,46 @@ function proceedToRiddleScreen(level) {
                receipt.finish();
            })
            .finished(transaction => {
+               // Player purchased 150 Gems
                if (transaction.products.some(p => p.id === IAP_PRODUCT_POUCH)) {
                    playerGems += 150;
                    saveGems();
                    updateGemDisplays();
                    alert("✨ Transmutation Complete! +150 Gems added to your treasury!");
-               } else if (transaction.products.some(p => p.id === IAP_PRODUCT_CHEST)) {
+               } 
+               // Player purchased 500 Gems
+               else if (transaction.products.some(p => p.id === IAP_PRODUCT_CHEST)) {
                    playerGems += 500;
                    saveGems();
                    updateGemDisplays();
                    alert("👑 Grand Offering Received! +500 Gems added to your treasury!");
+               } 
+               // Player purchased Remove Ads
+               else if (transaction.products.some(p => p.id === IAP_PRODUCT_REMOVE_ADS)) {
+                   localStorage.setItem("witchAdsRemoved", "true");
+                   alert("🛡️ Protection Spell Activated! Interstitial ads have been permanently removed.");
                }
            });
 
        iapStore.initialize([CdvPurchase.Platform.GOOGLE_PLAY]);
    }
 
+   // 3. Trigger native purchase sheet
    window.buyIAP = function(packName, gemAmount) {
        if (!iapStore) {
            alert("Connecting to Google Play Realm... Please check your internet connection.");
            return;
        }
 
-       const productId = (packName === "pouch") ? IAP_PRODUCT_POUCH : IAP_PRODUCT_CHEST;
+       let productId;
+       if (packName === "pouch") {
+           productId = IAP_PRODUCT_POUCH;
+       } else if (packName === "chest") {
+           productId = IAP_PRODUCT_CHEST;
+       } else if (packName === "remove_ads") {
+           productId = IAP_PRODUCT_REMOVE_ADS;
+       }
+
        const product = iapStore.get(productId);
        const offer = product ? product.getOffer() : null;
 
