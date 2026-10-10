@@ -4420,33 +4420,33 @@ const QUESTIONS = {
     },
     487: { 
         question: "I am the sudden rush of clear morning sunlight breaking through shattered stained-glass rose windows. What am I?", 
-        answer: "daybreak", 
+        answer: "newspaper", 
         hints: [
-            "The very first appearance of light in the morning sky at dawn.",
-            "Banishes shadows, cold mist, and the terrors of the dark night.",
-            "8 letters, starts with D."
+            "I land on front porches or street stands every morning, crisp, folded, and scented with fresh ink, yet yesterday's version of me is considered completely outdated.",
+            "Inside my broad sheets, you'll find everything from breaking headlines and stock reports to the daily crossword puzzle, obituaries, and comic strips.",
+            "9 letters, starts with N."
         ] 
     },
     488: { 
-        question: "I am the loving embrace between King and Queen after months of perilous trials, melting sorrow into memory. What am I?", 
-        answer: "reunion", 
+        question: "I balance your feast with a notepad in hand, then vanish till summoned on silent command.", 
+        answer: "waiter", 
         hints: [
-            "The joyful gathering together of people after a long separation.",
-            "Brings long-parted companions back into each other's arms.",
-            "7 letters, starts with R."
+            "You only meet me when you go out to eat.",
+            "You leave me a tip when the meal is over.",
+            "6 letters, starts with W."
         ] 
     },
     489: { 
-        question: "I am the royal herald blowing a silver horn from the battlements, announcing the Witch's defeat to the realm. What am I?", 
-        answer: "herald", 
+        question: "I run endless miles while going nowhere, with groceries stuffed in the cheeks of my lair.", 
+        answer: "hamster", 
         hints: [
-            "An official royal messenger carrying proclamations and state news.",
-            "Wears embroidered tabards displaying the royal arms of the king.",
-            "6 letters, starts with H."
+            "I am a nocturnal, pocket-sized pet kept in a cage with wood shavings.",
+            "I am a small rodent famous for stuffing seeds and treats into expandable cheek pouches.",
+            "7 letters, starts with H."
         ] 
     },
     490: { 
-        question: "I am a magnificent gilded carriage pulled by four white stallions, bearing the restored monarchs home. What am I?", 
+        question: "Behind pounding hooves on two wheels I roll, carrying warriors to claim their control.", 
         answer: "chariot", 
         hints: [
             "A two-wheeled horse-drawn vehicle used in ancient pageantry and warfare.",
@@ -4455,16 +4455,16 @@ const QUESTIONS = {
         ] 
     },
     491: { 
-        question: "I am the roaring cheer echoing from tens of thousands of Aurelian citizens lining the capital boulevard. What am I?", 
-        answer: "acclamation", 
+        question: "I sleep in your sheets and I dine from your plate, welcomed by honor or brought here by fate.", 
+        answer: "guest", 
         hints: [
-            "Loud, enthusiastic praise or collective approval shouted by a crowd.",
-            "Greets triumphant generals and returning monarchs with cheers.",
-            "11 letters, starts with A."
+            "I knock at your door, but I don't own a key.",
+            "Spare bedrooms, dinner parties, and hotel registers are made for me.",
+            "5 letters, starts with G."
         ] 
     },
     492: { 
-        question: "I am a towering laurel wreath woven from fragrant bay leaves, placed upon the brow of the victorious ruler. What am I?", 
+        question: "I loop round your neck like a blossoming ring, honoring winners and welcome to bring.", 
         answer: "garland", 
         hints: [
             "A circular decorative wreath of flowers, leaves, or ribbon.",
@@ -4473,61 +4473,61 @@ const QUESTIONS = {
         ] 
     },
     493: { 
-        question: "I am a lavish multi-course feast spread across oak tables in the Great Hall, celebrating the kingdom's restoration. What am I?", 
+        question: "With courses piled high and the wine flowing free, I bring crowds together to feast and make merry.", 
         answer: "banquet", 
         hints: [
-            "A grand ceremonial public meal served with vintage wine and roasts.",
-            "Minstrels play lutes while lords and commoners feast together in peace.",
+            "Often held in a great hall or ballroom with long, decorated tables and many courses.",
+            "Synonym for a lavish feast, frequently hosted for weddings, royalty, or award ceremonies.",
             "7 letters, starts with B."
         ] 
     },
     494: { 
-        question: "I am the lasting state of harmony and safety that settles over Aurelia, free from terror forevermore. What am I?", 
+        question: "I cost nothing to make yet are priceless to keep, where the weapons fall silent and troubled minds sleep.", 
         answer: "peace", 
         hints: [
             "Freedom from civil disturbance, conflict, or the ravages of war.",
-            "Farmers plow fields in security and trade routes flourish without fear.",
+            "My most recognized symbols include an olive branch, a white dove, and a two-fingered 'V' salute.",
             "5 letters, starts with P."
         ] 
     },
     495: { 
-        question: "I am a golden medal struck by the Royal Mint, inscribed with 'Victor of the Five Hundred Trials'. What am I?", 
-        answer: "medallion", 
+        question: "I bear an engraved face but lack any soul, hung round a proud neck when you conquer your goal.", 
+        answer: "medal", 
         hints: [
             "A large decorative coin or disc awarded to honor an extraordinary feat.",
-            "Worn on a silk sash across the breast of the realm's champion.",
+            "You might receive me as a military honor, an Olympic prize, or an ancient protective amulet.",
             "9 letters, starts with M."
         ] 
     },
     496: { 
-        question: "I am the ancient oak throne room of Aurelia, restored to light with clean banners and singing fountains. What am I?", 
+        question: "I'm crowned in tall marble where monarchs reside, a grand house of stone built for power and pride.", 
         answer: "palace", 
         hints: [
-            "The grand official residence of the sovereign monarch and court.",
-            "Contains state apartments, council chambers, and royal ballrooms.",
+            "I am a vast, opulent residence typically home to royalty or heads of state.",
+            "Famous examples include Versailles, Buckingham, and the Forbidden City.",
             "6 letters, starts with P."
         ] 
     },
     497: { 
-        question: "I am the illuminated parchment chronicle preserving every trial and answer so posterity never forgets the quest. What am I?", 
+        question: "Penned by a monk before presses took flight, on calfskin I carry lost ages of light.", 
         answer: "manuscript", 
         hints: [
-            "A handwritten historical document penned before modern printing presses.",
+            "I am an archaic, handwritten relic on vellum or papyrus, locked away in monastic vaults or museum glass.",
             "Adorned with gold leaf, painted calligraphy, and fine illustrations.",
             "10 letters, starts with M."
         ] 
     },
     498: { 
-        question: "I am the enduring fame earned through wit and resolve, passed down in bardic songs across generations. What am I?", 
-        answer: "renown", 
+        question: "With strings for a weapon and feathers in flight, I trade high-speed smashes over mesh in the light.", 
+        answer: "badminton", 
         hints: [
-            "Widespread honor, distinction, and celebratory fame.",
-            "Accompanies great champions whose deeds are celebrated by future eras.",
-            "6 letters, starts with R."
+            "Played on a court divided by a high net with lightweight, strung rackets.",
+            "The object hit back and forth is called a shuttlecock or birdie.",
+            "9 letters, starts with B."
         ] 
     },
     499: { 
-        question: "I am the final line inked on the last page of the great chronicle, marking the close of this five-hundred-trial journey. What am I?", 
+        question: "Past the story book's end when the journey is done, I show how life carried on under the sun.", 
         answer: "epilogue", 
         hints: [
             "A concluding section or poem that rounds out a finished literary tale.",
@@ -4536,7 +4536,7 @@ const QUESTIONS = {
         ] 
     },
     500: { 
-        question: "The five hundred trials are about to be conquered. The Witch bows before you. Name the supreme virtue that outsmarted every hex and freed the realm.", 
+        question: "I cost nothing to give yet I'm priceless to hold, the one bond that strengthens as bodies grow old. I helped you conquer the realm!", 
         answer: "love", 
         hints: [
             "The profound devotion and selfless affection that drove the King to cross twenty perilous realms.",
